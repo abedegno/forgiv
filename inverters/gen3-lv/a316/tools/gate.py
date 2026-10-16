@@ -7,6 +7,7 @@ puts in firmware/gen3-lv/.
 
     $EXHUME/.venv/bin/python tools/gate.py [--fast] [--jobs N] [--verify-only] [--libhome toolchain/MDKxxx]
         [--place STEM,...|all] [--with SRC ...]
+    $EXHUME/.venv/bin/python tools/gate.py --whole [--fast] [--jobs N] [--with SRC ...]
 
 Three stages (docs/gate.md has the why):
 
@@ -38,6 +39,18 @@ left out of the pieces; its bytes in the image come from that placement. --place
 --fast reuses what an earlier run proved and linked when its inputs are unchanged (the source
 and the headers it includes, the map, the toolchain): only changed sources are verified again and
 only the links whose inputs changed run again. Without --fast everything is rebuilt.
+
+--whole needs a licensed MDK (MDK_LICENSED_HOME, or mdk_licensed_home in toolchain.local.toml;
+unset, it says so and exits 0). Every source is verified with armmatch and that MDK's armlink, so
+no source is proved by object placement, and then one armlink run links the whole image: every
+proved section FIXED at its address (in the original's input order), the library's start-up code
+and members from the library home, the region table after the last .constdata where armlink
+aligns it, and one RW region made of the image's initial RAM around the proved RAM sections
+(stm32f10x_rcc's .data), the library's .bss and the startup file's HEAP and STACK, compressed by
+armlink. The listing must show every section at its address and nothing between sections but
+armlink's alignment padding; the image, bin and hex must be identical. The two C stand-ins for
+library members (src/clib) are left out of that link and compared with the members. Its output
+is build/whole (report.txt, A316.img, A316_ARMStore.bin, A316.hex, the link in build/whole/link).
 
 Wine: at most --jobs (default 4) worker processes, each with its own prefix under
 build/gate/wine/jobN and a persistent wineserver, stopped at the end."""
@@ -78,7 +91,9 @@ def place_weak(info, m, extra, unused_ok=False):
 armmatch.place = place_weak          # armmatch.match() and place_all() both go through it
 
 VERSION = 4                       # bump when a change here should invalidate --fast caches
-GATE = os.path.join(ROOT, 'build', 'gate')
+# the gate's output (--whole writes build/whole; its workers learn it from GATE_DIR)
+GATE = os.environ.get('GATE_DIR') or os.path.join(ROOT, 'build', 'gate')
+WINE = os.path.join(ROOT, 'build', 'gate', 'wine')     # the workers' Wine prefixes, shared by every mode
 LITE = 0x8000                     # MDK-Lite: RO + RW of one link
 PIECE = 0x7000                    # nominal piece size, below LITE with room for other sections
 TIMEOUT = 1800                    # seconds for one stage's worker results: a hung Wine fails the gate
@@ -167,7 +182,7 @@ _W = {}
 
 
 def wine_env(n):
-    prefix = os.path.join(GATE, 'wine', f'job{n}')
+    prefix = os.path.join(WINE, f'job{n}')
     os.environ['WINEPREFIX'] = prefix
     os.environ.setdefault('WINEDLLOVERRIDES', 'mscoree,mshtml=')
     os.environ.setdefault('WINEDEBUG', '-all')
@@ -175,17 +190,17 @@ def wine_env(n):
 
 
 def wlog(msg):
-    with open(os.path.join(GATE, 'wine', f'job{_W.get("n", "x")}.log'), 'a') as f: f.write(f'{time.strftime("%X")} {os.getpid()} {msg}\n')
+    with open(os.path.join(WINE, f'job{_W.get("n", "x")}.log'), 'a') as f: f.write(f'{time.strftime("%X")} {os.getpid()} {msg}\n')
 
 
 def _init(queue):
     n = queue.get()
     _W['n'] = n
     prefix = wine_env(n)
-    os.makedirs(os.path.join(GATE, 'wine'), exist_ok=True)     # a fresh checkout has no build/
+    os.makedirs(WINE, exist_ok=True)     # a fresh checkout has no build/
     wlog('init')
     import faulthandler, signal
-    _W['tb'] = open(os.path.join(GATE, 'wine', f'job{n}.log'), 'a')
+    _W['tb'] = open(os.path.join(WINE, f'job{n}.log'), 'a')
     faulthandler.register(signal.SIGUSR1, file=_W['tb'])
     wine = shutil.which('wine')
     bindir = os.path.dirname(wine) if wine else ''
@@ -216,7 +231,7 @@ def stop_wine(jobs):
     wine = shutil.which('wine')
     server = os.path.join(os.path.dirname(wine), 'wineserver') if wine else 'wineserver'
     for n in range(jobs):
-        prefix = os.path.join(GATE, 'wine', f'job{n}')
+        prefix = os.path.join(WINE, f'job{n}')
         if os.path.isdir(prefix):
             subprocess.run([server, '-k'], env=dict(os.environ, WINEPREFIX=prefix), capture_output=True)
 
@@ -264,6 +279,8 @@ def task_verify(job):
             return res.whole, res.lines, info, obj, time.time() - t, res.obj
         res = armmatch.match(cfg, src)
         obj = os.path.join(cfg.build, stem(src), stem(src) + '.o')
+        if any('L6050U' in l for l in res.lines) and os.environ.get('GATE_WHOLE'):
+            return False, res.lines + ['-- L6050U under --whole: the licensed MDK did not take the link'], None, None, time.time() - t, None
         if any('L6050U' in l for l in res.lines):
             lines = [l for l in res.lines if 'L6050U' in l] + ['-- too large for armlink: proved by object placement']
             res2, info, obj = objplace.placed_match(cfg, src, compile=False)
@@ -482,10 +499,7 @@ def group_lines(groups, tag, pads=None):
                              or [o for o, *_ in mid] != sorted(o for o, *_ in mid)):
             errors.append(f'group at 0x{a0:08X} has {len(g)} sections (more than {cap} only when the middle ones '
                           f'are same-named sections of proved objects in name order)')
-        sel = []
-        for j, (o, s, a, z) in enumerate(g):
-            pin = ', +FIRST' if j == 0 and len(g) > 1 and not a0 % 4 else ', +LAST' if j == len(g) - 1 and len(g) > 1 + (0 if a0 % 4 else 1) else ''
-            sel.append(f'{o}({s}{pin})')
+        sel = group_sel(g)
         if a0 % 4:
             if pads is None: errors.append(f'group at 0x{a0:08X} starts off a 4-byte boundary'); continue
             pads.append((f'{tag}{n}', a0 % 4, 'ro'))
@@ -494,6 +508,18 @@ def group_lines(groups, tag, pads=None):
             continue
         lines += [f'LR_{tag}{n} 0x{a0:08X} {{', f'  ER_{tag}{n} 0x{a0:08X} FIXED {{ {" ".join(sel)} }}', '}']
     return lines, errors
+
+
+def group_sel(g, last=True):
+    """A group's input section selectors, its first pinned +FIRST and its last +LAST (last=False
+    leaves the last unpinned, for a region that holds something after it)."""
+    a0 = g[0][2]
+    sel = []
+    for j, (o, s, a, z) in enumerate(g):
+        pin = ', +FIRST' if j == 0 and len(g) > 1 and not a0 % 4 else \
+              ', +LAST' if last and j == len(g) - 1 and len(g) > 1 + (0 if a0 % 4 else 1) else ''
+        sel.append(f'{o}({s}{pin})')
+    return sel
 
 
 def blob_asm(blobs, kind='DATA, READONLY'):
@@ -716,6 +742,7 @@ LR_STUB 0x{aside:08X} {{
 
 # ---- the gate ----------------------------------------------------------------------------------
 def main(argv):
+    if '--whole' in argv: return main_whole(argv)
     fast = '--fast' in argv
     t0 = time.time()
     if os.environ.get('GATE_DEBUG'):
@@ -944,6 +971,327 @@ def main(argv):
     log(f'-- gate: {"PASS" if ok else "FAIL"} in {time.time() - t0:.0f}s' + (' (--fast)' if fast else ''))
     with open(os.path.join(GATE, 'report.txt'), 'w') as f: f.write('\n'.join(report) + '\n')
     return 0 if ok else 1
+
+
+# ---- --whole: the whole image in one link, with a licensed MDK ----------------------------------
+def stand_ins(lay, gc):
+    """Stems of proved sources whose flash sections all lie in the library's ranges: C stand-ins
+    for library members (src/clib). A whole link takes the members from the library, so it leaves
+    these out and compares their bytes with the members' afterwards."""
+    by = {}
+    for st, o, sec, a, z in lay.flash: by.setdefault(st, []).append((a, z))
+    return {st for st, v in by.items() if all(any(x <= a and a + z <= y for x, y in gc['lib_ranges']) for a, z in v)}
+
+
+def link_order(lay, names):
+    """The proved stems in the original's link order: by the address of each one's .text (else its
+    first flash section). armlink lays out sections of one name in input order, and the .text and
+    the .constdata of the objects that have both run in the same order; the startup file's RESET
+    is pinned first, so its .text, in the middle of the code, gives its place."""
+    first, text = {}, {}
+    for st, o, sec, a, z in lay.flash:
+        first[st] = min(first.get(st, a), a)
+        if sec == '.text': text[st] = a
+    first.update(text)
+    return sorted(names, key=lambda st: (first.get(st, 1 << 40), st))
+
+
+_PLACEHOLDER = re.compile(r'(?:sub|g|c)_([0-9A-Fa-f]{8})$')
+
+
+def resolve_refs(m, objs_info, extra_names, gc, base, end):
+    """How the whole link resolves what the objects use and do not define:
+    (symdefs entries [(addr, kind, name)] for RAM and peripheral names, steering lines
+    ['RESOLVE alias AS name'] for a placeholder or map name of a flash address that a linked object
+    defines under its own name, notes, errors). A name in a library range, or not in the map at all
+    (__main, Lib$$Request$$armlib), is left to armlink and its libraries. No flash address is ever
+    given as a number."""
+    defined, refs = set(), set()
+    for info in objs_info:
+        for y in info.symbols:
+            if y.sec == 'Ref': refs.add(y.name)
+            elif y.bind in ('Gb', 'Wk'): defined.add(y.name)
+    at = {}
+    for r in m.functions + m.data: at.setdefault(r.addr, []).append(r.name)
+    entries, steer, errors = [], [], []
+    for n in sorted(refs - defined):
+        row = m.by_name.get(n)
+        a = row.addr if row else extra_names.get(n)
+        if a is None:
+            mm = _PLACEHOLDER.match(n)
+            a = int(mm.group(1), 16) if mm else None
+        if a is None: continue                                 # the library's or the linker's
+        if 0x08000000 <= a < 0x08100000:
+            if any(x <= a < y for x, y in gc['lib_ranges']): continue
+            to = [x for x in at.get(a, []) if x in defined and x != n]
+            if base <= a < end and to: steer.append(f'RESOLVE {n} AS {to[0]}')
+            else: errors.append(f'{n} is flash address 0x{a:08X}, which no linked object defines by name')
+        else:
+            entries.append((a, 'T' if row is not None and n in m.code_names else 'D', n))
+    return entries, steer, errors
+
+
+def ram_regions(img):
+    regions = rwdata.find_table(img)
+    rw = [r for r in regions if r.kind != 'zero']
+    zi = [r for r in regions if r.kind == 'zero']
+    if len(rw) != 1 or len(zi) != 1 or rw[0].exec + rw[0].size != zi[0].exec:
+        raise SystemExit('the gate expects one RW region followed by one zero-init region')
+    return regions, rw[0], zi[0]
+
+
+def ram_parts(img, gc, ram_secs):
+    """The RW execution region as the original's: the image's own initial RAM in blobs around the
+    proved sources' RAM sections (each at its address), the zero-init space up to the library's
+    __libspace as a blob, then the library's .bss and the proved zero-init sections (the startup
+    file's HEAP and STACK). ram_secs: [(addr, size, stem, obj, section)].
+    Returns (files {name: text or bytes}, lead objects, tail objects, region selectors, checks
+    [(what, addr, section, object)], errors). Lead objects go before every proved object in the
+    input list and tail ones after, so that sections of one name keep address order."""
+    regions, rw, zi = ram_regions(img)
+    ram = rwdata.RamImage(img, regions)
+    zi_end = zi.exec + zi.size
+    files, lead, tail, sel, checks, errors = {}, [], [], [], [], []
+    rws = [x for x in ram_secs if rw.exec <= x[0] < rw.exec + rw.size]
+    zis = [x for x in ram_secs if zi.exec <= x[0] < zi_end]
+    for x in ram_secs:
+        if x not in rws and x not in zis: errors.append(f'{x[2]}({x[4]}) at 0x{x[0]:08X} is outside the RW and ZI regions')
+    holes = gaps(rw.exec, rw.exec + rw.size, [(a, a + z) for a, z, *_ in rws])
+    for k, (a, e) in enumerate(holes):
+        name = f'gate_rw{k}'
+        files[name + '.bin'] = ram.bytes(a, e - a)
+        files[name + '.s'] = f'\tAREA |.data|, DATA, READWRITE, ALIGN={2 if a % 4 == 0 else 0}\n\tINCBIN {name}.bin\n\tEND\n'
+        if rws and rws[0][0] < a < rws[-1][0]: errors.append(f'RW blob 0x{a:08X} lies between two proved RW sections')
+        (lead if not rws or a < rws[0][0] else tail).append(name + '.o')
+        sel.append(f'{name}.o(.data)'); checks.append(('RW data blob', a, '.data', name + '.o'))
+    first_zi = min([gc['libspace']] + [a for a, *_ in zis])
+    if any(a < gc['libspace'] for a, *_ in zis): errors.append('a proved zero-init section lies below the library\'s __libspace')
+    files['gate_zi0.s'] = f'\tAREA |.bss|, DATA, NOINIT, ALIGN=3\n\tSPACE 0x{first_zi - zi.exec:X}\n\tEND\n'
+    tail.append('gate_zi0.o'); sel.append('gate_zi0.o(.bss)'); checks.append(('ZI blob', zi.exec, '.bss', 'gate_zi0.o'))
+    for a, z, st, o, sec in rws + zis:
+        sel.append(f'{os.path.basename(o)}({sec})'); checks.append((f'{st}({sec})', a, sec, os.path.basename(o)))
+    sel.append('*.l (.data, .bss)')
+    return files, lead, tail, sel, checks, errors, rw, zi
+
+
+def whole_job(cfg, gc, m, lay, proved, extra_names, home):
+    """The scatter file, inputs and checks of one armlink run that makes the whole image."""
+    work = os.path.join(GATE, 'link')
+    img = ehex.Image(cfg.image)
+    skip = stand_ins(lay, gc)
+    by_stem = {stem(p.src): p for p in proved.values() if p.info is not None and p.placements}
+    order = link_order(lay, [st for st in by_stem if st not in skip])
+    errors = []
+    segs = [(os.path.basename(o), sec, a, z) for st, o, sec, a, z in lay.flash if st in order]
+    apads = {e: p[0] for e, p in lay.pads.items() if p[1] in order and p[2] in order}
+    rows, table_in = [], None
+    tpad = lay.table_pad[0] if lay.table_pad else lay.table[0]
+    for n, g in enumerate(flash_groups(segs, apads), 1):
+        a0, end = g[0][2], g[-1][2] + g[-1][3]
+        if a0 % 4: errors.append(f'group at 0x{a0:08X} starts off a 4-byte boundary')
+        sel = group_sel(g, last=end != tpad)
+        if end == tpad:
+            sel.append('*(Region$$Table)'); table_in = f'ER_G{n}'      # armlink aligns it and pads, as in the original
+        rows.append((a0, f'  ER_G{n} 0x{a0:08X} FIXED {{ {" ".join(sel)} }}'))
+    (m0, m1), (t0, t1) = gc['lib_ranges'][0], gc['lib_ranges'][1]
+    rows.append((m0, f'  ER_LIBMAIN 0x{m0:08X} FIXED {{ *.l (!*, .ARM.Collect$$*) }}'))
+    rows.append((t0, f'  ER_LIBTAIL 0x{t0:08X} FIXED {{ *.l (.text, x$*) }}'))
+    if table_in is None:
+        rows.append((lay.table[0], f'  ER_TABLE 0x{lay.table[0]:08X} FIXED {{ *(Region$$Table) }}'))
+    rows.sort()
+    ram_secs = sorted((a, z, st, o, sec) for st, o, sec, a, z in lay.sections if a >= 0x20000000 and st in order)
+    files, lead, tail, rsel, rchecks, rerr, rw, zi = ram_parts(img, gc, ram_secs)
+    errors += rerr
+    entries, steer, serr = resolve_refs(m, [by_stem[st].info for st in order], extra_names, gc, lay.base, lay.end)
+    errors += serr
+    files['whole.sym'] = armmap.symdefs_text(entries)
+    files['whole.steer'] = '\n'.join(steer) + '\n'
+    files['link.sct'] = '\n'.join([f'LR_IROM1 0x{lay.base:08X} {{'] + [r for _, r in rows] +
+                                  [f'  RW_IRAM1 0x{rw.exec:08X} {{ {" ".join(rsel)} }}', '}']) + '\n'
+    objs = [by_stem[st].obj for st in order]
+    inputs = [os.path.join(work, o) for o in lead] + objs + [os.path.join(work, o) for o in tail] + [os.path.join(work, 'whole.sym')]
+    keep = []
+    for o in objs + lead + tail: keep += ['--keep', os.path.basename(o) + '(*)']
+    job = dict(work=work, files=files, assemble=[n for n in files if n.endswith('.s')], home=home, inputs=inputs,
+               args=keep + ['--entry', 'Reset_Handler', '--edit', os.path.join(work, 'whole.steer'),
+                            '--libpath', os.path.join(gc['libhome'], 'ARM', 'ARMCC', 'lib'),
+                            '--diag_suppress', '6305,6314,6329,6332'])     # L6332W: an alias resolved by the steering file
+    checks = [(f'{st}({sec})', a, sec, os.path.basename(o)) for st, o, sec, a, z in lay.flash if st in order] + rchecks
+    checks.append(('Region$$Table', lay.table[0], 'Region$$Table', None))
+    checks.append(('library __libspace', gc['libspace'], '.bss', 'c_w.l(libspace.o)'))
+    return job, checks, errors, skip, order, steer, entries
+
+
+def main_whole(argv):
+    """gate.py --whole: verify every source with the licensed MDK (armlink, no object placement),
+    then link the whole image in one armlink run and compare it."""
+    global GATE
+    t0 = time.time()
+    home = a316env.require_licensed('gate.py --whole')
+    GATE = os.environ['GATE_DIR'] = os.path.join(ROOT, 'build', 'whole')
+    os.environ['GATE_WHOLE'] = '1'
+    os.environ['MDK_HOME'] = a316env.MDK_HOME = home          # the workers compile and link with it too
+    fast = '--fast' in argv
+    cfg = load_cfg()
+    gc = gate_cfg(cfg)
+    if '--jobs' in argv: gc['jobs'] = int(argv[argv.index('--jobs') + 1])
+    gc['jobs'] = max(1, min(gc['jobs'], 4))
+    with_srcs = [argv[i + 1] for i, x in enumerate(argv) if x == '--with']
+    os.makedirs(GATE, exist_ok=True)
+    report = []
+
+    def log(s=''):
+        print(s, flush=True); report.append(s)
+    log('gate --whole: verify and link with the licensed MDK (one armlink run for the whole image)')
+    m = armmap.Map.from_dir(cfg.map)
+    mapkey = sha(open(os.path.join(cfg.map, 'functions.tsv'), 'rb').read(), open(os.path.join(cfg.map, 'data.tsv'), 'rb').read())
+    srcs = sources(cfg, with_srcs)
+    img = ehex.Image(cfg.image)
+    t_lo, t_hi = rwdata._table_rt2(img)
+    lay = Layout(img.base, img.end, (t_lo, t_hi), img.end, [], [])
+    ok = True
+    a316env.start_licensed()
+    pool = LazyPool(gc['jobs'])
+    try:
+        proved = verify_all(cfg, srcs, pool, fast, mapkey, log)
+    finally:
+        pool.close()
+    try:
+        bad = [p for p in proved.values() if not p.whole]
+        for p in sorted(bad, key=lambda p: p.src):
+            log(f'FAIL {rel(p.src)}: not a whole match')
+            for l in p.lines[-12:]: log('    ' + l)
+        log(f'verify: {len(proved) - len(bad)} of {len(proved)} sources match whole (armlink for every one, no object placement)')
+        if bad: ok = False
+        if any(p.pobj is not None for p in proved.values()):
+            log('FAIL a source was proved by object placement'); ok = False
+        secs, problems = place_all(cfg, m, proved, log)
+        for x in problems: log('FAIL ' + x); ok = False
+        lay.sections = secs
+        lay.flash = [x for x in secs if lay.base <= x[3] < lay.end]
+        aligns = {}
+        for p in proved.values():
+            if p.info is not None:
+                for i, (n, _) in p.info.sections.items(): aligns[(stem(p.src), n)] = (p.info.align or {}).get(i, 1)
+        lay.pads = zero_pads(lay, img, aligns)
+        lay.table_pad = table_pad(lay, img)
+        extra_names = {}
+        for p in proved.values():
+            if p.info is not None:
+                for n, a in armmap.annotations(open(p.src, encoding='latin1').read()).items():
+                    if n not in m.by_name: extra_names[n] = a
+        job, checks, errors, skip, order, steer, entries = whole_job(cfg, gc, m, lay, proved, extra_names, home)
+        for x in errors: log('FAIL whole link: ' + x); ok = False
+        log(f'whole link: {len(order)} proved objects, {sum(1 for c in checks if c[3] and not c[3].startswith("gate_"))} sections '
+            f'at their addresses, {len(steer)} aliases resolved to their names, {len(entries)} RAM and peripheral names from the map; '
+            f'left to the library: {", ".join(sorted(skip)) or "nothing"} (C stand-ins for library members)')
+        res = run_links({'whole': job}, _InProcess(), fast, log)['whole']
+    finally:
+        a316env.stop_licensed()
+    if not res.get('ok'):
+        log('FAIL whole link:\n    ' + res.get('log', '').strip()[-4000:].replace('\n', '\n    '))
+        log(f'-- gate --whole: FAIL in {time.time() - t0:.0f}s')
+        return 1
+    listing = res['listing']
+    got = {}
+    for a, z, sec, obj in listing_sections(listing): got.setdefault((sec, obj), []).append(a)
+    nbad = []
+    for what, a, sec, obj in checks:
+        hits = [x for (s_, o_), v in got.items() for x in v if s_ == sec and (obj is None or o_ == obj)]
+        if a not in hits: nbad.append(f'{what} linked at {", ".join(hex(x) for x in hits) or "nowhere"}, not 0x{a:08X}')
+    for x in nbad: log('FAIL ' + x)
+    if nbad: ok = False
+    log(f'listing: {len(checks) - len(nbad)} of {len(checks)} sections and blobs at their addresses (Region$$Table at '
+        f'0x{lay.table[0]:08X}, the RW blobs, __libspace, HEAP and STACK included)')
+    # the image: the load view of the one load region, from fromelf
+    full = whole_image(res, lay)
+    want = img.data
+    if len(full) != len(want):
+        log(f'FAIL the link is 0x{len(full):X} bytes, the image 0x{len(want):X}'); ok = False
+    full = (bytes(full) + bytes(len(want)))[:len(want)]
+    # every flash byte up to the end of the region table is a section or armlink's alignment PAD:
+    # no gap that a FIXED region's load padding would fill
+    rows = []
+    for l in listing.splitlines():
+        mm = _LMAP.match(l) or re.match(r'^\s*0x([0-9a-fA-F]{8})\s+0x([0-9a-fA-F]{8})\s+(PAD)\s*$', l)
+        if mm and lay.base <= int(mm.group(1), 16) < lay.table[1]:
+            rows.append((int(mm.group(1), 16), int(mm.group(1), 16) + int(mm.group(2), 16), mm.group(3)))
+    holes = gaps(lay.base, lay.table[1], [(a, e) for a, e, k in rows])
+    pads = [(a, e) for a, e, k in rows if k == 'PAD']
+    # an execution region's size is rounded up to 4: 1 to 3 bytes at its end are armlink's too
+    ext = [(int(mm.group(2), 16), int(mm.group(2), 16) + int(mm.group(3), 16)) for mm in
+           re.finditer(r'Execution Region (\w+) \(Base: 0x([0-9a-fA-F]+), Size: 0x([0-9a-fA-F]+)', listing)]
+    tails = [(a, e) for a, e in holes if e - a < 4 and any(x <= a and e == y for x, y in ext)]
+    holes = [h for h in holes if h not in tails]
+    if holes:
+        log('FAIL flash bytes that no section and no PAD row covers: ' + ', '.join(f'0x{a:08X}-0x{e:08X}' for a, e in holes[:8])); ok = False
+    log(f'listing: 0x{lay.base:08X}-0x{lay.table[1]:08X} is sections, {len(pads)} alignment PAD rows ({sum(e - a for a, e in pads)} bytes) '
+        f'and {len(tails)} region end{"s" if len(tails) != 1 else ""} rounded up to 4 ({", ".join(f"0x{a:08X}+{e - a}" for a, e in tails)}), all armlink\'s' + ('; nothing else' if not holes else ''))
+    # the stand-ins: verified on their own at their addresses; here the library member is there
+    for st in sorted(skip):
+        p = next(p for p in proved.values() if stem(p.src) == st)
+        rng = [(a, z) for s_, o, sec, a, z in lay.flash if s_ == st]
+        agree = p.whole and all(full[a - lay.base:a - lay.base + z] == want[a - lay.base:a - lay.base + z] for a, z in rng)
+        log(f'{rel(p.src)}: ' + ('a whole match on its own, and the library member linked at ' +
+            ', '.join(f'0x{a:08X}' for a, z in rng) + ' is the same bytes' if agree else 'FAIL: it and the library member disagree'))
+        if not agree: ok = False
+    out_img = os.path.join(GATE, 'A316.img'); open(out_img, 'wb').write(full)
+    same = full == want
+    diff = [i for i in range(len(want)) if full[i] != want[i]]
+    log(f'image: {rel(out_img)} (0x{lay.base:08X}-0x{lay.end:08X}): ' + ('IDENTICAL to the original image' if same else
+        f'{len(diff)} bytes differ, the first at 0x{lay.base + diff[0]:08X}'))
+    if not same: ok = False
+    header = struct.pack('<HH', gc['version'], gc['magic'])
+    out_bin = os.path.join(GATE, 'A316_ARMStore.bin'); open(out_bin, 'wb').write(header + full)
+    orig_bin = open(gc['bin'], 'rb').read()
+    log(f'bin: {rel(out_bin)} (header version {gc["version"]}, magic 0x{gc["magic"]:04X}): ' +
+        ('IDENTICAL to ' + rel(gc['bin']) if header + full == orig_bin else 'DIFFERS from ' + rel(gc['bin'])))
+    if header + full != orig_bin: ok = False
+    hex_text = ehex.write(lay.base, full, like=cfg.image).encode('ascii')
+    out_hex = os.path.join(GATE, 'A316.hex'); open(out_hex, 'wb').write(hex_text)
+    hsame = hex_text == open(cfg.image, 'rb').read()
+    log(f'hex: {rel(out_hex)}: ' + ('IDENTICAL to ' + rel(cfg.image) if hsame else 'differs from ' + rel(cfg.image)))
+    if not hsame: ok = False
+    nproved = sum(x[4] for x in lay.flash if x[0] in order)
+    log(f'one armlink run: {nproved} bytes of proved sections, the library members, the region table and the compressed RW data; '
+        f'no blob of the original\'s flash bytes')
+    log(f'-- gate --whole: {"PASS" if ok else "FAIL"} in {time.time() - t0:.0f}s' + (' (--fast)' if fast else ''))
+    with open(os.path.join(GATE, 'report.txt'), 'w') as f: f.write('\n'.join(report) + '\n')
+    return 0 if ok else 1
+
+
+class _InProcess:
+    """run_links' pool for one link run here, in this process."""
+    def map_async(self, fn, items, chunksize=1):
+        out = [fn(x) for x in items]
+
+        class R:
+            def get(self, timeout=None): return out
+        return R()
+
+
+def whole_image(res, lay):
+    """The flash bytes of the whole link from lay.base on: every execution region's bytes at its load
+    address (fromelf --bin gives each region's contents; the RW region's file holds its compressed
+    load data, which follows the region table)."""
+    out = bytearray()
+    bases = region_bases(res['listing'])
+    loads = load_bases(res['listing'])
+    for reg, b in res['bins'].items():
+        a = loads.get(reg, bases.get(reg))
+        if a is None or not (lay.base <= a < 0x08100000): continue
+        o = a - lay.base
+        if len(out) < o + len(b): out += bytes(o + len(b) - len(out))
+        out[o:o + len(b)] = b
+    return out
+
+
+_LOADBASE = re.compile(r'Execution Region (\w+) \(Exec base: 0x([0-9a-fA-F]+), Load base: 0x([0-9a-fA-F]+)')
+
+
+def load_bases(text):
+    return {m.group(1): int(m.group(3), 16) for m in _LOADBASE.finditer(text)}
+
 
 
 def coverage(log, lay, have, proved, srcs):

@@ -57,6 +57,9 @@ byte by byte) is in [docs/README.md](../../../docs/README.md) at the repository 
 
     $EXHUME/.venv/bin/python tools/gate.py   # about 1 minute, PASS
 
+With a licensed MDK, `tools/gate.py --whole` also links the whole image in one armlink run, and
+`tools/modbuild.py` builds changed sources into a working `ARMStore.bin` (below).
+
 ## Running it
 
 What is not in this repository, and where the tools look for it (tools/a316env.py; each is an
@@ -70,6 +73,8 @@ environment variable, or a key in `toolchain.local.toml` here, which starts from
 | `MDK_HOME` | the compile home: MDK 5.21 or later (armcc 5.06) | `MDK521` in `MDK_TOOLCHAIN` |
 | `MDK_LIBHOME` | the library home: MDK 5.16 or later | `MDK516` in `MDK_TOOLCHAIN` |
 | `WINE_BIN` | the directory with `wine` and `wineserver` | `wine` on `PATH`, else Wine Devel's on macOS |
+| `MDK_LICENSED_HOME` | a licensed MDK home (5.21 or later), for `gate.py --whole` and `modbuild.py` only | unset: those two say SKIPPED and exit 0 |
+| `MDK_LICENSED_PREFIX` | the Wine prefix that licensed MDK was installed in (its licence check reads that prefix's registry) | the directory above `drive_c` in `MDK_LICENSED_HOME` |
 
 ST's StdPeriph library V3.5.0 goes at `lib/stdperiph35` (unpacked, or a link to it): the twelve
 `src/stdperiph` files include ST's driver sources from there unchanged.
@@ -81,6 +86,37 @@ python3 ../../../tools/fetch_firmware.py            # once: the images
 export EXHUME=/path/to/Exhume MDK_TOOLCHAIN=/path/to/mdk-homes
 $EXHUME/.venv/bin/python tools/gate.py               # the whole gate; --fast reuses what is unchanged
 ```
+
+## With a licensed MDK: the whole link and the mod build
+
+MDK-Lite is enough for the gate above. A licensed MDK (any edition without the 32 KB limit, 5.21
+or later; the tools only read it) adds two things. Its licence is never printed: the tools drop
+every line of tool output that names it.
+
+```sh
+$EXHUME/.venv/bin/python tools/gate.py --whole        # the whole image in one armlink run: IDENTICAL
+$EXHUME/.venv/bin/python tools/modbuild.py            # the mod build: build/mod/ARMStore.bin
+$EXHUME/.venv/bin/python tools/modbuild.py --patch examples/mod-example/arm-version.patch --version 317 --out build/mod/example/ARMStore.bin
+$EXHUME/.venv/bin/python tools/modbuild.py --shift 0x44 --out build/mod/shift/ARMStore.bin   # the move audit
+$EXHUME/.venv/bin/python tools/emudiff.py [--image build/mod/shift/ARMStore.axf]               # run functions of both side by side
+```
+
+- `gate.py --whole` verifies every source with armlink (the 45 KB `modbus_slave.c` too, so no
+  source is proved by object placement), then links the whole image in one run: every proved
+  section FIXED at its address, the C library's start-up code and members, the region table
+  and the compressed RW data, made from the proved sources' RAM sections and the image's own
+  initial RAM. The listing must show nothing between the sections but armlink's alignment
+  padding, and the image, `ARMStore.bin` and the HEX must be IDENTICAL (docs/gate.md, "The whole
+  link"). Its output is in `build/whole`.
+- `tools/modbuild.py` builds a changed image with an ordinary scatter file, so code may grow,
+  shrink and move: the vector table stays at 0x08014000 and the RAM layout stays the original's,
+  and everything else floats in the 256 KB flash. It checks the result five ways and writes
+  `build/mod/ARMStore.bin` (header, then the image) with the HEX, ELF and listing beside it.
+  Built from `src/` unchanged it gives the original `ARMStore.bin` byte for byte.
+  [docs/development/modding.md](../../../docs/development/modding.md#the-arm-a316) has the layout,
+  the checks, the sample mod and the free space. Nothing here has run on hardware, and nothing
+  here flashes anything: the modding page's "Safety first" applies to every image these tools
+  write.
 
 ## Fingerprint
 

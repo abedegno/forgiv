@@ -232,6 +232,72 @@ where a proved source and the library both cover a byte (the three 2-byte `bx lr
 library members) they must agree. The image is compared with the original, then the 4-byte header
 is added and the file is compared with `firmware/gen3-lv/A316_ARMStore.bin`.
 
+## The whole link with a licensed MDK (`--whole`)
+
+`gate.py --whole` does the same proof in one armlink run. It needs a licensed MDK
+(`MDK_LICENSED_HOME`; README.md, "Running it"); without one it says SKIPPED and exits 0, and the
+piecewise gate above stays the proof that needs no licence. Its output is in `build/whole`.
+
+```sh
+$PY tools/gate.py --whole            # about 35 s from scratch
+$PY tools/gate.py --whole --fast     # reuses what is unchanged, as above
+$PY tools/gate.py --whole --fast --with build/whole/t/app/comm/meter.c
+```
+
+1. **Verify.** Every source goes through armmatch as above, but compiled and linked with the
+   licensed MDK, so armlink takes the 45 KB `modbus_slave.c` like any other file: no source is
+   proved by object placement (a source that still hits L6050U fails).
+2. **One link.** One load region from 0x08014000. In it, every proved flash section is FIXED at
+   its address, grouped as the pieces group them (a group where sections meet off a 4-byte
+   boundary, or across armlink's own padding); the library's start-up code (`*.l (!*,
+   .ARM.Collect$$*)`) and members (`*.l (.text, x$*)`) are FIXED at the starts of the two library
+   ranges; the objects are given in the original's input order (by each one's `.text`), so
+   same-named sections inside a group fall in address order. `Region$$Table` goes in the region
+   of the last `.constdata` group, with no `+LAST` on it: armlink sorts it after the `.constdata`,
+   aligns it and pads 2 bytes, as in the original. One RW execution region at 0x20000000 holds
+   the image's own initial RAM in blobs around `stm32f10x_rcc`'s `.data` (which comes from the
+   object, at 0x20000491), a zero-init blob to `__libspace`, the library's `.bss`, then the
+   startup file's own `HEAP` and `STACK`; armlink compresses it and writes the two-entry region
+   table. The three names the sources call by placeholder (`sub_08030450` and so on) are
+   resolved to the functions' names with a steering file (`RESOLVE ... AS ...`); RAM and
+   peripheral names come from the map as symdefs; no flash address is given as a number.
+3. **Checks.** Every proved section, RAM blob, `__libspace`, `HEAP`, `STACK` and
+   `Region$$Table` at its address in the listing; nothing from 0x08014000 to the end of the
+   region table but sections, armlink's alignment PAD rows (9, 18 bytes) and one region end
+   rounded up to 4 (0x0801422A, 2 bytes); the two C stand-ins for library members (`src/clib`)
+   left out of the link, each a whole match on its own and the same bytes as the member armlink
+   linked there. Then the image, the bin with its header and the HEX, compared as above.
+
+```
+whole link: 58 proved objects, 67 sections at their addresses, 3 aliases resolved to their names, 469 RAM and peripheral names from the map; left to the library: keil_fpinit, keil_heapauxi (C stand-ins for library members)
+listing: 71 of 71 sections and blobs at their addresses (Region$$Table at 0x080376B0, the RW blobs, __libspace, HEAP and STACK included)
+listing: 0x08014000-0x080376D0 is sections, 9 alignment PAD rows (18 bytes) and 1 region end rounded up to 4 (0x0801422A+2), all armlink's; nothing else
+image: build/whole/A316.img (0x08014000-0x080377A8): IDENTICAL to the original image
+bin: build/whole/A316_ARMStore.bin (header version 316, magic 0x5566): IDENTICAL to ../../../firmware/gen3-lv/A316_ARMStore.bin
+hex: build/whole/A316.hex: IDENTICAL to ../../../firmware/gen3-lv/A316.hex
+-- gate --whole: PASS in 34s
+```
+
+This is a stronger link than the pieces in two ways: the 45 KB file is linked by armlink rather
+than by tools/objplace.py, and the compressed RW data is made with `stm32f10x_rcc`'s `.data` and
+the startup file's `HEAP` and `STACK` from their objects rather than from the image.
+
+### Proving it can fail
+
+A copy of `meter.c` with HR21's constant 0x13C changed to 0x13D (in `build/whole/t/app/comm`,
+with `build/whole/t/include` a link to `src/include` so its includes resolve):
+
+```
+FAIL build/whole/t/app/comm/meter.c: not a whole match
+    task_meter                   0x0802AFD4  4 bytes differ, first at +0x1F72
+image: build/whole/A316.img (0x08014000-0x080377A8): 4 bytes differ, the first at 0x0802CF46
+-- gate --whole: FAIL in 6s (--fast)
+```
+
+And a copy of `modbus_slave.c` with one index constant changed (`modbus_reply[0xc + i]` to
+`0xd`): `task_modbus_rs485 0x08017FCC 1 bytes differ, first at +0x43A`, the image 1 byte
+different at 0x08018406, FAIL.
+
 ## The header
 
 The four bytes before the image are two little-endian halfwords: the firmware version, then the
@@ -346,7 +412,8 @@ after N seconds; each worker also dumps its stack into `build/gate/wine/jobN.log
 ## What is not covered yet
 
 - No byte of the image is the original's now, but one source, modbus_slave.c, is proved by object
-  placement rather than by armlink (it is over MDK-Lite's 32 KB link limit).
+  placement rather than by armlink (it is over MDK-Lite's 32 KB link limit). With a licensed
+  MDK, `--whole` proves it with armlink (above).
 - Object placement reads the object's section bytes from the file at the offsets fromelf gives,
   since fromelf cannot write the Lite object as plain ELF. The cross-check against armlink over
   all 115 sources is what tells me that reading is right.
@@ -355,7 +422,9 @@ after N seconds; each worker also dumps its stack into `build/gate/wine/jobN.log
   in the library link (zero-init space has no bytes in the image either way).
 - RW data that proved files own is checked by verify, not by the library link: the library link
   always uses the original's initial RAM. That is enough to rebuild the image, but a data-owning
-  file's `.data` and `.bss` are not yet laid out by armlink in the link that makes the compressed
-  RW data.
+  file's `.data` and `.bss` are not laid out by armlink in the link that makes the compressed
+  RW data. `--whole` does lay them out (`stm32f10x_rcc`'s `.data`, the startup file's `HEAP` and
+  `STACK`, the only RAM sections proved sources own); the rest of RAM is the map's, defined by
+  name, with its initial values from the image.
 - `GATE_EXTRA_SYMDEFS` (a symdefs file added to every piece link, for a modded build) is
   there for that, but I have not tried it here.
