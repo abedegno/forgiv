@@ -1,0 +1,40 @@
+0x08014150 +0x8 before the first function: bl #0x8014158
+0x080188C2 +0x20E unexplained in sub_08018816: movs r0, r0
+0x0801C6B6 body runs past the next function at 0x0801C7AC
+0x0801C7AC body runs past the next function at 0x0801C95A
+0x0801C7AC body runs past the next function at 0x0801C95A
+0x0801C7AC body runs past the next function at 0x0801C95A
+0x0801C7AC body runs past the next function at 0x0801C95A
+0x0801C956 +0x4 unexplained in sub_0801C7AC: b.w #0x801f9c2
+0x0801C9FC +0x4C unexplained in sub_0801C9F6: mov.w fp, #1
+0x0801CB2C +0x202 unexplained in sub_0801CB0A: cmp r4, #7
+0x0801CD50 +0x8 unexplained in sub_0801CD2E: lsls r4, r5, #6
+0x0801CE08 +0xE2 unexplained in sub_0801CDE2: cmp r4, #0
+0x0801D000 +0x158 unexplained in sub_0801CFD8: uxtb r0, r4
+0x0801D1CC +0x70 unexplained in sub_0801D1A4: cmp r4, #0
+0x0801D30A +0x214 unexplained in sub_0801D2E2: cmp r4, #1
+0x0801D5D2 +0xEE unexplained in sub_0801D5A6: cmp r4, #1
+0x0801D752 +0x216 unexplained in sub_0801D734: cmp r4, #0x64
+0x0801D970 +0xBC unexplained in sub_0801D734: adds r2, r0, #2
+0x0801DAD4 +0x228 unexplained in sub_0801DAB6: cmp r4, #0x64
+0x0801DD7C +0x20 unexplained in sub_0801DD5C: subs r5, r0, r7
+0x0801DE1C +0x80 unexplained in sub_0801DE06: lsrs r0, r4, #8
+0x0801DF18 +0x270 unexplained in sub_0801DEFA: cmp.w r4, #0x960
+0x0801E194 +0x8 unexplained in sub_0801DEFA: lsls r3, r5, #0xe
+0x0801E1FE +0x1E unexplained in sub_0801E1DE: cmp r4, #0x64
+0x0801F458 +0x7C unexplained in sub_0801F41A: cmp.w r4, #0x400
+0x0801F662 +0x248 unexplained in sub_0801F65A: ldr r0, [pc, #0x348]
+0x08025494 body runs past the next function at 0x080254E8
+0x0802B028 body runs past the next function at 0x0802BBAA
+0x0802B028 body runs past the next function at 0x0802BBAA
+0x0802B028 body runs past the next function at 0x0802BBAA
+0x0802C0D6 body runs past the next function at 0x0802C5E6
+0x0802C0D6 body runs past the next function at 0x0802C5E6
+0x0802DA4C +0x50 unexplained in sub_0802DA36: mov r2, r1
+0x0802DEE6 +0x3E unexplained in sub_0802DED0: mov r1, r0
+0x0802E00C +0x8 unexplained in sub_0802DFF6: ldr r1, [pc, #0x30]
+0x0802EB80 +0xB0 unexplained in sub_0802EB68: mov r1, r0
+0x0802FB60 +0x300 unexplained in sub_0802FB46: mov r2, r1
+0x080300F0 +0x18 unexplained in sub_080300DE: cbz r1, #0x80300fc
+0x08030174 +0x9C unexplained in sub_0803015C: cbz r1, #0x8030180
+0x08036B12 tbb with no bound found: its table and cases are unchecked

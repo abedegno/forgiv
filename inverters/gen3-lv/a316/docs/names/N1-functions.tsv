@@ -1,0 +1,158 @@
+addr	old	new	basis	note
+08014158	sub_08014158	__scatterload	original	Keil C library __scatter.o (link.lst of the gate library link); the row also spans __decompress at 0x0801418C
+080141E8	sub_080141E8	__scatterload_zeroinit	original	Keil __scatter_zi.o, per build/gate/library/link.lst
+08014204	sub_08014204	__rt_lib_init	original	Keil libinit.o, per link.lst
+08014208	sub_08014208	__rt_lib_shutdown	original	Keil libshutdown.o, per link.lst
+0801420C	sub_0801420C	__rt_entry	original	Keil __rtentry.o, per link.lst; calls __user_setup_stackheap, main, exit
+0801422C	sub_0801422C	sys_irq_disable	likely	body is __disable_irq(); the critical-section enter used by OS_ENTER_CRITICAL (0x08030440); ALIENTEK sys.c calls it INTX_DISABLE
+08014230	sub_08014230	sys_irq_enable	likely	body is __enable_irq(); critical-section exit (0x08030448) and end of NVIC setup; ALIENTEK INTX_ENABLE
+08014234	sub_08014234	sys_startup_delay	descriptive	busy loop of 20,000,000 iterations, called once from main before the board init
+08014242	sub_08014242	main	original	called by __rt_entry; inits clocks, board, creates the 8 tasks with 0x0803062E, starts the scheduler
+08014310	sub_08014310	sys_delay_loops	descriptive	nested busy loop (n x 5); no callers in the image
+0801432C	sub_0801432C	NMI_Handler	original	vector table slot 2; startup_stm32f10x_cl.s at: line
+0801432E	sub_0801432E	HardFault_Handler	original	vector table slot 3; writes SCB->AIRCR SYSRESETREQ (system reset)
+08014352	sub_08014352	MemManage_Handler	original	vector table slot 4
+08014356	sub_08014356	BusFault_Handler	original	vector table slot 5
+0801435A	sub_0801435A	UsageFault_Handler	original	vector table slot 6
+0801435E	sub_0801435E	SVC_Handler	original	vector table slot 11
+08014360	sub_08014360	DebugMon_Handler	original	vector table slot 12
+08014362	sub_08014362	TIM3_IRQHandler	original	vector table; starts an ADC conversion every 2nd tick and drives the buzzer pin PB5 when buzzer_on
+080143BC	sub_080143BC	TIM4_IRQHandler	original	vector table; only clears the update flag
+080143C8	sub_080143C8	aux_uart_rx_byte	descriptive	USART1 RX byte state machine: 0x77-framed 101-byte pages (48 words + page no + CRC16), stores to aux_wave_buf, DRM bits in byte 1, replies 0x31+page; inference: auxiliary MCU / DRED link
+080145BE	sub_080145BE	USART1_IRQHandler	original	vector table; TC -> uart_tx_isr_usart1, RXNE -> aux_uart_rx_byte
+0801460A	sub_0801460A	USART2_IRQHandler	original	vector table; TC -> uart_tx_isr_usart2, RXNE -> uart_rx_isr(1)
+08014658	sub_08014658	USART3_IRQHandler	original	vector table; TC -> uart_tx_isr_usart3, RXNE -> uart_rx_isr(2)
+080146A6	sub_080146A6	UART4_IRQHandler	original	vector table; TC -> uart_tx_isr_uart4, RXNE -> uart_rx_isr(3)
+080146F4	sub_080146F4	ADC1_2_IRQHandler	original	vector table; per-sample offset removal, scaling, sum of squares and V*I products over a cycle gated by PD2, posts task 0 flag 2
+08014B4C	sub_08014B4C	EXTI1_IRQHandler	original	vector table; calls USB_Host.usr_cb->OverCurrentDetected() as in ST USB host examples
+08014B68	sub_08014B68	SysTick_Handler	original	vector table; OSTimeTick-like call, releases RS485 DE lines 2 ticks after TX done
+08014C8A	sub_08014C8A	TIM2_IRQHandler	original	vector table; calls 0x08029DB4 (USB BSP timer, inference)
+08014C92	sub_08014C92	OTG_FS_IRQHandler	original	vector table; calls USBH_OTG_ISR_Handler(&USB_OTG_Core)
+08014CA4	sub_08014CA4	SetSysClockTo72	original	CMSIS system_stm32f10x.c (docs/matching.md round 4 range A)
+08014DAC	sub_08014DAC	SetSysClock	original	CMSIS system_stm32f10x.c
+08014DB4	sub_08014DB4	SystemInit	original	CMSIS system_stm32f10x.c; first call in main
+08014E10	sub_08014E10	SystemCoreClockUpdate	original	CMSIS system_stm32f10x.c; no callers
+08014F24	sub_08014F24	uart_rx_reset	descriptive	clears port n receive buffer (151 bytes each at 0x20001750) and its uart_rx queue
+08014F62	sub_08014F62	uart_tx_isr_usart1	descriptive	sends next byte of queue 0 on USART1 or marks it idle
+08014F96	sub_08014F96	uart_tx_isr_usart2	descriptive	queue 1 on USART2; at the end sets the RS485 DE release flag for PA4
+08014FD2	sub_08014FD2	uart_tx_isr_usart3	descriptive	queue 2 on USART3; at the end sets the RS485 DE release flag for PB2
+0801500E	sub_0801500E	uart_tx_isr_uart4	descriptive	queue 3 on UART4 (DSP link); at the end posts flag 0x10 to task 2 (dsp tx task)
+08015050	sub_08015050	uart_rx_isr	descriptive	RXNE for ports 1-3; port 3 (DSP) accepts frames that start 0x44, sets task 1 flag 8 after 45 bytes, detects "OK" during DSP flashing
+080151FE	sub_080151FE	uart_rx_getc	descriptive	pops one byte from receive queue n; returns 0 when a byte was read, 1 when empty
+080152E2	sub_080152E2	uart_tx_start	descriptive	waits for queue n idle, sets buffer/length, sends first byte; tx completes in the TC interrupt
+08015378	sub_08015378	fault_debounce_count	descriptive	if value > limit count up to max, then set fault bit 0x100; no callers in the image
+080153A6	sub_080153A6	dsp_link_settle_tick	descriptive	counts 0x2000004A up to 500 while ADC offset calibration state is 2; called once the DSP link is up
+080153CC	sub_080153CC	dsp_parse_page	descriptive	unpacks DSP "D" frame pages 0-6 from byte 12 into telemetry globals (PV, bus, battery V/I, SOC, BMS bytes, versions)
+08015D02	sub_08015D02	dsp_build_page	descriptive	fills ARM->DSP "C" frame bytes 7.. with rotating page 0-7 of settings: grid code, battery type/capacity, battery V limits HR97/98, charge/discharge limits HR111/112, calibration gains
+08016FDC	sub_08016FDC	task_dsp_tx	descriptive	task prio 2 (created in main): every period builds the 45-byte 0x43 frame (mode, power rate, battery power setpoint) + CRC and sends it on UART4
+080171DA	sub_080171DA	task_dsp_rx	descriptive	task prio 1: reads 0x44 frames from UART4, checks CRC, takes DSP mode/fault/warning words, calls dsp_parse_page; also runs DSP firmware update path
+0801756C	sub_0801756C	eeprom_wp_set	descriptive	drives PB8 (EEPROM write-protect) around writes
+0801758A	sub_0801758A	eeprom_put_be	descriptive	stores 1/2/4-byte value big-endian into a buffer at offset
+080175DC	sub_080175DC	eeprom_get_be	descriptive	reads 1/2/4-byte big-endian value from a buffer
+08017626	sub_08017626	eeprom_pack_header	descriptive	header record 0x20 bytes: magic 0x20, HR1, HR2 (grid code), Modbus address, CRC16
+08017684	sub_08017684	eeprom_unpack_header	descriptive	checks magic 0x20 and CRC, restores HR1, HR2 and Modbus address
+080176E0	sub_080176E0	eeprom_pack_block	descriptive	copies a RAM block into the EEPROM buffer with length, tag and CRC16
+08017752	sub_08017752	eeprom_unpack_block	descriptive	checks CRC/length/tag of a read EEPROM block and copies it into RAM
+080177BA	sub_080177BA	eeprom_write_page	descriptive	I2C 0xA0 page write of 8 bytes at (hi,lo) address, optionally inverted
+08017824	sub_08017824	eeprom_verify_page	descriptive	I2C read-back of 8 bytes and compare
+0801789C	sub_0801789C	eeprom_write_block	descriptive	writes a block page by page with WP released, then verifies every page
+08017928	sub_08017928	eeprom_save_dirty	descriptive	writes each RAM block whose bit is set in eeprom_dirty (bit0 settings ... bit7 0x20001E76) and clears the bit
+08017B9A	sub_08017B9A	eeprom_read_block	descriptive	reads a block over I2C, checks header CRC and length, unpacks it
+08017D1A	sub_08017D1A	eeprom_load	descriptive	loads block id 1-8 into its RAM image with retries; returns 1 (or bit mask for block 2) on success
+08017FCC	sub_08017FCC	crc16_modbus	likely	table-driven CRC-16/MODBUS (0xFF/0xFF init, hi/lo tables at 0x08036B40/0x08036C40); used for every frame and EEPROM block
+08017FFE	sub_08017FFE	systick_int_disable	descriptive	clears SysTick CTRL.TICKINT; used before jumping to the bootloader (HR164)
+08018010	sub_08018010	systick_disable	descriptive	clears SysTick CTRL.ENABLE; used before jumping to the bootloader
+08018022	sub_08018022	modbus_fill_meter_regs	descriptive	encodes meter n record (two 32-bit energies + 5 words, 0x20003C7A) into the 60-register reply buffer
+08018386	sub_08018386	modbus_fc22_read_meter	descriptive	Modbus function 0x16: reads registers 0-119 of an external meter (slave 1-8); error reply 0x96
+08018816	sub_08018816	modbus_fc16_write_regs	likely	Modbus function 0x10 handler: same holding-register switch as FC6 for n registers; HR164=1 jumps to the bootloader
+0801C160	sub_0801C160	modbus_fc06_write_reg	likely	Modbus function 0x06 handler: validates and stores one holding register into the settings blocks
+0801FA04	sub_0801FA04	modbus_fill_battery_regs	descriptive	IR60-119 for battery module n (slave 0x32+n): 16 cell voltages, 4 cell temps, pack V, capacities, status, cycles, serial
+0802007C	sub_0802007C	modbus_fill_bcu_regs	descriptive	IR60-119 for slave 0x31: only module count bytes (0x200003CC/CD) are non-zero
+0802039C	sub_0802039C	modbus_fill_slave30_regs	descriptive	IR60-119 for slave 0x30: all zero except register 99 (0x200003AC, 0x10)
+080206A4	sub_080206A4	modbus_fill_meter_ir	descriptive	IR60-119 for meter slave 1-8 from the meter record (0x20003C7A)
+08020A32	sub_08020A32	modbus_fc04_read_input	likely	Modbus function 0x04 handler: IR0-59 from ir_regs, 60-119 per slave, 120-179 records, 180-239 BMS/DSP info, 240-299 energy
+08021464	sub_08021464	modbus_fc03_read_holding	likely	Modbus function 0x03 handler: packs holding registers from the settings blocks
+08022C50	sub_08022C50	modbus_slave_process	descriptive	checks CRC and slave address (own, 0, 1-8, 0x11, 0x30-0x37), dispatches FC 3/4/6/16/22, replies on USART3 RS485 or USB CDC
+08022F7A	sub_08022F7A	task_modbus_rs485	descriptive	task prio 3: assembles Modbus RTU requests from USART3 and calls modbus_slave_process
+08023144	sub_08023144	i2c_delay	descriptive	60-nop delay for the bit-banged I2C
+08023154	sub_08023154	i2c_sda_dir	descriptive	PB7 (SDA) to input (0) or output (1)
+08023196	sub_08023196	i2c_scl_dir	descriptive	PB6 (SCL) to input (0) or output (1)
+080231D8	sub_080231D8	i2c_sda_write	descriptive	sets PB7 (SDA) level
+080231FC	sub_080231FC	i2c_scl_write	descriptive	sets PB6 (SCL) level
+08023220	sub_08023220	i2c_wait_ack	descriptive	clocks the 9th bit and returns 1 when SDA is low (ACK)
+08023262	sub_08023262	i2c_bus_recover	descriptive	clocks SCL up to 4 times until SDA is released
+080232AC	sub_080232AC	i2c_start	descriptive	I2C start condition
+080232D8	sub_080232D8	i2c_stop	descriptive	I2C stop condition
+08023300	sub_08023300	i2c_read_bit	descriptive	reads one bit on SDA
+0802334A	sub_0802334A	i2c_read_byte	descriptive	reads 8 bits MSB first
+080233A4	sub_080233A4	i2c_write_bit	descriptive	writes one bit
+080233D8	sub_080233D8	i2c_write_byte	descriptive	writes 8 bits MSB first and returns the ACK
+08023426	sub_08023426	i2c_send_ack	descriptive	writes a 0 bit (ACK)
+08023430	sub_08023430	i2c_write_reg	descriptive	start, device, register, data, stop; no callers
+08023464	sub_08023464	i2c_read_reg	descriptive	random read of one byte; no callers
+080234B4	sub_080234B4	sys_runtime_vars_init	descriptive	clears run-state variables at boot (buzzer off, mode, flags), sets 0x20002052=100
+08023530	sub_08023530	uart_init_all	descriptive	USART1 PA9/10, USART2 PA2/3 (8N1 or 8E1 by HR47 meter type), USART3 PB10/11, UART4 PC10/11, all 9600 baud, RX+TC interrupts
+0802382C	sub_0802382C	gpio_pc9_set	descriptive	drives PC9; set 1 by the 1 s housekeeping (0x08029712) after 6 ticks (inference: power-hold or enable line)
+0802384A	sub_0802384A	gpio_pc9_init	descriptive	PC9 push-pull output, initially 0
+08023878	sub_08023878	adc_dma_init	descriptive	ADC1 8 channels (0,1,6,10,11,14,15...) to 0x200006FA by DMA1 channel 1, EOC interrupt
+08023A76	sub_08023A76	tim3_init	descriptive	TIM3 prescaler 14, period 250, update interrupt (the ADC trigger tick)
+08023AB8	sub_08023AB8	cal_gain_validate	descriptive	keeps a calibration gain in 0x2D0..0x533, else resets it to 0x400 (1.0)
+08023ADA	sub_08023ADA	cal_gains_validate_all	descriptive	validates the 16 gains of the calibration block 0x20001B81
+08023B5C	sub_08023B5C	grid_load_country_bytes	descriptive	loads two per-country bytes from the grid tables into 0x2000019A/B
+08023B92	sub_08023B92	grid_load_country_limits	descriptive	copies voltage/frequency trip limits and times of the selected country from the const tables into the settings block (+1000 for 60 Hz)
+08023EC4	sub_08023EC4	grid_country_from_setting	descriptive	takes country code from HR2 high byte (valid < 29), returns 1 when invalid
+08023F38	sub_08023F38	cfg_defaults_grid	descriptive	default values for the grid part of the settings block (power rate 100, PF, reconnect, frequency derating)
+08024064	sub_08024064	cfg_load_defaults	descriptive	factory defaults for settings block 1 (incl. battery type 1, capacity 100, under/over V 43.20/57.20, grid port max 6000 W) or block 6 (0x20001C82)
+08024368	sub_08024368	cfg_load_all	descriptive	loads every EEPROM block at boot; on failure uses defaults and marks the block dirty
+080246A4	sub_080246A4	gpio_pc3_set	descriptive	drives PC3; set by task 0 (0x0802735A)
+080246BE	sub_080246BE	gpio_pc3_init	descriptive	PC3 output, initially 0
+080246EA	sub_080246EA	buzzer_pin_set	descriptive	drives PB5, toggled from TIM3 when buzzer_on (inference: buzzer)
+08024704	sub_08024704	buzzer_gpio_init	descriptive	PB5 output, initially 0
+08024730	sub_08024730	i2c_gpio_init	descriptive	PB6-PB8 outputs (I2C SCL/SDA and EEPROM WP)
+08024758	sub_08024758	gpio_pd2_init	descriptive	PD2 floating input, read by the ADC interrupt as a cycle/sync signal
+0802477E	sub_0802477E	led_fault_gpio_init	descriptive	PB9 output (fault LED, see led_fault_set)
+080247A6	sub_080247A6	led_set	descriptive	LED 1 = PB1, LED 2 = PB0; the status pattern comes from led_status_update
+080247E8	sub_080247E8	led_gpio_init	descriptive	PB0/PB1 outputs
+0802480C	sub_0802480C	panel_gpio_init	descriptive	PB14/15, PC6/7, PC9, PA8 outputs (panel indicators driven by 0x0802965E)
+08024896	sub_08024896	board_init	descriptive	all GPIO, EEPROM settings load, TIM3, ADC/DMA, UARTs and runtime vars; called from main
+080248E4	sub_080248E4	hex_nibble_to_ascii	descriptive	0-9 -> "0"-"9", 10-15 -> "A"-"F"; no callers
+080248FA	sub_080248FA	cfg_limit_check	descriptive	always returns 1; called by the FC6/FC16 handlers for grid trip limits HR63-82
+08024900	sub_08024900	rs485_modbus_de_set	descriptive	PB2 driver enable of the USART3 RS485 (Modbus slave)
+08024920	sub_08024920	rs485_meter_de_set	descriptive	PA4 driver enable of the USART2 RS485 (meter master)
+08024940	sub_08024940	led_fault_set	descriptive	drives PB9; blinked by fault_led_update while a fault code is set
+0802495E	sub_0802495E	tim4_init	descriptive	TIM4 prescaler 9, period 36, update interrupt; no callers
+080249D4	sub_080249D4	nvic_init	descriptive	vector table at 0x08014000, priority group, enables TIM3, ADC1_2, USART1-3 and UART4 IRQs, then enables interrupts
+08024AA0	sub_08024AA0	stub_noop_1	descriptive	empty function, no callers
+08024AA2	sub_08024AA2	stub_noop_2	descriptive	empty function, no callers
+08024AA4	sub_08024AA4	stub_noop_3	descriptive	empty function, no callers
+08024AA6	sub_08024AA6	stub_noop_4	descriptive	empty function, no callers
+08024AA8	sub_08024AA8	gpio_pe2_init	descriptive	PE2 output; no callers
+08024ACE	sub_08024ACE	gpio_pe2_set	descriptive	drives PE2; no callers
+08024AE8	sub_08024AE8	panel_led_pc7_set	descriptive	PC7 indicator, driven from charge status (IR14)
+08024B02	sub_08024B02	panel_led_pc6_set	descriptive	PC6 indicator, on while charge status is 1-4
+08024B1C	sub_08024B1C	panel_led_pv_set	descriptive	PA8 indicator, on while PV1 or PV2 voltage > 100.0 V
+08024B3A	sub_08024B3A	panel_led_pc9_set	descriptive	PC9 indicator, on while 0x200002B8 > 500
+08024B58	sub_08024B58	panel_led_batt_discharge_set	descriptive	PB15, on while battery power is negative (inference: discharge)
+08024B76	sub_08024B76	panel_led_batt_charge_set	descriptive	PB14, on while battery power >= 0 and system mode non-zero
+08024BA4	sub_08024BA4	calc_checksum_xor_index	descriptive	sum of (byte ^ index) over a range, 0 or overflow -> 0xFFFF; no callers
+08024BD0	sub_08024BD0	min3	descriptive	minimum of three; no callers
+08024BEE	sub_08024BEE	max3	descriptive	maximum of three; no callers
+08024C0C	sub_08024C0C	median3	descriptive	middle value of three; no callers
+08024C3A	sub_08024C3A	clamp	descriptive	clamp(lo, x, hi); no callers
+08024C54	sub_08024C54	div_u16_safe	descriptive	a / b & 0xFFFF, 0 when b is 0; no callers
+08024C64	sub_08024C64	isqrt_div	descriptive	integer sqrt(a/b) by 5 Newton steps; RMS from a sum of squares and a count
+08024CB2	sub_08024CB2	fault_set	descriptive	sets bits in the fault word 0x2000011C inside a critical section
+08024CCA	sub_08024CCA	fault_clear	descriptive	clears bits in the fault word inside a critical section
+08024CE2	sub_08024CE2	fault_test	descriptive	tests bits of the fault word; no callers
+08024CF4	sub_08024CF4	dsp_warning_test	descriptive	tests bits of the DSP warning word 0x200002D6 (IR57)
+08024D06	sub_08024D06	fault_check_mode	descriptive	puts run mode to 3 (fault) when any fault bit other than 0x40 is set
+08024D2E	sub_08024D2E	fault_none	descriptive	returns 1 when the fault word is 0; no callers
+08024D3C	sub_08024D3C	buzzer_off	descriptive	buzzer_pin_set(0)
+08024D46	sub_08024D46	buzzer_on	descriptive	buzzer_pin_set(1)
+08024D50	sub_08024D50	counter_wrap_inc	descriptive	increment, wrap to lo when > hi; no callers
+08024D5C	sub_08024D5C	led_status_update	descriptive	drives LED1/LED2 patterns from run mode (0 wait, 1 normal, 2, 3 fault, 4 flashing); LED1 blinks when SOC <= reserve+1
+08024F5C	sub_08024F5C	fault_code_update	descriptive	fault_code = first set bit of the fault word (0x08027506)
+08024F78	sub_08024F78	fault_led_update	descriptive	blinks PB9 (20 on / 70 off) while a fault code is set
+08024FD4	sub_08024FD4	fault_log_push	descriptive	shifts the 5-entry fault log (code, value, time) and adds the current fault; marks EEPROM block 2 dirty
+08025144	sub_08025144	event_log_push	descriptive	shifts the 250-byte event history at 0x20000FB8 by 5 and adds code + timestamp; marks block 3 dirty
+0802518E	sub_0802518E	eeprom_reload_flagged	descriptive	re-reads blocks 2, 3, 4 and 6 from EEPROM while their dirty bit is set, clearing the bit on success

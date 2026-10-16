@@ -1,0 +1,47 @@
+addr	old	new	basis	note
+200004F8	g_200004F8	USBH_HCD_INT_fops	original	usb_hcd_int.c: pointer to USBH_HCD_INT_cb (SOF, DevConnected, DevDisconnected, DevPortEnabled, DevPortDisabled at +0..+0x10)
+20000500	g_20000500	usb_line_stuck	descriptive	set each USBH_Process HOST_CLASS pass from usbh_line_state_stuck; 0x0802A060 clears it and calls CDC_ChangeStateToIssueSetConfig
+20000502	g_20000502	usb_line_same_count	descriptive	usbh_line_state_stuck: polls with HPRT0 line state unchanged (limit 1000)
+20000504	g_20000504	usb_line_state	descriptive	usbh_line_state_stuck: current HPRT0.prtlnsts
+20000508	g_20000508	usb_line_state_prev	descriptive	usbh_line_state_stuck: previous HPRT0.prtlnsts
+2000050C	g_2000050C	usbh_ctrl_timeout	likely	USBH_HandleControl's static timeout (ST `timeout`)
+2000050E	g_2000050E	prev_ep_size	original	USBH_ParseCfgDesc static (ST name)
+20000510	g_20000510	prev_itf	original	USBH_ParseCfgDesc static (ST name)
+20000514	g_20000514	BOTStallErrorCount	original	usbh_msc_bot.c (ST name)
+20000518	g_20000518	BOTErrorCount	original	usbh_msc_bot.c (ST name, as the source already spells it)
+2000051C	g_2000051C	remainingDataLength	original	usbh_msc_bot.c (ST name)
+20000520	g_20000520	datapointer	original	usbh_msc_bot.c (ST name)
+20000524	g_20000524	datapointer_prev	original	usbh_msc_bot.c (ST name)
+20000528	g_20000528	error_direction	original	usbh_msc_bot.c (ST name); map row is 0xC bytes, only byte 0 seen used
+20000534	g_20000534	MSCErrorCount	original	usbh_msc_core.c (ST name)
+20000538	g_20000538	USBH_MSC_cb	original	usbh_msc_core.c class callbacks (Init, DeInit, Requests, Machine); passed to USBH_Init by the USB task 0x0802AEF4 when a mass-storage stick is detected
+20000548	g_20000548	maxLunExceed	original	usbh_msc_core.c static (ST name)
+20000549	g_20000549	Stat	original	usbh_msc_fatfs.c `static volatile DSTATUS Stat` (STA_NOINIT 1, STA_PROTECT 4)
+2000054A	g_2000054A	msc_scsi_status	likely	usbh_msc_scsi.c static `status` (renamed: `status` is too common to be global)
+2000054C	g_2000054C	CDC_ReqState	original	usbh_cdc_core.c (header already defines CDC_ReqState); 0 SET_LINE_CODING, 1 GET_LINE_CODING, 2 SET_CONTROL_LINE_STATE, 3 ERROR
+20000550	g_20000550	UserCb	likely	usbh_cdc_core.c CDC_Usercb_TypeDef UserCb {Send, Receive}; 0x08029E70 sets Receive = 0x08022C51
+20000558	g_20000558	RX_Enabled	original	usbh_cdc_core.c (ST name)
+2000055C	g_2000055C	CDC_cb	original	usbh_cdc_core.c class callbacks; passed to USBH_Init when the device class is CDC (the dongle)
+2000056C	g_2000056C	cdc_rx_count	descriptive	GivEnergy addition in CDC_ReceiveData: blocks handed to UserCb.Receive
+20000570	g_20000570	cdc_tx_len	likely	CDC_ProcessTransmission static `len`
+20000574	g_20000574	cdc_tx_busy_count	descriptive	CDC_SendData: calls that found the transmitter busy (0..4)
+20000575	g_20000575	cdc_tx_stalled	descriptive	CDC_SendData: set once the busy count ran out and a USB restart was forced
+20000578	g_20000578	CDC_GetLineCode	original	usbh_cdc_core.c line coding read back by CDC_GETLineCoding
+20000580	g_20000580	CDC_SetLineCode	original	usbh_cdc_core.c line coding sent by CDC_SETLineCoding; 0x0802AEE0 sets 57600 baud, 8 data, no parity, 1 stop
+2000030B	g_2000030B	cdc_rx_busy	descriptive	CDC_ReceiveData only hands a block on when 0, then sets 1; the frame handler 0x08022C50 tests it (1/2) to pick the CRC position; inference: which link the pending frame came from
+20000310	g_20000310	dongle_link_timer	descriptive	ticked by 0x08029712 (to 0x5A0), cleared by a good frame in 0x08022C50; at 0x78 the tick sends a 0x12E-byte frame by CDC_SendData; at 0x5A0 it switches the OTG FS clock off (RCC_AHBPeriphClockCmd(0x1000, 0)) to restart USB; CDC_SendData sets it to 5000 to force that
+20003474	g_20003474	USB_OTG_Core	likely	USB_OTG_CORE_HANDLE (0x5B0) of the FS core; ST examples' name
+20003A24	g_20003A24	USB_Host	likely	USBH_HOST (0x94); ST examples' name; byte 0 is gState
+20007D48	g_20007D48	USBH_CfgDesc	original	usbh_stdreq.c uint8_t USBH_CfgDesc[512]
+20007F48	g_20007F48	USBH_MSC_CBWData	original	usbh_msc_bot.c (header macro already uses the name)
+20007F68	g_20007F68	USBH_MSC_CSWData	original	usbh_msc_bot.c
+20007F78	g_20007F78	USBH_MSC_BOTXferParam	original	usbh_msc_bot.c
+20007F88	g_20007F88	MSC_Machine	original	usbh_msc_core.c
+20007FD4	g_20007FD4	USBH_MSC_Param	original	usbh_msc_scsi.c
+20007FE4	g_20007FE4	USBH_DataInBuffer	original	usbh_msc_scsi.c; map row 0x400 likely covers USBH_DataInBuffer[512] and USBH_DataOutBuffer[512] (0x200081E4)
+200083E4	g_200083E4	CDC_Machine	original	usbh_cdc_core.c
+20008408	g_20008408	CDC_TxParam	original	usbh_cdc_core.c
+20008420	g_20008420	CDC_RxParam	original	usbh_cdc_core.c
+20008438	g_20008438	TxBuf	original	usbh_cdc_core.c uint8_t TxBuf[CDC_BUFFER_SIZE] (500)
+2000862C	g_2000862C	RxBuf	original	usbh_cdc_core.c uint8_t RxBuf[CDC_BUFFER_SIZE] (500)
+20008820	g_20008820	CDC_Desc	original	usbh_cdc_core.c CDC_InterfaceDesc_Typedef; +0x12 is CDC_UnionFuncDesc.bMasterInterface

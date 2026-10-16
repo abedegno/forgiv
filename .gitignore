@@ -1,0 +1,29 @@
+# What the tools write
+build/
+__pycache__/
+*.pyc
+try/
+
+# Firmware images: fetched by tools/fetch_firmware.py, never committed
+firmware/**/*.bin
+firmware/**/*.hex
+*.bin
+*.hex
+*.zip
+
+# Objects and links
+*.obj
+*.out
+*.o
+*.axf
+
+# Toolchains and third-party libraries, supplied by you (docs/toolchains.md)
+toolchain.local.toml
+inverters/gen3-lv/a316/toolchain
+inverters/gen3-lv/a316/lib/stdperiph35
+inverters/gen3-lv/a316/lib/stdperiph312
+
+# Editors and the OS
+.DS_Store
+.vscode/
+.idea/

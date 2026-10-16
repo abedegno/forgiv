@@ -1,0 +1,46 @@
+# The firmware images the gates compare with. None of them is in this repository: they come from
+# the public archive github.com/DJBenson/giv-firmware, and tools/fetch_firmware.py downloads each
+# package, checks every member against the sha256 here and writes it to the dest path (relative
+# to this directory), where the trees' configs expect it.
+#
+# A package:
+#   id, firmware       a name, and the trees that use it
+#   repo, path         the archive and the package's path in it
+#   commit             the archive commit the hashes were taken from (the URL pins it)
+#   url                the download; fallback_url the same file on the archive's main branch
+#   sha256             the package file itself (a re-packed zip may differ while its members match,
+#                      so a mismatch here is a warning; the members are what count)
+# A member: name (in the zip), sha256, dest.
+# A derived file: made from a member by fetch_firmware.py (kind "ihex": Intel HEX of the member
+#   less skip leading bytes, at base, with a start address record entry), with its sha256.
+
+[[package]]
+id = "gen3-lv-316"
+firmware = ["inverters/gen3-lv/a316", "inverters/gen3-lv/d316"]
+repo = "https://github.com/DJBenson/giv-firmware"
+path = "Firmware/Inverter/Hybrid Gen3 LV/A316-D316.zip"
+commit = "9553767d57718a7b9858137d5419ce462c955334"
+url = "https://raw.githubusercontent.com/DJBenson/giv-firmware/9553767d57718a7b9858137d5419ce462c955334/Firmware/Inverter/Hybrid%20Gen3%20LV/A316-D316.zip"
+fallback_url = "https://raw.githubusercontent.com/DJBenson/giv-firmware/main/Firmware/Inverter/Hybrid%20Gen3%20LV/A316-D316.zip"
+sha256 = "7db51acb0d849a0a169d09d2389e2fd9a1f517f30f5f27b538a483bb06b6c001"
+
+[[package.member]]
+name = "Previous - A316-D316/ARMStore.bin"
+size = 145324
+sha256 = "701386e4a7ea0b5440a180f0282017dda86beeb75d9d228867b5af969514de0f"
+dest = "gen3-lv/A316_ARMStore.bin"
+
+[[package.member]]
+name = "Previous - A316-D316/DSPStore.bin"
+size = 131072
+sha256 = "1503c37f882b78fa4723bbbcdab6ecac602864fc075fff4047ae35e09a63fa18"
+dest = "gen3-lv/D316_DSPStore.bin"
+
+[[package.derived]]
+kind = "ihex"
+from = "gen3-lv/A316_ARMStore.bin"
+skip = 4                 # the header: u16 version 0x013C, u16 0x5566
+base = 0x08014000
+entry = 0x08014000
+sha256 = "b279db4363c6cbf30c5297e6a7e70adb7d70dedc936cff8c4c13fe9201c53e3b"
+dest = "gen3-lv/A316.hex"

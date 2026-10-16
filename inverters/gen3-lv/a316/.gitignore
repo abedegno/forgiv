@@ -1,0 +1,4 @@
+build/
+toolchain
+lib/stdperiph35/
+__pycache__/

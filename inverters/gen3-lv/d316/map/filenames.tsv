@@ -1,0 +1,66 @@
+old	new	kind	evidence
+src/CodeStartBranch.asm	src/ti/CodeStartBranch.asm	original	TI's CodeStartBranch.asm: the codestart section (LB _boot_main) with WD_DISABLE 0, as in TI's file
+src/F2806x_CSMPasswords.asm	src/ti/F2806x_CSMPasswords.asm	original	TI's F2806x_CSMPasswords.asm: the csmpasswds and csm_rsvd sections
+src/F2806x_usDelay.asm	src/ti/F2806x_usDelay.asm	original	TI's F2806x_usDelay.asm (DSP28x_usDelay, a ramfunc), TI's text
+src/F2806x_DefaultIsr.c	src/ti/F2806x_DefaultIsr.c	original	TI's default interrupt handlers, in TI's file order; their addresses fill PieVectTableInit
+src/F2806x_Dma.c	src/ti/F2806x_Dma.c	original	TI's DMA set-up functions in TI's order; only DMACH1ModeConfig is this firmware's own form
+src/F2806x_MemCopy.c	src/ti/F2806x_MemCopy.c	original	TI's MemCopy unchanged (controlSUITE), in the boot loader
+src/F2806x_PieVect.c	src/ti/F2806x_PieVect.c	original	TI's PieVectTableInit: every vector is one of TI's default handlers
+src/flash.c	src/ti/F2806x_SysCtrl.c	likely	TI's InitFlash, a ramfunc as TI's F2806x_SysCtrl.c has it (OTPWAIT 3 where TI has 5). TI's file also holds InitSysCtrl, XtalOscSel, InitPll and InitPeripheralClocks, which are in drivers/device_init.c here; that object cannot be split, so this file has only InitFlash
+src/boot_main.asm	src/boot/boot_main.asm	descriptive	the boot loader's entry in assembly (codestart jumps here); name kept
+src/boot_csm.c	src/boot/boot_csm.c	descriptive	the boot loader's CsmUnlock (TI's) and boot_copy_run; name kept
+src/boot_update.c	src/boot/boot_update.c	descriptive	boot_update, the boot loader's entry for an update; name kept
+src/boot_ram.c	src/boot/boot_flash_loader.c	descriptive	boot_flash_loader: the update routine copied to RAM at 0x0400 that serves the PC's frames on SCI-A and programs the flash
+src/app_ver.c	src/boot/app_header.c	descriptive	the application's header words the boot loader reads: version (0x3E8000) and app_valid (0x3F3FFC)
+src/os_event.c	src/rtos/os_event.c	descriptive	RTOS events: os_wait, os_take_events, os_post, os_post_flag, os_post_isr; name kept
+src/os_main.c	src/rtos/os_main.c	descriptive	the RTOS scheduler, main and start; name kept
+src/os_task.c	src/rtos/os_task.c	descriptive	the RTOS state, start and task creation; name kept
+src/os_tick.c	src/rtos/os_tick.c	descriptive	the RTOS tick, os_sleep and a task's first stack frame; name kept
+src/rtos_isr.c	src/rtos/os_tick_isr.c	descriptive	timer2_isr, the CPU timer 2 interrupt that runs the RTOS tick
+src/os_cpu_a.asm	src/rtos/os_cpu_a.asm	descriptive	the context switch; the name follows the uC/OS-II port convention (the RTOS is a small custom one with uC/OS-like names); name kept
+src/os_cpu_sr.asm	src/rtos/os_cpu_sr.asm	descriptive	the critical-section helpers (unused, at the end of .text); name kept
+src/init_b.c	src/drivers/device_init.c	descriptive	init_system and the peripheral set-up it calls: TI's InitSysCtrl, XtalOscSel, InitPll, InitPeripheralClocks, InitPieCtrl, InitPieVectTable, ConfigCpuTimer and the ADC calibration functions, with this firmware's sci_init, timer2_init, InitAdc, InitGpio, InitEPwm, InitECap and InitDmaAdc. One object, so TI's file names (F2806x_SysCtrl.c, F2806x_PieCtrl.c, F2806x_CpuTimers.c, F2806x_Adc.c, F2806x_Gpio.c, F2806x_EPwm.c) cannot each have their part
+src/sci.c	src/drivers/sci.c	descriptive	the SCI drivers: receive rings and sending; name kept
+src/sci_isr.c	src/drivers/sci_isr.c	descriptive	the SCI-A and SCI-B interrupts; name kept
+src/pwm_force.c	src/drivers/pwm_force.c	descriptive	software forcing of the PWM outputs (AQCSFRC); name kept
+src/a_ctl.c	src/app/grid/grid_support.c	descriptive	RTOS task 4 and the grid code: voltage and frequency protection, ROCOF, P(f) and storage responses, Q(U), cos phi(P) and fixed PF, power limits and ramps, the Italian auto test; also app_entry (the first function of .text). Header grid.h
+src/a_armlink.c	src/app/comm/arm_link.c	descriptive	RTOS task 5: the UART frames to and from the ARM on SCI-A and the page 0..5 handlers
+src/arm_page_b.c	src/app/comm/arm_page_write.c	descriptive	arm_page6 and arm_page7: registers the ARM writes, stored clamped in the DSP's settings
+src/crc.c	src/app/comm/crc16.c	descriptive	CRC16, the table-driven Modbus RTU CRC (auchCRCHi, auchCRCLo), used by the ARM link and the BMS link
+src/bms_link.c	src/app/battery/bms_link.c	descriptive	RTOS task 6: the BMS Modbus master on SCI-B; name kept
+src/control_b.c	src/app/power/power_limits.c	descriptive	RTOS task 2 (task2_control) and its steps: charge and discharge power limits, current tapers, the SoC floor, the battery voltage monitor. Header power_limits.h
+src/mppt_b.c	src/app/power/mppt.c	descriptive	the MPPT (perturb and observe) of the two PV inputs: mppt_po_pv1/2, mppt_pv1/2
+src/mppt_c.c	src/app/power/mppt_step.c	descriptive	pv_mppt_step: the PV start-up ramp and the MPPT dispatch (probably the end of the original MPPT file)
+src/task3_b.c	src/app/meas/meas_task.c	descriptive	RTOS task 3 (task3_measure), the measurement task
+src/meas_b.c	src/app/meas/dc_measure.c	descriptive	what task 3 runs: battery, DC bus and PV voltages and powers, temperatures, insulation, with their limit checks
+src/rating_b.c	src/app/meas/ac_measure.c	descriptive	RTOS task 1 (task1_ac_measure): grid and EPS RMS values, grid frequency, grid power and its limit PI, the EPS output checks. Header rating.h
+src/adc_scale.c	src/app/meas/adc_scale.c	descriptive	adc_scale: the ADC readings scaled every control cycle; name kept
+src/avg8.c	src/app/meas/meas_avg8.c	descriptive	meas_avg8: eight-cycle averages of the measured values
+src/avg_win.c	src/app/meas/avg_win.c	descriptive	avg_win_step: the running window average (grid voltage check); name kept
+src/ch_avg.c	src/app/meas/dc_avg.c	descriptive	dc_acc_step: the slow channel sums handed to task 3 (block dc_acc)
+src/rms_hand.c	src/app/meas/eps_rms_accum.c	descriptive	eps_rms_accum: the RMS sums of the EPS voltage, handed over each grid period
+src/rms_sum.c	src/app/meas/grid_rms_accum.c	descriptive	grid_rms_accum: the RMS sums of the grid currents and voltages
+src/offset_cal.c	src/app/rcmu/rcmu.c	descriptive	the residual current monitor's state blocks: rcmu_init, rcmu_step, the zero calibration and the steps of the self test and the watch. Header rcmu.h
+src/relay_test.c	src/app/rcmu/rcmu_selftest.c	descriptive	rcmu_selftest: the self test that closes and opens the test relay (GPIO52)
+src/meas_watch.c	src/app/rcmu/rcmu_watch.c	descriptive	rcmu_watch: the watch on the three RCMU readings
+src/cal_fault.c	src/app/rcmu/rcmu_fast_check.c	descriptive	rcmu_fast_check: the fast RCMU check against the reference, run from RAM
+src/task0_b.c	src/app/state/state_task.c	descriptive	RTOS task 0 (task0_state_machine), the operating state machine
+src/state_b.c	src/app/state/op_states.c	descriptive	the operating states 0..8 that task 0 runs, their start checks, the fault queries and soft_start
+src/app_init.c	src/app/state/app_init.c	descriptive	app_vars_init, app_init and the small accessors; name kept
+src/settings.c	src/app/settings/settings.c	descriptive	settings_defaults and rating_apply on the settings block; name kept
+src/presets.c	src/app/settings/rating_presets.c	descriptive	the five rating presets (5 kW .. 2 kW), init_defaults and the table rating_presets
+src/ctrl.c	src/app/control/converter_ctrl.c	descriptive	the converter control module: control_isr, converter_mode, the grid current, EPS voltage, PV and DC/DC loops, fast faults, relays; its own variables at 0xC000
+src/ctrl_glue.c	src/app/control/ctrl_glue.c	descriptive	grid_pll_run and q_loop_run: scale the input, run the block, copy its outputs; name kept
+src/ctrl_mode.c	src/app/control/grid_freq_setup.c	descriptive	grid_freq_setup: the 50/60 Hz cycle length and relay sync points
+src/ctrl_pi.c	src/app/control/pi_ctrl.c	descriptive	the PI controllers pi_step, pi_reset, pi_inc_step, pi_reset_b
+src/pid_inc.c	src/app/control/pid_inc.c	descriptive	pid_inc_step, the incremental PID; name kept
+src/pid_pos.c	src/app/control/pid_pos.c	descriptive	pid_pos_step, the positional PID; name kept
+src/pll.c	src/app/control/pll.c	descriptive	pll_step, the single-phase PLL; name kept
+src/cur_ctrl.c	src/app/control/current_ctrl.c	descriptive	current_controller, the DC/DC current controller on the block at 0xC240
+src/detect.c	src/app/control/island_detect.c	descriptive	island_detect (and q_loop_step, the reactive loop's step)
+src/vctl.c	src/app/control/ac_ctrl.c	descriptive	the AC loops: rep_filter_step (repetitive filter), grid_ictl (grid current), eps_vctl (EPS voltage)
+src/pll_init.c	src/app/control/eps_vctl_init.c	descriptive	eps_vctl_init: sets up the EPS voltage loop's state and its delay line
+src/pll_clear.c	src/app/control/eps_vctl_clear.c	descriptive	eps_vctl_clear: clears the EPS voltage loop's state
+src/util_ooff.c	src/app/util/util.c	descriptive	the small helpers compiled with -Ooff (checksum, min/max, median, clamps, square root, debounce, hex digit). Header util.h
+src/rate_limit.c	src/app/util/rate_limit.c	descriptive	rate_limit (-Ooff, run from RAM); name kept
+src/coef_init.c	src/app/util/iq_consts.c	descriptive	iq_consts_init: the IQ constants block at 0xCCB2

@@ -1,0 +1,156 @@
+addr	old	new	basis	note
+0803240C	sub_0803240C	f_rename	original	FatFs R0.12c ff.c f_rename (path_old, path_new; follow_path, dir_register, '..' entry fix-up); no callers in the image
+0803251C	sub_0803251C	USB_OTG_EnableCommonInt	original	usb_core.c: clears GINTSTS 0xBFFFFFFF, unmasks wkupintr+usbsuspend; called by EnableHostInt
+08032550	sub_08032550	USB_OTG_CoreReset	original	usb_core.c: waits GRSTCTL.AHBIDL then sets CSRST, 200000-loop timeouts
+080325BC	sub_080325BC	USB_OTG_WritePacket	original	usb_core.c: copies (len+3)/4 words to DFIFO[ch_ep_num] when DMA off
+080325FC	sub_080325FC	USB_OTG_ReadPacket	original	usb_core.c: reads (len+3)/4 words from DFIFO[0], returns dest pointer
+08032624	sub_08032624	USB_OTG_SelectCore	original	usb_core.c: fills cfg/regs for FS core (0x50000000, 8 host channels) or HS core
+080326F0	sub_080326F0	USB_OTG_CoreInit	original	usb_core.c: GUSBCFG/GCCFG set-up, core reset, AHB config
+08032816	sub_08032816	USB_OTG_EnableGlobalInt	original	usb_core.c: sets GAHBCFG.GINTMSK
+08032838	sub_08032838	USB_OTG_DisableGlobalInt	original	usb_core.c: clears GAHBCFG.GINTMSK
+0803285A	sub_0803285A	USB_OTG_FlushTxFifo	original	usb_core.c: GRSTCTL.TXFFLSH with fifo number
+080328AA	sub_080328AA	USB_OTG_FlushRxFifo	original	usb_core.c: GRSTCTL.RXFFLSH
+080328F0	sub_080328F0	USB_OTG_SetCurrentMode	original	usb_core.c: GUSBCFG force host (1) / force device (0), 50 ms delay
+0803293E	sub_0803293E	USB_OTG_GetMode	original	usb_core.c: GINTSTS & 1
+08032954	sub_08032954	USB_OTG_IsDeviceMode	original	usb_core.c: GetMode != HOST
+0803296A	sub_0803296A	USB_OTG_IsHostMode	original	usb_core.c: GetMode == HOST
+0803297E	sub_0803297E	USB_OTG_ReadCoreItr	original	usb_core.c: GINTSTS & GINTMSK
+0803298E	sub_0803298E	USB_OTG_ReadOtgItr	original	usb_core.c: returns GOTGINT
+08032996	sub_08032996	USB_OTG_EnableHostInt	original	usb_core.c: GINTMSK rxflvl/incomplisoout/hcintr/portintr
+08032A1A	sub_08032A1A	USB_OTG_ReadHPRT0	original	usb_core.c: HPRT0 with the write-1-to-clear bits masked
+08032A4A	sub_08032A4A	USB_OTG_DriveVbus	original	usb_core.c: BSP DriveVBUS then HPRT0.prtpwr, 200 ms
+08032AA6	sub_08032AA6	USB_OTG_ResetPort	original	usb_core.c: HPRT0.prtrst 100 ms then release, 20 ms
+08032AE6	sub_08032AE6	USB_OTG_InitFSLSPClkSel	original	usb_core.c: HCFG.fslspclksel
+08032AFE	sub_08032AFE	USB_OTG_CoreInitHost	original	usb_core.c: FIFO sizes 128/96/96, flushes, clears channel ints, VBUS on, host ints
+08032BD4	sub_08032BD4	USB_OTG_IsEvenFrame	original	usb_core.c: !(HFNUM & 1)
+08032BE4	sub_08032BE4	USB_OTG_ReadHostAllChannels_intr	original	usb_core.c: returns HAINT
+08032BEC	sub_08032BEC	USB_OTG_HC_Init	original	usb_core.c: HCINTMSK by ep type, HCCHAR set-up
+08032E24	sub_08032E24	USB_OTG_HC_StartXfer	original	usb_core.c: HCTSIZ packet count, odd frame, writes FIFO via WritePacket
+0803301A	sub_0803301A	USB_OTG_HC_Halt	original	usb_core.c: HCCHAR chdis/chen with queue-space test
+080330B4	sub_080330B4	USB_OTG_HC_DoPing	original	usb_core.c: HCTSIZ dopng, pktcnt 1
+0803310E	sub_0803310E	USB_OTG_StopHost	original	usb_core.c: clears HAINTMSK/HAINT, disables all channels, flushes FIFOs; no callers
+0803316E	sub_0803316E	HCD_Init	original	usb_hcd.c: clears ErrCnt/XferCnt/HC_Status, SelectCore, CoreInit, SetCurrentMode(HOST), CoreInitHost
+080331CE	sub_080331CE	HCD_GetCurrentSpeed	original	usb_hcd.c: HPRT0.prtspd
+080331E2	sub_080331E2	HCD_ResetPort	original	usb_hcd.c: USB_OTG_ResetPort, returns 0
+080331F0	sub_080331F0	HCD_IsDeviceConnected	original	usb_hcd.c: returns host.ConnSts (+0x310)
+080331F8	sub_080331F8	HCD_IsPortEnabled	original	usb_hcd.c (V2.2.0): returns host.PortEnabled (+0x314)
+08033200	sub_08033200	HCD_GetCurrentFrame	original	usb_hcd.c: HFNUM & 0xFFFF
+0803320A	sub_0803320A	HCD_GetURB_State	original	usb_hcd.c: host.URB_State[ch]
+08033214	sub_08033214	HCD_GetXferCnt	original	usb_hcd.c: host.XferCnt[ch]
+08033220	sub_08033220	HCD_GetHCState	original	usb_hcd.c: host.HC_Status[ch]
+0803322A	sub_0803322A	HCD_HC_Init	original	usb_hcd.c: wraps USB_OTG_HC_Init
+0803323A	sub_0803323A	HCD_SubmitRequest	original	usb_hcd.c: URB_State idle, xfer_count 0, HC_StartXfer
+0803325C	sub_0803325C	USB_OTG_USBH_handle_IncompletePeriodicXfer_ISR	original	usb_hcd_int.c: halts HC0, clears incomplisoout
+080332A2	sub_080332A2	USB_OTG_USBH_handle_Disconnect_ISR	original	usb_hcd_int.c: USBH_HCD_INT_fops->DevDisconnected, clears disconnect
+080332CA	sub_080332CA	USB_OTG_USBH_handle_port_ISR	original	usb_hcd_int.c: connect detect, port enable change, FS/LS clock select, HFIR 48000/6000
+08033400	sub_08033400	USB_OTG_USBH_handle_hc_n_Out_ISR	original	usb_hcd_int.c: OUT channel ack/nak/stall/xfercompl/chhltd handling
+080337C0	sub_080337C0	USB_OTG_USBH_handle_hc_n_In_ISR	original	usb_hcd_int.c: IN channel handling, toggles, URB states
+08033BDE	sub_08033BDE	USB_OTG_USBH_handle_hc_ISR	original	usb_hcd_int.c: walks HAINT, dispatches In/Out by HCCHAR.epdir
+08033C34	sub_08033C34	USB_OTG_USBH_handle_ptxfempty_ISR	original	usb_hcd_int.c: HPTXSTS periodic FIFO fill
+08033D62	sub_08033D62	USB_OTG_USBH_handle_nptxfempty_ISR	original	usb_hcd_int.c: HNPTXSTS non-periodic FIFO fill
+08033E90	sub_08033E90	USB_OTG_USBH_handle_rx_qlvl_ISR	original	usb_hcd_int.c: GRXSTSP pop, ReadPacket into xfer_buff
+08033FF4	sub_08033FF4	USB_OTG_USBH_handle_sof_ISR	original	usb_hcd_int.c: USBH_HCD_INT_fops->SOF, clears sof
+0803401A	sub_0803401A	USBH_OTG_ISR_Handler	original	usb_hcd_int.c: top-level host ISR; called from OTG_FS_IRQHandler (0x08014C92)
+080340C8	sub_080340C8	USBH_Connected	original	usbh_core.c USBH_HCD_INT_cb: ConnSts = 1
+080340D4	sub_080340D4	USBH_PortEnabled	original	usbh_core.c (V2.2.0) USBH_HCD_INT_cb: PortEnabled = 1
+080340E0	sub_080340E0	USBH_PortDisabled	original	usbh_core.c (V2.2.0) USBH_HCD_INT_cb: PortEnabled = 0
+080340EC	sub_080340EC	USBH_Disconnected	original	usbh_core.c USBH_HCD_INT_cb: VBUS off, masks/clears ints, ConnSts = 0
+08034114	sub_08034114	USBH_SOF	original	usbh_core.c USBH_HCD_INT_cb: returns 0 (6 bytes; Ghidra's <<32 is the mov r1,r0)
+0803411A	sub_0803411A	USBH_DeInit	original	usbh_core.c: resets gState/EnumState/Control, frees control channels
+08034154	sub_08034154	USBH_Init	original	usbh_core.c: BSP init, DeInit, store class_cb/usr_cb, HCD_Init, usr_cb->Init; called by USB task 0x0802AEF4 with CDC_cb or USBH_MSC_cb
+0803419A	sub_0803419A	usbh_read_line_state	descriptive	static: HPRT0.prtlnsts (D+/D- line state); not in ST's library
+080341AE	sub_080341AE	usbh_line_state_stuck	descriptive	GivEnergy addition called in HOST_CLASS state: returns 1 after 1000 polls with line state unchanged; result into usb_line_stuck (0x20000500), which makes the app re-issue CDC line coding
+080341F8	sub_080341F8	USBH_HandleControl	original	usbh_core.c: control transfer state machine (setup, data in/out, status, timeouts)
+0803441E	sub_0803441E	USBH_ErrorHandle	original	usbh_core.c: speed-unknown/unrecovered -> usr_cb->UnrecoveredError, HOST_ERROR_STATE; APPLY_DEINIT -> usr_cb->Init
+0803444C	sub_0803444C	USBH_HandleEnum	original	usbh_core.c: enumeration (device desc, address, config desc, strings, set config)
+08034640	sub_08034640	USBH_Process	original	usbh_core.c: host state machine; called by USB task 0x0802AEF4
+0803481E	sub_0803481E	usb_host_port_resume	descriptive	ungates PCGCCTL clocks, HPRT0.prtres 20 ms; ST-style code, no callers
+0803489A	sub_0803489A	usb_host_port_suspend	descriptive	HPRT0.prtsusp then stops/gates PHY clock in PCGCCTL; ST-style code, no callers
+080348FC	sub_080348FC	USBH_Open_Channel	original	usbh_hcs.c: fills hc[] and HC_Init
+08034996	sub_08034996	USBH_Modify_Channel	original	usbh_hcs.c: changes address/speed/type/mps of an open channel; called from HandleEnum
+080349FA	sub_080349FA	USBH_GetFreeChannel	original	usbh_hcs.c (static): first channel without the 0x8000 in-use bit
+08034A22	sub_08034A22	USBH_Alloc_Channel	original	usbh_hcs.c
+08034A48	sub_08034A48	USBH_Free_Channel	original	usbh_hcs.c
+08034A66	sub_08034A66	USBH_DeAllocate_AllChannel	original	usbh_hcs.c
+08034A82	sub_08034A82	USBH_SubmitSetupRequest	original	usbh_ioreq.c (static): starts a control request in phost->Control
+08034A9A	sub_08034A9A	USBH_CtlReq	original	usbh_ioreq.c: blocking-style control request via RequestState
+08034AFE	sub_08034AFE	USBH_CtlSendSetup	original	usbh_ioreq.c
+08034B40	sub_08034B40	USBH_CtlSendData	original	usbh_ioreq.c
+08034BAE	sub_08034BAE	USBH_CtlReceiveData	original	usbh_ioreq.c
+08034BF4	sub_08034BF4	USBH_BulkSendData	original	usbh_ioreq.c: called by MSC BOT and CDC transmit
+08034C52	sub_08034C52	USBH_BulkReceiveData	original	usbh_ioreq.c: called by MSC BOT and CDC receive
+08034CB2	sub_08034CB2	USBH_InterruptReceiveData	original	usbh_ioreq.c: ep_is_in 1, toggle
+08034D2A	sub_08034D2A	USBH_InterruptSendData	original	usbh_ioreq.c: ep_is_in 0, toggle
+08034DA0	sub_08034DA0	USBH_IsocReceiveData	original	usbh_ioreq.c (docs/matching.md round 5)
+08034DE6	sub_08034DE6	USBH_IsocSendData	original	usbh_ioreq.c (docs/matching.md round 5)
+08034E2C	sub_08034E2C	USBH_ParseDevDesc	original	usbh_stdreq.c static (docs/matching.md round 5)
+08034E84	sub_08034E84	USBH_GetDescriptor	original	usbh_stdreq.c (docs/matching.md round 5)
+08034EC8	sub_08034EC8	USBH_Get_DevDesc	original	usbh_stdreq.c (docs/matching.md round 5)
+08034F00	sub_08034F00	USBH_ParseEPDesc	original	usbh_stdreq.c static (docs/matching.md round 5)
+08034F20	sub_08034F20	USBH_ParseInterfaceDesc	original	usbh_stdreq.c static (docs/matching.md round 5)
+08034F46	sub_08034F46	USBH_GetNextDesc	original	usbh_stdreq.c (docs/matching.md round 5)
+08034F58	sub_08034F58	USBH_ParseCfgDesc	original	usbh_stdreq.c static (docs/matching.md round 5)
+08035084	sub_08035084	USBH_Get_CfgDesc	original	usbh_stdreq.c: copies Rx_Buffer to USBH_CfgDesc then parses
+080350EC	sub_080350EC	USBH_ParseStringDesc	original	usbh_stdreq.c static
+08035122	sub_08035122	USBH_Get_StringDesc	original	usbh_stdreq.c
+0803515E	sub_0803515E	USBH_SetAddress	original	usbh_stdreq.c: bRequest 5
+08035184	sub_08035184	USBH_SetCfg	original	usbh_stdreq.c: bRequest 9
+080351AA	sub_080351AA	USBH_SetInterface	original	usbh_stdreq.c: bRequest 11 (altSetting, ep_num as wIndex)
+080351D6	sub_080351D6	USBH_SetFeature	likely	usbh_stdreq.c-style: device request bRequest 3 SET_FEATURE (wValue, wIndex); no callers; exact ST name not confirmed
+08035202	sub_08035202	USBH_ClearFeature	likely	usbh_stdreq.c-style: device request bRequest 1 CLEAR_FEATURE (wValue, wIndex); no callers; distinct from USBH_ClrFeature
+0803522E	sub_0803522E	USBH_ClrFeature	original	usbh_stdreq.c: endpoint CLEAR_FEATURE(halt), resets toggle; used by MSC abort and CDC error
+08035288	sub_08035288	USBH_MSC_Init	original	usbh_msc_bot.c: CBW signature 0x43425355, tag 0x20304050, LUN 0
+080352B4	sub_080352B4	USBH_MSC_BOT_Abort	original	usbh_msc_bot.c: ClrFeature on bulk in/out, BOTStallErrorCount > 4 -> unrecovered
+0803530A	sub_0803530A	USBH_MSC_DecodeCSW	original	usbh_msc_bot.c: 13-byte CSW, signature 0x53425355, tag match, status
+08035376	sub_08035376	USBH_MSC_HandleBOTXfer	original	usbh_msc_bot.c: Bulk-Only Transport state machine
+080357A4	sub_080357A4	USBH_MSC_InterfaceInit	original	usbh_msc_core.c: class 8 check, bulk endpoints, opens channels
+080358A0	sub_080358A0	USBH_MSC_InterfaceDeInit	original	usbh_msc_core.c: halts and frees MSC channels
+080358E8	sub_080358E8	USBH_MSC_ClassRequest	original	usbh_msc_core.c: MSCState = GET_MAX_LUN, returns OK
+080358F6	sub_080358F6	USBH_MSC_ErrorHandle	original	usbh_msc_core.c: MSCErrorCount < 10 retries else UNRECOVERED
+08035930	sub_08035930	USBH_MSC_GETMaxLUN	original	usbh_msc_core.c: class request 0xFE
+08035958	sub_08035958	USBH_MSC_Handle	original	usbh_msc_core.c: MSC state machine (TUR, ReadCapacity, ModeSense, RequestSense)
+08035ADC	sub_08035ADC	disk_initialize	original	usbh_msc_fatfs.c (FatFs diskio): clears STA_NOINIT when a device is connected
+08035AFA	sub_08035AFA	disk_status	original	usbh_msc_fatfs.c: drive 0 only
+08035B08	sub_08035B08	disk_read	original	usbh_msc_fatfs.c: USBH_MSC_Read10 loop with USBH_MSC_HandleBOTXfer
+08035BA4	sub_08035BA4	disk_write	original	usbh_msc_fatfs.c: USBH_MSC_Write10 loop; write-protect check
+08035C1E	sub_08035C1E	disk_ioctl	original	usbh_msc_fatfs.c: CTRL_SYNC, GET_SECTOR_COUNT (MSCapacity), GET_SECTOR_SIZE 512, GET_BLOCK_SIZE 512
+08035C74	sub_08035C74	get_fattime	original	FatFs user time stamp: returns 0 (files get no date)
+08035C94	sub_08035C94	USBH_MSC_TestUnitReady	original	usbh_msc_scsi.c: opcode 0x00
+08035D36	sub_08035D36	USBH_MSC_ReadCapacity10	original	usbh_msc_scsi.c: opcode 0x25
+08035E00	sub_08035E00	USBH_MSC_ModeSense6	original	usbh_msc_scsi.c: opcode 0x1A, write protect bit
+08035EC0	sub_08035EC0	USBH_MSC_RequestSense	original	usbh_msc_scsi.c: opcode 0x03
+08035F90	sub_08035F90	USBH_MSC_Write10	original	usbh_msc_scsi.c: opcode 0x2A
+0803606A	sub_0803606A	USBH_MSC_Read10	original	usbh_msc_scsi.c: opcode 0x28
+08036188	sub_08036188	CDC_InitTxRxParam	original	usbh_cdc_core.c (ST CDC host example): TxBuf/RxBuf pointers, rx buffer length 500
+080361AA	sub_080361AA	CDC_InterfaceInit	original	usbh_cdc_core.c: class 2/subclass 2/protocol 1 check, comm and data endpoints
+080362EE	sub_080362EE	CDC_InterfaceDeInit	original	usbh_cdc_core.c
+08036356	sub_08036356	CDC_ClassRequest	original	usbh_cdc_core.c: SET_LINE_CODING, GET_LINE_CODING, SET_CONTROL_LINE_STATE, ClrFeature on error
+080363E8	sub_080363E8	CDC_ReceiveData	original	usbh_cdc_core.c static, modified: hands a received block to UserCb.Receive once (cdc_rx_busy flag 0x2000030B), counts in cdc_rx_count
+08036422	sub_08036422	CDC_ProcessReception	original	usbh_cdc_core.c
+080364D2	sub_080364D2	CDC_ProcessTransmission	original	usbh_cdc_core.c
+080365CE	sub_080365CE	CDC_Handle	original	usbh_cdc_core.c: usr_cb->UserApplication, transmit, receive
+080365F8	sub_080365F8	CDC_SendData	original	usbh_cdc_core.c, modified: if the transmitter is still busy counts retries; after 4 forces the dongle timeout to 5000 (USB restart), then sets bit0 of 0x2000019C; called by 0x08022C50 and the 1 s tick 0x08029712
+08036662	sub_08036662	CDC_StartReception	original	usbh_cdc_core.c: RX_Enabled = 1; called from 0x08029E3E
+0803666A	sub_0803666A	CDC_StopReception	original	usbh_cdc_core.c: RX_Enabled = 0, halt and free data IN channel
+080366AC	sub_080366AC	CDC_GETLineCoding	original	usbh_cdc_funct.c: request 0x21 into CDC_GetLineCode
+080366D6	sub_080366D6	CDC_SETLineCoding	original	usbh_cdc_funct.c: request 0x20 from CDC_SetLineCode (57600 8N1 set by 0x0802AEE0)
+08036700	sub_08036700	CDC_SETControlLineState	original	usbh_cdc_funct.c: request 0x22
+0803672A	sub_0803672A	CDC_ChangeStateToIssueSetConfig	original	usbh_cdc_funct.c: gStateBkp = gState, gState = HOST_CLASS_REQUEST, CDC_ReqState = SET_LINE_CODING (0); called by 0x0802A060
+0803673A	sub_0803673A	CDC_IssueGetConfig	original	usbh_cdc_funct.c: as above with CDC_ReqState = GET_LINE_CODING (1); no callers
+0803675C	sub_0803675C	strcpy	original	Keil c_w.l strcpy (build/lib/names.tsv); used by 0x0802A060 for SN.txt
+080367A4	sub_080367A4	__aeabi_memclr	original	Keil c_w.l rt_memclr.o (0x44 bytes, aliases __rt_memclr, _memset at +4); tail-jumps into _memset_w at 0x08036872
+080367E8	sub_080367E8	strcmp	original	Keil c_w.l strcmp (build/lib/names.tsv)
+08036868	sub_08036868	__use_two_region_memory	original	Keil c_w.l heapauxi.o +0 (bx lr); the startup file's at: line already gives this address
+0803686A	sub_0803686A	__rt_heap_escrow$2region	original	Keil c_w.l heapauxi.o +2 (bx lr). Contains $: not a valid C identifier; usable only in assembly/symdefs
+0803686C	sub_0803686C	__rt_heap_expand$2region	original	Keil c_w.l heapauxi.o +4 (bx lr). Contains $: not a valid C identifier
+0803686E	sub_0803686E	__aeabi_memclr4	original	Keil c_w.l rt_memclr_w.o (aliases __aeabi_memclr8, __rt_memclr_w, _memset_w at +4) (build/lib/names.tsv)
+080368BC	sub_080368BC	__user_setup_stackheap	original	Keil c_w.l sys_stackheap_outer.o (0x4A bytes): __user_libspace, __user_initial_stackheap, zeroes libspace; called from 0x0801420C
+08036906	sub_08036906	exit	original	Keil c_w.l exit.o (0x12 bytes): weak _call_atexit_fns (nop), b __rt_exit
+08036918	sub_08036918	__user_libspace	original	Keil c_w.l libspace.o (aliases __user_perproc_libspace, __user_perthread_libspace)
+08036920	sub_08036920	_sys_exit	original	Keil c_w.l sys_exit.o: semihosting bkpt 0xAB, SYS_EXIT
+0803692C	sub_0803692C	_fp_init	original	Keil fz_ws.l fpinit.o (bx lr, 2 bytes + pad); aliases __fp_init_empty, __fplib_config_pureend_doubles
+08036930	sub_08036930	__aeabi_f2iz	original	Keil fz_ws.l ffix.o (alias _ffix); the row 0x0803695C is its saturating tail, not a function
+08036968	sub_08036968	__aeabi_f2uiz	original	Keil fz_ws.l ffixu.o (alias _ffixu); the row 0x080369A0 is its saturating tail
+080369A8	sub_080369A8	__aeabi_fmul	original	Keil fz_ws.l fmul.o (alias _fmul, 0x102 bytes to 0x08036AAA); rows 0x08036A80, 0x08036A84, 0x08036A96 are its inner special-case paths
+08036AAA	sub_08036AAA	__fpl_fnaninf	original	Keil fz_ws.l (build/lib/names.tsv)
+08036B36	sub_08036B36	__fpl_fretinf	original	Keil fz_ws.l (build/lib/names.tsv)

@@ -1,0 +1,163 @@
+addr	old	new	basis	note
+20001AAE	g_20001AAE	cfg_settings	descriptive	settings block (EEPROM block 1, 0xD3 bytes from here through 0x20001B80): HR1 at +0, HR2 grid code at +2; holding-register writes in FC6/FC16 land here; data.tsv splits it at 0x20001AC1
+20001AC1	g_20001AC1	cfg_serial_and_settings	descriptive	settings block from +0x13: inverter serial (10 bytes, copied into every Modbus reply header), then battery/grid settings, e.g. +0x6B HR97 batt under-V (0x20001B2C), +0x6D HR98 batt over-V, +0x65 HR54 battery type, +0x66 HR55 capacity, +0x86/87 HR111/112 charge/discharge limit
+20001B81	g_20001B81	cal_gains	descriptive	calibration block (EEPROM block 2, tag 0x41, 0x44 bytes): 16 gains 0x2D0..0x533 around 0x400, written by HR4097+
+200019B7	g_200019B7	fault_log	descriptive	5 fault records x 9 bytes (code, value, time), saved with EEPROM block 2; see fault_log_push
+20000FB8	g_20000FB8	event_log	descriptive	250-byte event history, 5-byte records (code + timestamp), EEPROM block 3
+20001BC5	g_20001BC5	energy_totals	descriptive	EEPROM block 4 (0xBD bytes): work time at +0 (half seconds; IR47/48 = /7200), daily/total energy counters (IR6/7, IR17, IR19, IR36/37)
+20001C82	g_20001C82	cfg_block6	descriptive	EEPROM block 5/6 settings (0xFA bytes): HR230, HR242-299 (inference: time slots, values up to 2400 and up to 100), HR322-353, byte +0x61 enables the remote battery power setpoint (inference: HR494)
+20001D7C	g_20001D7C	cfg_block7	descriptive	EEPROM block 7 image (0xFA bytes)
+20001E76	g_20001E76	cfg_block8	descriptive	EEPROM block 8 image (0xF0 bytes), HR180-186; default first 14 bytes "X"
+20001F66	g_20001F66	cfg_hr360_table	descriptive	table written by HR360-467 (each <= 20000)
+20000EB8	g_20000EB8	eeprom_buf	descriptive	256-byte EEPROM block staging buffer
+20000260	g_20000260	eeprom_dirty	descriptive	bit per EEPROM block to save: 1 settings, 2 cal+fault log, 4 events, 8 energy, 0x10 header, 0x20/0x40/0x80 blocks 6-8
+200001A9	g_200001A9	eeprom_settings_tag_seen	descriptive	set when a block with tag 1 is read
+200001A6	g_200001A6	eeprom_load_failed	descriptive	set at boot when any block fell back to defaults
+200001A7	g_200001A7	eeprom_load_ok	descriptive	set at boot when every block loaded
+200001AB	g_200001AB	grid_country	descriptive	country code 0-28 from HR2 high byte; indexes the grid const tables
+200001A3	g_200001A3	grid_table_set	descriptive	first index of the 0x08036D40 table (always 0 here)
+2000019A	g_2000019A	grid_country_byte_a	descriptive	per-country byte from 0x08036D40, sent to the DSP on page 2
+2000019B	g_2000019B	grid_country_byte_b	descriptive	per-country byte from 0x080372B0, sent to the DSP on page 3
+2000019C	g_2000019C	cfg_changed_flags	descriptive	bit 0 set when grid code or defaults change (HR2, HR163)
+2000019D	g_2000019D	cfg_reset_mode	descriptive	HR163 100/101/200 selects it
+08036D40	c_08036D40	grid_limits_tbl	descriptive	const ushort [2][29][12] per-country voltage/frequency trip limits and times (docs/matching.md round 5)
+080372B0	c_080372B0	grid_limits_tbl2	descriptive	const ushort [29][10] per-country second-stage limits
+080374F4	c_080374F4	grid_limits_tbl3	descriptive	const ushort [29][4] per-country limits
+080375DC	c_080375DC	grid_limits_tbl4	descriptive	const ushort [29] per-country value
+08036B40	c_08036B40	crc16_tbl_hi	likely	Modbus CRC-16 high byte table
+08036C40	c_08036C40	crc16_tbl_lo	likely	Modbus CRC-16 low byte table
+200001AE	g_200001AE	inv_run_mode	descriptive	run mode from the DSP (IR0): 0 waiting, 1 normal, 2 ?, 3 fault, 4 DSP flashing
+2000011C	g_2000011C	fault_flags	descriptive	fault/flag word; 0x40 = USART1 aux link lost, 0x80 = DSP link timeout, 0x100 debounce fault; set/cleared under critical section
+20000120	g_20000120	fault_code_word	descriptive	IR39/40 fault code: DSP fault bits with ARM bits 0xFC0 from fault_flags
+2000023E	g_2000023E	fault_code	descriptive	current fault code = first set bit of fault_flags (+ DSP page 3 value)
+200002D6	g_200002D6	dsp_warning_word	descriptive	DSP warning bits from the D frame bytes 7-8 (IR57); 0 when 0x20001CE4 is 1
+200001B3	g_200001B3	fault_led_on	descriptive	fault LED state mirrored from fault_led_update
+20000096	g_20000096	fault_led_tick	descriptive	blink counter for fault_led_update
+20000095	g_20000095	led_status_tick	descriptive	blink counter for led_status_update
+200001D8	g_200001D8	buzzer_on	descriptive	TIM3 toggles PB5 while this is 1
+20000010	g_20000010	buzzer_div	descriptive	TIM3 divider for the buzzer toggle
+2000000E	g_2000000E	adc_start_toggle	descriptive	TIM3 starts an ADC conversion every second tick
+2000028F	g_2000028F	rtc_time	descriptive	date/time bytes set by HR35-40; used as timestamp in the fault and event logs
+20000396	g_20000396	board_init_done	descriptive	set to 1 at the end of board_init
+2000133A	g_2000133A	dsp_tx_frame	descriptive	ARM->DSP 45-byte frame: 0x43, mode, flags, power rate %, state, power setpoint (2), page no, page data, CRC16
+2000130D	g_2000130D	dsp_rx_frame	descriptive	DSP->ARM 45-byte frame: 0x44, run mode, charge status, fault (4), warning (2), ... page at byte 12, CRC16
+2000022D	g_2000022D	dsp_tx_page	descriptive	rotating page index 0-7 of the ARM->DSP frame
+2000022E	g_2000022E	dsp_rx_pages_seen	descriptive	bit per DSP page 0-3 received
+2000022B	g_2000022B	dsp_rx_idx	descriptive	byte index while assembling the DSP frame
+20000058	g_20000058	dsp_rx_byte	descriptive	byte read from the UART4 queue
+2000005A	g_2000005A	dsp_rx_crc	descriptive	CRC from the received DSP frame
+2000005C	g_2000005C	dsp_rx_crc_errs	descriptive	consecutive bad DSP frames; >50 resets the queue and sets fault 0x80
+2000005D	g_2000005D	dsp_rx_ok_count	descriptive	good DSP frames counted to 10
+20000056	g_20000056	dsp_rx_timeout	descriptive	task periods without a DSP frame; >50 sets fault 0x80
+20000057	g_20000057	dsp_rx_flags	descriptive	event flags returned to task_dsp_rx
+20000052	g_20000052	dsp_tx_flags	descriptive	event flags returned to task_dsp_tx
+20000054	g_20000054	dsp_tx_crc	descriptive	CRC of the ARM->DSP frame
+2000070A	g_2000070A	dsp_bms_raw	descriptive	BMS bytes from DSP page 5 (5 sub-pages x 20 bytes) and page 6 extras; unpacked into bms_modules by 0x08026BA4
+2000004C	g_2000004C	dsp_bms_page_valid	descriptive	page 5 header byte: 1 when BMS data follows
+2000004D	g_2000004D	dsp_bms_subpage	descriptive	page 5 sub-page 0-4
+200003CC	g_200003CC	bms_module_count	descriptive	page 5 bytes 0x23/0x24, returned as IR62/63 of slave 0x31 (inference: number of modules)
+200003CD	g_200003CD	bms_module_info	descriptive	page 5 byte 0x24, returned as IR63 of slave 0x31
+200007A4	g_200007A4	bms_modules	descriptive	per-module BMS records (cells, temps, capacities, cycles, serial) served as IR60-119 of slaves 0x32-0x36
+200003A4	g_200003A4	dsp_flash_mode	descriptive	1 while the DSP firmware is being flashed over UART4
+20000048	g_20000048	dsp_flash_ok_state	descriptive	"O","K" reply detector during DSP flashing
+200003A6	g_200003A6	dsp_flash_ok	descriptive	set when the DSP answers "OK"
+20000308	g_20000308	dsp_flash_step	descriptive	DSP update state
+20000309	g_20000309	dsp_flash_reply	descriptive	set when a 0x0A reply of 5+ bytes arrives during flashing
+200001E0	g_200001E0	pv1_voltage	descriptive	DSP page 0, IR1
+200001E4	g_200001E4	pv2_voltage	descriptive	DSP page 0, IR2
+200001EC	g_200001EC	pv1_current	descriptive	DSP page 0, IR8 (/10)
+200001F0	g_200001F0	pv2_current	descriptive	DSP page 0, IR9 (/10)
+200001F4	g_200001F4	pv1_power	descriptive	DSP page 0 32-bit, IR18 (/10); replaced by 0x20000066/2 when that is > 300
+200001F8	g_200001F8	pv2_power	descriptive	DSP page 2 32-bit, IR20 (/10)
+200001DC	g_200001DC	bus_p_voltage	descriptive	DSP page 1, IR3
+200001B8	g_200001B8	grid_current	descriptive	DSP page 1, IR10 i_ac1 (/10)
+2000018E	g_2000018E	inv_countdown	descriptive	DSP page 0, IR38
+200002D2	g_200002D2	sys_mode	descriptive	DSP page 0, IR49 system mode
+200002D5	g_200002D5	charge_status	descriptive	DSP frame byte 2, IR14; 6 and 7 drive LEDs
+200002DC	g_200002DC	batt_voltage	descriptive	DSP page 0, IR50 (0.01 V)
+200002DE	g_200002DE	batt_current	descriptive	DSP page 0, IR51 (0.01 A)
+200002E3	g_200002E3	batt_soc_dsp	descriptive	DSP page 0 byte (from the BMS via the DSP); copied to batt_soc when battery type is 1
+200002E2	g_200002E2	batt_soc	descriptive	IR59 battery percent; from batt_soc_dsp (lithium) or from voltage between HR97 and HR98 (0x080258D6)
+200002E6	g_200002E6	batt_temp_dsp	descriptive	DSP page 0; becomes IR56 battery temperature when battery type is 1
+20000304	g_20000304	batt_temp	descriptive	IR56 battery temperature, sent back to the DSP on page 0
+200002FC	g_200002FC	charger_temp	descriptive	IR55, sent to the DSP on page 0
+20000300	g_20000300	heatsink_temp	descriptive	IR41, sent to the DSP on page 0
+200002E8	g_200002E8	bus_hv_voltage	descriptive	DSP page 1, IR15
+200002EA	g_200002EA	eps_voltage	descriptive	DSP page 1, IR53
+200002EC	g_200002EC	eps_frequency	descriptive	DSP page 1, IR54
+200002DB	g_200002DB	batt_state_dsp	descriptive	DSP page 3 byte; >= 3 forces SOC 0 in voltage mode
+20000313	g_20000313	batt_full_flag	descriptive	DSP page 2 byte; 1 forces SOC 100
+2000236A	g_2000236A	bms_info_bytes	descriptive	DSP page 4 bytes (16), served as IR217-224 (inference: BMS version/serial)
+20002360	g_20002360	dsp_version_bytes	descriptive	DSP page 3 bytes (10) (inference: DSP firmware/version)
+200002C8	g_200002C8	batt_power_calc	descriptive	battery power; -x/10 is the default setpoint in the C frame; sign drives the charge/discharge panel LEDs
+200003CA	g_200003CA	batt_power_remote	descriptive	HR495; sent as the C-frame power setpoint when cfg_block6+0x61 (HR494) is 1
+20000314	g_20000314	drm_power_limit	descriptive	DRM power limit % (2/40/70/100) from the aux link DRM bits; caps HR50 in the C frame
+20000315	g_20000315	drm0_active	descriptive	DRM0 (disconnect) from the aux link bits
+20000397	g_20000397	batt_cal_request	descriptive	HR175; raises PV start voltage to 155.0 V in page 0 and clears itself after 300 frames with V > 54.0 V and I > 10.00 A (inference: full-charge calibration)
+200003C8	g_200003C8	force_state_hr329	descriptive	HR329; forces state 2 in the C frame and 4 in page 4
+20000066	g_20000066	pv_power_override	descriptive	when > 300, PV1/PV2 power are taken as half of it; also sent on page 4
+20001276	g_20001276	modbus_reply	descriptive	Modbus reply buffer: addr, fc, serial (10), echo of request (4), data
+200011DF	g_200011DF	modbus_tx_buf	descriptive	copy of the reply handed to USART3 or USB CDC
+200010B2	g_200010B2	modbus_rx_buf	descriptive	request bytes assembled by task_modbus_rs485
+20000588	g_20000588	modbus_reg_buf	descriptive	120-byte register staging buffer (60 registers)
+2000060A	g_2000060A	ir_regs	descriptive	IR0-59 image, filled by 0x0802D0EA
+20000682	g_20000682	hr_regs	descriptive	holding-register image used by FC3
+2000030B	cdc_rx_busy	modbus_src	descriptive	request source: 1 USB CDC, 2 USART3 RS485, 0 idle
+2000022A	g_2000022A	modbus_reply_len	descriptive	reply length (0x12 for writes)
+20000228	g_20000228	modbus_req_len	descriptive	expected request length
+20000226	g_20000226	modbus_rx_idx	descriptive	request byte index
+2000007A	g_2000007A	modbus_rx_byte	descriptive	byte read from the USART3 queue
+2000007B	g_2000007B	modbus_rx_idle	descriptive	idle periods; 30 resets the receiver
+2000007C	g_2000007C	modbus_crc	descriptive	CRC computed over the request
+20000068	g_20000068	modbus_no_reply	descriptive	1 when no reply is sent
+2000006C	g_2000006C	modbus_err_reply	descriptive	1 when the reply is an exception (length 0x12)
+20000082	g_20000082	modbus_ir_slave	descriptive	slave address of an IR60-119 request
+20000084	g_20000084	modbus_batt_index	descriptive	battery module index (slave - 0x32)
+20000086	g_20000086	modbus_meter_index	descriptive	meter index (slave - 1)
+2000007E	g_2000007E	modbus_fc22_slave	descriptive	slave of an FC 0x16 request
+20000080	g_20000080	modbus_fc22_index	descriptive	meter index of an FC 0x16 request
+200002EF	g_200002EF	peek_chip	descriptive	HR23: 0 DSP, 1 ARM, for the HR24 address
+200002F2	g_200002F2	peek_addr	descriptive	HR24 memory address (DSP 0xC000-0xE000 or any ARM address); sent to the DSP on page 3
+20003C7A	g_20003C7A	meter_data	descriptive	8 external meter records x 0x2E bytes, filled by the USART2 meter master (0x0802B028)
+20000394	g_20000394	modbus_usb_wait	descriptive	short wait before a USB CDC reply; cleared by SysTick
+20000310	dongle_link_timer	usb_cdc_timer	descriptive	USB CDC keep-alive counter
+20001A66	g_20001A66	uart_rx_q	descriptive	4 packed uart_rx queues (9 bytes each)
+20001A8A	g_20001A8A	uart_tx_q	descriptive	4 packed uart_tx queues (9 bytes each)
+20001750	g_20001750	uart_rx_buf	descriptive	4 receive buffers x 151 bytes; port 0 also holds the aux 0x77 frame
+20000242	g_20000242	rs485_modbus_de_hold	descriptive	SysTick releases PB2 two ticks after the USART3 TX ends
+20000243	g_20000243	rs485_meter_de_hold	descriptive	SysTick releases PA4 two ticks after the USART2 TX ends
+200002C2	g_200002C2	aux_rx_idx	descriptive	USART1 0x77 frame byte index
+200002C0	g_200002C0	aux_rx_state	descriptive	0 receiving; 2 when all 4 pages arrived
+200002C1	g_200002C1	aux_rx_bit	descriptive	1 when frame byte 1 is 0x77
+200002D4	g_200002D4	aux_pages_seen	descriptive	bit per page 0-3
+20000298	g_20000298	drm_bits	descriptive	16 DRM state bits (2 bits per DRM line) from aux frame byte 1 over even/odd pages
+20000011	g_20000011	drm_bits_halves	descriptive	1 | 2 as the two halves of drm_bits arrive
+2000029C	g_2000029C	aux_tx_byte	descriptive	last byte sent to the aux MCU (0x31+page ack, 0x30 sync)
+2000029A	g_2000029A	adc_wave_idx	descriptive	ADC waveform sample index (0xD..0xCC recorded, 1000 = done)
+200021E0	g_200021E0	adc_wave_buf	descriptive	ARM-sampled waveform (192 samples of ADC ch0)
+20002060	g_20002060	aux_wave_buf	descriptive	4 pages x 48 words received from the aux MCU over USART1
+200006FA	g_200006FA	adc_dma_buf	descriptive	8 ADC1 results written by DMA1 channel 1
+20000184	g_20000184	adc_offset_state	descriptive	1 when the 0xE100-0xE400 sample offset averaging has finished
+20000012	g_20000012	adc_offset_samples	descriptive	sample counter for the ADC offset averaging
+20000186	g_20000186	adc_offset_ch0	descriptive	ADC channel 0 offset (default 0x746)
+20000188	g_20000188	adc_offset_ch1	descriptive	ADC channel 1 offset (default 0x746)
+2000018A	g_2000018A	adc_offset_ch5	descriptive	ADC buffer[5] offset (default 0x746)
+20000014	g_20000014	adc_sumsq_ch0	descriptive	running sum of squares of channel 0 over a cycle
+2000001C	g_2000001C	adc_sumsq_ch5	descriptive	running sum of squares of buffer[5]
+20000028	g_20000028	adc_sumsq_ch7	descriptive	running sum of squares of buffer[7]
+2000002C	g_2000002C	adc_sumprod_ch0_ch7	descriptive	running sum of ch0 x buffer[7] (inference: real power)
+20000030	g_20000030	adc_cycle_samples	descriptive	samples in the current cycle
+200002A0	g_200002A0	adc_cycle_n	descriptive	samples in the last full cycle
+200002A4	g_200002A4	adc_cycle_sumsq_ch7	descriptive	last cycle sum of squares of buffer[7]
+200002A8	g_200002A8	adc_cycle_sumprod	descriptive	last cycle sum of products
+2000014C	g_2000014C	adc_cycle_sumsq_ch0	descriptive	last cycle sum of squares of channel 0
+20000154	g_20000154	adc_cycle_sumsq_ch1	descriptive	last cycle sum of squares of channel 1
+20000158	g_20000158	adc_cycle_sumsq_ch5	descriptive	last cycle sum of squares of buffer[5]
+20000020	g_20000020	pd2_low_count	descriptive	debounce of PD2 low
+20000022	g_20000022	pd2_high_count	descriptive	debounce of PD2 high
+20000032	g_20000032	adc_cycle_end	descriptive	set on a PD2 edge; closes the RMS cycle
+20000024	g_20000024	aux_sync_count	descriptive	PD2 cycles counted to 50; at 45 sends 0xAB or 0, at 50 sends 0x30
+20007C6C	g_20007C6C	task_tbl	descriptive	scheduler task table (struct task[], 0x14 bytes each), per a316_types.h
+200004CC	g_200004CC	os_task_dly_idx	descriptive	task index passed to 0x080307CA (delay)
+20003474	USB_OTG_Core	USB_OTG_Core	original	argument of USBH_OTG_ISR_Handler in OTG_FS_IRQHandler (ST USB host examples)
+20003A24	USB_Host	USB_Host	original	USBH_HOST; usr_cb at +0x90 called for OverCurrentDetected in EXTI1_IRQHandler

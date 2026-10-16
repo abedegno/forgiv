@@ -1,0 +1,39 @@
+name: Bug
+description: A gate that fails, a broken tool, or a wrong reading of the firmware in the sources or notes.
+labels: [bug]
+body:
+  - type: dropdown
+    id: tree
+    attributes:
+      label: Which tree
+      options:
+        - inverters/gen3-lv/a316
+        - inverters/gen3-lv/d316
+        - repository tools (fetch_firmware.py, repocheck.py)
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong
+      description: For a reading of the code, give the function or address, what the notes or names say, and what you think the code does instead.
+    validations:
+      required: true
+  - type: textarea
+    id: gate
+    attributes:
+      label: Command and output
+      description: The command you ran and its last lines (for a gate, from the first FAIL to the end).
+      render: text
+  - type: textarea
+    id: setup
+    attributes:
+      label: Set-up
+      description: OS, Python version, Wine version, and the toolchain releases (MDK homes, or CGT versions). Leave out home directories and other personal paths.
+  - type: checkboxes
+    id: images
+    attributes:
+      label: Images
+      options:
+        - label: tools/fetch_firmware.py reports "all firmware in place"

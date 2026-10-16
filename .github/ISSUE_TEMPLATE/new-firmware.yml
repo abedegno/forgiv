@@ -1,0 +1,38 @@
+name: New firmware
+description: Propose a firmware to decompile (a battery, another inverter, another version).
+labels: [new-firmware]
+body:
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      description: Model and generation, for example "Hybrid Gen3 LV inverter" or "9.5 kWh LV battery".
+    validations:
+      required: true
+  - type: input
+    id: firmware
+    attributes:
+      label: Which firmware
+      description: The version and the chip if known (ARM, DSP, BMS), for example "A317" or "BMS 3020".
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Where to get it
+      description: A public URL for the package (a commit-pinned link into a public archive is best) and the member names inside it. No uploads of images to this repository.
+    validations:
+      required: true
+  - type: textarea
+    id: sha256
+    attributes:
+      label: sha256
+      description: The sha256 of the package and of each image in it (shasum -a 256 FILE).
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: toolchain
+    attributes:
+      label: What is known about it
+      description: Microcontroller, image layout, the toolchain if you have fingerprinted it, and whether you plan to do the work.

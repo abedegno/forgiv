@@ -1,0 +1,34 @@
+# GivEnergy Hybrid Gen3 LV inverter, ARM firmware A316: byte-exact decompilation.
+# The tools read this through tools/a316env.py, which can replace the two homes (MDK_HOME,
+# MDK_LIBHOME or toolchain.local.toml).
+[project]
+name = "gen3-lv-a316"
+root = "."
+build = "build"
+
+[toolchain]
+profile = "armcc5"
+home = "toolchain/MDK521"          # armcc 5.06 (MDK 5.21 or later): 5.11 to 5.15 write a flag-setting copy (`subs rd, rn, #0`, 7 in the image) as `movs rd, rn`; 5.16 to 5.20 add a cmp to a switch dispatch (meter.c, then f0802B028)
+c_opts = "--cpu Cortex-M3 -O0 --split_sections"
+
+[binary]
+image = "../../../firmware/gen3-lv/A316.hex"   # ARMStore.bin less its 4-byte header, at 0x08014000 (tools/fetch_firmware.py makes it)
+
+# tools/gate.py (docs/gate.md): verify every source under src/, link the library's startup and
+# members, link the rest in pieces with original-byte blobs, compare with the shipped file
+[gate]
+bin = "../../../firmware/gen3-lv/A316_ARMStore.bin"   # 4-byte header (u16 version, u16 0x5566), then the image
+version = 316
+magic = "5566"
+jobs = 4                              # Wine worker processes (each its own prefix under build/gate/wine)
+libhome = "toolchain/MDK516"          # the library: MDK 5.16 to 5.21 link these bytes, 5.11 to 5.15 do not (exit.o)
+# what the library link supplies: __main to the end of __rt_exit, and the members after the code
+lib_ranges = [["08014150", "0801422C"], ["0803675C", "08036B40"]]
+# the library entry points the application's objects (and the startup file) reference, so the
+# members load in the original's resolution passes
+lib_requests = ["__main", "__use_two_region_memory", "strcpy", "strcmp", "__aeabi_memclr",
+                "__aeabi_f2iz", "__aeabi_f2uiz", "__aeabi_fmul"]
+# what the library needs from the application and the startup file
+lib_symdefs = { main = "08014242", __user_initial_stackheap = "0802D6C4", __ARM_use_no_argv = "0" }
+libspace = "20008834"                 # the library's __libspace (.bss, 0x60), from __user_libspace's pool
+heap = "20008898"                     # the startup file's HEAP then STACK, to the end of RAM use

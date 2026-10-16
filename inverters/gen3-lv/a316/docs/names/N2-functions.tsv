@@ -1,0 +1,160 @@
+addr	old	new	basis	note
+0802523A	sub_0802523A	calib_table_defaults	descriptive	fills the 0x44-byte table at 0x20001B81 with 0x400 (gain 1.0 in Q10) and zeroes every odd word (offsets)
+08025284	sub_08025284	ntc_heatsink_temp_update	likely	piecewise-linear NTC curve on ADC value g_200002FE, 128-sample mean into g_20000300, which is IR41 (temp_inverter_heatsink)
+08025494	sub_08025494	ntc_charger_temp_update	likely	same NTC curve on g_200002FA, 128-sample mean into g_200002FC, which is IR55 (temp_charger)
+080256D8	sub_080256D8	ntc_stub	descriptive	empty function, called from the monitor task between the two NTC updates
+080256DA	sub_080256DA	ntc_battery_temp_update	likely	same NTC curve on g_20000302 (battery NTC word from the CT sample block), mean into g_20000304 = IR56 (temp_battery); used only when no BMS (battery_type 0)
+080258D6	sub_080258D6	batt_soc_from_voltage	descriptive	SOC% = (v_batt - v_empty)*100/(v_full - v_empty) from g_200002DC and settings 0x20001B2C/2E; cap 97% in charge_status 2/3; 0 when DSP battery state >=3; 100 when g_20000313
+080259DE	sub_080259DE	drm_mode_eval	likely	AS/NZS 4777 demand response modes: for Australian grid codes (0x2,3,8,0xC,0x14,0x15) with HR41 enable_drm_rj45 set, decodes 2-bit DRM inputs into a power limit 2/40/70/100% (g_20000314) and DRM0 (g_20000315)
+08025B80	sub_08025B80	power_flow_update	descriptive	combines meter readings (up to 8 meters, HR7 mask) or the CT clamp into grid/load/PV powers and day/total energies (IR5,13,16,21-35,42,58)
+08026426	sub_08026426	task_monitor	descriptive	task prio 5 (main creates it at 0x08026427, 20 ms): LEDs, NTC temps, SOC, CT RMS/power from sample blocks, power flow, fault logging, task period setup
+08026BA4	sub_08026BA4	inv_output_enable_ctrl	descriptive	drives PB5 (sub_080246EA) on/off from DSP run flag g_200001D2, inverter status and fault word; sets g_200001D8 after 20 ticks enabled
+08026C28	sub_08026C28	calib_apply_q10	descriptive	(x*gain + offset) >> 10, clamped at 0, 16-bit result
+08026C40	sub_08026C40	bms_poll	descriptive	battery pack poller: every 500 calls asks pack 1..5 for registers 0(21), 21(19), 40(20) with function 4; parses status, temps (-30.0..70.0 C), capacities, SOC (<=100), 16 cell voltages (2200..3700 mV) into bms_pack_info[]
+08027318	sub_08027318	bms_update_fail_flag_load	descriptive	once, 10 ticks after start: copies the stored flag 0x20001BB5 (set when a BMS firmware update failed) into g_200003AA, clears it and asks for a settings save
+0802735A	sub_0802735A	task_measure	descriptive	task prio 0 (period 25, ADC interrupt posts flag 2): output enable, RMS values via isqrt, BMS poll
+08027474	sub_08027474	crc32_init	descriptive	*crc = 0xFFFFFFFF; used before BMS firmware transfer
+0802747C	sub_0802747C	bit_reflect	descriptive	reverses the low n bits of a value (CRC reflection)
+080274A0	sub_080274A0	crc32_table_init	descriptive	builds the 256-entry reflected CRC-32 table at 0x20000AB8 from a polynomial
+080274DE	sub_080274DE	crc32_update	descriptive	table-driven reflected CRC-32 over a buffer
+08027506	sub_08027506	fault_lowest_bit	descriptive	returns 1..32 for the lowest set bit of the fault word, 0 if none (fault code shown/logged)
+0802752C	sub_0802752C	energy_accumulate	descriptive	every 0.5 s integrates grid import/export, PV1/PV2, inverter in/out, battery charge/discharge and load powers into 0.1 kWh day/total counters (3,600,000 W*0.5s units); resets day counters at midnight
+08027A80	sub_08027A80	max3_u32	descriptive	largest of three values
+08027A9E	sub_08027A9E	sched_slot_soc_targets	descriptive	picks the charge target SOC (g_2000039F) and discharge stop SOC (g_2000039E) from whichever of 10 charge and 10 discharge time slots contains the current HHMM
+0802887C	sub_0802887C	sched_charge_slots_eval	descriptive	sets g_200002D8 (charge from grid) when enable_charge and system_mode allow and the time is inside any of 10 charge slots (slot 1 = HR94/95)
+08028E60	sub_08028E60	sched_discharge_slots_eval	descriptive	sets g_200002D9 (forced discharge) when enable_discharge (HR59) and the time is inside any of 10 discharge slots (slot 1 = HR56/57, slot 2 = HR44/45); skipped while charging
+08029460	sub_08029460	sched_halfhour_table_eval	descriptive	table mode (settings_ext[0]==1): two 48-entry half-hourly tables at 0x20001F66, >10000 meaning negative, against three thresholds choose discharge, charge or hold (inference: tariff/price table)
+08029548	sub_08029548	batt_night_recovery_charge	descriptive	between 01:00 and 04:59, if the battery is flat for 60 s (lead acid: v_batt more than 500 units below the empty-voltage setting; lithium: SOC 0 or 10 below reserve) forces grid charging for a set number of minutes (setting 0x20001B45)
+0802965E	sub_0802965E	status_outputs_update	descriptive	sets six indicator outputs (sub_08024AE8..B76): load > 500 W, PV voltage > 100.0 V, import/export, charge_status
+08029712	sub_08029712	sys_tick_1s	descriptive	1 s housekeeping in the schedule task: RTC read, USB power-cycle timer, fault-latch timers, periodic save request, energy accumulation once the RTC is up
+0802993E	sub_0802993E	sched_window_value	descriptive	g_2000038C = setting 0x20001B74 while HHMM is inside the window 0x20001B75..77, else 0 (purpose not identified)
+080299D0	sub_080299D0	sched_charge_discharge_eval	descriptive	runs both slot evaluators, applies HR29 soc_force_adjust bits (force discharge/charge), else night recovery; charge wins over discharge
+08029A3A	sub_08029A3A	batt_auto_judge_type	descriptive	HR58 enable_auto_judge_battery_type: no BMS -> battery_type 0 (lead acid), 125 Ah, limit 20; BMS seen -> battery_type 1, limit 50; requests a save
+08029AA6	sub_08029AA6	task_schedule	descriptive	task prio 6 (500 ms): RTC init retry, charge/discharge scheduling, SOC targets, 1 s housekeeping, outputs
+08029C84	sub_08029C84	USB_OTG_BSP_TimeInit	original	ST USB host usb_bsp.c: TIM2 NVIC (IRQ 28) and APB1 clock for the delay timer
+08029CB2	sub_08029CB2	USB_OTG_BSP_Init	original	ST usb_bsp.c: OTG FS clock (RCC_OTGFSCLKConfig, AHB 0x1000) then the timer init
+08029CCA	sub_08029CCA	USB_OTG_BSP_EnableInterrupt	original	ST usb_bsp.c: NVIC OTG_FS_IRQn (0x43), group 1, prio 1/3; called from USBH_Init
+08029CF6	sub_08029CF6	USB_OTG_BSP_DriveVBUS	original	ST usb_bsp.c: called from usb_core with (pdev, state); empty here
+08029CF8	sub_08029CF8	BSP_SetTime	original	ST usb_bsp.c: TIM2 period 0x2EDF (ms) or 0xB (us), prescaler 5
+08029D66	sub_08029D66	BSP_Delay	original	ST usb_bsp.c: sets BSP_delay, starts TIM2, spins until 0
+08029D8C	sub_08029D8C	USB_OTG_BSP_mDelay	original	ST usb_bsp.c: BSP_Delay(n, TIM_MSEC_DELAY=1)
+08029D9A	sub_08029D9A	USB_OTG_BSP_ConfigVBUS	original	ST usb_bsp.c: only the mDelay(200) left; called with pdev from usb_core and USBH_Init
+08029DA6	sub_08029DA6	USB_OTG_BSP_uDelay	original	ST usb_bsp.c: BSP_Delay(n, TIM_USEC_DELAY=2)
+08029DB4	sub_08029DB4	USB_OTG_BSP_TimerIRQ	original	ST usb_bsp.c: TIM2 update -> decrement BSP_delay; called from TIM2_IRQHandler
+08029DEC	sub_08029DEC	USBH_USR_Init	original	slot 0 of USR_cb (0x200003E0) in USBH_Usr_cb_TypeDef order
+08029DFA	sub_08029DFA	USBH_USR_DeviceAttached	original	USR_cb slot 2
+08029DFC	sub_08029DFC	USBH_USR_UnrecoveredError	original	USR_cb slot 17
+08029DFE	sub_08029DFE	USBH_USR_DeviceDisconnected	original	USR_cb slot 4; clears update states, usb_device_inserted, class back to 2
+08029E2E	sub_08029E2E	USBH_USR_ResetDevice	original	USR_cb slot 3
+08029E30	sub_08029E30	USBH_USR_DeviceSpeedDetected	original	USR_cb slot 6 (speed 0/1 check left)
+08029E3A	sub_08029E3A	USBH_USR_Device_DescAvailable	original	USR_cb slot 7
+08029E3C	sub_08029E3C	USBH_USR_DeviceAddressAssigned	original	USR_cb slot 8
+08029E3E	sub_08029E3E	USBH_USR_Configuration_DescAvailable	original	USR_cb slot 9; bInterfaceClass 8 -> MSC, 2 -> CDC
+08029E6A	sub_08029E6A	USBH_USR_Manufacturer_String	original	USR_cb slot 10
+08029E6C	sub_08029E6C	USBH_USR_Product_String	original	USR_cb slot 11
+08029E6E	sub_08029E6E	USBH_USR_SerialNum_String	original	USR_cb slot 12
+08029E70	sub_08029E70	USBH_USR_EnumerationDone	original	USR_cb slot 13; stores a CDC receive callback (0x08022C51) at 0x20000554
+08029E78	sub_08029E78	USBH_USR_DeviceNotSupported	original	USR_cb slot 16
+08029E7A	sub_08029E7A	USBH_USR_UserInput	original	USR_cb slot 14; returns USBH_USR_RESP_OK
+08029E7E	sub_08029E7E	USBH_USR_OverCurrentDetected	original	USR_cb slot 5
+08029E80	sub_08029E80	usb_disk_getfree	likely	f_getfree wrapper returning total and free KB ((n_fatent-2)*csize/2, nclst*csize/2); the common exf_getfree helper
+08029ECA	sub_08029ECA	usb_check_update_files	descriptive	opens 0:DSPStore.bin (newer same-major DSP version), 0:ARMStore.bin (header magic 0x5566; version >1000 = BMS image, <1000 same major = ARM self-update); with 0:MSN.txt and nothing to do, deletes both images
+0802A060	sub_0802A060	USBH_USR_MSC_Application	original	USR_cb slot 15; MSC: mount 0:, check updates, 0:SN.txt writes the inverter serial; CDC: start the CDC link
+0802A13C	sub_0802A13C	USBH_USR_DeInit	original	USR_cb slot 1; resets USBH_USR_ApplicationState
+0802A144	sub_0802A144	usb_read_msn_file	descriptive	reads 10 bytes of 0:MSN.txt (keeps the stick busy during long updates)
+0802A166	sub_0802A166	dsp_fw_update_process	descriptive	streams DSPStore.bin to the DSP over port 3: 0x0A frames 'W' start, 'S' address, 'D' 128-byte blocks, 'E' end, sum checksum, ack 0x0A 0x4F; LEDs alternate
+0802A680	sub_0802A680	arm_fw_update_arm_bootflag	descriptive	ARM self-update: programs 0 into the version word at 0x08013FFC (image header) so the bootloader takes ARMStore.bin
+0802A726	sub_0802A726	bms_fw_update_process	descriptive	relays a battery firmware image (ARMStore.bin with version >1000) on port 3 in 1 KB frames 'BMS',1,'HED' + data + sum + 'E', then 'BMS',1,'END' + CRC-32
+0802AAA8	sub_0802AAA8	RTC_NVIC_Config	likely	NVIC RTC_IRQn (3) enable; the common STM32 RTC calendar code
+0802AAC8	sub_0802AAC8	RTC_Get_Week	likely	day of week from year/month/day with table_week (names in docs/matching.md round 5)
+0802AB3C	sub_0802AB3C	Is_Leap_Year	likely	leap-year test; same RTC calendar code
+0802AB76	sub_0802AB76	RTC_Get	likely	RTC counter -> calendar (seconds since 1970, year stored -2000)
+0802AC66	sub_0802AC66	RTC_Set	likely	calendar -> RTC_SetCounter, years 1970..2099
+0802AD1E	sub_0802AD1E	RTC_Init	likely	LSE start (250 tries via OS delay), prescaler 0x7FFF, default 2017-03-01 02:03:04, marker 0xA5A5/0x5050 in BKP DR4
+0802ADDA	sub_0802ADDA	RTC_IRQHandler	original	vector table RTC entry (startup file at: line)
+0802AE06	sub_0802AE06	RTC_Alarm_Set	likely	calendar -> RTC_SetAlarm; same RTC calendar code; unused
+0802AEE0	sub_0802AEE0	usb_cdc_line_coding_init	descriptive	line coding at 0x20000580: 57600 baud, 8 data bits, 1 stop, no parity
+0802AEF4	sub_0802AEF4	task_usb	descriptive	task prio 7 (main creates it at 0x0802AEF5): USBH_Init with the CDC or MSC class by detected class, then USBH_Process
+0802AFD4	sub_0802AFD4	be_bytes_to_float	descriptive	big-endian 4 bytes to IEEE float (meter readings)
+0802AFF2	sub_0802AFF2	bin_to_bcd	descriptive	two-digit BCD of a value, n digit pairs deep
+0802B028	sub_0802B028	meter_poll	descriptive	Modbus RTU master on port 1: polls meters 1..8 (HR7 mask) with function 4 registers 0x10..0x166, 0xFF00.., 0x524/5; also reads/writes the device at address 0x11 (fn 3 0xCA x38, fn 6 reg 0xE7); 2000-tick silence sets the meter fault
+0802C0D6	sub_0802C0D6	meter_parse_fc04	descriptive	float input registers into meter_data[addr-1]: V x10, I x100, power x10 (EM115) or kW x10000 (EM418), direction reversed per HR48/49 bit, import/export energy and day baselines
+0802C94C	sub_0802C94C	meter_parse_fc03	descriptive	holding-register replies (steps 9..15) into 32/16-bit fields of meter_data[addr-1]
+0802CA80	sub_0802CA80	dev11_power_cmd_update	descriptive	value for the address-0x11 device register 0xE7: 36000 when settings_ext+0x5F set, else export power when HR27 battery_power_mode=1 and no slot active (inference: export diversion)
+0802CAF8	sub_0802CAF8	meter_rx_frame	descriptive	CRC check (either byte order) of a meter reply, dispatch fn 3/4, clear error counters
+0802CBC0	sub_0802CBC0	dev11_parse_fc03	descriptive	CRC check and unpack of the 0x11 device's 38-register reply into 0x20002028
+0802CE2E	sub_0802CE2E	modbus_hr_update	likely	fills holding registers HR0..59 at 0x20000682 (device type 0x2001-3, serials, HR21 ARM version 316, HR34 modbus version 140, HR35-40 clock, battery_type HR54...)
+0802D0EA	sub_0802D0EA	modbus_ir_update	likely	fills input registers IR0..59 at 0x2000060A (status, PV, grid, energies, temps, v/i/p battery, SOC IR59)
+0802D412	sub_0802D412	modbus_regs_update	descriptive	modbus_hr_update + modbus_ir_update
+0802D41E	sub_0802D41E	task_meter	descriptive	task prio 4 (main creates it at 0x0802D41F): byte receiver/framer for port 1 meter replies, register refresh every 5 passes, poll step
+0802D6A8	sub_0802D6A8	Reset_Handler	original	reset vector 0x0802D6A9; startup_stm32f10x_cl.s
+0802D6C2	sub_0802D6C2	Default_Handler	original	50 vector entries point to 0x0802D6C3 (B .); startup file
+0802D6C4	sub_0802D6C4	__user_initial_stackheap	original	startup file at: line; Keil stack/heap hook
+08030298	sub_08030298	OS_SchedNew	likely	highest ready priority from OSRdyGrp via OSUnMapTbl (returns it)
+080302F2	sub_080302F2	OS_Sched	likely	docs/matching.md: calls OSCtxSw
+08030328	sub_08030328	OS_InitStkPool	descriptive	zeroes the task stack pool 0x20003DEC (4000 words) and sets the stack allocation pointer to its top
+08030344	sub_08030344	OS_InitMisc	likely	zeroes OSRdyGrp, OSPrioCur, OSPrioHighRdy, OSTCBHighRdy, OSTCBCur
+0803035C	sub_0803035C	OS_InitTCBList	likely	clears the 11 TCBs
+080303A4	sub_080303A4	OSTaskStkInit	original	uC/OS-II Cortex-M3 port: xPSR 0x01000000, LR 0xFFFFFFFE, R12 0x12121212 ... R4 0x04040404
+0803043E	sub_0803043E	OSTaskSwHook	likely	empty function after OSTaskStkInit, as in os_cpu_c.c; nothing calls it
+08030440	sub_08030440	OS_ENTER_CRITICAL	likely	wrapper calling 0x0801422C (interrupt disable)
+08030448	sub_08030448	OS_EXIT_CRITICAL	likely	wrapper calling 0x08014230 (interrupt enable)
+080304E4	sub_080304E4	os_flags_pend	descriptive	current task waits until a flag outside the mask is posted; returns the flags and keeps only masked ones
+08030556	sub_08030556	os_flags_accept	descriptive	returns and clears the current task's posted flags
+08030576	sub_08030576	os_flags_post	descriptive	posts flags to a task and makes it ready (critical section)
+080305B0	sub_080305B0	os_flags_post_isr	descriptive	same without the critical section (tick and ISR use)
+080305EC	sub_080305EC	OSInit	likely	stack pool, misc and TCB init
+080305FC	sub_080305FC	OSStart	likely	docs/matching.md; calls OSStartHighRdy
+0803062E	sub_0803062E	OSTaskCreate	likely	(task, arg, stack words, prio): carves the stack from the pool, OSTaskStkInit, fills the TCB; main creates 8 tasks
+08030686	sub_08030686	OSIntExit	likely	docs/matching.md; calls OSIntCtxSw
+080306BC	sub_080306BC	OSTaskStkChk	likely	counts unused (zero) stack words of a task
+08030738	sub_08030738	OSTimeTick	likely	from SysTick_Handler: per-task period counters post flag 1
+0803076E	sub_0803076E	OS_CPU_SysTickInit	likely	SysTick_Config(SystemCoreClock/1000), 1 ms tick
+080307CA	sub_080307CA	os_task_delay	descriptive	(prio, first, period): sleep for `first` ticks via the task's period counter, then restore the period
+0803083C	sub_0803083C	ld_word	original	FatFs R0.12c ff.c, in source order
+08030848	sub_08030848	ld_dword	original	FatFs R0.12c
+08030860	sub_08030860	st_word	original	FatFs R0.12c
+0803086C	sub_0803086C	st_dword	original	FatFs R0.12c
+08030884	sub_08030884	mem_cpy	original	FatFs R0.12c
+0803089E	sub_0803089E	mem_set	original	FatFs R0.12c
+080308B0	sub_080308B0	mem_cmp	original	FatFs R0.12c
+080308D4	sub_080308D4	chk_chr	original	FatFs R0.12c
+080308E8	sub_080308E8	sync_window	original	FatFs R0.12c
+0803093A	sub_0803093A	move_window	original	FatFs R0.12c
+0803096E	sub_0803096E	sync_fs	original	FatFs R0.12c
+080309F4	sub_080309F4	clust2sect	original	FatFs R0.12c
+08030A0E	sub_08030A0E	get_fat	original	FatFs R0.12c
+08030AEE	sub_08030AEE	put_fat	original	FatFs R0.12c
+08030C26	sub_08030C26	remove_chain	original	FatFs R0.12c
+08030CC0	sub_08030CC0	create_chain	original	FatFs R0.12c (free_clst <= n_fatent-2 test)
+08030DA8	sub_08030DA8	dir_sdi	original	FatFs R0.12c
+08030E42	sub_08030E42	dir_next	original	FatFs R0.12c
+08030F4E	sub_08030F4E	dir_alloc	original	FatFs R0.12c
+08030FAE	sub_08030FAE	ld_clust	original	FatFs R0.12c
+08030FD4	sub_08030FD4	st_clust	original	FatFs R0.12c
+08030FF8	sub_08030FF8	dir_read	original	FatFs R0.12c (dp, vol)
+0803106C	sub_0803106C	dir_find	original	FatFs R0.12c
+080310D8	sub_080310D8	dir_register	original	FatFs R0.12c
+08031114	sub_08031114	dir_remove	original	FatFs R0.12c
+08031134	sub_08031134	get_fileinfo	original	FatFs R0.12c
+080311C0	sub_080311C0	create_name	original	FatFs R0.12c
+0803128C	sub_0803128C	follow_path	original	FatFs R0.12c
+0803132E	sub_0803132E	get_ldnumber	original	FatFs R0.12c
+08031376	sub_08031376	check_fs	original	FatFs R0.12c
+080313EA	sub_080313EA	find_volume	original	FatFs R0.12c
+080316F2	sub_080316F2	validate	original	FatFs R0.12c
+0803172E	sub_0803172E	f_mount	original	FatFs R0.12c (called with "0:")
+08031784	sub_08031784	f_open	original	FatFs R0.12c
+08031972	sub_08031972	f_read	original	FatFs R0.12c
+08031B1E	sub_08031B1E	f_write	original	FatFs R0.12c
+08031CFC	sub_08031CFC	f_sync	original	FatFs R0.12c
+08031D9C	sub_08031D9C	f_close	original	FatFs R0.12c (calls f_sync)
+08031DBE	sub_08031DBE	f_lseek	original	FatFs R0.12c
+08031F42	sub_08031F42	f_opendir	original	FatFs R0.12c
+08031FB2	sub_08031FB2	f_closedir	original	FatFs R0.12c
+08031FCA	sub_08031FCA	f_readdir	original	FatFs R0.12c
+08032018	sub_08032018	f_stat	original	FatFs R0.12c
+08032056	sub_08032056	f_getfree	original	FatFs R0.12c (path, &nclst, &fs)
+08032152	sub_08032152	f_truncate	original	FatFs R0.12c
+08032204	sub_08032204	f_unlink	original	FatFs R0.12c; called with "0:DSPStore.bin", "0:ARMStore.bin"
+080322AE	sub_080322AE	f_mkdir	original	FatFs R0.12c

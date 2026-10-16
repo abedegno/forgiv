@@ -1,0 +1,21 @@
+# Repository hygiene only. CI has neither the toolchains (Keil, TI) nor the firmware images,
+# so it cannot run the gates; each tree's gate runs locally (CONTRIBUTING.md).
+name: check
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  repocheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Repository checks
+        run: python3 tools/repocheck.py

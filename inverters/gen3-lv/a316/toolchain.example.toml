@@ -1,0 +1,9 @@
+# Copy to toolchain.local.toml (gitignored) and set what differs on your machine. Environment
+# variables of the same names in capitals win over this file (tools/a316env.py). Paths may start
+# with ~ and are relative to this directory otherwise.
+
+# exhume = "../../../../Exhume"                  # an Exhume checkout (EXHUME)
+# mdk_toolchain = "toolchain"                    # directory of MDK homes MDKnnn (MDK_TOOLCHAIN)
+# mdk_home = "toolchain/MDK521"                  # compile home, MDK 5.21 or later (MDK_HOME)
+# mdk_libhome = "toolchain/MDK516"               # library home, MDK 5.16 or later (MDK_LIBHOME)
+# wine_bin = "/Applications/Wine Devel.app/Contents/Resources/wine/bin"   # (WINE_BIN)

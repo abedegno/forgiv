@@ -1,0 +1,182 @@
+addr	old	new	basis	note
+20000034	g_20000034	SystemCoreClock	original	CMSIS system_stm32f10x.c; OS_CPU_SysTickInit divides it by 1000
+200004A6	g_200004A6	OSUnMapTbl	likely	priority lookup by 4-bit ready nibble (0xFF,0,1,0,2,0,1,0,3...); OS_SchedNew
+200004C8	g_200004C8	OSRdyGrp	likely	16-bit ready mask, one bit per task priority
+200004CA	g_200004CA	OSPrioHighRdy	likely	named in src/include/rtos_types.h and os_cpu_a.s
+200004CC	g_200004CC	OSPrioCur	likely	same; app code passes it to os_task_delay to sleep the current task
+200004D0	g_200004D0	OSTCBHighRdy	likely	same
+200004D4	g_200004D4	OSTCBCur	likely	same
+200004D8	g_200004D8	os_stk_next	descriptive	next free top of the task stack pool; OSTaskCreate moves it down
+20003DEC	g_20003DEC	os_stk_pool	descriptive	task stack pool (OS_InitStkPool zeroes 4000 words)
+20007C68	g_20007C68	os_stk_pool_top	descriptive	word at the top of the stack pool; initial os_stk_next
+20007C6C	g_20007C6C	OSTCBTbl	likely	11 TCBs of 20 bytes (rtos_types.h OS_TCB)
+2000028F	g_2000028F	rtc_calendar	likely	sec, min, hour, day, month, year-2000, weekday; filled by RTC_Get; HR35-40
+20000464	g_20000464	rtc_daycnt	likely	last day count RTC_Get converted (the RTC calendar code's static daycnt)
+200000ED	g_200000ED	rtc_ready	descriptive	set once RTC_Init has run (or failed twice); gates energy accumulation
+200003D8	g_200003D8	BSP_delay	original	ST usb_bsp.c static __IO uint32_t BSP_delay
+200003E0	g_200003E0	USR_cb	original	USBH_Usr_cb_TypeDef with the 18 USBH_USR_* callbacks (initial RAM image)
+200003DC	g_200003DC	USBH_USR_ApplicationState	likely	MSC application state; USBH_USR_DeInit resets it
+20000430	g_20000430	usb_usr_init_done	descriptive	USBH_USR_Init first-call flag
+2000030A	g_2000030A	usb_class_code	descriptive	2 = CDC device, 8 = mass storage (from the interface descriptor)
+200002EE	g_200002EE	usb_device_inserted	likely	HR22; 2 = CDC, 8 = stick
+20000306	g_20000306	usb_start_delay	descriptive	counts to 20 s after boot before task_usb starts the host
+200002BC	g_200002BC	usb_reset_state	descriptive	USB power-cycle state machine (OTG clock off, 0xAB byte on USART1, restart)
+2000237C	g_2000237C	usb_fatfs	descriptive	FATFS object mounted at "0:"
+20003024	g_20003024	fil_update	descriptive	FIL for the DSP/BMS image being streamed
+20002DFC	g_20002DFC	fil_arm_image	descriptive	FIL for 0:ARMStore.bin checks
+200027D4	g_200027D4	fil_msn	descriptive	FIL for 0:MSN.txt
+200025AC	g_200025AC	fil_tmp	descriptive	FIL for SN.txt and existence checks
+200029FC	g_200029FC	usb_file_buf	descriptive	1 KB read buffer for update files
+2000133A	g_2000133A	fwupd_tx_frame	descriptive	port-3 frame buffer for DSP ('W','S','D','E') and BMS ('BMS',1,'HED'/'END') firmware transfer
+20000244	g_20000244	dsp_fw_version	likely	HR19; compared with the first word of DSPStore.bin
+20000307	g_20000307	arm_update_state	descriptive	1 = update ARM from stick, 2 = boot flag cleared
+20000308	g_20000308	dsp_update_state	descriptive	DSP transfer state (1..5, 0xA2..0xA4 waiting for ack)
+20000309	g_20000309	dsp_update_ack	descriptive	ack frame received from the DSP
+20000432	g_20000432	dsp_update_timeout	descriptive	ticks since last DSP ack; 2000 restarts
+20000434	g_20000434	dsp_update_base	descriptive	start address sent in the 'S' frame
+20000438	g_20000438	dsp_update_cur	descriptive	current word address of the DSP transfer
+2000043C	g_2000043C	dsp_update_end	descriptive	end word address (base + file size/2)
+20000440	g_20000440	dsp_update_chunk	descriptive	bytes in the current 'D' block (max 128)
+20000444	g_20000444	dsp_update_block	descriptive	block number of the DSP transfer
+200003A8	g_200003A8	bms_update_pending	descriptive	set when ARMStore.bin carries a battery image (version > 1000) and a BMS is fitted
+20000448	g_20000448	bms_update_state	descriptive	battery image relay state (0,1,2,0xA0..0xA2)
+2000044C	g_2000044C	bms_update_base	descriptive	start word address of the battery image
+20000450	g_20000450	bms_update_cur	descriptive	current word address
+20000454	g_20000454	bms_update_end	descriptive	end word address
+20000458	g_20000458	bms_update_chunk	descriptive	bytes in the current 1 KB frame
+2000045C	g_2000045C	bms_update_block	descriptive	frame counter
+20000460	g_20000460	bms_update_end_count	descriptive	repeats of the END frame
+20000462	g_20000462	bms_update_timeout	descriptive	ticks waiting for the battery ack; 300 gives up
+200003A6	g_200003A6	bms_update_ack	descriptive	battery acked the last frame
+200003A7	g_200003A7	bms_update_last	descriptive	last frame sent
+200000F0	g_200000F0	bms_update_crc32	descriptive	running CRC-32 of the battery image, sent inverted in the END frame
+20000AB8	g_20000AB8	crc32_table	descriptive	256-entry CRC-32 table
+200003AA	g_200003AA	bms_update_failed	descriptive	a battery firmware update failed (from the stored flag); blocks further tries
+2000039A	g_2000039A	bms_chip_version	likely	HR46; a battery image is only relayed when nonzero
+200003A2	g_200003A2	bms_fw_version	likely	HR18
+20000312	g_20000312	usb_sn_written	descriptive	0:SN.txt has rewritten the inverter serial
+2000070A	g_2000070A	bms_comm	descriptive	battery poll link: header, 0x82-byte reply, 0x14-byte request, tx-pending and rx-ready flags
+200007A4	g_200007A4	bms_pack_info	descriptive	6 records of 0x83 bytes, one per battery pack (status, temps, capacities, SOC, 16 cell mV)
+200000DE	g_200000DE	bms_poll_timer	descriptive	500-call divider between requests
+200000E0	g_200000E0	bms_poll_addr	descriptive	pack address 1..5
+200000E1	g_200000E1	bms_rx_pack	descriptive	pack index of the reply being parsed
+200000E2	g_200000E2	bms_poll_reg	descriptive	first register 0/21/40
+200000E4	g_200000E4	bms_poll_count	descriptive	register count 21/19/20
+200000E6	g_200000E6	bms_poll_step	descriptive	0..3 request step
+200003AC	g_200003AC	bms_packs_online	descriptive	packs whose status word bit 0 is set
+200003AE	g_200003AE	bms_present	descriptive	BMS-present word from the DSP frame; auto battery-type judging uses it
+200002E3	g_200002E3	bms_soc	likely	SOC from the DSP frame (BMS value); IR59 when battery_type = 1
+200002E6	g_200002E6	bms_temperature	likely	battery temperature from the DSP frame; IR56 when battery_type = 1
+200001AE	g_200001AE	inv_status	likely	IR0 status (0 waiting, 1 normal, 2 warning, 3 fault, 4 update); LED patterns follow it
+200002D5	g_200002D5	charge_status	likely	IR14; 7 stops scheduling; 6 lights the warning LED
+200002D2	g_200002D2	system_mode	likely	IR49 (0 off-grid, 1 grid-tied: inference)
+200002DC	g_200002DC	v_battery	likely	IR50, from the DSP frame
+200002DE	g_200002DE	i_battery	likely	IR51
+20000324	g_20000324	p_battery	likely	IR52
+200002E0	g_200002E0	p_battery_dsp	descriptive	battery power /10 from the DSP; integrated as charge/discharge energy
+200002E2	g_200002E2	battery_soc	likely	IR59; BMS SOC or batt_soc_from_voltage
+200002DB	g_200002DB	dsp_batt_state	descriptive	DSP-reported battery state; >=3 forces SOC 0
+20000313	g_20000313	batt_full_flag	descriptive	DSP flag forcing SOC 100
+200002FE	g_200002FE	adc_ntc_heatsink	descriptive	raw ADC from the ADC interrupt
+200002FA	g_200002FA	adc_ntc_charger	descriptive	raw ADC from the ADC interrupt
+20000302	g_20000302	adc_ntc_battery	descriptive	raw battery NTC word from the CT sample block
+20000300	g_20000300	temp_inverter_heatsink	likely	IR41
+200002FC	g_200002FC	temp_charger	likely	IR55
+20000304	g_20000304	temp_battery	likely	IR56
+20000098	g_20000098	ntc_heatsink_acc	descriptive	128-sample sum
+2000009C	g_2000009C	ntc_heatsink_cnt	descriptive	sample count
+200000A0	g_200000A0	ntc_charger_acc	descriptive	128-sample sum
+200000A4	g_200000A4	ntc_charger_cnt	descriptive	sample count
+200000A8	g_200000A8	ntc_battery_acc	descriptive	128-sample sum
+200000AC	g_200000AC	ntc_battery_cnt	descriptive	sample count
+200001AB	g_200001AB	grid_country_code	descriptive	high byte of settings word +2 (HR2); picks the grid settings row; DRM for codes 2,3,8,0xC,0x14,0x15
+20000298	g_20000298	drm_inputs	descriptive	DRM input bits (tail word of the CT block when >= 0x8000)
+20000314	g_20000314	drm_power_limit	descriptive	2, 40, 70 or 100 (%)
+20000315	g_20000315	drm0_active	descriptive	DRM0 (disconnect) requested
+2000011C	g_2000011C	sys_fault_bits	descriptive	active fault bits; 0 or 0x40 counts as no fault
+20000120	g_20000120	fault_code	likely	IR39-40
+2000023E	g_2000023E	sys_fault_index	descriptive	lowest set fault bit 1..32; logged with a time stamp
+20002060	g_20002060	ct_i_samples	descriptive	192 CT current samples
+200021E0	g_200021E0	ct_v_samples	descriptive	192 grid voltage samples
+200000C8	g_200000C8	ct_p_acc	descriptive	sum of v*i over 191 samples
+200000CC	g_200000CC	ct_i2_acc	descriptive	sum of i*i
+200002C0	g_200002C0	ct_block_ready	descriptive	2 = a sample block is ready
+200002C4	g_200002C4	ct_i_rms	descriptive	CT RMS current x10
+200002CC	g_200002CC	ct_power	descriptive	CT power, sign from HR42 reversed CT
+200002C8	g_200002C8	p_grid	descriptive	grid power (meter or CT); >=0 import (inference)
+2000026C	g_2000026C	p_inverter_dsp	descriptive	inverter AC power from the DSP
+20000320	g_20000320	p_inverter_out	likely	IR24 (/10)
+2000032C	g_2000032C	p_grid_out	likely	IR30 (/10); also the 0x11 device export command
+20000328	g_20000328	p_eps_backup	likely	IR31
+2000035C	g_2000035C	p_load_demand	likely	IR42
+20000378	g_20000378	p_grid_apparent	likely	IR43
+20000360	g_20000360	v_ac1	likely	IR5 (meter voltage or DSP)
+20000362	g_20000362	f_ac1	likely	IR13
+20000364	g_20000364	i_grid_port	likely	IR58 (meter or CT current)
+20000374	g_20000374	pf_inverter_output	likely	IR16
+200002D6	g_200002D6	charger_warning_code	likely	IR57; forced 1 on meter fault
+200001E0	g_200001E0	v_pv1	likely	IR1
+200001E4	g_200001E4	v_pv2	likely	IR2
+200001DC	g_200001DC	v_p_bus	likely	IR3
+200001DE	g_200001DE	v_n_bus	likely	IR4
+200001EC	g_200001EC	i_pv1	likely	IR8 (/10)
+200001F0	g_200001F0	i_pv2	likely	IR9 (/10)
+200001B8	g_200001B8	i_ac1	likely	IR10 (/10)
+200001F4	g_200001F4	p_pv1	likely	IR18 (/10)
+200001F8	g_200001F8	p_pv2	likely	IR20 (/10)
+200002E8	g_200002E8	v_highbrigh_bus	likely	IR15 (givenergy-modbus spelling)
+200002EA	g_200002EA	v_eps_backup	likely	IR53
+200002EC	g_200002EC	f_eps_backup	likely	IR54
+2000018E	g_2000018E	inverter_countdown	likely	IR38
+2000034C	g_2000034C	e_inverter_in_day	likely	IR35
+20000350	g_20000350	e_inverter_out_day	likely	IR44
+20000354	g_20000354	e_inverter_in_total	likely	IR27-28
+20000358	g_20000358	e_inverter_out_total	likely	IR45-46
+2000037C	g_2000037C	e_grid_in_day	likely	IR26; meter import minus the midnight baseline
+20000380	g_20000380	e_grid_out_day	likely	IR25
+20000384	g_20000384	e_grid_in_total	likely	IR32-33
+20000388	g_20000388	e_grid_out_total	likely	IR21-22
+200003B0	g_200003B0	e_pv_meter2_total	descriptive	meter 2 energy, added to e_pv_total (IR11-12): an AC PV meter
+200003B4	g_200003B4	e_pv_meter2_day	descriptive	added to IR17
+200003B8	g_200003B8	e_pv_meter3_total	descriptive	added to IR11-12
+200003BC	g_200003BC	e_pv_meter3_day	descriptive	added to IR19
+2000060A	g_2000060A	modbus_ir	likely	input registers IR0..59
+20000682	g_20000682	modbus_hr	likely	holding registers HR0..59
+20001AAE	g_20001AAE	settings	descriptive	main persisted settings block (country/model word, serial at +0x13, slots, battery type +0x78, meter mask +0x93, meter type +0x9F...)
+20001AC1	g_20001AC1	inverter_serial	likely	10 ASCII bytes, HR13-17; 0:SN.txt overwrites it
+20001B81	g_20001B81	calib_table	descriptive	17 gain (Q10) / offset pairs
+20001BC5	g_20001BC5	energy_store	descriptive	persisted energy counters and work time (IR47-48 = word/7200), meter midnight baselines
+20001C82	g_20001C82	settings_ext	descriptive	second settings block: table-mode flag, thresholds, 10 charge and 10 discharge slots with SOC
+20001F66	g_20001F66	sched_table_a	descriptive	48 half-hour values (table mode)
+20001FC6	g_20001FC6	sched_table_b	descriptive	48 half-hour values (table mode)
+20002360	g_20002360	battery_serial	likely	10 bytes, HR8-12
+2000039F	g_2000039F	charge_target_soc_now	descriptive	target SOC of the active charge slot
+2000039E	g_2000039E	discharge_min_soc_now	descriptive	stop SOC of the active discharge slot, else the default
+200002D8	g_200002D8	charge_active	descriptive	charge from grid now (slot, force, night recovery or table)
+200002D9	g_200002D9	discharge_active	descriptive	forced discharge now
+200002DA	g_200002DA	hold_active	descriptive	table mode: neither
+200000F6	g_200000F6	night_charge_active	descriptive	night recovery charge running
+200000F8	g_200000F8	night_charge_timer	descriptive	half-seconds of recovery charge
+200000FA	g_200000FA	night_charge_qual	descriptive	seconds the flat condition has held (60 starts)
+20000260	g_20000260	save_req_flags	descriptive	bits asking task code to write settings/logs (sub_08017D1A(n,5)); bit0 settings, bit1 fault log, bit3 energy
+200001A8	g_200001A8	save_req_pending	descriptive	a save is pending
+200001A7	g_200001A7	sys_start_stage	descriptive	1 -> 2 sets the normal task periods
+20003B4E	g_20003B4E	meter_tx_buf	descriptive	port-1 Modbus request
+20003AB8	g_20003AB8	meter_rx_buf	descriptive	port-1 reply being assembled
+20000476	g_20000476	meter_rx_len	descriptive	bytes in meter_rx_buf
+20000478	g_20000478	meter_rx_expect	descriptive	expected reply length
+2000048E	g_2000048E	meter_rx_byte	descriptive	last byte read from port 1
+20000490	g_20000490	meter_rx_idle	descriptive	passes without bytes; 150 resets the port
+20000468	g_20000468	meter_poll_step	descriptive	next request (0..18, 100..104)
+2000046A	g_2000046A	meter_poll_inflight	descriptive	request the reply belongs to
+2000046C	g_2000046C	meter_poll_resume	descriptive	step to resume after the power-only fast reads
+20000470	g_20000470	meter_enable_mask	descriptive	copy of HR7 (enable_ammeter) as a bit per meter address
+20000481	g_20000481	meter_poll_addr	descriptive	meter address 1..8
+20000482	g_20000482	meter_poll_timer	descriptive	40-pass divider between requests
+2000047C	g_2000047C	meter_silence	descriptive	passes since a good reply; 2000 sets meter_comm_fault
+20000396	g_20000396	meter_comm_fault	descriptive	meter lost: IR0 shows 2 (warning) and the red LED lights
+20000472	g_20000472	meter_cycle_done	descriptive	all meters polled once
+20000473	g_20000473	meter_power_fresh	descriptive	a new power reading arrived
+20003C7A	g_20003C7A	meter_data	descriptive	per-meter records of 0x2E bytes (meters 1..6; 7..8 continue at 0x20003D8E)
+20003D8E	g_20003D8E	meter_data_7_8	descriptive	records for meters 7 and 8
+20002028	g_20002028	dev11_data	descriptive	unpacked reply of the Modbus device at address 0x11, plus its command word (+0x2A) and flag (+0x2C)

@@ -1,0 +1,50 @@
+Sample mod for the D316 modding build (tools/modbuild.py). Apply it with
+
+    python3 tools/modbuild.py --patch examples/mod-example/rcmu-limit.patch
+
+which copies src/ to build/mod/tree, applies this there (src/ is not changed) and builds
+build/mod/DSPStore.bin. It makes three changes:
+
+  1. rcmu.c: the residual current watch's continuous limit goes from 0.3 A to 0.25 A. That is
+     stricter than the original (the watch trips sooner), not looser.
+  2. app_header.c: the version word becomes 317 (0x013D). The ARM only sends a stick's
+     DSPStore.bin when its first word differs from the version the DSP reports on page 3 and
+     has the same hundreds, so a mod needs a new version to be taken at all.
+  3. arm_link.c: the version the DSP sends on page 1 (bytes 31-32, the ARM's HR19), a constant
+     in the original, says 317 too.
+
+diff -ru a/src/app/comm/arm_link.c b/src/app/comm/arm_link.c
+--- a/src/app/comm/arm_link.c	2026-10-16 09:51:28
++++ b/src/app/comm/arm_link.c	2026-10-16 09:51:28
+@@ -438,7 +438,7 @@
+         arm_tx_frame[len++] = (l >> 8) & 0xFF;
+         arm_tx_frame[len++] = l & 0xFF;
+         arm_tx_frame[len++] = 1;
+-        arm_tx_frame[len++] = 60;
++        arm_tx_frame[len++] = 61;     /* mod: 0x013D = 317 (HR19); 60 in the original */
+         arm_tx_frame[len++] = 0;
+         x = bus_hv_voltage;
+         arm_tx_frame[len++] = x >> 8;
+diff -ru a/src/app/rcmu/rcmu.c b/src/app/rcmu/rcmu.c
+--- a/src/app/rcmu/rcmu.c	2026-10-16 09:50:59
++++ b/src/app/rcmu/rcmu.c	2026-10-16 09:50:59
+@@ -145,7 +145,7 @@
+         u = 1;
+     rcmu.c.jump_check_on = u;
+     rcmu.c.src = rcmu_i;
+-    rcmu.c.limit = 0.3f;
++    rcmu.c.limit = 0.25f;  /* mod: 0.3 A in the original */
+     rcmu.c.base0 = rcmu.b.avg0;
+     rcmu.c.base1 = rcmu.b.avg1;
+     rcmu_watch(&rcmu.c);
+diff -ru a/src/boot/app_header.c b/src/boot/app_header.c
+--- a/src/boot/app_header.c	2026-10-16 09:50:59
++++ b/src/boot/app_header.c	2026-10-16 09:50:59
+@@ -11,6 +11,6 @@
+    Entry points: none. Neighbours: boot_main.asm, boot_flash_loader.c, app/comm/arm_link.c.
+    name: descriptive (map/filenames.tsv: was app_ver.c). */
+ #pragma DATA_SECTION(version, "version")
+-const unsigned int version = 0x013C;	/* 316 */
++const unsigned int version = 0x013D;	/* 317: mod (the original is 316, 0x013C) */
+ #pragma DATA_SECTION(app_valid, "app_valid")
+ const unsigned int app_valid = 0x00AA;
