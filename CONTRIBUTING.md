@@ -9,7 +9,9 @@ follow are in [docs/development/conventions.md](docs/development/conventions.md)
 ## The rules
 
 - **The gate stays IDENTICAL.** Run the tree's `tools/gate.py` (the full run, not only `--fast`)
-  before a pull request, and paste its last lines into it. A change that alters one byte of the
+  before a pull request, and paste its last lines into it. CI also runs both gates on pushes to
+  `main` and on pull requests from branches of this repository, but not on a fork's pull request
+  ([docs/development/ci.md](docs/development/ci.md)), so a fork's author runs them locally. A change that alters one byte of the
   rebuilt image is not a readability change; if you think the source is wrong, open an issue.
 - **One firmware per directory.** Each tree holds its own `src/`, `map/`, `tools/`, `docs/`,
   configuration and README, and builds without the others. Shared code between trees is fine

@@ -1,5 +1,7 @@
 # forgiv
 
+[![gate](https://github.com/abedegno/forgiv/actions/workflows/gate.yml/badge.svg?branch=main)](https://github.com/abedegno/forgiv/actions/workflows/gate.yml)
+
 Byte-exact decompilations of GivEnergy firmware: C and assembly source that the original
 compiler and linker turn back into the shipped firmware image, byte for byte. I made them to
 understand how the equipment works, in particular how the inverter treats its battery.

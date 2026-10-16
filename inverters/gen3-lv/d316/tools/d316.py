@@ -190,7 +190,10 @@ class Wine:
         self.prefix = os.path.join(d, f'job{self.n}')
         if not os.path.exists(os.path.join(self.prefix, 'system.reg')):
             shutil.rmtree(self.prefix, ignore_errors=True)
-            subprocess.run(['cp', '-Rc', c['prefix'], self.prefix], check=True)
+            # an APFS clone on macOS; elsewhere (Linux, CI) a plain copy, or a reflink where the
+            # file system has them
+            cp = ['cp', '-Rc'] if sys.platform == 'darwin' else ['cp', '-a', '--reflink=auto']
+            subprocess.run(cp + [c['prefix'], self.prefix], check=True)
         self.env = dict(os.environ, WINEPREFIX=self.prefix, WINEDEBUG=c.get('debug', '-all'),
                         WINEDLLOVERRIDES='mscoree,mshtml=')
         self.env['PATH'] = c['bin'] + os.pathsep + self.env.get('PATH', '')

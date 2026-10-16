@@ -1,5 +1,5 @@
-# Repository hygiene only. CI has neither the toolchains (Keil, TI) nor the firmware images,
-# so it cannot run the gates; each tree's gate runs locally (CONTRIBUTING.md).
+# Repository hygiene only, for every push and pull request, forks included. The gates run in
+# gate.yml, from the encrypted toolchain bundle (docs/development/ci.md).
 name: check
 
 on:

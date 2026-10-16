@@ -27,3 +27,4 @@ inverters/gen3-lv/a316/lib/stdperiph312
 .DS_Store
 .vscode/
 .idea/
+tools/ci/licence-keys.local
