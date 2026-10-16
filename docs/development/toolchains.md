@@ -4,7 +4,8 @@ The gates rebuild each image with the toolchain that built the original, so each
 exact toolchain. None of it is in this repository: Keil's and TI's tools come from their own
 public download servers, ST's library from st.com. [building.md](building.md) says how to run
 the gates once everything is installed. I run everything on macOS (Apple silicon) with Wine
-Devel; the Windows tools would run the same under Wine on Linux, but I have not tried it.
+Devel. CI runs the same Windows tools under Wine on Linux (Debian 12's Wine 8.0), with TI's Linux
+build of CGT 18.12.8 ([ci.md](ci.md)).
 
 What each firmware needs:
 

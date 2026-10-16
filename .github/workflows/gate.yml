@@ -1,0 +1,145 @@
+# The gates, with the private toolchain bundle (docs/development/ci.md). After Exhume's
+# encrypted-bundle pattern (docs/ci-bundle.md there): the toolchains come from an age-encrypted
+# bundle in the private repository abedegno/forgiv-ci-assets, fetched with a read-only deploy key
+# and decrypted on the runner. Nothing decrypted, and nothing built from it, is cached, printed or
+# uploaded; the last step of each job removes it.
+#
+# It runs on pushes to main, on pull requests from branches of this repository (a fork's pull
+# request gets no secrets, so the jobs skip themselves for one), and by hand. Never
+# pull_request_target. Each job runs in Debian 12's container, whose Wine 8.0 runs the 32-bit
+# Windows tools (and is the Wine the jobs were tested with); see docs/development/ci.md.
+name: gate
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: gate-${{ github.ref }}
+  cancel-in-progress: true
+env:
+  # Exhume's armcc5 profile, which the A316 tools import (docs/development/toolchains.md)
+  EXHUME_SHA: 63f1b976ec3c50306749ab88e2e88eff5dd969db
+jobs:
+  a316:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    container: debian:bookworm
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: git, for the checkouts
+        run: apt-get update -qq && apt-get install -y -qq --no-install-recommends git ca-certificates >/dev/null
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v7
+        with:
+          repository: abedegno/Exhume
+          ref: ${{ env.EXHUME_SHA }}
+          path: .exhume
+          persist-credentials: false
+      - name: Wine, age, zstd, Python
+        run: sh tools/ci/install-linux.sh
+      - name: Exhume's Python packages
+        run: python3 -m venv /opt/venv && /opt/venv/bin/pip install -q -r .exhume/tools/requirements.txt
+      - name: The firmware images (public)
+        run: python3 tools/fetch_firmware.py
+      - uses: ./.github/actions/forgiv-assets
+        with:
+          deploy-key: ${{ secrets.FORGIV_ASSETS_DEPLOY_KEY }}
+          age-key: ${{ secrets.FORGIV_ASSETS_AGE_KEY }}
+      - name: Point the tree at the bundle
+        run: EXHUME="$GITHUB_WORKSPACE/.exhume" sh tools/ci/setup-toolchains.sh "$FORGIV_ASSETS" "$RUNNER_TEMP/forgiv-wine"
+      - name: gate.py (MDK-Lite, in pieces)
+        working-directory: inverters/gen3-lv/a316
+        run: /opt/venv/bin/python tools/gate.py
+      - name: gate.py --whole (licensed MDK, one link)
+        working-directory: inverters/gen3-lv/a316
+        run: /opt/venv/bin/python tools/gate.py --whole
+      - name: modbuild.py (licensed MDK), unchanged tree identical to the original
+        working-directory: inverters/gen3-lv/a316
+        run: |
+          set -o pipefail
+          /opt/venv/bin/python tools/modbuild.py | tee "$RUNNER_TEMP/modbuild.log"
+          grep -q 'identical to the original ARMStore.bin byte for byte' "$RUNNER_TEMP/modbuild.log"
+      # Each fail test changes one constant in a copy of src/ and requires FAIL. The gate's own
+      # fail test runs last: it leaves build/gate holding the changed source, which modbuild reads.
+      - name: Fail test, modbuild.py (a function address written as another number)
+        run: >-
+          /opt/venv/bin/python tools/ci/failtest.py inverters/gen3-lv/a316 src/app/main_p1.c
+          'OSTaskCreate(0x802735b,' 'OSTaskCreate(0x802735d,' --
+          /opt/venv/bin/python tools/modbuild.py --src '{src}' --out build/failtest/ARMStore.bin
+      - name: Fail test, gate.py --whole (HR21 0x13c to 0x13d)
+        run: >-
+          /opt/venv/bin/python tools/ci/failtest.py inverters/gen3-lv/a316 src/app/comm/meter.c
+          'hr_regs[21] = 0x13c;' 'hr_regs[21] = 0x13d;' --
+          /opt/venv/bin/python tools/gate.py --whole --fast --with '{copy}'
+      - name: Fail test, gate.py (a day-energy limit 0x7fbc to 0x7fbd)
+        run: >-
+          /opt/venv/bin/python tools/ci/failtest.py inverters/gen3-lv/a316 src/app/control/schedule_p3.c
+          'grid_out_day >= 0x7fbc' 'grid_out_day >= 0x7fbd' --
+          /opt/venv/bin/python tools/gate.py --fast --with '{copy}'
+      - name: Remove the toolchains and everything built with them
+        if: always()
+        run: sh tools/ci/cleanup.sh
+
+  d316:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    container: debian:bookworm
+    timeout-minutes: 90
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: git, for the checkout
+        run: apt-get update -qq && apt-get install -y -qq --no-install-recommends git ca-certificates >/dev/null
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Wine, age, zstd, Python
+        run: sh tools/ci/install-linux.sh
+      - name: The firmware images (public)
+        run: python3 tools/fetch_firmware.py
+      # TI's public Linux build of CGT 18.12.8 (the native object tools), cached by the script
+      # that pins its version and SHA-256. Nothing from the bundle goes in this cache.
+      - uses: actions/cache@v6
+        with:
+          path: /opt/c2000-native
+          key: c2000-native-18.12.8.LTS-${{ hashFiles('tools/ci/install-c2000-native.sh') }}
+      - name: TI CGT 18.12.8 for Linux (public)
+        run: sh tools/ci/install-c2000-native.sh /opt/c2000-native
+      - uses: ./.github/actions/forgiv-assets
+        with:
+          deploy-key: ${{ secrets.FORGIV_ASSETS_DEPLOY_KEY }}
+          age-key: ${{ secrets.FORGIV_ASSETS_AGE_KEY }}
+      - name: Point the tree at the bundle
+        run: sh tools/ci/setup-toolchains.sh "$FORGIV_ASSETS" "$RUNNER_TEMP/forgiv-wine"
+      - name: gate.py
+        working-directory: inverters/gen3-lv/d316
+        run: python3 tools/gate.py
+      - name: modbuild.py, unchanged tree identical to the original
+        working-directory: inverters/gen3-lv/d316
+        run: |
+          set -o pipefail
+          python3 tools/modbuild.py | tee "$RUNNER_TEMP/modbuild.log"
+          grep -q 'identical to the original word for word' "$RUNNER_TEMP/modbuild.log"
+      # The gate's fail test runs last: it leaves build/gate holding the changed source.
+      - name: Fail test, modbuild.py (app_valid 0x00AA to 0x00AB, a fixed word)
+        run: >-
+          python3 tools/ci/failtest.py inverters/gen3-lv/d316 src/boot/app_header.c
+          'app_valid = 0x00AA;' 'app_valid = 0x00AB;' --
+          python3 tools/modbuild.py --src '{src}' --out build/failtest/DSPStore.bin
+      - name: Fail test, gate.py (the RCMU limit 0.3 to 0.25)
+        run: >-
+          python3 tools/ci/failtest.py inverters/gen3-lv/d316 src/app/rcmu/rcmu.c
+          'rcmu.c.limit = 0.3f;' 'rcmu.c.limit = 0.25f;' --
+          python3 tools/gate.py --with '{copy}'
+      - name: Remove the toolchains and everything built with them
+        if: always()
+        run: sh tools/ci/cleanup.sh

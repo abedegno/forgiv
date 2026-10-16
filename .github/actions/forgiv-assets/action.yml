@@ -1,0 +1,36 @@
+# Fetch and decrypt the private toolchain bundle (docs/development/ci.md), after Exhume's assets
+# action (docs/ci-bundle.md there): clone the storage repository with its read-only deploy key,
+# trusting only GitHub's published host key, delete the key, and run tools/ci/ci-assets.sh, which
+# joins the parts, decrypts them with the age key on age's standard input and checks SHA256SUMS.
+# The decrypted tree is $RUNNER_TEMP/forgiv-assets (FORGIV_ASSETS in later steps); the job's
+# last step removes it. Nothing here prints, caches or uploads any of it.
+name: forgiv-assets
+description: Fetch and decrypt the private toolchain bundle
+inputs:
+  deploy-key:
+    description: the read-only deploy key of abedegno/forgiv-ci-assets (secrets.FORGIV_ASSETS_DEPLOY_KEY)
+    required: true
+  age-key:
+    description: the bundle's age secret key (secrets.FORGIV_ASSETS_AGE_KEY)
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Fetch and decrypt the bundle
+      shell: bash
+      env:
+        DEPLOY_KEY: ${{ inputs.deploy-key }}
+        FORGIV_ASSETS_AGE_KEY: ${{ inputs.age-key }}
+      run: |
+        set -euo pipefail
+        umask 077
+        tmp=$RUNNER_TEMP
+        key="$tmp/forgiv-deploy-key"; hosts="$tmp/forgiv-known-hosts"
+        printf '%s\n' "$DEPLOY_KEY" | tr -d '\r' > "$key"
+        # GitHub's published host key (api.github.com/meta), so the clone trusts nothing else
+        echo 'github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl' > "$hosts"
+        GIT_SSH_COMMAND="ssh -i $key -o IdentitiesOnly=yes -o UserKnownHostsFile=$hosts -o StrictHostKeyChecking=yes" \
+          git clone -q --depth 1 git@github.com:abedegno/forgiv-ci-assets.git "$tmp/forgiv-ci-assets"
+        rm -f "$key" "$hosts"
+        sh tools/ci/ci-assets.sh "$tmp/forgiv-ci-assets" "$tmp/forgiv-assets"
+        rm -rf "$tmp/forgiv-ci-assets"

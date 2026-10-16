@@ -139,13 +139,21 @@ about whether the firmware is correct, safe or useful, only that these sources a
 compiled. It is also not a test of any changed source: a change that alters a byte fails the gate
 by design ([modding.md](modding.md) is about builds that are meant to differ).
 
+## In CI
+
+GitHub's runners run both gates, `gate.py --whole` and both mod builds, each with a fail test,
+on every push to `main` and on pull requests from branches of this repository. The toolchains
+come from an encrypted bundle in a private repository. [ci.md](ci.md) has what runs, the
+safeguards and how to replace the bundle and rotate its keys.
+
 ## Checks without the toolchains
 
 ```sh
 python3 tools/repocheck.py
 ```
 
-From the repository root. It needs neither toolchain nor images, and CI runs it: every Python
+From the repository root. It needs neither toolchain nor images, and CI runs it on every push and
+pull request: every Python
 file compiles, every relative Markdown link and anchor resolves, no binary files or Intel HEX
 records are tracked, tracked text is ASCII with no home directory paths, and the firmware manifest
 is well formed.
