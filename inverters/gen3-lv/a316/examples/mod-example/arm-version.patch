@@ -1,0 +1,26 @@
+Sample mod for the A316 modding build (tools/modbuild.py). Build it with
+
+    $EXHUME/.venv/bin/python tools/modbuild.py --patch examples/mod-example/arm-version.patch --version 317 --out build/mod/example/ARMStore.bin
+
+which copies src/ to build/mod/tree, applies this there (src/ is not changed) and builds
+build/mod/example/ARMStore.bin with 317 in its header. It changes one thing that shows: HR21,
+the ARM version the inverter reports on Modbus (meter.c's modbus_hr_update fills it with the
+constant 0x13C, 316), says 317 (0x13D). The running ARM only takes an ARMStore.bin whose header
+version differs from its own and has the same hundreds, so a mod needs a new version in the
+header (--version) as well; HR21 then agrees with it.
+
+0x13C is a Thumb-2 modified immediate (0x9E shifted left by 1) and 0x13D is not, so armcc loads the new value
+with a 4-byte MOVW (f240 103d) where it had a 4-byte MOV.W (f44f 709e): the code stays the same
+size and nothing moves.
+
+--- a/src/app/comm/meter.c
++++ b/src/app/comm/meter.c
+@@ -1111,7 +1111,7 @@
+     hr_regs[18] = bms_fw_version;
+     hr_regs[19] = dsp_version_hr19;
+     hr_regs[HR_ENABLE_CHARGE_TARGET] = cfg_settings.enable_charge_target;
+-    hr_regs[21] = 0x13c;
++    hr_regs[21] = 0x13d;     /* mod: HR21, the ARM version, says 317 */
+     hr_regs[22] = usb_device_inserted;
+     hr_regs[23] = peek_chip[0];
+     hr_regs[24] = peek_addr;

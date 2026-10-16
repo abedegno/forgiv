@@ -1,5 +1,29 @@
 # Changelog
 
+## Unreleased
+
+- A316 `tools/gate.py --whole` (needs a licensed MDK, found through `MDK_LICENSED_HOME` or
+  `mdk_licensed_home`; skipped without one): verifies every source with armlink, the 45 KB
+  `modbus_slave.c` included, and links the whole image in one armlink run, every proved section
+  FIXED at its address, with the library members, the region table and compressed RW data that
+  armlink makes from the proved RAM sections and the image's initial RAM. Image, bin and HEX
+  IDENTICAL; fail tests in `docs/gate.md`. The MDK-Lite piecewise gate is unchanged and stays the
+  default proof.
+- A316 mod build `tools/modbuild.py` (needs a licensed MDK): compiles every source with the
+  gate's compiler and links a working `ARMStore.bin` (header version + 0x5566, then the image)
+  with an ordinary scatter file. The vector table at 0x08014000 and the RAM layout are fixed;
+  code and constants float in the 256 KB flash, new variables go above the stack. Five checks
+  (link, fixed addresses, objects against the gate's, moved-not-changed over every section and
+  library member, numeric addresses). Built unchanged it gives the original `ARMStore.bin` and
+  `A316.hex` byte for byte; `--shift` moves everything that floats and passes every check. The
+  nine task and callback addresses the sources write as numbers are given their names in the
+  build's copy of the sources. Free: 34,904 bytes of flash, 23,144 bytes of RAM.
+- A316 `tools/emudiff.py`: runs functions of a mod build and the original side by side with
+  Exhume's differential tester.
+- A316 sample mod `examples/mod-example/arm-version.patch`: HR21 reports 317.
+- docs/development/modding.md: the ARM section (licensed relink or MDK-Lite patch mods, the
+  layout, the checks, the sample mod, the free space); building.md: the `--whole` mode.
+
 ## Planned
 
 - v1.1: a GCC (arm-none-eabi) build of A316, so the ARM firmware can be changed and relinked

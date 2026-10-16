@@ -41,7 +41,7 @@ README (gitignored; start from `toolchain.example.toml`). The environment wins o
 
 | Tree | Settings |
 |---|---|
-| A316 | `EXHUME`, `MDK_TOOLCHAIN` (or `MDK_HOME` and `MDK_LIBHOME`), `WINE_BIN` ([a316 README](../../inverters/gen3-lv/a316/README.md)) |
+| A316 | `EXHUME`, `MDK_TOOLCHAIN` (or `MDK_HOME` and `MDK_LIBHOME`), `WINE_BIN`; for the licensed modes only, `MDK_LICENSED_HOME` (and `MDK_LICENSED_PREFIX`) ([a316 README](../../inverters/gen3-lv/a316/README.md)) |
 | D316 | `C2000_WINEPREFIX`, `C2000_CGT`, `C2000_RTSLIB`, `C2000_NATIVE`, `WINE_BIN` ([d316 README](../../inverters/gen3-lv/d316/README.md); defaults in `toolchain.toml`) |
 
 ## Run the gates
@@ -82,11 +82,39 @@ flowchart TD
 The details are in [A316 gate.md](../../inverters/gen3-lv/a316/docs/gate.md) and the docstring of
 the D316 [gate](../../inverters/gen3-lv/d316/tools/gate.py).
 
+## With a licensed MDK: the whole link
+
+**Needs a licensed MDK.** The A316 gate above runs under MDK-Lite and needs no licence; it is
+the proof. With a licensed MDK 5.21 or later (any edition without the 32 KB link limit), the
+gate can also do the whole proof in one armlink run:
+
+```sh
+cd inverters/gen3-lv/a316
+$EXHUME/.venv/bin/python tools/gate.py --whole          # about 35 s; --fast and --with work as above
+```
+
+It finds the licensed MDK through `MDK_LICENSED_HOME`, or `mdk_licensed_home` in
+`toolchain.local.toml`, and runs its tools in the Wine prefix MDK was installed in (its licence
+check reads that prefix's registry; `MDK_LICENSED_PREFIX` if it is not the directory above
+`drive_c`). Without the setting it prints SKIPPED and exits 0. The licence is never printed or
+logged: every line of tool output that names it is dropped.
+
+`--whole` verifies every source with that MDK's armlink, the 45 KB Modbus file included (no
+object placement), then links the whole image at once: every proved section FIXED at its
+address, Keil's library start-up code and members, the region table and the compressed RW data
+(made from the proved sources' RAM sections and the image's own initial RAM). It checks the
+listing (every section at its address, nothing between sections but armlink's alignment
+padding) and compares the image, `ARMStore.bin` and the HEX: all three must be IDENTICAL.
+[A316 gate.md](../../inverters/gen3-lv/a316/docs/gate.md#the-whole-link-with-a-licensed-mdk---whole)
+has the scatter layout and the fail tests. Output: `build/whole/report.txt`. The same licensed
+MDK runs the mod build ([modding.md](modding.md#the-arm-a316)).
+
 ## What the gates print
 
 | Tree | Success | Report |
 |---|---|---|
 | A316 | `bin: ... IDENTICAL`, `hex: ... IDENTICAL`, then `-- gate: PASS` | `build/gate/report.txt`; `build/gate/coverage.tsv` lists every byte range and what supplied it |
+| A316 `--whole` | the same three lines, then `-- gate --whole: PASS` | `build/whole/report.txt` |
 | D316 | `IDENTICAL: the linked image is ... word for word`, then `PASS` | a count of the words each kind of source supplied |
 
 Exit status 0 means PASS.
@@ -128,6 +156,8 @@ is well formed.
 |---|---|---|
 | A316 | `tools/applynames.py` | apply a table of renames to the sources and the map |
 | A316 | `tools/objplace.py` | prove a source by placing armcc's object (the 45 KB Modbus file) |
+| A316 | `tools/modbuild.py` | the mod build: a changed `ARMStore.bin` in one link (needs a licensed MDK; [modding.md](modding.md#the-arm-a316)) |
+| A316 | `tools/emudiff.py` | run functions of a mod build and the original side by side in an emulator |
 | A316 | `tools/srcfiles.py` | find a source by stem or address |
 | D316 | `tools/dis.py` | disassemble any range or map name |
 | D316 | `tools/match.py` | compile one source and compare each function with the image |
