@@ -55,6 +55,7 @@ if [ -n "$exhume" ]; then
     [ -L "$sp" ] || { echo "setup-toolchains: $sp exists and is not a link; leaving it"; exit 1; }
     rm -f "$sp"
   fi
+  mkdir -p "$(dirname "$sp")"
   ln -s "$assets/stdperiph35" "$sp"
 
   # the licensed MDK's prefix: private (it holds the licence)
