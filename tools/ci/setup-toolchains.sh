@@ -42,10 +42,17 @@ ours() {    # true when $1 is absent or was written by this script
 
 export WINEDEBUG=-all WINEDLLOVERRIDES='mscoree,mshtml='
 newprefix() {
+  # wineboot gets no stdin and both waits are bounded: on the runner a left-over Wine
+  # process could keep `wineserver -w` waiting until the job's own timeout.
   rm -rf "$1"
-  WINEPREFIX=$1 wineboot -i >/dev/null 2>&1 || true
-  WINEPREFIX=$1 wineserver -w
+  echo "setup-toolchains: making prefix $1"
+  WINEPREFIX=$1 timeout 300 wineboot -i </dev/null >/dev/null 2>&1 || true
+  if ! WINEPREFIX=$1 timeout 120 wineserver -w </dev/null; then
+    echo "setup-toolchains: Wine still busy 120 s after wineboot; stopping its server"
+    WINEPREFIX=$1 wineserver -k </dev/null || true
+  fi
   [ -f "$1/system.reg" ] || { echo "setup-toolchains: wineboot made no prefix at $1"; exit 1; }
+  echo "setup-toolchains: prefix ready"
 }
 
 if [ -n "$exhume" ]; then
