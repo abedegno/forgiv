@@ -1,0 +1,4 @@
+/* ST StdPeriph 3.5.0, unchanged; matched as a complete translation unit. */
+/* at: RTC_ITConfig 0x08028B7C, RTC_EnterConfigMode 0x08028B92, RTC_ExitConfigMode 0x08028BA0, RTC_GetCounter 0x08028BAE, RTC_SetCounter 0x08028BC0, RTC_SetPrescaler 0x08028BDA, RTC_SetAlarm 0x08028BF6, RTC_GetDivider 0x08028C10, RTC_WaitForLastTask 0x08028C24, RTC_WaitForSynchro 0x08028C30, RTC_GetFlagStatus 0x08028C44, RTC_ClearFlag 0x08028C56, RTC_GetITStatus 0x08028C62, RTC_ClearITPendingBit 0x08028C7E */
+/* opts: --cpu Cortex-M3 -O1 -DSTM32F10X_CL -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I{root}/lib/stdperiph35/Libraries/STM32F10x_StdPeriph_Driver/inc -I{root}/lib/stdperiph35/Libraries/CMSIS/CM3/CoreSupport -I{root}/lib/stdperiph35/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x -I{root}/lib/stdperiph35/Project/STM32F10x_StdPeriph_Template */
+#include "../../lib/stdperiph35/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_rtc.c"
