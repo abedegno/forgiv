@@ -1,0 +1,72 @@
+#ifndef BMS_USB_USR_TYPES_H
+#define BMS_USB_USR_TYPES_H
+#include "../../lib/fatfs/ff.h"
+typedef unsigned char uchar, byte, undefined1, undefined;
+typedef unsigned short ushort, undefined2;
+typedef unsigned int uint, undefined4;
+typedef int bool;
+#define true 1
+#define CONCAT11(a, b) (((uint)(uchar)(a) << 8) | (uchar)(b))
+extern short g_usr_08013FFC;
+extern uchar g_usr_08015EE8;
+extern uint g_usr_2000003C;
+extern uint g_usr_20000040;
+extern uint g_usr_20000044;
+extern uint g_usr_20000048;
+extern uchar g_usr_20000051;
+extern uchar g_usr_20000052;
+extern uchar g_usr_20000053;
+extern uchar g_usr_20000055;
+extern uchar g_usr_20000056;
+extern uchar g_usr_200000D5;
+extern uchar g_usr_200000DF;
+extern uchar g_usr_200000E0;
+extern uchar g_usr_200000E1;
+extern uchar g_usr_200000E2;
+extern uchar g_usr_200000E3;
+extern uchar g_usr_200000E4;
+extern uchar g_usr_200000E5;
+extern uchar g_usr_200000E6;
+extern uchar g_usr_200000E7;
+extern uchar g_usr_200000E9;
+extern uchar g_usr_200000EF;
+extern ushort g_usr_200000FC;
+extern uchar g_usr_20000163;
+extern float g_usr_2000016C;
+extern uchar g_usr_20000198[];
+extern uchar g_usr_200001A0;
+extern uchar g_usr_20000524;
+extern uchar g_usr_20000525;
+extern ushort g_usr_20000606;
+extern uchar g_usr_20000674[];
+extern uchar g_usr_20000CF7;
+extern uchar g_usr_200015D3[];
+extern uchar g_usr_20001605[];
+extern uchar g_usr_20001637[];
+extern uchar g_usr_20001A41[];
+extern uchar g_usr_20001E4C[];
+extern uchar g_usr_20002D1C[];
+extern uchar g_usr_200032CC[];
+extern uchar g_usr_200038A8[];
+extern uchar g_usr_20003D52[];
+uint sub_0802F040();
+uint crc32_init();
+uint crc_update();
+uint sub_0802F0D2();
+uint board_set_pb2();
+char *strcpy(char *, const char *);
+uint USART_ITConfig();
+uint sub_08014AC8();
+uint board_set_pa8();
+uint sub_08014F94();
+uint afe_write_register();
+uint __aeabi_f2uiz(float);
+uint eeprom_write_word();
+uint os_task_delay();
+uint OS_ENTER_CRITICAL();
+uint FLASH_Unlock();
+uint FLASH_ClearFlag();
+uint FLASH_ProgramWord();
+uint OS_EXIT_CRITICAL();
+uint board_set_pb5();
+#endif
