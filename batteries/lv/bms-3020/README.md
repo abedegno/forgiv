@@ -10,7 +10,8 @@ at `-O1` for a Cortex-M3, following Exhume's armcc5 profile.
   package, with **zero original-byte blobs**. I checked this with my verification gate, which
   builds every source at its native address and compares every relocated byte.
 - One function, the ASCII protocol command dispatcher `sub_0801DF70` (11,746 bytes), is still in
-  assembler (`src/app/comm/ascii_dispatcher.inc`), pending a byte-exact C version. The other
+  assembler (`src/app/comm/ascii_dispatcher.inc`), pending a byte-exact C version
+  ([issue #4](https://github.com/abedegno/forgiv/issues/4)). The other
   nine functions in that unit are C, in `src/app/comm/ascii_protocol.c`. The build compiles
   that C to assembly and combines it with the dispatcher in one code area, using the layout in
   `ascii_layout.json`.
@@ -29,7 +30,8 @@ the matching notes are kept outside this publication.
   0x08027804. The reset instructions and the standard C library's scatter table each establish
   the load address independently.
 - **Versions:** firmware 3019, 3021 and 3022 contain the same ASCII dispatcher code as 3020. Gen 3
-  firmware 4009 has a changed version of it.
+  firmware 4009 has a changed version of it. The [3022 tree](../bms-3022/README.md) is built
+  from this one.
 
 ## Layout
 

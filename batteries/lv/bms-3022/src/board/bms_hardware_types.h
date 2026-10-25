@@ -1,0 +1,65 @@
+#ifndef BMS_HARDWARE_TYPES_H
+#define BMS_HARDWARE_TYPES_H
+typedef unsigned int uint;
+typedef unsigned short ushort;
+typedef unsigned char uchar, byte;
+typedef int bool;
+#include "../include/stdperiph_types.h"
+extern uchar g_2000004D;
+extern uchar g_2000004E;
+extern uchar g_2000009D;
+extern ushort os_task_dly_idx;
+extern ushort adc_dma_buf[];
+extern struct usb_line_config_type {
+    uint baud;
+    uchar stop, parity, bits;
+} usb_line_config;
+void RCC_APB2PeriphClockCmd(uint, uchar);
+void RCC_APB1PeriphClockCmd(uint, uchar);
+void RCC_AHBPeriphClockCmd(uint, uchar);
+void RCC_APB2PeriphResetCmd(uint, uchar);
+void RCC_ADCCLKConfig(uint);
+void GPIO_Init(void *, GPIO_InitTypeDef *);
+void GPIO_SetBits(void *, ushort);
+void GPIO_ResetBits(void *, ushort);
+uchar GPIO_ReadInputDataBit(void *, ushort);
+void GPIO_PinRemapConfig(uint, uchar);
+void GPIO_EXTILineConfig(uchar, uchar);
+void USART_Init(void *, USART_InitTypeDef *);
+void USART_ITConfig(void *, ushort, uchar);
+void USART_Cmd(void *, uchar);
+void USART_ClearITPendingBit(void *, ushort);
+void sub_08014AC8(uchar, ushort);
+uint RTC_GetCounter(void);
+void RTC_SetAlarm(uint);
+void RTC_WaitForLastTask(void);
+void RTC_ITConfig(ushort, uchar);
+ushort os_task_delay(uchar, ushort, ushort);
+void PWR_WakeUpPinCmd(uchar);
+void PWR_EnterSTANDBYMode(void);
+void NVIC_PriorityGroupConfig(uint);
+void NVIC_Init(NVIC_InitTypeDef *);
+void EXTI_ClearITPendingBit(uint);
+void EXTI_Init(EXTI_InitTypeDef *);
+void DMA_DeInit(void *);
+void DMA_Init(void *, DMA_InitTypeDef *);
+void DMA_Cmd(void *, uchar);
+void ADC_Init(void *, ADC_InitTypeDef *);
+void ADC_RegularChannelConfig(void *, uchar, uchar, uchar);
+void ADC_TempSensorVrefintCmd(uchar);
+void ADC_DMACmd(void *, uchar);
+void ADC_ITConfig(void *, ushort, uchar);
+void ADC_Cmd(void *, uchar);
+void ADC_ResetCalibration(void *);
+uchar ADC_GetResetCalibrationStatus(void *);
+void ADC_StartCalibration(void *);
+uchar ADC_GetCalibrationStatus(void *);
+void SPI_Init(void *, ushort *);
+void SPI_Cmd(void *, uchar);
+void SPI_I2S_ClearFlag(void *, ushort);
+void TIM_TimeBaseInit(void *, TIM_TimeBaseInitTypeDef *);
+void TIM_ITConfig(void *, ushort, uchar);
+void TIM_Cmd(void *, uchar);
+void NVIC_SetVectorTable(uint, uint);
+void sys_irq_enable(void);
+#endif

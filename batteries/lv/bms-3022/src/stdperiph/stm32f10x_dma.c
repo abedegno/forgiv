@@ -1,0 +1,4 @@
+/* ST StdPeriph 3.5.0, unchanged; matched as a complete translation unit. */
+/* at: DMA_DeInit 0x08028164, DMA_Init 0x08028252, DMA_StructInit 0x0802828C, DMA_Cmd 0x080282A6, DMA_ITConfig 0x080282C0, DMA_SetCurrDataCounter 0x080282D4, DMA_GetCurrDataCounter 0x080282D8, DMA_GetFlagStatus 0x080282DE, DMA_ClearFlag 0x080282FC, DMA_GetITStatus 0x08028310, DMA_ClearITPendingBit 0x0802832E */
+/* opts: --cpu Cortex-M3 -O1 -DSTM32F10X_CL -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I{root}/lib/stdperiph35/Libraries/STM32F10x_StdPeriph_Driver/inc -I{root}/lib/stdperiph35/Libraries/CMSIS/CM3/CoreSupport -I{root}/lib/stdperiph35/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x -I{root}/lib/stdperiph35/Project/STM32F10x_StdPeriph_Template */
+#include "../../lib/stdperiph35/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_dma.c"

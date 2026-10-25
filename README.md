@@ -7,7 +7,7 @@ compiler and linker turn back into the shipped firmware image, byte for byte. I 
 understand how the equipment works, in particular how the inverter treats its battery.
 
 The repository holds the Hybrid Gen3 LV inverter's ARM and DSP firmware at versions 316
-and 319, plus the LV battery BMS at version 3020. Each target has its own source and proof.
+and 319, plus the LV battery BMS at versions 3020 and 3022. Each target has its own source and proof.
 Inverter version 318 is pinned and surveyed, without a source reconstruction.
 
 ## Status
@@ -18,7 +18,8 @@ Inverter version 318 is pinned and surveyed, without a source reconstruction.
 | [Gen3 LV inverter, DSP D316](inverters/gen3-lv/d316/README.md) | TMS320F2806x (C28x with FPU) | TI CGT 16.9.6, 15.12.3 runtime library | yes: `DSPStore.bin`, word for word | 48,555 of 65,536 words (74.1%); 1.9% TI's runtime library, 24.0% erased-flash fill | 0 | yes: names, headers, comments |
 | [Gen3 LV inverter, ARM A319](inverters/gen3-lv/a319/README.md) | STM32F105/107 (Cortex-M3) | Keil armcc 5.06, MDK 5.16 library | yes: BIN and HEX, including a licensed whole-image link | 146,030 of 147,536 payload bytes; runtime, region table, compressed initial RAM and alignment account for the rest | 0 | yes: subsystem files, named interfaces and comments |
 | [Gen3 LV inverter, DSP D319](inverters/gen3-lv/d319/README.md) | TMS320F2806x (C28x with FPU) | TI CGT 16.9.6, 15.12.3 runtime library | yes: native and Windows linker builds | 48,714 of 65,536 words; runtime, initialization terminator and erased-flash fill account for the rest | 0 | yes: subsystem files, named interfaces and comments |
-| [LV battery BMS 3020](batteries/lv/bms-3020/README.md) | Cortex-M3 | Keil armcc 5 / armasm | yes: BIN and HEX | see the target's accounting | 0 | readable C around one ASCII dispatcher in assembler, pending its C match |
+| [LV battery BMS 3020](batteries/lv/bms-3020/README.md) | Cortex-M3 | Keil armcc 5.06 / armasm | yes: BIN and HEX, including a licensed whole-image link | 112,628 of 118,790 bytes; the rest is Keil's C library, the region table and padding | 0 | yes, apart from one ASCII dispatcher in assembler pending its C match |
+| [LV battery BMS 3022](batteries/lv/bms-3022/README.md) | Cortex-M3 | Keil armcc 5.06 / armasm | yes: BIN and HEX, including a licensed whole-image link | 113,720 of 119,814 bytes; the rest is Keil's C library, the region table and padding | 0 | yes, apart from the same ASCII dispatcher in assembler |
 
 "Byte-exact" means each tree's gate (`tools/gate.py`) compiles every source, links the whole
 image with the original vendor's tools and compares it with the vendor's file, and says
@@ -73,10 +74,12 @@ remain the 316 examples; choose a target explicitly before fetching or rebuildin
       d316/                           the DSP firmware D316: src, map, tools, docs
       a319/, d319/                    the version 319 reconstructions and proof manifests
       docs/                           version survey, 319 handover and source guide
-    batteries/lv/bms-3020/             the LV battery BMS; one dispatcher remains assembler
+    batteries/lv/bms-3020/, bms-3022/  the LV battery BMS 3020 and 3022: sources and docs; one
+                                      dispatcher remains assembler
 
 Each firmware directory is self-contained: its own sources (`src/`), map of the image (`map/`),
-tools (`tools/`, with the gate), notes (`docs/`) and toolchain configuration.
+tools (`tools/`, with the gate), notes (`docs/`) and toolchain configuration. The battery
+trees publish their sources and documentation only; their maps and gates are not included.
 
 ## Documentation
 
