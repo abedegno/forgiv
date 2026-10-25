@@ -1,0 +1,4 @@
+A319 flash coverage is complete: 147536 bytes at 0x08014000..0x08038050.
+146030 source-section bytes, 1248 linked runtime bytes, 248 region-table/compressed-RAM bytes, 10 linker-alignment bytes, zero original-flash-byte blobs.
+All 57 source units match whole; the independent licensed whole-image link is identical.
+See docs/rebuild.json and build/gate/coverage.tsv.

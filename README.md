@@ -6,8 +6,9 @@ Byte-exact decompilations of GivEnergy firmware: C and assembly source that the 
 compiler and linker turn back into the shipped firmware image, byte for byte. I made them to
 understand how the equipment works, in particular how the inverter treats its battery.
 
-The repository holds the Hybrid Gen3 LV inverter's two firmwares. I plan to add more (batteries,
-other inverters, other versions), one firmware per directory.
+The repository holds the Hybrid Gen3 LV inverter's ARM and DSP firmware at versions 316
+and 319, plus the LV battery BMS at version 3020. Each target has its own source and proof.
+Inverter version 318 is pinned and surveyed, without a source reconstruction.
 
 ## Status
 
@@ -15,16 +16,20 @@ other inverters, other versions), one firmware per directory.
 |---|---|---|---|---|---|---|
 | [Gen3 LV inverter, ARM A316](inverters/gen3-lv/a316/README.md) | STM32F105/107 (Cortex-M3) | Keil armcc 5.06 (MDK 5.21), MDK 5.16 library | yes: `ARMStore.bin` and its HEX form | 143,854 of 145,320 bytes (99.0%); the rest is Keil's C library, the region table and padding made by armlink | 0 | yes: names, headers, comments |
 | [Gen3 LV inverter, DSP D316](inverters/gen3-lv/d316/README.md) | TMS320F2806x (C28x with FPU) | TI CGT 16.9.6, 15.12.3 runtime library | yes: `DSPStore.bin`, word for word | 48,555 of 65,536 words (74.1%); 1.9% TI's runtime library, 24.0% erased-flash fill | 0 | yes: names, headers, comments |
+| [Gen3 LV inverter, ARM A319](inverters/gen3-lv/a319/README.md) | STM32F105/107 (Cortex-M3) | Keil armcc 5.06, MDK 5.16 library | yes: BIN and HEX, including a licensed whole-image link | 146,030 of 147,536 payload bytes; runtime, region table, compressed initial RAM and alignment account for the rest | 0 | yes: subsystem files, named interfaces and comments |
+| [Gen3 LV inverter, DSP D319](inverters/gen3-lv/d319/README.md) | TMS320F2806x (C28x with FPU) | TI CGT 16.9.6, 15.12.3 runtime library | yes: native and Windows linker builds | 48,714 of 65,536 words; runtime, initialization terminator and erased-flash fill account for the rest | 0 | yes: subsystem files, named interfaces and comments |
+| [LV battery BMS 3020](batteries/lv/bms-3020/README.md) | Cortex-M3 | Keil armcc 5 / armasm | yes: BIN and HEX | see the target's accounting | 0 | readable C around one ASCII dispatcher in assembler, pending its C match |
 
 "Byte-exact" means each tree's gate (`tools/gate.py`) compiles every source, links the whole
 image with the original vendor's tools and compares it with the vendor's file, and says
-IDENTICAL. "Original bytes 0" means nothing of the image is copied in: every byte comes from a
-source file in the tree, from the toolchain's own libraries, or from the linker.
+IDENTICAL. "Original bytes 0" means no uncovered flash ranges are copied in as opaque blobs.
+The gates account separately for source, toolchain libraries, linker output and initial RAM.
+This proves reconstruction, not that every register's meaning is known.
 
 ## Quick start
 
 You need the firmware images (fetched below), the toolchains
-([docs/development/toolchains.md](docs/development/toolchains.md)) and, for A316, a checkout of
+([docs/development/toolchains.md](docs/development/toolchains.md)) and, for the ARM targets, a checkout of
 [Exhume](https://github.com/abedegno/Exhume), the toolkit the matching was done with. Python 3.11
 or later. [docs/development/building.md](docs/development/building.md) has the details.
 
@@ -49,6 +54,10 @@ its `toolchain.example.toml`). Each tree's README lists its settings and their d
 
 `python3 tools/repocheck.py` runs the checks that need neither toolchain nor images (CI runs it).
 
+For 319, use the [319 build and source guide](inverters/gen3-lv/docs/319-readability.md).
+Its acceptance includes the licensed ARM whole link and both DSP linkers. The commands above
+remain the 316 examples; choose a target explicitly before fetching or rebuilding.
+
 ## Layout
 
     README.md, LICENSE, NOTICE.md     this page, the licence of my own work, what is not mine
@@ -62,7 +71,9 @@ its `toolchain.example.toml`). Each tree's README lists its settings and their d
     inverters/gen3-lv/                the Hybrid Gen3 LV inverter (its README: the two chips)
       a316/                           the ARM firmware A316: src, map, tools, docs
       d316/                           the DSP firmware D316: src, map, tools, docs
-    batteries/                        none yet
+      a319/, d319/                    the version 319 reconstructions and proof manifests
+      docs/                           version survey, 319 handover and source guide
+    batteries/lv/bms-3020/             the LV battery BMS; one dispatcher remains assembler
 
 Each firmware directory is self-contained: its own sources (`src/`), map of the image (`map/`),
 tools (`tools/`, with the gate), notes (`docs/`) and toolchain configuration.
@@ -70,7 +81,9 @@ tools (`tools/`, with the gate), notes (`docs/`) and toolchain configuration.
 ## Documentation
 
 Start at [docs/README.md](docs/README.md), which has reading paths for owners, developers and
-researchers. The pages there describe the inverter across both chips, each rule with the function
+researchers. The cross-chip operation pages describe the 316 baseline; the
+[319 handover](inverters/gen3-lv/docs/319-handover.md) records the recovered changes.
+Each baseline rule names the function
 and file it comes from:
 
 - **system**: [architecture](docs/system/architecture.md), [hardware](docs/system/hardware.md),

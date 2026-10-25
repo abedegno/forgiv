@@ -1,5 +1,9 @@
 # Holding and input registers
 
+Version scope: this is the 316 register reference. A319 adds HR104, HR107 and HR192 behavior
+and expands meter records. See the [319 reconstruction](../../inverters/gen3-lv/a319/README.md)
+and its matched source for those paths; this full table has not been re-audited for 319.
+
 The inverter's Modbus registers as A316 serves them, with what the DSP does with each one that
 it receives. Built from the code:
 

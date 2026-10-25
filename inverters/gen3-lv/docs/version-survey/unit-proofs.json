@@ -1,0 +1,115 @@
+{
+  "ARM": {
+    "316": {
+      "source": "a316/src/app/drivers/panel_led.c",
+      "base": 134367912,
+      "bytes": 252,
+      "functions": 8,
+      "relocations": 16,
+      "different_bytes": 0,
+      "external_symbols": {
+        "RCC_APB2PeriphClockCmd": 134409827,
+        "GPIO_Init": 134407877,
+        "GPIO_ResetBits": 134408227,
+        "GPIO_SetBits": 134408223
+      },
+      "method": "objplace applied every real object relocation; callee bodies checked against complete 316 map rows (unique raw candidates where available; short GPIO leaves checked at decoded targets)",
+      "source_sha256": "7d5a88f0a68d55bd3d817dee4579c223eda1ecb0d528cad20fd2ffcb378647d3",
+      "object_sha256": "3654a7ffecc09622a31fb75c51c2e1f03849c4283d239fce73a76566d7706fb3"
+    },
+    "318": {
+      "source": "a316/src/app/drivers/panel_led.c",
+      "base": 134368176,
+      "bytes": 252,
+      "functions": 8,
+      "relocations": 16,
+      "different_bytes": 0,
+      "external_symbols": {
+        "RCC_APB2PeriphClockCmd": 134410019,
+        "GPIO_Init": 134408069,
+        "GPIO_ResetBits": 134408419,
+        "GPIO_SetBits": 134408415
+      },
+      "method": "objplace applied every real object relocation; callee bodies checked against complete 316 map rows (unique raw candidates where available; short GPIO leaves checked at decoded targets)",
+      "source_sha256": "7d5a88f0a68d55bd3d817dee4579c223eda1ecb0d528cad20fd2ffcb378647d3",
+      "object_sha256": "3654a7ffecc09622a31fb75c51c2e1f03849c4283d239fce73a76566d7706fb3"
+    },
+    "319": {
+      "source": "a316/src/app/drivers/panel_led.c",
+      "status": "no_complete_object_match",
+      "candidate_count": 0,
+      "note": "319 panel functions start at halfword alignment; pool placement requires further work",
+      "source_sha256": "7d5a88f0a68d55bd3d817dee4579c223eda1ecb0d528cad20fd2ffcb378647d3"
+    }
+  },
+  "DSP": {
+    "316": {
+      "source": "d316/src/app/util/rate_limit.c",
+      "load": 4141856,
+      "run": 38761,
+      "words": 46,
+      "relocations": 0,
+      "different_words": 0,
+      "method": "native lnk2000 at RAM run address inferred from startup copy source; all 46 linked words compared unmasked at flash load address",
+      "source_sha256": "ada0129e7ac76ec83cfc064898344e5d42193cbd91c853530175c4d94a45cc17",
+      "object_sha256": "5f2fb28770e294f79f3583fac09128227410a319b4e6f8214e148076a5d6ca16"
+    },
+    "318": {
+      "source": "d316/src/app/util/rate_limit.c",
+      "load": 4141973,
+      "run": 38761,
+      "words": 46,
+      "relocations": 0,
+      "different_words": 0,
+      "method": "native lnk2000 at RAM run address inferred from startup copy source; all 46 linked words compared unmasked at flash load address",
+      "source_sha256": "ada0129e7ac76ec83cfc064898344e5d42193cbd91c853530175c4d94a45cc17",
+      "object_sha256": "5f2fb28770e294f79f3583fac09128227410a319b4e6f8214e148076a5d6ca16"
+    },
+    "319": {
+      "source": "d316/src/app/util/rate_limit.c",
+      "load": 4142013,
+      "run": 38761,
+      "words": 46,
+      "relocations": 0,
+      "different_words": 0,
+      "method": "native lnk2000 at RAM run address inferred from startup copy source; all 46 linked words compared unmasked at flash load address",
+      "source_sha256": "ada0129e7ac76ec83cfc064898344e5d42193cbd91c853530175c4d94a45cc17",
+      "object_sha256": "5f2fb28770e294f79f3583fac09128227410a319b4e6f8214e148076a5d6ca16"
+    }
+  },
+  "ARM_util": {
+    "316": {
+      "source": "a316/src/app/util.c",
+      "base": 134368164,
+      "bytes": 192,
+      "functions": 6,
+      "relocations": 0,
+      "different_bytes": 0,
+      "method": "complete compiled .text compared unmasked after objplace; no external relocations",
+      "source_sha256": "afac80e0fa641d042f9473baa0a84069b4708f93b6218fe0fd8322bcc67ce321",
+      "object_sha256": "c14e95231cb54d735b6909800fa0cd51ab38cad96e4224a10a825ba90116e0f4"
+    },
+    "318": {
+      "source": "a316/src/app/util.c",
+      "base": 134368428,
+      "bytes": 192,
+      "functions": 6,
+      "relocations": 0,
+      "different_bytes": 0,
+      "method": "complete compiled .text compared unmasked after objplace; no external relocations",
+      "source_sha256": "afac80e0fa641d042f9473baa0a84069b4708f93b6218fe0fd8322bcc67ce321",
+      "object_sha256": "c14e95231cb54d735b6909800fa0cd51ab38cad96e4224a10a825ba90116e0f4"
+    },
+    "319": {
+      "source": "a316/src/app/util.c",
+      "base": 134369320,
+      "bytes": 192,
+      "functions": 6,
+      "relocations": 0,
+      "different_bytes": 0,
+      "method": "complete compiled .text compared unmasked after objplace; no external relocations",
+      "source_sha256": "afac80e0fa641d042f9473baa0a84069b4708f93b6218fe0fd8322bcc67ce321",
+      "object_sha256": "c14e95231cb54d735b6909800fa0cd51ab38cad96e4224a10a825ba90116e0f4"
+    }
+  }
+}

@@ -1,5 +1,10 @@
 # Update packages and the boot loaders
 
+Version scope: the sizes and code paths below describe A316/D316. The repository also
+reconstructs A319/D319: its ARM file is 147,540 bytes including the four-byte header, and
+its DSP file remains 131,072 bytes. Hashes are pinned in the manifest. See the
+[319 guide](../../inverters/gen3-lv/docs/319-readability.md) for its proofs and changes.
+
 GivEnergy ships the Gen3 LV firmware as packages named after both versions, such as
 `A316-D316.zip`. The one this repository rebuilds holds two files (their names inside the zip
 and their hashes are in [firmware/manifest.toml](../../firmware/manifest.toml)):

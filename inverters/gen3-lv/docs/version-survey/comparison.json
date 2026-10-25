@@ -1,0 +1,89 @@
+{
+  "pairs": {
+    "ARM_316_318": {
+      "lengths_bytes": [
+        145320,
+        145508
+      ],
+      "different_at_same_offset": 128648,
+      "unit": "bytes"
+    },
+    "ARM_318_319": {
+      "lengths_bytes": [
+        145508,
+        147536
+      ],
+      "different_at_same_offset": 133110,
+      "unit": "bytes"
+    },
+    "ARM_316_319": {
+      "lengths_bytes": [
+        145320,
+        147536
+      ],
+      "different_at_same_offset": 133913,
+      "unit": "bytes"
+    },
+    "DSP_316_318": {
+      "lengths_bytes": [
+        131072,
+        131072
+      ],
+      "different_at_same_offset": 36043,
+      "unit": "words",
+      "boot_sector_A_identical": true
+    },
+    "DSP_318_319": {
+      "lengths_bytes": [
+        131072,
+        131072
+      ],
+      "different_at_same_offset": 42201,
+      "unit": "words",
+      "boot_sector_A_identical": true
+    },
+    "DSP_316_319": {
+      "lengths_bytes": [
+        131072,
+        131072
+      ],
+      "different_at_same_offset": 44336,
+      "unit": "words",
+      "boot_sector_A_identical": true
+    }
+  },
+  "baseline_raw_function_candidates": {
+    "ARM_318": {
+      "rows": 782,
+      "unique_exact": 488,
+      "ambiguous_exact": 2,
+      "not_found_exact": 142,
+      "short_rows_skipped": 150,
+      "unique_exact_bytes": 50732
+    },
+    "ARM_319": {
+      "rows": 782,
+      "unique_exact": 453,
+      "ambiguous_exact": 2,
+      "not_found_exact": 177,
+      "short_rows_skipped": 150,
+      "unique_exact_bytes": 36356
+    },
+    "DSP_318": {
+      "rows": 475,
+      "unique_exact": 192,
+      "ambiguous_exact": 93,
+      "not_found_exact": 165,
+      "short_rows_skipped": 25,
+      "unique_exact_bytes": 31652
+    },
+    "DSP_319": {
+      "rows": 475,
+      "unique_exact": 187,
+      "ambiguous_exact": 93,
+      "not_found_exact": 170,
+      "short_rows_skipped": 25,
+      "unique_exact_bytes": 28796
+    }
+  }
+}

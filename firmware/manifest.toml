@@ -44,3 +44,66 @@ base = 0x08014000
 entry = 0x08014000
 sha256 = "b279db4363c6cbf30c5297e6a7e70adb7d70dedc936cff8c4c13fe9201c53e3b"
 dest = "gen3-lv/A316.hex"
+# Comparison image: version 318 is pinned and surveyed, without a matched source tree.
+[[package]]
+id = "gen3-lv-318"
+firmware = ["inverters/gen3-lv"]
+repo = "https://github.com/DJBenson/giv-firmware"
+path = "Firmware/Inverter/Hybrid Gen3 LV/D318-A318-26-Aug-2025.zip"
+commit = "9553767d57718a7b9858137d5419ce462c955334"
+url = "https://raw.githubusercontent.com/DJBenson/giv-firmware/9553767d57718a7b9858137d5419ce462c955334/Firmware/Inverter/Hybrid%20Gen3%20LV/D318-A318-26-Aug-2025.zip"
+fallback_url = "https://raw.githubusercontent.com/DJBenson/giv-firmware/main/Firmware/Inverter/Hybrid%20Gen3%20LV/D318-A318-26-Aug-2025.zip"
+sha256 = "fcb8e7b65833a134b02da63deecf280d60fa3f9e45227ccdff0f41a6364f6a96"
+
+[[package.member]]
+name = "02_U disk burn/ARMStore.bin"
+size = 145512
+sha256 = "163cef5104a15b4edd294477d095c1ea4856f692d8a5def309e1e2ed09773f05"
+dest = "gen3-lv/A318_ARMStore.bin"
+
+[[package.member]]
+name = "02_U disk burn/DSPStore.bin"
+size = 131072
+sha256 = "70670e4e3c6ae535c314d4a4efe58b707582640f3e3b249a34843c8f45571b05"
+dest = "gen3-lv/D318_DSPStore.bin"
+
+[[package.derived]]
+kind = "ihex"
+from = "gen3-lv/A318_ARMStore.bin"
+skip = 4
+base = 0x08014000
+entry = 0x08014000
+sha256 = "00516d1b05dbad48d883cd515cbd2988433c457ffc3d39e84524ecb2a39a39bc"
+dest = "gen3-lv/A318.hex"
+
+# Published 319 pair; both matched source trees are under inverters/gen3-lv/.
+[[package]]
+id = "gen3-lv-319"
+firmware = ["inverters/gen3-lv/a319", "inverters/gen3-lv/d319"]
+repo = "https://github.com/DJBenson/giv-firmware"
+path = "Firmware/Inverter/Hybrid Gen3 LV/A319-D319.zip"
+commit = "9553767d57718a7b9858137d5419ce462c955334"
+url = "https://raw.githubusercontent.com/DJBenson/giv-firmware/9553767d57718a7b9858137d5419ce462c955334/Firmware/Inverter/Hybrid%20Gen3%20LV/A319-D319.zip"
+fallback_url = "https://raw.githubusercontent.com/DJBenson/giv-firmware/main/Firmware/Inverter/Hybrid%20Gen3%20LV/A319-D319.zip"
+sha256 = "f2a9773cc7b4a2c336d044c43982c28bcbd5dbc9791e9898d3a6f870e9e3e9bd"
+
+[[package.member]]
+name = "Future - A319-D319/ARMStore.bin"
+size = 147540
+sha256 = "f58f027c3a971fb4260a3fa8123959584f1defe4c55e8808601bfb4c552031d7"
+dest = "gen3-lv/A319_ARMStore.bin"
+
+[[package.member]]
+name = "Future - A319-D319/DSPStore.bin"
+size = 131072
+sha256 = "932fa4ce4ab4ffa5f36af0ac4fdcca3b3a2cd50e7086418e8fe2d41cd293e886"
+dest = "gen3-lv/D319_DSPStore.bin"
+
+[[package.derived]]
+kind = "ihex"
+from = "gen3-lv/A319_ARMStore.bin"
+skip = 4
+base = 0x08014000
+entry = 0x08014000
+sha256 = "0f3a2a513420bd4a4295be787257c39f4dee9549b608d11c8b004177392d3772"
+dest = "gen3-lv/A319.hex"

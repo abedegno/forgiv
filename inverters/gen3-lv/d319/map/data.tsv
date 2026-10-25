@@ -1,0 +1,2151 @@
+addr	size	name	kind	notes
+000400		BootRamfuncsRunStart	var	name for the address var_0400 spelled; C: TI RamfuncsRunStart, prefixed as above
+000A80	8	FlashRegs	periph	FlashRegs; address taken; refs=2
+000A86	1	p_0A86	periph	FlashRegs+0x6; refs=6
+000A87	1	p_0A87	periph	FlashRegs+0x7; refs=2
+000AE0	16	CsmRegs	periph	CsmRegs; refs=1
+000AE1	1	p_0AE1	periph	CsmRegs+0x1; refs=1
+000AE2	1	p_0AE2	periph	CsmRegs+0x2; refs=1
+000AE3	1	p_0AE3	periph	CsmRegs+0x3; refs=1
+000AE4	1	p_0AE4	periph	CsmRegs+0x4; refs=1
+000AE5	1	p_0AE5	periph	CsmRegs+0x5; refs=1
+000AE6	1	p_0AE6	periph	CsmRegs+0x6; refs=1
+000AE7	1	p_0AE7	periph	CsmRegs+0x7; refs=1
+000AEF	1	p_0AEF	periph	CsmRegs+0xF; refs=1
+000B00	16	AdcResult	periph	AdcResult; address taken; refs=2
+000B01	1	p_0B01	periph	AdcResult+0x1; refs=1
+000B02	1	p_0B02	periph	AdcResult+0x2; refs=2
+000B03	1	p_0B03	periph	AdcResult+0x3; refs=2
+000B04	1	p_0B04	periph	AdcResult+0x4; refs=1
+000B05	1	p_0B05	periph	AdcResult+0x5; refs=1
+000B06	1	p_0B06	periph	AdcResult+0x6; refs=1
+000B07	1	p_0B07	periph	AdcResult+0x7; refs=2
+000B08	1	p_0B08	periph	AdcResult+0x8; refs=2
+000B09	1	p_0B09	periph	AdcResult+0x9; refs=1
+000B0A	1	p_0B0A	periph	AdcResult+0xA; refs=1
+000B0B	1	p_0B0B	periph	AdcResult+0xB; refs=1
+000B0C	1	p_0B0C	periph	AdcResult+0xC; refs=1
+000B0D	1	p_0B0D	periph	AdcResult+0xD; refs=1
+000B0E	1	p_0B0E	periph	AdcResult+0xE; refs=1
+000B0F	1	p_0B0F	periph	AdcResult+0xF; refs=2
+000C10	8	CpuTimer2Regs	periph	CpuTimer2Regs; address taken; refs=1
+000C12	2	p_0C12	periph	CpuTimer2Regs+0x2; refs=1
+000C14	1	p_0C14	periph	CpuTimer2Regs+0x4; refs=2
+000C16	1	p_0C16	periph	CpuTimer2Regs+0x6; refs=1
+000C17	1	p_0C17	periph	CpuTimer2Regs+0x7; refs=1
+000CE0	32	PieCtrlRegs	periph	PieCtrlRegs; address taken; refs=5
+000CE1	1	p_0CE1	periph	PieCtrlRegs+0x1; refs=8
+000CE2	1	p_0CE2	periph	PieCtrlRegs+0x2; refs=2
+000CE3	1	p_0CE3	periph	PieCtrlRegs+0x3; refs=2
+000CE4	1	p_0CE4	periph	PieCtrlRegs+0x4; refs=2
+000CE5	1	p_0CE5	periph	PieCtrlRegs+0x5; refs=2
+000CE6	1	p_0CE6	periph	PieCtrlRegs+0x6; refs=2
+000CE7	1	p_0CE7	periph	PieCtrlRegs+0x7; refs=2
+000CE8	1	p_0CE8	periph	PieCtrlRegs+0x8; refs=3
+000CE9	1	p_0CE9	periph	PieCtrlRegs+0x9; refs=2
+000CEA	1	p_0CEA	periph	PieCtrlRegs+0xA; refs=2
+000CEB	1	p_0CEB	periph	PieCtrlRegs+0xB; refs=2
+000CEC	1	p_0CEC	periph	PieCtrlRegs+0xC; refs=2
+000CED	1	p_0CED	periph	PieCtrlRegs+0xD; refs=2
+000CEE	1	p_0CEE	periph	PieCtrlRegs+0xE; refs=8
+000CEF	1	p_0CEF	periph	PieCtrlRegs+0xF; refs=2
+000CF0	1	p_0CF0	periph	PieCtrlRegs+0x10; refs=2
+000CF1	1	p_0CF1	periph	PieCtrlRegs+0x11; refs=2
+000CF2	1	p_0CF2	periph	PieCtrlRegs+0x12; refs=5
+000CF3	1	p_0CF3	periph	PieCtrlRegs+0x13; refs=2
+000CF4	1	p_0CF4	periph	PieCtrlRegs+0x14; refs=2
+000CF5	1	p_0CF5	periph	PieCtrlRegs+0x15; refs=2
+000CF6	1	p_0CF6	periph	PieCtrlRegs+0x16; refs=2
+000CF7	1	p_0CF7	periph	PieCtrlRegs+0x17; refs=2
+000CF8	1	p_0CF8	periph	PieCtrlRegs+0x18; refs=2
+000CF9	1	p_0CF9	periph	PieCtrlRegs+0x19; refs=2
+000D00		PieVectTable	var	name for the address var_0D00 spelled; B: TI
+000D02	2	Flash_CallbackPtr	periph	PieVectTable+0x2; refs=1
+000D04	2	Flash_CPUScaleFactor	periph	PieVectTable+0x4; refs=1
+000D06		p_0D06	periph	PieVectTable+0x6; address taken; refs=1
+000D1C	2	p_0D1C	periph	PieVectTable+0x1C; refs=1
+000D3E	2	p_0D3E	periph	PieVectTable+0x3E; refs=1
+000D54	2	p_0D54	periph	PieVectTable+0x54; refs=1
+000D66	2	p_0D66	periph	PieVectTable+0x66; refs=1
+000D70	2	p_0D70	periph	PieVectTable+0x70; refs=1
+000DC0	2	p_0DC0	periph	PieVectTable+0xC0; refs=1
+000DC2	2	p_0DC2	periph	PieVectTable+0xC2; refs=1
+000DC4	2	p_0DC4	periph	PieVectTable+0xC4; refs=1
+000DC6	2	p_0DC6	periph	PieVectTable+0xC6; refs=1
+001000	224	DmaRegs	periph	DmaRegs (F2806x_Dma.h)
+001020	1	p_1020	periph	peripheral; refs=10
+001021	1	p_1021	periph	peripheral; refs=2
+001022	1	p_1022	periph	peripheral; refs=1
+001024	1	p_1024	periph	peripheral; refs=1
+001025	1	p_1025	periph	peripheral; refs=1
+001026	1	p_1026	periph	peripheral; refs=1
+001028	1	p_1028	periph	peripheral; refs=1
+001029	1	p_1029	periph	peripheral; refs=1
+00102A	1	p_102A	periph	peripheral; refs=1
+00102C	1	p_102C	periph	peripheral; refs=1
+00102D	1	p_102D	periph	peripheral; refs=1
+00102F	1	p_102F	periph	peripheral; refs=1
+001030	2	p_1030	periph	peripheral; refs=1
+001032	2	p_1032	periph	peripheral; refs=1
+001038	2	p_1038	periph	peripheral; refs=1
+00103A	2	p_103A	periph	peripheral; refs=1
+001040	1	p_1040	periph	peripheral; refs=19
+001041	1	p_1041	periph	peripheral; refs=2
+001042	1	p_1042	periph	peripheral; refs=1
+001044	1	p_1044	periph	peripheral; refs=1
+001045	1	p_1045	periph	peripheral; refs=1
+001046	1	p_1046	periph	peripheral; refs=1
+001048	1	p_1048	periph	peripheral; refs=1
+001049	1	p_1049	periph	peripheral; refs=1
+00104A	1	p_104A	periph	peripheral; refs=1
+00104C	1	p_104C	periph	peripheral; refs=1
+00104D	1	p_104D	periph	peripheral; refs=1
+00104F	1	p_104F	periph	peripheral; refs=1
+001050	2	p_1050	periph	peripheral; refs=1
+001052	2	p_1052	periph	peripheral; refs=1
+001058	2	p_1058	periph	peripheral; refs=1
+00105A	2	p_105A	periph	peripheral; refs=1
+001060	1	p_1060	periph	peripheral; refs=19
+001061	1	p_1061	periph	peripheral; refs=2
+001062	1	p_1062	periph	peripheral; refs=1
+001064	1	p_1064	periph	peripheral; refs=1
+001065	1	p_1065	periph	peripheral; refs=1
+001066	1	p_1066	periph	peripheral; refs=1
+001068	1	p_1068	periph	peripheral; refs=1
+001069	1	p_1069	periph	peripheral; refs=1
+00106A	1	p_106A	periph	peripheral; refs=1
+00106C	1	p_106C	periph	peripheral; refs=1
+00106D	1	p_106D	periph	peripheral; refs=1
+00106F	1	p_106F	periph	peripheral; refs=1
+001070	2	p_1070	periph	peripheral; refs=1
+001072	2	p_1072	periph	peripheral; refs=1
+001078	2	p_1078	periph	peripheral; refs=1
+00107A	2	p_107A	periph	peripheral; refs=1
+001080	1	p_1080	periph	peripheral; refs=19
+001081	1	p_1081	periph	peripheral; refs=2
+001082	1	p_1082	periph	peripheral; refs=1
+001084	1	p_1084	periph	peripheral; refs=1
+001085	1	p_1085	periph	peripheral; refs=1
+001086	1	p_1086	periph	peripheral; refs=1
+001088	1	p_1088	periph	peripheral; refs=1
+001089	1	p_1089	periph	peripheral; refs=1
+00108A	1	p_108A	periph	peripheral; refs=1
+00108C	1	p_108C	periph	peripheral; refs=1
+00108D	1	p_108D	periph	peripheral; refs=1
+00108F	1	p_108F	periph	peripheral; refs=1
+001090	2	p_1090	periph	peripheral; refs=1
+001092	2	p_1092	periph	peripheral; refs=1
+001098	2	p_1098	periph	peripheral; refs=1
+00109A	2	p_109A	periph	peripheral; refs=1
+0010A0	1	p_10A0	periph	peripheral; refs=19
+0010A1	1	p_10A1	periph	peripheral; refs=2
+0010A2	1	p_10A2	periph	peripheral; refs=1
+0010A4	1	p_10A4	periph	peripheral; refs=1
+0010A5	1	p_10A5	periph	peripheral; refs=1
+0010A6	1	p_10A6	periph	peripheral; refs=1
+0010A8	1	p_10A8	periph	peripheral; refs=1
+0010A9	1	p_10A9	periph	peripheral; refs=1
+0010AA	1	p_10AA	periph	peripheral; refs=1
+0010AC	1	p_10AC	periph	peripheral; refs=1
+0010AD	1	p_10AD	periph	peripheral; refs=1
+0010AF	1	p_10AF	periph	peripheral; refs=1
+0010B0	2	p_10B0	periph	peripheral; refs=1
+0010B2	2	p_10B2	periph	peripheral; refs=1
+0010B8	2	p_10B8	periph	peripheral; refs=1
+0010BA	2	p_10BA	periph	peripheral; refs=1
+0010C0	1	p_10C0	periph	peripheral; refs=19
+0010C1	1	p_10C1	periph	peripheral; refs=2
+0010C2	1	p_10C2	periph	peripheral; refs=1
+0010C4	1	p_10C4	periph	peripheral; refs=1
+0010C5	1	p_10C5	periph	peripheral; refs=1
+0010C6	1	p_10C6	periph	peripheral; refs=1
+0010C8	1	p_10C8	periph	peripheral; refs=1
+0010C9	1	p_10C9	periph	peripheral; refs=1
+0010CA	1	p_10CA	periph	peripheral; refs=1
+0010CC	1	p_10CC	periph	peripheral; refs=1
+0010CD	1	p_10CD	periph	peripheral; refs=1
+0010CF	1	p_10CF	periph	peripheral; refs=1
+0010D0	2	p_10D0	periph	peripheral; refs=1
+0010D2	2	p_10D2	periph	peripheral; refs=1
+0010D8	2	p_10D8	periph	peripheral; refs=1
+0010DA	2	p_10DA	periph	peripheral; refs=1
+0017B8		RamfuncsLoadSize	var	name for the address d_17B8 spelled; B: TI linker symbol
+006800	64	EPwm1Regs	periph	EPwm1Regs; address taken; refs=4
+006803	1	p_6803	periph	EPwm1Regs+0x3; refs=1
+006804	1	p_6804	periph	EPwm1Regs+0x4; refs=1
+006805	1	p_6805	periph	EPwm1Regs+0x5; refs=1
+006807	1	p_6807	periph	EPwm1Regs+0x7; refs=3
+006809	1	p_6809	periph	EPwm1Regs+0x9; refs=3
+00680A	1	p_680A	periph	EPwm1Regs+0xA; refs=3
+00680B	1	p_680B	periph	EPwm1Regs+0xB; refs=3
+00680C	1	p_680C	periph	EPwm1Regs+0xC; refs=3
+00680E	1	p_680E	periph	EPwm1Regs+0xE; refs=20
+006812	1	p_6812	periph	EPwm1Regs+0x12; refs=1
+006814	1	p_6814	periph	EPwm1Regs+0x14; refs=6
+006817	1	p_6817	periph	EPwm1Regs+0x17; refs=1
+006840	64	EPwm2Regs	periph	EPwm2Regs; address taken; refs=2
+006852	1	p_6852	periph	EPwm2Regs+0x12; refs=1
+006854	1	p_6854	periph	EPwm2Regs+0x14; refs=6
+006857	1	p_6857	periph	EPwm2Regs+0x17; refs=1
+006880	64	EPwm3Regs	periph	EPwm3Regs; address taken; refs=4
+006883	1	p_6883	periph	EPwm3Regs+0x3; refs=1
+006884	1	p_6884	periph	EPwm3Regs+0x4; refs=1
+006885	1	p_6885	periph	EPwm3Regs+0x5; refs=1
+006887	1	p_6887	periph	EPwm3Regs+0x7; refs=9
+006889	1	p_6889	periph	EPwm3Regs+0x9; refs=1
+00688B	1	p_688B	periph	EPwm3Regs+0xB; refs=4
+00688C	1	p_688C	periph	EPwm3Regs+0xC; refs=4
+00688D	1	p_688D	periph	EPwm3Regs+0xD; refs=1
+00688E	1	p_688E	periph	EPwm3Regs+0xE; refs=12
+00688F	1	p_688F	periph	EPwm3Regs+0xF; refs=4
+006890	1	p_6890	periph	EPwm3Regs+0x10; refs=1
+006891	1	p_6891	periph	EPwm3Regs+0x11; refs=1
+006892	1	p_6892	periph	EPwm3Regs+0x12; refs=1
+006894	1	p_6894	periph	EPwm3Regs+0x14; refs=6
+006897	1	p_6897	periph	EPwm3Regs+0x17; refs=2
+006899	1	p_6899	periph	EPwm3Regs+0x19; refs=2
+00689C	1	p_689C	periph	EPwm3Regs+0x1C; refs=1
+0068C0	64	EPwm4Regs	periph	EPwm4Regs; address taken; refs=4
+0068C3	1	p_68C3	periph	EPwm4Regs+0x3; refs=1
+0068C4	1	p_68C4	periph	EPwm4Regs+0x4; refs=1
+0068C5	1	p_68C5	periph	EPwm4Regs+0x5; refs=1
+0068C7	1	p_68C7	periph	EPwm4Regs+0x7; refs=9
+0068C9	1	p_68C9	periph	EPwm4Regs+0x9; refs=1
+0068CB	1	p_68CB	periph	EPwm4Regs+0xB; refs=4
+0068CC	1	p_68CC	periph	EPwm4Regs+0xC; refs=4
+0068CD	1	p_68CD	periph	EPwm4Regs+0xD; refs=1
+0068CE	1	p_68CE	periph	EPwm4Regs+0xE; refs=12
+0068CF	1	p_68CF	periph	EPwm4Regs+0xF; refs=4
+0068D0	1	p_68D0	periph	EPwm4Regs+0x10; refs=1
+0068D1	1	p_68D1	periph	EPwm4Regs+0x11; refs=1
+0068D2	1	p_68D2	periph	EPwm4Regs+0x12; refs=1
+0068D4	1	p_68D4	periph	EPwm4Regs+0x14; refs=6
+0068D7	1	p_68D7	periph	EPwm4Regs+0x17; refs=1
+0068D9	1	p_68D9	periph	EPwm4Regs+0x19; refs=5
+0068DA	1	p_68DA	periph	EPwm4Regs+0x1A; refs=3
+0068DC	1	p_68DC	periph	EPwm4Regs+0x1C; refs=2
+006900	64	EPwm5Regs	periph	EPwm5Regs; address taken; refs=4
+006902	2	p_6902	periph	EPwm5Regs+0x2; refs=1
+006904	1	p_6904	periph	EPwm5Regs+0x4; refs=1
+006905	1	p_6905	periph	EPwm5Regs+0x5; refs=1
+006907	1	p_6907	periph	EPwm5Regs+0x7; refs=3
+006909	1	p_6909	periph	EPwm5Regs+0x9; refs=2
+00690B	1	p_690B	periph	EPwm5Regs+0xB; refs=3
+00690C	1	p_690C	periph	EPwm5Regs+0xC; refs=3
+00690D	1	p_690D	periph	EPwm5Regs+0xD; refs=1
+00690E	1	p_690E	periph	EPwm5Regs+0xE; refs=18
+00690F	1	p_690F	periph	EPwm5Regs+0xF; refs=4
+006910	1	p_6910	periph	EPwm5Regs+0x10; refs=1
+006911	1	p_6911	periph	EPwm5Regs+0x11; refs=1
+006912	1	p_6912	periph	EPwm5Regs+0x12; refs=1
+006914	1	p_6914	periph	EPwm5Regs+0x14; refs=6
+006917	1	p_6917	periph	EPwm5Regs+0x17; refs=1
+006918	1	p_6918	periph	EPwm5Regs+0x18; refs=4
+006919	1	p_6919	periph	EPwm5Regs+0x19; refs=1
+00691A	1	p_691A	periph	EPwm5Regs+0x1A; refs=1
+006940	64	EPwm6Regs	periph	EPwm6Regs; address taken; refs=2
+006952	1	p_6952	periph	EPwm6Regs+0x12; refs=1
+006954	1	p_6954	periph	EPwm6Regs+0x14; refs=6
+006957	1	p_6957	periph	EPwm6Regs+0x17; refs=1
+006980	64	EPwm7Regs	periph	EPwm7Regs; address taken; refs=1
+006982	2	p_6982	periph	EPwm7Regs+0x2; refs=1
+006984	1	p_6984	periph	EPwm7Regs+0x4; refs=1
+006985	1	p_6985	periph	EPwm7Regs+0x5; refs=1
+006987	1	p_6987	periph	EPwm7Regs+0x7; refs=3
+006989	1	p_6989	periph	EPwm7Regs+0x9; refs=2
+00698A	1	p_698A	periph	EPwm7Regs+0xA; refs=2
+00698B	1	p_698B	periph	EPwm7Regs+0xB; refs=3
+00698C	1	p_698C	periph	EPwm7Regs+0xC; refs=3
+00698E	1	p_698E	periph	EPwm7Regs+0xE; refs=11
+00699C	1	p_699C	periph	EPwm7Regs+0x1C; refs=1
+0069C0	64	EPwm8Regs	periph	EPwm8Regs; address taken; refs=1
+0069C2	2	p_69C2	periph	EPwm8Regs+0x2; refs=1
+0069C4	1	p_69C4	periph	EPwm8Regs+0x4; refs=3
+0069C5	1	p_69C5	periph	EPwm8Regs+0x5; refs=1
+0069C7	1	p_69C7	periph	EPwm8Regs+0x7; refs=3
+0069C9	1	p_69C9	periph	EPwm8Regs+0x9; refs=2
+0069CA	1	p_69CA	periph	EPwm8Regs+0xA; refs=2
+0069CB	1	p_69CB	periph	EPwm8Regs+0xB; refs=3
+0069CC	1	p_69CC	periph	EPwm8Regs+0xC; refs=3
+0069CE	1	p_69CE	periph	EPwm8Regs+0xE; refs=13
+0069DC	1	p_69DC	periph	EPwm8Regs+0x1C; refs=1
+006A00	32	ECap1Regs	periph	ECap1Regs; address taken; refs=2
+006A04	2	p_6A04	periph	ECap1Regs+0x4; refs=1
+006A14	1	p_6A14	periph	ECap1Regs+0x14; refs=10
+006A15	1	p_6A15	periph	ECap1Regs+0x15; refs=7
+006A16	1	p_6A16	periph	ECap1Regs+0x16; refs=1
+006A17	1	p_6A17	periph	ECap1Regs+0x17; refs=1
+006A18	1	p_6A18	periph	ECap1Regs+0x18; refs=3
+006F80	64	GpioCtrlRegs	periph	GpioCtrlRegs; address taken; refs=2
+006F84	1	p_6F84	periph	GpioCtrlRegs+0x4; refs=2
+006F85	1	p_6F85	periph	GpioCtrlRegs+0x5; refs=1
+006F86	1	p_6F86	periph	GpioCtrlRegs+0x6; refs=15
+006F87	1	p_6F87	periph	GpioCtrlRegs+0x7; refs=7
+006F88	1	p_6F88	periph	GpioCtrlRegs+0x8; refs=8
+006F89	1	p_6F89	periph	GpioCtrlRegs+0x9; refs=13
+006F8A	2	p_6F8A	periph	GpioCtrlRegs+0xA; refs=5
+006F8B	1	p_6F8B	periph	GpioCtrlRegs+0xB; refs=6
+006F8C	2	p_6F8C	periph	GpioCtrlRegs+0xC; refs=15
+006F8D	1	p_6F8D	periph	GpioCtrlRegs+0xD; refs=15
+006F96	1	p_6F96	periph	GpioCtrlRegs+0x16; refs=2
+006F97	1	p_6F97	periph	GpioCtrlRegs+0x17; refs=7
+006F98	1	p_6F98	periph	GpioCtrlRegs+0x18; refs=4
+006F99	1	p_6F99	periph	GpioCtrlRegs+0x19; refs=2
+006F9A	2	p_6F9A	periph	GpioCtrlRegs+0x1A; refs=4
+006F9B	1	p_6F9B	periph	GpioCtrlRegs+0x1B; refs=6
+006F9C	2	p_6F9C	periph	GpioCtrlRegs+0x1C; refs=8
+006F9D	1	p_6F9D	periph	GpioCtrlRegs+0x1D; refs=7
+006FC0	32	GpioDataRegs	periph	GpioDataRegs; address taken; refs=5
+006FC2	1	p_6FC2	periph	GpioDataRegs+0x2; refs=2
+006FC3	1	p_6FC3	periph	GpioDataRegs+0x3; refs=8
+006FC4	1	p_6FC4	periph	GpioDataRegs+0x4; refs=1
+006FC5	1	p_6FC5	periph	GpioDataRegs+0x5; refs=1
+006FC6	1	p_6FC6	periph	GpioDataRegs+0x6; refs=2
+006FC7	1	p_6FC7	periph	GpioDataRegs+0x7; refs=2
+006FC8	1	p_6FC8	periph	GpioDataRegs+0x8; refs=3
+006FCB	1	p_6FCB	periph	GpioDataRegs+0xB; refs=5
+006FCD	1	p_6FCD	periph	GpioDataRegs+0xD; refs=8
+006FCF	1	p_6FCF	periph	GpioDataRegs+0xF; refs=1
+007010	32	SysCtrlRegs	periph	SysCtrlRegs; address taken; refs=4
+007011	1	p_7011	periph	SysCtrlRegs+0x1; refs=17
+007012	1	p_7012	periph	SysCtrlRegs+0x2; refs=13
+00701B	1	p_701B	periph	SysCtrlRegs+0xB; refs=2
+00701C	1	p_701C	periph	SysCtrlRegs+0xC; refs=8
+00701D	1	p_701D	periph	SysCtrlRegs+0xD; refs=6
+007020	1	p_7020	periph	SysCtrlRegs+0x10; refs=3
+007021	1	p_7021	periph	SysCtrlRegs+0x11; refs=4
+007029		p_7029	periph	SysCtrlRegs+0x19; address taken; refs=5
+007050	16	SciaRegs	periph	SciaRegs; address taken; refs=6
+007051	1	p_7051	periph	SciaRegs+0x1; refs=11
+007052	1	SciaRegs_SCIHBAUD	periph	SciaRegs+0x2; refs=3
+007053	1	p_7053	periph	SciaRegs+0x3; refs=2
+007054	1	p_7054	periph	SciaRegs+0x4; refs=8
+007055	1	p_7055	periph	SciaRegs+0x5; refs=2
+007057	1	p_7057	periph	SciaRegs+0x7; refs=1
+007059	1	p_7059	periph	SciaRegs+0x9; refs=3
+007100	128	AdcRegs	periph	AdcRegs; address taken; refs=7
+007101	1	p_7101	periph	AdcRegs+0x1; refs=2
+007104	1	p_7104	periph	AdcRegs+0x4; refs=3
+007105	1	p_7105	periph	AdcRegs+0x5; refs=4
+007107	1	p_7107	periph	AdcRegs+0x7; refs=1
+007108	1	p_7108	periph	AdcRegs+0x8; refs=12
+007110	1	p_7110	periph	AdcRegs+0x10; refs=4
+007114	1	p_7114	periph	AdcRegs+0x14; refs=15
+007115	1	p_7115	periph	AdcRegs+0x15; refs=15
+007118	1	p_7118	periph	AdcRegs+0x18; refs=3
+00711A	1	p_711A	periph	AdcRegs+0x1A; refs=2
+007120	1	p_7120	periph	AdcRegs+0x20; refs=6
+007121	1	p_7121	periph	AdcRegs+0x21; refs=7
+007122	1	p_7122	periph	AdcRegs+0x22; refs=7
+007123	1	p_7123	periph	AdcRegs+0x23; refs=7
+007124	1	p_7124	periph	AdcRegs+0x24; refs=7
+007125	1	p_7125	periph	AdcRegs+0x25; refs=7
+007126	1	p_7126	periph	AdcRegs+0x26; refs=7
+007127	1	p_7127	periph	AdcRegs+0x27; refs=7
+007128	1	p_7128	periph	AdcRegs+0x28; refs=7
+007129	1	p_7129	periph	AdcRegs+0x29; refs=7
+00712A	1	p_712A	periph	AdcRegs+0x2A; refs=7
+00712B	1	p_712B	periph	AdcRegs+0x2B; refs=7
+00712C	1	p_712C	periph	AdcRegs+0x2C; refs=7
+00712D	1	p_712D	periph	AdcRegs+0x2D; refs=7
+00712E	1	p_712E	periph	AdcRegs+0x2E; refs=7
+00712F	1	p_712F	periph	AdcRegs+0x2F; refs=6
+007141	1	p_7141	periph	AdcRegs+0x41; refs=3
+007750	16	ScibRegs	periph	ScibRegs; address taken; refs=4
+007751	1	p_7751	periph	ScibRegs+0x1; refs=6
+007752	1	p_7752	periph	ScibRegs+0x2; refs=2
+007753	1	p_7753	periph	ScibRegs+0x3; refs=1
+007754	1	p_7754	periph	ScibRegs+0x4; refs=5
+007755	1	p_7755	periph	ScibRegs+0x5; refs=1
+007757	1	p_7757	periph	ScibRegs+0x7; refs=1
+007759	1	p_7759	periph	ScibRegs+0x9; refs=2
+008000		RamfuncsRunStart	var	name for the address ram_8000 spelled; B: TI linker symbol
+00A000		var_A000	var	address taken; refs=1
+00C000	1	ctrl_globals	var	address taken; cinit; refs=53
+00C000	1	state_trace	var	address taken; cinit; refs=53
+00C001	1	tz_trip_count	var	cinit; refs=1
+00C002	1	conv_mode	var	converter mode; cinit; refs=33
+00C003	1	dcdc_soft_done	var	cinit; refs=6
+00C004	1	inv_on	var	cinit; refs=6
+00C005	1	dcdc_duty	var	refs=5
+00C006	1	fast_trip_code	var	cinit; refs=6
+00C007	1	soft_start_phase	var	cinit; refs=13
+00C008	1	pv2_ref_isr	var	cinit; refs=1
+00C009	1	inv_cmp_a	var	refs=5
+00C00A	1	batt_current_cmd_i	var	cinit; refs=1
+00C00B	1	inv_cmp_b	var	refs=7
+00C00C	1	inv_duty	var	refs=11
+00C00D	1	pv1_ref_isr	var	cinit; refs=1
+00C00E	1	force_chg_soc_isr	var	cinit; refs=1
+00C00F	1	hr4000_value	var	cinit; refs=0
+00C010	1	dis_current_bound_i	var	cinit; refs=1
+00C011	1	pwm_period	var	cinit; refs=12
+00C012	1	bms_hr15_copy	var	cinit; refs=1
+00C013	1	chg_current_bound_i	var	cinit; refs=1
+00C014	1	grid_cycle_samples	var	cinit; refs=4
+00C015	1	dcdc_soft_lim	var	cinit; refs=10
+00C016	1	grid_buf_clear_idx	var	cinit; refs=4
+00C017	1	dcdc_soft_div	var	cinit; refs=4
+00C018	1	pv2_boost_on	var	refs=17
+00C019	1	bus_high	var	cinit; refs=3
+00C01A	1	grid_vpk_count	var	cinit; refs=4
+00C01B	1	batt_ov_count	var	cinit; refs=4
+00C01C	1	hv_oc_count	var	cinit; refs=4
+00C01D	1	hv_ov_count	var	cinit; refs=3
+00C01E	1	pv1_boost_on	var	refs=17
+00C01F	1	relay_sync_b	var	cinit; refs=3
+00C020	1	ecap_valid_count	var	refs=5
+00C021	1	relay_sync_a	var	cinit; refs=3
+00C022	2	ecap_delta	var	refs=3
+00C024	2	ecap_last	var	refs=2
+00C026	2	ecap_period	var	refs=3
+00C028	2	pll_sin	var	refs=2
+00C02A	2	pll_cos	var	refs=3
+00C02C	1	leak_fast_acc	var	refs=3
+00C02E	2	leak_fast_acc_sum	var	refs=4
+00C030		relay_ctl	var	address taken; refs=4
+00C034	1	relay_cmd	var	refs=6
+00C035	1	relay_ctl_relay_b	var	refs=8
+00C036	1	eps_active	var	refs=17
+00C040	2	pv_bus_pi	var	refs=2
+00C042	2	pv_bus_pi_kp	var	refs=2
+00C044	2	pv_bus_pi_p	var	refs=4
+00C046	2	pv_bus_pi_ki	var	refs=2
+00C048	2	pv_bus_pi_i	var	refs=7
+00C04A	2	pv_bus_pi_u	var	refs=7
+00C04C	2	ctrl_word_c04c	var	refs=2
+00C04E	2	island_det	var	address taken; refs=6
+00C050	2	island_det_max	var	refs=1
+00C052	2	island_det_min	var	refs=1
+00C054	2	island_det_thr	var	refs=1
+00C056	2	island_det_gain	var	refs=1
+00C058	1	island_det_limit	var	refs=1
+00C05A	2	island_det_hist1	var	refs=1
+00C05C	2	island_det_hist2	var	refs=1
+00C05E	2	island_det_hist3	var	refs=1
+00C060	2	island_det_out	var	refs=2
+00C062	1	island_det_cnt	var	refs=1
+00C063	1	island_det_flag	var	refs=2
+00C080	2	grid_v_hist	var	refs=3
+00C086	2	ram_word_c086	var	refs=3
+00C08C	2	ram_word_c08c	var	refs=2
+00C092	2	grid_v_hist_lead_prev	var	refs=2
+00C098	2	grid_v_hist_lead	var	refs=6
+00C0C0	2	meas_fast	var	address taken; refs=4
+00C0C2	2	meas_fast_pv2_v	var	refs=3
+00C0C4	2	meas_fast_iso_v	var	refs=2
+00C0C6	2	meas_fast_bus_v	var	refs=4
+00C0C8	2	meas_fast_hv_v	var	refs=5
+00C0CA	2	meas_fast_batt_v	var	refs=6
+00C0CC	2	meas_fast_pv1_i	var	refs=7
+00C0CE	2	meas_fast_pv2_i	var	refs=7
+00C0D0	2	meas_fast_hv_i	var	refs=4
+00C0D2	2	meas_fast_leak_i_slow	var	refs=2
+00C0D4	2	meas_fast_dci_i	var	refs=2
+00C0D8	2	meas_fast_leak_i	var	refs=3
+00C0DA	2	meas_fast_aux17	var	refs=1
+00C0DC	2	meas_fast_aux18	var	refs=1
+00C0E0	2	meas_fast_inv_v	var	refs=3
+00C0E6	1	var_C0E6	var	refs=2
+00C0E8	2	meas_fast_grid_v	var	refs=8
+00C0EA	2	meas_fast_inv_i	var	refs=7
+00C100	2	grid_pll	var	address taken; refs=3
+00C102	1	var_C102	var	refs=1
+00C104	1	var_C104	var	refs=1
+00C10E	2	grid_pll_theta	var	refs=1
+00C110	2	ram_word_c110	var	refs=2
+00C112	2	ram_word_c112	var	refs=1
+00C114	2	grid_pll_c	var	refs=1
+00C118	1	grid_pll_n	var	refs=5
+00C119	1	grid_pll_period	var	refs=2
+00C11B	1	grid_pll_wrap	var	refs=1
+00C11C	1	pll_locked	var	refs=3
+00C11E	2	grid_pll_pi_e	var	refs=1
+00C120	2	grid_pll_pi_kp	var	refs=1
+00C122	2	grid_pll_pi_ki	var	refs=1
+00C124	2	grid_pll_pi_kd	var	refs=1
+00C126	2	grid_pll_pi_umax	var	refs=1
+00C128	2	grid_pll_pi_umin	var	refs=1
+00C12A	2	grid_pll_pi_e1	var	refs=1
+00C12C	2	grid_pll_pi_i	var	refs=1
+00C12E	2	grid_pll_pi_u	var	refs=1
+00C140	2	meas_avg	var	refs=4
+00C142	2	meas_avg_pv2_v_ref	var	refs=4
+00C144	2	meas_avg_pv1_v_acc	var	refs=4
+00C146	2	meas_avg_pv2_v_acc	var	refs=4
+00C148	2	meas_avg_bus_v_acc	var	refs=4
+00C14A	2	meas_avg_hv_v_acc	var	refs=4
+00C14C	2	meas_avg_batt_v_acc	var	refs=4
+00C14E	2	meas_avg_pv1_v	var	refs=2
+00C150	2	meas_avg_pv2_v	var	refs=2
+00C152	2	meas_avg_bus_v	var	refs=8
+00C154	2	meas_avg_bus_v_z1	var	refs=4
+00C156	2	meas_avg_bus_v_z2	var	refs=3
+00C158	2	meas_avg_hv_v	var	refs=2
+00C15A	2	meas_avg_batt_v	var	refs=3
+00C15C	2	meas_avg_bus_v_filt	var	refs=12
+00C15E	2	meas_avg_bus_v_filt_z1	var	refs=4
+00C160	2	meas_avg_bus_v_filt_z2	var	refs=1
+00C162	2	meas_avg_pv1_i_acc	var	refs=4
+00C164	2	meas_avg_pv2_i_acc	var	refs=4
+00C166	2	meas_avg_pv1_i	var	refs=1
+00C168	2	meas_avg_pv2_i	var	refs=1
+00C16A	2	pv_gain_isr	var	refs=2
+00C16C	2	meas_avg_pv2_v_k	var	refs=2
+00C16E	2	dc_gain_isr	var	refs=1
+00C170	2	dc_gain_isr_hv_i	var	refs=1
+00C172	2	meas_avg_bus_v_k	var	refs=2
+00C174	1	meas_avg_pv_ramp_tick	var	refs=7
+00C180	2	q_loop	var	address taken; refs=2
+00C186	2	q_loop_i_in	var	refs=1
+00C18C	2	q_loop_cos_in	var	refs=1
+00C192	2	q_loop_kp	var	refs=1
+00C194	2	q_loop_ki	var	refs=1
+00C196	2	q_loop_max	var	refs=1
+00C198	2	q_loop_min	var	refs=1
+00C19A	1	q_loop_n	var	refs=1
+00C19C	2	q_loop_ref_sum	var	refs=1
+00C1A2	2	q_loop_meas_sum	var	refs=1
+00C1A8	2	q_loop_e	var	refs=1
+00C1B4	2	q_loop_u	var	refs=2
+00C1C0		adc_ch	var	address taken; refs=3
+00C1C3	1	pv2_v_raw_v	var	refs=2
+00C1C6	1	pv1_i_raw_v	var	refs=2
+00C1C9	1	pv2_i_raw_v	var	refs=2
+00C1CC	1	iso_raw_v	var	refs=2
+00C1CF	1	bus_v_raw_v	var	refs=2
+00C1D2	1	hv_v_raw_v	var	refs=2
+00C1D5	1	spare_ac_raw_v	var	refs=1
+00C1D8	1	batt_v_raw_v	var	refs=2
+00C1DB	1	hv_i_raw_v	var	refs=2
+00C1DE	1	inv_v_raw_v	var	refs=2
+00C1E4	1	leak_i_raw_v	var	refs=2
+00C1E7	1	dci_i_raw_v	var	refs=2
+00C1EA	1	grid_v_raw_v	var	refs=2
+00C1ED	1	inv_i_raw_v	var	refs=2
+00C1F0	1	eps_v_raw_v	var	refs=2
+00C1F3	1	aux17_raw_v	var	refs=1
+00C1F6	1	aux18_raw_v	var	refs=1
+00C200		dcdc_ref	var	name for the address var_C200 spelled; C: battery converter references and limits, two low-battery-wake PIs, isolated-s
+00C204	2	dcdc_ref_i_limit	var	refs=3
+00C206	2	full_trim_isr	var	refs=2
+00C208	2	isr_limits	var	refs=3
+00C20A	2	dcdc_ref_batt_v_min	var	refs=3
+00C20E	2	dcdc_ref_i_cmd_max	var	refs=6
+00C210	2	dcdc_ref_duty_ff	var	refs=2
+00C212	2	dcdc_ref_chg_bound	var	charge bound; refs=2
+00C214	2	dcdc_ref_dis_bound	var	discharge bound; refs=2
+00C216	2	batt_current_cmd_isr	var	refs=3
+00C218	2	wake_batt_pi_e	var	address taken; refs=4
+00C21A	2	wake_batt_pi_kp	var	refs=1
+00C21C	2	wake_batt_pi_ki	var	refs=1
+00C220	2	wake_batt_pi_umax	var	refs=1
+00C222	2	wake_batt_pi_umin	var	refs=1
+00C224	2	wake_batt_pi_e1	var	refs=2
+00C226	2	wake_batt_pi_i	var	refs=3
+00C228	2	wake_batt_pi_u	var	refs=4
+00C22A	2	wake_bus_pi_e	var	address taken; refs=3
+00C22C	2	wake_bus_pi_kp	var	refs=1
+00C22E	2	wake_bus_pi_ki	var	refs=1
+00C232	2	wake_bus_pi_umax	var	refs=1
+00C234	2	wake_bus_pi_umin	var	refs=1
+00C236	2	wake_bus_pi_e1	var	refs=2
+00C238	2	wake_bus_pi_i	var	refs=2
+00C23A	2	wake_bus_pi_u	var	refs=2
+00C23C	1	dcdc_soft_duty	var	refs=8
+00C240	2	dcdc_cc	var	address taken; refs=2
+00C242	2	dcdc_cc_bus_v	var	refs=2
+00C244	2	dcdc_cc_hv_i	var	refs=1
+00C246	2	dcdc_cc_bus_v_ref	var	refs=2
+00C248	2	dcdc_cc_i_cmd	var	refs=2
+00C24A	2	dcdc_cc_i_limit	var	refs=1
+00C24C	2	dcdc_cc_i_offset	var	refs=3
+00C24E	2	dcdc_cc_batt_v_max	var	refs=1
+00C250	2	dcdc_cc_batt_v_min	var	refs=1
+00C252	2	dcdc_cc_i_cmd_max	var	refs=1
+00C254	2	dcdc_cc_duty_ff	var	refs=1
+00C256	2	dcdc_cc_chg_bound	var	refs=1
+00C258	2	dcdc_cc_dis_bound	var	refs=1
+00C25A	2	ram_word_c25a	var	refs=1
+00C25C	2	dcdc_cc_bus_band	var	refs=1
+00C25E	1	dcdc_cc_mode	var	refs=2
+00C25F	1	dcdc_cc_slot	var	refs=1
+00C260	1	dcdc_cc_bms_mode	var	refs=1
+00C261	1	dcdc_cc_batt_full	var	refs=1
+00C262	2	dcdc_cc_i_cmd_prev	var	refs=1
+00C264	2	cc_batt_current_ref	var	refs=2
+00C266	2	dcdc_cc_duty	var	refs=3
+00C269	1	eps_start_ok	var	refs=6
+00C26C	2	pi_bus_sync_kp	var	refs=1
+00C26E	2	pi_bus_sync_ki	var	refs=1
+00C272	2	pi_bus_sync_umax	var	refs=1
+00C274	2	pi_bus_sync_umin	var	refs=1
+00C276	2	pi_bus_sync_e1	var	refs=1
+00C278	2	pi_bus_sync_i	var	refs=1
+00C27A	2	pi_bus_sync_u	var	refs=1
+00C27C	2	pi_bus_e	var	refs=1
+00C27E	2	pi_bus_kp	var	refs=1
+00C280	2	pi_bus_ki	var	refs=1
+00C284	2	pi_bus_umax	var	refs=1
+00C286	2	pi_bus_umin	var	refs=1
+00C288	2	pi_bus_e1	var	refs=1
+00C28A	2	pi_bus_i	var	refs=1
+00C28C	2	pi_bus_u	var	refs=1
+00C28E	2	pi_bus_hi_e	var	refs=1
+00C290	2	pi_bus_hi_kp	var	refs=1
+00C292	2	pi_bus_hi_ki	var	refs=1
+00C296	2	pi_bus_hi_umax	var	refs=1
+00C298	2	pi_bus_hi_umin	var	refs=1
+00C29A	2	pi_bus_hi_e1	var	refs=1
+00C29C	2	pi_bus_hi_i	var	refs=1
+00C29E	2	pi_bus_hi_u	var	refs=1
+00C2A0	2	pi_bus_lo_e	var	refs=1
+00C2A2	2	pi_bus_lo_kp	var	refs=1
+00C2A4	2	pi_bus_lo_ki	var	refs=1
+00C2A8	2	pi_bus_lo_umax	var	refs=1
+00C2AA	2	pi_bus_lo_umin	var	refs=1
+00C2AC	2	pi_bus_lo_e1	var	refs=1
+00C2AE	2	pi_bus_lo_i	var	refs=1
+00C2B0	2	pi_bus_lo_u	var	refs=1
+00C2B2	2	pi_v_max_e	var	refs=1
+00C2B4	2	pi_v_max_kp	var	refs=1
+00C2B6	2	pi_v_max_ki	var	refs=1
+00C2BA	2	pi_v_max_umax	var	refs=1
+00C2BC	2	pi_v_max_umin	var	refs=1
+00C2BE	2	pi_v_max_e1	var	refs=1
+00C2C0	2	pi_v_max_i	var	refs=2
+00C2C2	2	pi_v_max_u	var	refs=1
+00C2C4	2	pi_v_min_e	var	refs=1
+00C2C6	2	pi_v_min_kp	var	refs=1
+00C2C8	2	pi_v_min_ki	var	refs=1
+00C2CC	2	pi_v_min_umax	var	refs=1
+00C2CE	2	pi_v_min_umin	var	refs=1
+00C2D0	2	pi_v_min_e1	var	refs=1
+00C2D2	2	pi_v_min_i	var	refs=1
+00C2D4	2	pi_v_min_u	var	refs=1
+00C2D6	2	pi_i_e	var	refs=1
+00C2D8	2	dcdc_cc_pi_i_kp	var	refs=1
+00C2DA	2	dcdc_cc_pi_i_ki	var	refs=1
+00C2DE	2	dcdc_cc_pi_i_umax	var	refs=1
+00C2E0	2	dcdc_cc_pi_i_umin	var	refs=1
+00C2E2	2	dcdc_cc_pi_i_e1	var	refs=1
+00C2E4	2	dcdc_cc_pi_i_i	var	refs=2
+00C2E6	2	dcdc_cc_pi_i_u	var	refs=1
+00C300	2	grid_v_win	var	address taken; refs=2
+00C302	2	grid_v_win_max	var	refs=1
+00C304	2	grid_v_win_min	var	refs=1
+00C306	1	grid_v_win_mode	var	refs=1
+00C350		ram_word_c350	var	address taken; refs=1
+00C3D7	1	grid_v_win_ok	var	refs=1
+00C400	2	grid_ictl_blk	var	address taken; refs=2
+00C402	2	grid_ictl_blk_i_meas	var	refs=1
+00C404	2	grid_ictl_blk_i_ref_p	var	refs=2
+00C406	2	grid_ictl_blk_i_ref_q	var	refs=2
+00C408	2	q_current_ref	var	refs=5
+00C40A	2	grid_ictl_blk_bus_v	var	refs=1
+00C40C	2	bus_ref_isr	var	refs=8
+00C40E	2	mod_gain_isr	var	refs=3
+00C410	2	grid_ictl_blk_amp_ramp	var	refs=1
+00C412	2	i_ref_max	var	refs=3
+00C414	2	i_ref_min	var	refs=3
+00C416	2	grid_ictl_blk_sin_ref	var	refs=1
+00C418	2	grid_ictl_blk_cos_ref	var	refs=1
+00C41A	2	grid_ictl_blk_kp_i	var	refs=1
+00C41C	1	grid_ictl_blk_ramp_mode	var	refs=1
+00C41D	1	grid_ictl_blk_rep_lead	var	refs=1
+00C41E	1	grid_ictl_blk_rep_idx	var	refs=1
+00C41F	1	grid_ictl_blk_rep_len	var	refs=1
+00C420	2	grid_ictl_blk_i_ref	var	refs=2
+00C422	2	grid_ictl_blk_i_err	var	refs=2
+00C424	2	grid_ictl_blk_v_cmd	var	refs=5
+00C426	2	grid_ictl_blk_island_inj	var	refs=1
+00C428	2	grid_ictl_blk_q_corr	var	refs=1
+00C42A	2	dci_offset	var	refs=1
+00C42C	2	grid_ictl_blk_amp_cmd	var	refs=2
+00C42E	2	grid_ictl_blk_pi_e	var	refs=2
+00C430	2	grid_ictl_blk_pi_kp	var	refs=1
+00C432	2	grid_ictl_blk_pi_ki	var	refs=1
+00C434	2	grid_ictl_blk_pi_kd	var	refs=1
+00C436	2	grid_ictl_blk_pi_umax	var	refs=1
+00C438	2	grid_ictl_blk_pi_umin	var	refs=1
+00C43C	2	grid_ictl_blk_pi_i	var	refs=2
+00C43E	2	grid_ictl_blk_pi_u	var	refs=2
+00C440		grid_rep	var	name for the address var_C440 spelled; C: header view of the repetitive filter at 0xC440 (converter_ctrl.c aliases it to grid_ict
+00C442	2	grid_rep_rep_in	var	refs=2
+00C444	2	grid_rep_rep_max	var	refs=1
+00C446	2	grid_rep_rep_min	var	refs=1
+00C448	2	grid_rep_rep_a	var	refs=1
+00C44A	2	grid_rep_rep_b	var	refs=1
+00C44C	2	grid_rep_rep_gain	var	refs=1
+00C44E	2	grid_rep_rep_y	var	refs=1
+00C450	2	grid_rep_rep_out	var	refs=1
+00C452		grid_rep_buf	var	address taken; refs=2
+00C800		grid_rep_tail	var	name for the address var_C800 spelled; C: page view whose only used word is ctrl_slot (0xC83A)
+00C83A	1	ctrl_slot	var	refs=8
+00C840	2	eps_vctl_blk	var	address taken; refs=2
+00C842	2	eps_vctl_blk_v_meas	var	refs=1
+00C844	2	eps_vctl_blk_i_meas	var	refs=1
+00C846	2	ram_word_c846	var	refs=1
+00C848	2	eps_vctl_blk_i_filt	var	refs=2
+00C84A	2	eps_vctl_blk_sin_ref	var	refs=1
+00C84C	2	eps_vctl_blk_i_limit	var	refs=1
+00C84E	1	eps_vctl_blk_mode	var	refs=1
+00C84F	1	eps_vctl_blk_rep_lead	var	refs=1
+00C850	2	eps_v_peak	var	refs=4
+00C854	1	eps_vctl_enable	var	refs=3
+00C85A	2	eps_vctl_blk_rep_max	var	refs=1
+00C85C	2	eps_vctl_blk_rep_min	var	refs=1
+00C85E	2	eps_vctl_blk_rep_a	var	refs=1
+00C860	2	eps_vctl_blk_rep_b	var	refs=1
+00C862	2	eps_vctl_blk_rep_gain	var	refs=1
+00C868		eps_rep_buf	var	address taken; refs=1
+00CC40		eps_vctl_tail	var	name for the address var_CC40 spelled; C: page view of the EPS controller PI blocks, outputs and angle
+00CC50	2	eps_vctl_tail_pi_v_e	var	refs=2
+00CC52	2	eps_vctl_tail_pi_v_kp	var	refs=1
+00CC54	2	eps_vctl_tail_pi_v_ki	var	refs=1
+00CC56	2	eps_vctl_tail_pi_v_kd	var	refs=1
+00CC58	2	eps_vctl_tail_pi_v_umax	var	refs=1
+00CC5A	2	eps_vctl_tail_pi_v_umin	var	refs=1
+00CC5C	2	eps_vctl_tail_pi_v_e1	var	refs=2
+00CC5E	2	eps_vctl_tail_pi_v_i	var	refs=2
+00CC60	2	eps_vctl_tail_pi_v_u	var	refs=2
+00CC64	2	eps_vctl_tail_pi_i_kp	var	refs=1
+00CC66	2	eps_vctl_tail_pi_i_ki	var	refs=1
+00CC68	2	eps_vctl_tail_pi_i_kd	var	refs=1
+00CC6A	2	eps_vctl_tail_pi_i_umax	var	refs=1
+00CC6C	2	eps_vctl_tail_pi_i_umin	var	refs=1
+00CC6E	2	eps_vctl_tail_pi_i_e1	var	refs=2
+00CC70	2	eps_vctl_tail_pi_i_i	var	refs=2
+00CC72	2	eps_vctl_tail_pi_i_u	var	refs=2
+00CC74	2	eps_dc_trim_isr	var	refs=1
+00CC76	2	eps_vctl_out	var	refs=1
+00CC78	2	eps_vctl_tail_i_ref	var	refs=2
+00CC7A	2	mod_gain	var	refs=3
+00CC7C	2	eps_vctl_tail_duty	var	refs=3
+00CC7E	2	eps_theta	var	refs=8
+00CC80	1	eps_cycle	var	refs=4
+00CC81	1	eps_cycle_cycle_idx	var	refs=5
+00CC82	1	eps_cycle_cycle_wrap	var	refs=4
+00CC8C	2	CpuTimer2	var	address taken; refs=2
+00CC8E	2	CpuTimer2_InterruptCount	var	refs=1
+00CC9C		adc_offsets	var	address taken; refs=3
+00CC9E	2	adc_offsets_sum	var	refs=3
+00CCA0		eps_cycle_hv_i_ofs	var	address taken; refs=3
+00CCA2	2	adc_offsets_sum_cca2	var	refs=3
+00CCA4		eps_cycle_pv1_i_ofs	var	address taken; refs=3
+00CCA6	2	adc_offsets_sum_cca6	var	refs=3
+00CCA8		eps_cycle_pv2_i_ofs	var	address taken; refs=3
+00CCAA	2	adc_offsets_sum_ccaa	var	refs=3
+00CCAC		eps_cycle_inv_i_ofs	var	address taken; refs=3
+00CCAE	2	adc_offsets_sum_ccae	var	refs=3
+00CCB2	1	iq_flag	var	cinit; refs=0
+00CCB3	1	iq_count	var	refs=1
+00CCB4	2	iq_consts	var	refs=1
+00CCB6	2	iq_consts_one_twelfth	var	refs=1
+00CCB8	2	iq_consts_k1000h	var	refs=1
+00CCBA	1	iq_consts_zero	var	refs=1
+00CCBE	2	cc_i_work	var	cinit; refs=17
+00CCC0	1	ofr_first_recover_s6	var	cinit; refs=4
+00CCC1	1	it_ovr_period	var	cinit; refs=5
+00CCC2	1	fast_trip_active	var	cinit; refs=5
+00CCC3	1	ofr_active	var	cinit; refs=13
+00CCC4	1	ofr_first_recover	var	cinit; refs=7
+00CCC5	1	vt_inst_ov_cnt	var	cinit; refs=3
+00CCC6	1	vt_test_voltage	var	cinit; refs=7
+00CCC7	1	qu_active	var	cinit; refs=6
+00CCC8	1	ctl_uptime_ticks	var	cinit; refs=7
+00CCC9	1	ofr_it_delay_ms	var	cinit; refs=3
+00CCCA	1	vw_tick	var	cinit; refs=12
+00CCCB	1	vw_latched	var	cinit; refs=4
+00CCCC	1	ofr_curve_type	var	cinit; refs=7
+00CCCD	1	qu_lockout_cnt	var	cinit; refs=5
+00CCCE	1	fast_trip_release_cnt	var	cinit; refs=3
+00CCCF	1	reconnect_ok_cnt	var	cinit; refs=4
+00CCD0	1	it_ufr_delay_cnt	var	cinit; refs=5
+00CCD1	1	ofr_s6_delay_cnt	var	cinit; refs=6
+00CCD2	1	ufr_recover_delay	var	cinit; refs=2
+00CCD3	1	it_ufr_recover_cnt	var	cinit; refs=7
+00CCD4	1	ofr_s6_recover_cnt	var	cinit; refs=7
+00CCD5	1	ofr_recover_cnt	var	cinit; refs=11
+00CCD6	1	it_ovr_batt_state	var	cinit; refs=3
+00CCD7	1	ofr_delay_cnt	var	cinit; refs=3
+00CCD8	1	ufr_recover_freq	var	cinit; refs=2
+00CCD9	1	it_ovr_tick	var	cinit; refs=6
+00CCDA	1	ufr_active	var	cinit; refs=4
+00CCDB	1	ofr_it_band_prev	var	cinit; refs=3
+00CCDC	1	ofr_it_band3_cnt	var	cinit; refs=5
+00CCDD	1	it_ofr_delay_cnt	var	cinit; refs=5
+00CCDE	1	ufr_recover_cnt	var	cinit; refs=7
+00CCDF	1	ufr_delay_cnt	var	cinit; refs=11
+00CCE0	1	it_ofr_recover_cnt	var	cinit; refs=6
+00CCE1	1	ft_low2_cnt	var	cinit; refs=4
+00CCE2	1	ft_high1_cnt	var	cinit; refs=4
+00CCE3	1	ft_low1_cnt	var	cinit; refs=4
+00CCE4	1	pfp_lock	var	cinit; refs=3
+00CCE5	1	ft_test_freq	var	cinit; refs=10
+00CCE6	1	cosphi_p_active	var	cinit; refs=3
+00CCE7	1	ft_high2_cnt	var	cinit; refs=4
+00CCE8	1	ft_clear_cnt	var	cinit; refs=4
+00CCE9	1	dci_settle_cnt	var	cinit; refs=4
+00CCEA	1	dci_tick	var	cinit; refs=5
+00CCEB	1	dci_trip_cnt_it	var	cinit; refs=5
+00CCEC	1	dci_trip_cnt	var	cinit; refs=8
+00CCED	1	autotest_time_tol	var	cinit; refs=3
+00CCEE	1	autotest_wait_cnt	var	cinit; refs=6
+00CCEF	1	v10_window	var	cinit; refs=5
+00CCF0	1	autotest_expect_ms	var	cinit; refs=10
+00CCF1	1	rocof_sample_cnt	var	cinit; refs=4
+00CCF2	1	vt_clear_cnt	var	cinit; refs=4
+00CCF3	1	vt_it_high_cnt	var	cinit; refs=11
+00CCF4	1	soft_start_tick	var	cinit; refs=3
+00CCF5	1	vt_it_low_cnt	var	cinit; refs=12
+00CCF6	1	exp_ramp_active	var	cinit; refs=3
+00CCF7	1	ofr_it_band	var	cinit; refs=7
+00CCF8	1	vt_it_10min_cnt	var	cinit; refs=4
+00CCF9	1	hw_fault_clear_cnt	var	cinit; refs=3
+00CCFA	1	pf_band_hi	var	cinit; refs=2
+00CCFB	1	vt_low1_cnt	var	cinit; refs=7
+00CCFC	1	pf_band_cap	var	cinit; refs=1
+00CCFD	1	pf_band_lo	var	cinit; refs=2
+00CCFE	1	vt_high2_cnt	var	cinit; refs=6
+00CCFF	1	vt_10min_cnt	var	cinit; refs=4
+00CD00	1	vt_low2_cnt	var	cinit; refs=6
+00CD01	1	vt_high1_cnt	var	cinit; refs=7
+00CD02	1	exp_over_cnt2	var	cinit; refs=5
+00CD03	1	ovr_batt_state	var	cinit; refs=3
+00CD04	1	exp_over_cnt1	var	cinit; refs=9
+00CD05	1	q_pt1_step_pending	var	cinit; refs=5
+00CD06	1	ufr_s6_enabled	var	cinit; refs=2
+00CD07	1	exp_fault_clear_cnt	var	cinit; refs=5
+00CD08	1	ufr_s6_au_curve	var	cinit; refs=5
+00CD09	1	uvr_batt_state	var	cinit; refs=3
+00CD0A	1	uvr_tick	var	cinit; refs=6
+00CD0B	1	q_pt1_tick	var	cinit; refs=3
+00CD0C	1	uvr_period	var	cinit; refs=3
+00CD0D	1	ovr_period	var	cinit; refs=5
+00CD0E	1	ovr_tick	var	cinit; refs=6
+00CD0F	1	prot_low2	var	refs=4
+00CD10	1	grid_v_10min	var	refs=4
+00CD11	1	prot_high2	var	refs=4
+00CD12	1	prot_high1	var	refs=5
+00CD13	1	prot_low1	var	refs=5
+00CD14	1	ofr_s6_enabled	var	cinit; refs=2
+00CD15	1	pf_flag_unused	var	cinit; refs=1
+00CD16	1	ufr_s6_delay_cnt	var	cinit; refs=5
+00CD17	1	v10_sample_cnt	var	cinit; refs=4
+00CD18	1	v10_index	var	cinit; refs=4
+00CD19	1	autotest_step	var	cinit; refs=21
+00CD1A	1	ufr_s6_recover_cnt	var	cinit; refs=5
+00CD1B		a_ctl_unused_cd1b	var	name for the address var_CD1B spelled; A: defined, never used
+00CD1C	1	q_rec_cnt	var	cinit; refs=3
+00CD1D	1	q_rec_active	var	cinit; refs=4
+00CD1E	2	q_pt1_last	var	cinit; refs=7
+00CD20	2	q_pt1_target	var	cinit; refs=6
+00CD22	2	q_pt1_k	var	cinit; refs=3
+00CD24	2	q_pt1_step	var	cinit; refs=4
+00CD26	2	q_pt1_min_step	var	cinit; refs=2
+00CD28	2	pfu_v_filt	var	cinit; refs=6
+00CD2A	2	uvr_v_full	var	cinit; refs=3
+00CD2C	2	exp_limit_check	var	cinit; refs=3
+00CD2E	2	q_rec_start	var	cinit; refs=3
+00CD30	2	rocof_sum_acc	var	cinit; refs=6
+00CD32	2	q_rec_time	var	cinit; refs=5
+00CD34	2	q_pt1_dir	var	cinit; refs=6
+00CD36	2	q_pt1_time	var	cinit; refs=7
+00CD38	2	rocof_prev	var	cinit; refs=3
+00CD3A	2	rocof_last	var	cinit; refs=2
+00CD3C	2	q_rec_target	var	cinit; refs=5
+00CD3E	2	q_rec_k	var	cinit; refs=2
+00CD40	2	ufr_s6_p_base	var	cinit; refs=6
+00CD42	2	ufr_p_base	var	cinit; refs=5
+00CD44	2	ufr_s6_power_prev	var	cinit; refs=3
+00CD46	2	ovr_p_base	var	cinit; refs=3
+00CD48	2	ufr_p_limit	var	address taken; cinit; refs=16
+00CD4A	2	ufr_recover_step	var	cinit; refs=2
+00CD4C	2	ufr_s6_power	var	address taken; cinit; refs=15
+00CD4E	2	ofr_s6_power_prev	var	cinit; refs=6
+00CD50	2	ufr_s6_droop	var	cinit; refs=2
+00CD52	2	ofr_s6_droop	var	cinit; refs=3
+00CD54	2	ufr_p_prev	var	cinit; refs=2
+00CD56	2	ofr_s6_p_base	var	cinit; refs=9
+00CD58	2	ovr_v_start	var	cinit; refs=2
+00CD5A	2	uvr_p_base	var	cinit; refs=5
+00CD5C	2	ovr_step	var	cinit; refs=5
+00CD5E	2	uvr_power_target	var	cinit; refs=4
+00CD60	2	uvr_v_start	var	cinit; refs=5
+00CD62	2	ovr_power_min	var	cinit; refs=4
+00CD64	2	qu_v_filt	var	cinit; refs=5
+00CD66	2	qu_k	var	cinit; refs=2
+00CD68	2	ofr_s6_power	var	address taken; cinit; refs=26
+00CD6A	2	q_qu	var	cinit; refs=2
+00CD6C	2	uvr_power	var	cinit; refs=7
+00CD6E	2	ufr_droop_k	var	cinit; refs=3
+00CD70	2	ofr_p_base	var	cinit; refs=16
+00CD72	2	ofr_p_calc	var	cinit; refs=11
+00CD74	2	it_p_base	var	cinit; refs=13
+00CD76	2	ofr_p_limit	var	address taken; cinit; refs=20
+00CD78	2	it_ufr_power	var	address taken; cinit; refs=11
+00CD7A	2	v10_sum	var	cinit; refs=3
+00CD7C	2	p_limit_q	var	cinit; refs=4
+00CD7E	2	p_rate_limit	var	address taken; cinit; refs=4
+00CD80	2	ofr_p_min	var	cinit; refs=8
+00CD82	2	imp_p_limit	var	cinit; refs=3
+00CD84	2	imp_p_filt	var	address taken; cinit; refs=5
+00CD86	2	exp_ramp_power	var	cinit; refs=5
+00CD88	2	soft_start_power	var	cinit; refs=10
+00CD8A	2	q_mode_out	var	address taken; cinit; refs=10
+00CD8C	2	imp_i_scale	var	cinit; refs=2
+00CD8E	2	imp_p_target	var	address taken; cinit; refs=3
+00CD90	2	vw_p_limit	var	address taken; cinit; refs=17
+00CD92	2	vw_v_filt	var	cinit; refs=6
+00CD94	2	dc_pi_out_max	var	cinit; refs=1
+00CD96	2	exp_p_limit	var	cinit; refs=10
+00CD98	2	exp_p_default	var	cinit; refs=2
+00CD9A	2	pv_i_raw_max	var	cinit; refs=1
+00CD9C	2	q_fixed_pct	var	cinit; refs=3
+00CD9E	2	qu_fixed_v_filt	var	cinit; refs=4
+00CDA0	2	q_pf_curve_out	var	cinit; refs=2
+00CDA2	2	dci_offset_cmd	var	cinit; refs=8
+00CDA4	2	ovr_power	var	cinit; refs=10
+00CDA6	2	pfp_pf	var	cinit; refs=6
+00CDA8	2	dci_filt	var	cinit; refs=4
+00CDAA	2	q_fixed_pf_out	var	cinit; refs=3
+00CDAC	2	pf_cosphi	var	cinit; refs=8
+00CDAE	2	vw_v_filt2	var	cinit; refs=2
+00CDB0	2	q_cosphi_p_out	var	cinit; refs=5
+00CDB2	2	cosphi_p_pct	var	cinit; refs=5
+00CDB4	2	q_current_ref_prev	var	cinit; refs=1
+00CDB6	2	it_ofr_power_prev	var	cinit; refs=4
+00CDB8	2	it_ofr_f_start	var	cinit; refs=3
+00CDBA	2	it_ufr_f_full	var	cinit; refs=2
+00CDBC	2	it_ovr_power	var	cinit; refs=10
+00CDBE	2	it_ovr_step	var	cinit; refs=5
+00CDC0	2	it_ofr_power	var	address taken; cinit; refs=12
+00CDC2	2	dc_power_limit	var	address taken; cinit; refs=5
+00CDC4	2	it_ovr_power_min	var	cinit; refs=4
+00CDC6	2	cosphi_p_pf	var	address taken; cinit; refs=8
+00CDC8	2	it_ufr_f_start	var	cinit; refs=3
+00CDCA	2	it_ofr_f_full	var	cinit; refs=2
+00CDCC	2	dc_power_limit_prev	var	cinit; refs=2
+00CDCE	2	it_ufr_power_prev	var	cinit; refs=4
+00CDD0	2	fast_trip_v_low	var	refs=2
+00CDD2	2	fast_trip_v_high	var	refs=2
+00CDD4	1	rocof_blk	var	refs=1
+00CDD4	1	fast_trip_hold	var	refs=1
+00CDD6	2	rocof_freq_in	var	address taken; refs=2
+00CDD8	2	rocof_window	var	refs=1
+00CDDA	1	rocof_enable	var	refs=1
+00CDDB	1	rocof_threshold	var	refs=1
+00CDDC	1	rocof_trip	var	refs=2
+00CDDE		osc_sum	var	name for the address var_CDDE spelled; readability pass: the word is rocof_blk.osc.sum in the struct views; used by no 
+00CDE0	1	autotest	var	refs=11
+00CDE0	1	auto_test_state	var	refs=11
+00CDE1	1	autotest_ramp_cnt	var	refs=6
+00CDE2	1	autotest_trip_ms	var	refs=8
+00CDE3	1	autotest_elapsed_ms	var	refs=12
+00CDE4	1	autotest_phase	var	refs=7
+00CDE5	1	autotest_trip_value	var	refs=7
+00CDE6	1	autotest_value	var	refs=26
+00CDE7	1	autotest_expect_time	var	refs=9
+00CDE8	1	autotest_limit	var	refs=9
+00CDE9	1	autotest_trip_value2	var	refs=5
+00CDEA	1	autotest_result	var	refs=11
+00CDEB	1	autotest_hold	var	refs=8
+00CE00	2	freq_resp	var	refs=8
+00CE02	1	uf_delay	var	refs=3
+00CE04	1	uf_recover_delay	var	refs=2
+00CE06	1	uf_recover_freq	var	refs=2
+00CE08	2	uf_full_freq	var	refs=5
+00CE0A	1	uf_active	var	refs=17
+00CE0C	2	uf_ramp_step	var	refs=8
+00CE0E	2	of_start_freq	var	refs=8
+00CE10	1	of_delay	var	refs=3
+00CE12	1	of_recover_delay	var	refs=2
+00CE14	1	of_recover_freq	var	refs=2
+00CE16	2	of_full_freq	var	refs=6
+00CE18	1	of_active	var	refs=18
+00CE1A	2	of_ramp_step	var	refs=10
+00CE1C	1	ov_resp_active	var	refs=16
+00CE1D	1	uv_resp_active	var	refs=8
+00CE1E	2	grid_resp_power	var	address taken; refs=6
+00CE20	2	of_resp_power	var	refs=2
+00CE22	2	uf_resp_power	var	refs=2
+00CE24	2	ov_resp_power	var	refs=2
+00CE26	2	uv_resp_power	var	refs=2
+00CE28	2	resp_restore_power	var	refs=4
+00CE40	200	v10_slots	var	address taken; cinit; refs=1
+00CF08	1	start_wait_count	var	cinit; refs=3
+00CF09	1	standby_count	var	cinit; refs=5
+00CF0A	1	precharge_duty	var	cinit; refs=8
+00CF0B	1	soft_start_step	var	cinit; refs=4
+00CF0C	1	soft_start_timeout	var	cinit; refs=6
+00CF0D	1	op_state	var	cinit; refs=116
+00CF0E		state_flags	var	address taken; refs=48
+00CF0F	1	board_id	var	cinit; refs=1
+00CF10	1	soft_start_state	var	refs=9
+00CF11	1	soft_start_duty	var	cinit; refs=8
+00CF12		fault_words	var	address taken; refs=48
+00CF13	1	fault_grid2	var	refs=10
+00CF14	1	fault_grid_eps	var	refs=26
+00CF15	1	fault_batt	var	fault word: bit 1 V mismatch, 2 UV, 6 OV, 9 BMS comms; refs=36
+00CF16	1	fault_pv	var	refs=16
+00CF17	1	fault_stop1	var	refs=45
+00CF18	1	fault_stop2	var	refs=18
+00CF19	1	batt_blocks	var	blocks: bit 8 full, 9 force charge, 11 no discharge; refs=28
+00CF1A		power_limits	var	address taken; refs=11
+00CF1B	1	slow_ramp_req	var	refs=4
+00CF1C	2	lim_soft_start	var	refs=3
+00CF1E	2	lim_ofr	var	refs=2
+00CF20	2	lim_volt_watt	var	refs=3
+00CF22	2	lim_rated	var	refs=2
+00CF24	2	lim_temp	var	refs=2
+00CF26	2	lim_dc_side	var	refs=2
+00CF28	2	lim_export	var	refs=3
+00CF2C	2	out_power_limit	var	refs=10
+00CF2E	2	lim_by_q	var	refs=2
+00CF30	2	lim_rate	var	refs=2
+00CF32	2	p_rate_limit_prev	var	refs=2
+00CF34	1	rts_exit_data_cf34	var	cinit; refs=0
+00CF36	2	rts_exit_data_cf36	var	cinit; refs=0
+00CF38	2	rts_exit_data_cf38	var	cinit; refs=0
+00CF3A	1	win_restart	var	cinit; refs=4
+00CF3B	1	win_mode_prev	var	cinit; refs=2
+00CF3C	1	win_settle	var	cinit; refs=3
+00CF3D	1	win_len	var	cinit; refs=3
+00CF3E	1	win_clear_idx	var	cinit; refs=4
+00CF40	1	arm_rx_len	var	refs=6
+00CF41	1	sci_tx_done	var	cinit; refs=5
+00CF42		upgrade_tag	var	address taken; refs=2
+00CF42		sci_end_tag	var	address taken; refs=2
+00CF43	1	sci_word_cf43	var	refs=1
+00CF44	1	sci_word_cf44	var	refs=1
+00CF46		sci_tx_state	var	address taken; refs=4
+00CF48	1	sci_tx_state_1_pos	var	refs=2
+00CF52		sci_rx_ring	var	address taken; refs=3
+00CF80		sci_tx_buf0	var	address taken; refs=1
+00CFC0		arm_rx_frame	var	ARM->DSP frame buffer; address taken; refs=139
+00D000		sci_rx_buf	var	address taken; refs=3
+00D12C	1	pv2_hold_count	var	cinit; refs=4
+00D12D	1	pv1_hold_count	var	cinit; refs=4
+00D12E	1	pv1_low_power_count	var	cinit; refs=4
+00D12F	1	pv1_plim_step_count	var	cinit; refs=4
+00D130	1	pv1_po_prev	var	cinit; refs=7
+00D131	1	pv1_po_state	var	cinit; refs=16
+00D132	1	pv2_po_prev	var	cinit; refs=7
+00D133	1	pv2_po_state	var	cinit; refs=16
+00D134	1	pv2_ref_low_count	var	cinit; refs=4
+00D135	1	pv2_ref_high_count	var	cinit; refs=4
+00D136	1	voc_wait_count	var	cinit; refs=3
+00D137	1	pv_both_low_count	var	cinit; refs=4
+00D138	1	pv1_ref_low_count	var	cinit; refs=4
+00D139	1	pv1_ref_high_count	var	cinit; refs=4
+00D13A	1	pv2_low_power_count	var	cinit; refs=4
+00D13B	1	pv2_start_count	var	cinit; refs=3
+00D13C	1	pv2_plim_step_count	var	cinit; refs=4
+00D13D	1	pv1_start_count	var	cinit; refs=3
+00D13E	2	var_D13E	var	cinit; refs=0
+00D140	1	bus_ov_count	var	cinit; refs=6
+00D141	1	cf12b3_clear_count	var	cinit; refs=3
+00D142	1	pv_low_wait_count	var	cinit; refs=5
+00D143	1	pv_restart_count	var	cinit; refs=3
+00D144	1	pv_low_count	var	cinit; refs=7
+00D145	1	pv_back_count	var	cinit; refs=4
+00D146	1	pv_ov_clear_count	var	cinit; refs=4
+00D147	1	rescan_settle_count	var	cinit; refs=3
+00D148	1	iso_step	var	cinit; refs=6
+00D149		meas_d149	var	name for the address var_D149 spelled; B: defined, never used
+00D14A	1	pv_detect_retry	var	cinit; refs=6
+00D14B	1	pv_ov_count	var	cinit; refs=4
+00D14C	1	pv_detect_done	var	cinit; refs=11
+00D14D	1	eps_bus_uv_slow_count	var	cinit; refs=5
+00D14E	1	pv2_short_count	var	cinit; refs=4
+00D14F	1	pv1_short_count	var	cinit; refs=4
+00D150	1	pv2_plim_count	var	cinit; refs=4
+00D151	1	eps_bus_vs_hv_count	var	cinit; refs=5
+00D152	1	eps_bus_uv_fast_count	var	cinit; refs=5
+00D153	1	pv1_plim_count	var	cinit; refs=4
+00D154	1	ntc_count	var	cinit; refs=5
+00D155	1	heatsink_temp_count	var	cinit; refs=5
+00D156	1	iso_fail_count	var	cinit; refs=5
+00D157	1	batt_temp_count	var	cinit; refs=5
+00D158	1	iso_fault_timer	var	cinit; refs=3
+00D159	1	bus_low_count	var	cinit; refs=4
+00D15A	1	charger_temp_count	var	cinit; refs=5
+00D15B	1	pv2_present	var	refs=4
+00D15C	1	pv1_present	var	refs=5
+00D15E	2	iso_resistance_out	var	refs=1
+00D160	2	iso_sample	var	refs=2
+00D162	2	bus_v_filt	var	address taken; cinit; refs=4
+00D164	2	pv2_ref_max	var	refs=5
+00D166	2	pv1_ref_max	var	refs=5
+00D168	2	iso_avg_a	var	cinit; refs=2
+00D16A	2	iso_avg_b	var	cinit; refs=2
+00D16C	2	iso_acc	var	cinit; refs=5
+00D16E	2	iso_bus_v	var	cinit; refs=2
+00D170	2	iso_const50	var	cinit; refs=1
+00D172	2	iso_resistance	var	cinit; refs=4
+00D174	2	iso_conductance	var	cinit; refs=2
+00D176		mppt_flags_blk	var	address taken; refs=1
+00D178	1	mppt_flags	var	refs=49
+00D180		dc_acc	var	address taken; refs=4
+00D182	2	dc_acc_a_inv_n	var	refs=8
+00D184	2	dc_acc_a_batt_v	var	refs=2
+00D186	2	dc_acc_a_hv_i	var	refs=2
+00D188	2	dc_acc_a_hv_v	var	refs=2
+00D18A	2	dc_acc_a_pv1_v	var	refs=2
+00D18C	2	dc_acc_a_pv2_v	var	refs=2
+00D18E	2	dc_acc_a_pv1_i	var	refs=2
+00D190	2	dc_acc_a_pv2_i	var	refs=2
+00D192	2	dc_acc_a_bus_v	var	refs=2
+00D194	2	dc_acc_a_iso	var	refs=2
+00D196	2	dc_acc_a_aux	var	refs=2
+00D19C		dc_acc_isr	var	address taken; refs=5
+00D1A0	2	dc_acc_isr_batt_v	var	refs=4
+00D1A2	2	dc_acc_isr_hv_i	var	refs=4
+00D1A4	2	dc_acc_isr_hv_v	var	refs=4
+00D1A6	2	dc_acc_isr_pv1_v	var	refs=4
+00D1A8	2	dc_acc_isr_pv2_v	var	refs=4
+00D1AA	2	dc_acc_isr_pv1_i	var	refs=4
+00D1AC	2	dc_acc_isr_pv2_i	var	refs=4
+00D1AE	2	dc_acc_isr_bus_v	var	refs=4
+00D1B0	2	dc_acc_isr_iso	var	refs=4
+00D1B2	2	dc_acc_isr_aux	var	refs=4
+00D1C0		mppt	var	address taken; refs=16
+00D1C2	2	mppt_pv1_ref	var	address taken; refs=58
+00D1C4	2	mppt_pv2_ref	var	address taken; refs=55
+00D1C6	2	mppt_pv1_voc	var	refs=6
+00D1C8	2	mppt_pv2_voc	var	refs=6
+00D1CA	2	mppt_pv1_sweep_min	var	refs=3
+00D1CC	2	mppt_pv2_sweep_min	var	refs=3
+00D1CE	2	mppt_pv1_ref_prev	var	refs=16
+00D1D0	2	mppt_pv2_ref_prev	var	refs=17
+00D1D2	2	mppt_pv1_p_sum	var	refs=10
+00D1D4	2	mppt_pv1_p_prev	var	refs=6
+00D1D6	2	mppt_pv2_p_sum	var	refs=10
+00D1D8	2	mppt_pv2_p_prev	var	refs=6
+00D1DA	2	mppt_p_hyst	var	refs=3
+00D1DC	2	mppt_v_step	var	refs=17
+00D1DE	1	mppt_pv1_sweep_steps	var	refs=5
+00D1DF	1	mppt_pv2_sweep_steps	var	refs=5
+00D1E0	1	mppt_pv1_p_count	var	refs=5
+00D1E1	1	mppt_pv2_p_count	var	refs=5
+00D200	2	dc_meas	var	refs=4
+00D202	2	dc_meas_pv2_v_raw	var	refs=4
+00D204	2	pv1_voltage	var	refs=26
+00D206	2	pv2_voltage	var	refs=27
+00D208	2	pv_voltage_max	var	refs=5
+00D20A	2	dc_meas_pv_v_min	var	refs=1
+00D20C	2	bus_v_ref	var	address taken; refs=22
+00D20E	2	bus_v_ref_prev	var	refs=3
+00D210	2	bus_voltage	var	refs=21
+00D212	2	batt_voltage	var	battery voltage (float, 0.1 V); refs=16
+00D214	2	bus_hv_voltage	var	refs=9
+00D216	2	dc_meas_hv_i	var	refs=4
+00D218	2	batt_power	var	refs=9
+00D21A	2	pv1_current_raw	var	refs=10
+00D21C	2	pv1_current	var	refs=5
+00D21E	2	pv2_current_raw	var	refs=10
+00D220	2	pv2_current	var	refs=5
+00D222	2	dc_meas_pv1_p_filt	var	refs=3
+00D224	2	dc_meas_pv2_p_filt	var	refs=3
+00D226	2	pv_power	var	refs=6
+00D228	2	pv1_power	var	refs=5
+00D22A	2	pv2_power	var	refs=5
+00D22C	2	heatsink_temp	var	refs=4
+00D22E	2	charger_temp	var	refs=6
+00D230	2	batt_temp	var	refs=2
+00D232	1	aux_f16	var	refs=1
+00D240	2	pv_phase	var	address taken; refs=30
+00D242	2	pv_phase_1_i_limit	var	refs=7
+00D244	2	pv_phase_1_i_max	var	refs=2
+00D246	2	pv_phase_1_v_loop_out	var	refs=8
+00D248	2	pv_phase_1_i_ref	var	refs=4
+00D24A	2	pv_phase_1_duty	var	refs=3
+00D24C	1	pv_phase_1_cmp	var	refs=6
+00D24D	1	pv_phase_1_cmp_pending	var	refs=6
+00D24E	2	pv_phase_1_pi_bus_e	var	address taken; refs=3
+00D25E	2	pv_phase_1_pi_bus_u	var	refs=1
+00D260	2	pv_phase_1_pi_precharge_e	var	address taken; refs=3
+00D270	2	pv_phase_1_pi_precharge_u	var	refs=1
+00D272	2	pv_phase_1_pi_v_e	var	address taken; refs=2
+00D27E	2	pv_phase_1_pi_v_e1	var	refs=1
+00D280	2	pv_phase_1_pi_v_i	var	refs=1
+00D282	2	pv_phase_1_pi_v_u	var	refs=2
+00D284	2	pv_phase_1_pi_i_e	var	address taken; refs=2
+00D288	2	pv_phase_1_pi_i_ki	var	refs=2
+00D290	2	pv_phase_1_pi_i_e1	var	refs=1
+00D292	2	pv_phase_1_pi_i_i	var	refs=1
+00D294	2	pv_phase_1_pi_i_u	var	refs=2
+00D296	2	pv2_phase_acc	var	refs=4
+00D298	2	pv2_i_limit_alias	var	refs=5
+00D29C	2	pv_phase_2_v_loop_out	var	refs=4
+00D29E	2	pv_phase_2_i_ref	var	refs=1
+00D2A0	2	pv_phase_2_duty	var	refs=1
+00D2A3	1	pv_phase_2_cmp_pending	var	refs=1
+00D2A4	2	pv_phase_2_pi_bus_e	var	refs=2
+00D2B6	2	pv_phase_2_pi_precharge_e	var	refs=2
+00D2DE	2	pv_phase_2_pi_i_ki	var	refs=1
+00D2EC	16	os_unmap_tbl	var	address taken; cinit; refs=4
+00D2EE		var_D2EE	var	address taken; refs=1
+00D2FC	2	var_D2FC	var	cinit; refs=0
+00D2FE	1	var_D2FE	var	cinit; refs=0
+00D300	1	eps_ov_fast_count	var	cinit; refs=4
+00D301	1	eps_uv_count	var	cinit; refs=4
+00D302	1	cf14b12_clear_count	var	cinit; refs=3
+00D303	1	eps_overload_count	var	cinit; refs=4
+00D304	1	eps_uv2_count	var	cinit; refs=4
+00D305	1	cf19b7_clear_count	var	cinit; refs=3
+00D306	1	eps_ov_count	var	cinit; refs=4
+00D307	1	arm_power_slow_count	var	cinit; refs=6
+00D308	1	arm_power_fast_count	var	cinit; refs=7
+00D309	1	grid_freq_detected	var	refs=11
+00D30A	1	eps_fault_clear_count	var	cinit; refs=7
+00D30B	1	eps_ov_clear_count	var	cinit; refs=3
+00D30C	1	disable_count	var	cinit; refs=4
+00D30D	1	watchdog_kick_count	var	cinit; refs=3
+00D30E	1	relay_fail_count	var	cinit; refs=6
+00D30F	1	grid_pi_delay	var	cinit; refs=4
+00D310	1	relay_b5_count	var	cinit; refs=4
+00D311	1	relay_b4_count	var	cinit; refs=4
+00D312	1	eps_vctl_delay	var	cinit; refs=5
+00D313	1	relay_lockouts	var	cinit; refs=3
+00D314	1	eps_short_count	var	cinit; refs=3
+00D315	1	eps_trip_count	var	cinit; refs=6
+00D316	1	arm_power_trips	var	cinit; refs=4
+00D317	1	freq50_count	var	cinit; refs=5
+00D318	1	freq60_count	var	cinit; refs=5
+00D319	1	eps_overload_fast_count	var	cinit; refs=4
+00D31A	1	eps_dc_trim_delay	var	cinit; refs=4
+00D31B	1	freq_hist_idx	var	refs=4
+00D31C	1	grid_freq	var	refs=19
+00D31E	2	pf_denom	var	cinit; refs=1
+00D320	2	eps_dc_trim	var	cinit; refs=7
+00D322	2	eps_lockout_timer	var	cinit; refs=4
+00D324	2	eps_v_ramp	var	cinit; refs=5
+00D326	2	eps_dc_filt	var	cinit; refs=2
+00D328	2	apparent_power_est	var	cinit; refs=2
+00D32A	2	active_power	var	cinit; refs=3
+00D32C	2	relay_lockout_timer	var	cinit; refs=3
+00D32E	2	relay_v_diff	var	cinit; refs=1
+00D330	2	arm_power_trip_timer	var	cinit; refs=6
+00D332	2	ecap_period_med	var	refs=1
+00D334	6	ecap_period_hist	var	address taken; cinit; refs=2
+00D340	2	q_setpoint	var	refs=6
+00D342	2	q_cap_comp	var	refs=3
+00D344	2	q_base_power	var	refs=8
+00D346	2	pfp_pf_code	var	refs=8
+00D348	2	q_max	var	address taken; refs=4
+00D34A		grid_code	var	address taken; refs=57
+00D34B	1	ofr_it_delay_run	var	refs=5
+00D34D	1	ofr_it_delay_done	var	refs=3
+00D34E	1	fast_trip_low_v	var	refs=3
+00D350	2	ac_sums	var	address taken; refs=6
+00D352	2	ac_sums_inv_n_eps	var	refs=4
+00D354	2	ac_sums_inv_v_sq	var	refs=2
+00D356	2	ac_sums_grid_i_sq	var	refs=2
+00D358	2	ac_sums_leak_i_sq	var	refs=2
+00D35A	2	ac_sums_grid_v_sq	var	refs=2
+00D360	2	ac_sums_eps_v_sq	var	refs=2
+00D362	2	ac_sums_eps_i_sq	var	refs=2
+00D366	2	ac_sums_eps_p	var	refs=2
+00D36A	2	ac_sums_grid_p	var	refs=2
+00D36E	2	ac_sums_dc_sum	var	refs=2
+00D370	1	ac_sums_n_eps	var	refs=3
+00D371	1	ac_sums_n_grid	var	refs=3
+00D380		ac_sums_isr	var	address taken; refs=1
+00D384	2	ac_sums_isr_inv_v_sq	var	refs=5
+00D386	2	ac_sums_isr_grid_i_sq	var	refs=4
+00D388	2	ac_sums_isr_leak_i_sq	var	refs=5
+00D38A	2	ac_sums_isr_grid_v_sq	var	refs=5
+00D390	2	ac_sums_isr_eps_v_sq	var	refs=4
+00D392	2	ac_sums_isr_eps_i_sq	var	refs=4
+00D396	2	ac_sums_isr_eps_p	var	refs=4
+00D39A	2	ac_sums_isr_grid_p	var	refs=5
+00D39E	2	ac_sums_isr_dc_sum	var	refs=4
+00D3A0	1	ac_sums_isr_n_eps	var	refs=4
+00D3A1	1	ac_sums_isr_n_grid	var	refs=4
+00D3C0		ac	var	address taken; refs=1
+00D3C4	2	vw_v_in	var	refs=2
+00D3C6	2	vw_v_in2	var	refs=3
+00D3C8	2	ac_grid_v_raw	var	refs=2
+00D3CA	2	grid_voltage_fast	var	refs=9
+00D3CC	2	grid_voltage	var	refs=34
+00D3CE	2	ac_inv_v	var	refs=3
+00D3D0	2	grid_current	var	refs=3
+00D3D2	2	rms_d3d2	var	refs=2
+00D3E4	2	rating_word_d3e4	var	refs=1
+00D3E6	2	rating_word_d3e6	var	refs=1
+00D3E8	2	eps_voltage	var	refs=8
+00D3EA	2	ac_eps_v_filt	var	refs=4
+00D3EC	2	eps_current	var	refs=5
+00D3EE	2	eps_power	var	refs=5
+00D3F0	2	ac_eps_p	var	refs=2
+00D3F2	2	ac_eps_dc	var	refs=3
+00D3F4	2	eps_v_ref	var	refs=6
+00D3F6	2	p_limit_trim	var	refs=3
+00D3FA	2	dc_injection	var	refs=3
+00D3FC	2	ac_apparent_p	var	refs=6
+00D3FE	2	apparent_power	var	refs=7
+00D400	2	batt_max_charge_current	var	rated power; address taken; refs=7
+00D402	2	ac_batt_max_discharge_current	var	refs=3
+00D406	2	grid_freq_f	var	refs=13
+00D408	2	grid_freq_filt	var	refs=4
+00D40A	2	ac_active_p_raw	var	refs=2
+00D40C	2	ac_active_p	var	refs=6
+00D40E	2	inv_power	var	refs=20
+00D410	2	reactive_power	var	refs=5
+00D412	2	rcmu_offset	var	refs=1
+00D414	2	p_eps_sample	var	refs=2
+00D416	2	eps_pi_e	var	address taken; refs=3
+00D418	2	eps_pi_kp	var	refs=1
+00D41A	2	eps_pi_ki	var	refs=1
+00D41C	2	eps_pi_kd	var	refs=1
+00D41E	2	eps_pi_umax	var	refs=1
+00D420	2	eps_pi_umin	var	refs=1
+00D424	2	eps_pi_i	var	refs=4
+00D426	2	eps_pi_u	var	refs=5
+00D428	2	grid_pi_e	var	address taken; refs=2
+00D42A	2	grid_pi_kp	var	refs=1
+00D42C	2	grid_pi_ki	var	refs=1
+00D42E	2	grid_pi_kd	var	refs=1
+00D430	2	grid_pi_umax	var	refs=1
+00D432	2	grid_pi_umin	var	refs=1
+00D436	2	grid_pi_i	var	refs=1
+00D438	2	grid_pi_u	var	refs=4
+00D43A	2	pv_power_pi_e	var	address taken; refs=2
+00D43C	2	pv_power_pi_kp	var	refs=1
+00D43E	2	pv_power_pi_ki	var	refs=1
+00D440	2	pv_power_pi_kd	var	refs=1
+00D442	2	pv_power_pi_umax	var	refs=1
+00D444	2	pv_power_pi_umin	var	refs=1
+00D448	2	pv_power_pi_i	var	refs=1
+00D44A	2	pv_power_pi_u	var	refs=4
+00D44C	2	pvp_pi_e	var	address taken; refs=2
+00D44E	2	pvp_pi_kp	var	refs=1
+00D450	2	pvp_pi_ki	var	refs=1
+00D452	2	pvp_pi_kd	var	refs=1
+00D454	2	pvp_pi_umax	var	refs=1
+00D456	2	pvp_pi_umin	var	refs=1
+00D45A	2	pvp_pi_i	var	refs=1
+00D45C	2	pvp_pi_u	var	refs=4
+00D45E	2	pv_current_pi_e	var	address taken; refs=2
+00D460	2	pv_current_pi_kp	var	refs=1
+00D462	2	pv_current_pi_ki	var	refs=1
+00D464	2	pv_current_pi_kd	var	refs=1
+00D466	2	pv_current_pi_umax	var	refs=1
+00D468	2	pv_current_pi_umin	var	refs=1
+00D46C	2	pv_current_pi_i	var	refs=1
+00D46E	2	pv_current_pi_u	var	refs=4
+00D470	2	pvi_pi_e	var	address taken; refs=2
+00D472	2	pvi_pi_kp	var	refs=1
+00D474	2	pvi_pi_ki	var	refs=1
+00D476	2	pvi_pi_kd	var	refs=1
+00D478	2	pvi_pi_umax	var	refs=1
+00D47A	2	pvi_pi_umin	var	refs=1
+00D47E	2	pvi_pi_i	var	refs=1
+00D480	2	pvi_pi_u	var	refs=4
+00D482	1	power_factor	var	refs=10
+00D483	1	ac_pf_code	var	refs=3
+00D484	1	load_percent	var	refs=13
+00D485	1	state_word_d485	var	refs=1
+00D486	1	grid_cycle_watchdog	var	refs=4
+00D488	2	rcmu_i	var	address taken; refs=5
+00D48A	2	aux_f16_k	var	refs=1
+00D48C	2	rcmu_i_fast	var	refs=1
+00D4C0	1	vmis_set_count	var	cinit; refs=8
+00D4C1	1	vmis_clear_count	var	cinit; refs=8
+00D4C2	1	no_dis_count	var	cinit; refs=3
+00D4C3	1	force_chg_count	var	cinit; refs=3
+00D4C4	1	aging_delay	var	cinit; refs=4
+00D4C5	1	start_hold_count	var	cinit; refs=4
+00D4C6	1	soc_floor_latch	var	refs=5
+00D4C7	1	ov_slow_count	var	cinit; refs=3
+00D4C8	1	uv_clear_count	var	cinit; refs=4
+00D4C9	1	ov_clear_count	var	cinit; refs=3
+00D4CA	1	uv_clear_limit	var	cinit; refs=1
+00D4CB	1	full_trim_div	var	cinit; refs=3
+00D4CC	1	ov_fast_count	var	cinit; refs=3
+00D4CD	1	floor_latch_set_count	var	cinit; refs=4
+00D4CE	1	full_set_count	var	cinit; refs=4
+00D4CF	1	force_chg_soc	var	cinit; refs=3
+00D4D0	1	full_dis_count	var	cinit; refs=3
+00D4D1	1	uv_set_count	var	cinit; refs=4
+00D4D2	1	floor_latch_clear_count	var	cinit; refs=6
+00D4D3	1	full_clear_count	var	cinit; refs=4
+00D4D4	1	cfg_reset_count	var	cinit; refs=4
+00D4D5	1	led_count	var	cinit; refs=4
+00D4D6	1	cf18b2_reset_count	var	cinit; refs=5
+00D4D7	1	upgrade_end_count	var	cinit; refs=4
+00D4D8	1	start_permit_count	var	cinit; refs=4
+00D4D9	1	cf15b3_clear_count	var	cinit; refs=3
+00D4DA	1	dcdc_ratio_count	var	cinit; refs=4
+00D4DB	1	dcdc_ratio_clear_count	var	cinit; refs=3
+00D4DC	2	full_trim_integ	var	cinit; refs=5
+00D4DE	2	full_trim_out	var	address taken; cinit; refs=4
+00D4E0	2	chg_plim_pv_prev	var	cinit; refs=2
+00D4E2	2	chg_plim_pv	var	address taken; cinit; refs=5
+00D4E4	2	pv_current_max	var	cinit; refs=1
+00D4E6	2	pv_pi_max	var	cinit; refs=1
+00D4E8	2	chg_lowv_taper	var	address taken; cinit; refs=4
+00D4EA	2	hr19b5_chg_ramp	var	address taken; cinit; refs=6
+00D4EC	2	bus_ov_derate	var	address taken; cinit; refs=5
+00D4EE	2	force_chg_cap	var	cinit; refs=1
+00D4F0	2	batt_current_cmd	var	address taken; cinit; refs=5
+00D4F2	2	pack_current_filt	var	cinit; refs=3
+00D4F4	2	force_dis_cap	var	cinit; refs=1
+00D4F6	2	dis_highv_taper	var	address taken; cinit; refs=4
+00D4F8	2	arm_setpoint_prev	var	cinit; refs=3
+00D4FA	2	batt_power_cmd	var	cinit; refs=21
+00D500		bms	var	address taken; refs=9
+00D501	1	bms_hr19	var	HR19 status; refs=10
+00D502	1	bms_status2	var	refs=7
+00D503	1	bms_charge_voltage	var	refs=1
+00D504	1	bms_lim_hr26	var	BMS limit from HR26; refs=9
+00D505	1	bms_lim_hr27	var	BMS limit from HR27; refs=7
+00D506	1	bms_soc	var	SoC (HR21); refs=16
+00D508	1	bms_pack_voltage	var	pack voltage (HR22); refs=7
+00D509	1	bms_pack_current	var	pack current (HR23); refs=5
+00D50A	1	bms_temp	var	refs=3
+00D50B	1	plim_word_d50b	var	refs=1
+00D50C	1	bms_limit_scale	var	refs=3
+00D50E	2	bms_chg_plim_temp	var	refs=3
+00D510	2	bms_dis_plim_temp	var	refs=3
+00D512	2	bms_chg_plim_current	var	refs=4
+00D514	2	bms_dis_plim_current	var	refs=3
+00D516	2	bms_chg_plim_bus	var	refs=3
+00D518	2	bms_dis_plim_bus	var	refs=3
+00D51A	2	bms_chg_plim_soc	var	refs=5
+00D51C	2	bms_dis_plim_soc	var	refs=4
+00D520	1	bms_charge_voltage_copy	var	refs=2
+00D522	2	bms_chg_current_cap	var	refs=4
+00D524	2	bms_dis_current_cap	var	refs=3
+00D526	2	bms_chg_current_limit	var	tapered HR26 limit; address taken; refs=6
+00D528	2	dis_current_limit	var	tapered HR27 limit; address taken; refs=6
+00D52B	1	bms_bms_charge_limit_copy	var	refs=2
+00D52C	1	bms_max_charge_current_copy	var	refs=1
+00D52D	1	bms_start_permit	var	start permit; refs=4
+00D52E	1	soft_start_enable	var	soft start allowed; refs=11
+00D542		bms_fc4_buf	var	address taken; refs=2
+00D60A		arm_bms_request	var	address taken; refs=2
+00D61E	1	arm_bms_request_pending	var	refs=3
+00D61F	1	bms_fc4_ready	var	refs=4
+00D640	1	boot_rx_active	var	cinit; refs=5
+00D642		FlashStatus	var	address taken; refs=2
+00D646	1	boot_reply	var	address taken; cinit; refs=2
+00D647	1	ram_word_d647	var	refs=1
+00D680	1	boot_prog_buf	var	address taken; cinit; refs=4
+00D700	1	boot_rx_frame	var	address taken; cinit; refs=9
+00D701	1	ram_word_d701	var	refs=3
+00D702	1	ram_word_d702	var	refs=1
+00D7C0		eps_cfg_bits	var	address taken; refs=14
+00D7C1	1	bms_request_flags	var	319 BMS HR15 transition request flags
+00D7C2		grid_func_flags	var	address taken; refs=31
+00D7C3	1	run_status_bits	var	refs=3
+00D7C3		var_D7C3	var	address taken; refs=34
+00D800		cfg_d800	var	name for the address var_D800 spelled; B: 0xD800..0xD805 (state_init clears 801/802/805)
+00D801	1	cfg_flag_a	var	refs=1
+00D802	1	cfg_flag_b	var	refs=1
+00D803		pv_start_voltage	var	address taken; refs=4
+00D804	1	pv_mode_cfg	var	refs=3
+00D805	1	pv_bus_mode	var	refs=7
+00D806	1	qu_q_max	var	refs=3
+00D807	1	q_mode	var	refs=5
+00D808	1	cal_gains	var	refs=3
+00D808	1	cal_batt_v	var	refs=3
+00D809	1	cal_hv_i	var	refs=2
+00D80A		cal_pv1_v	var	address taken; refs=4
+00D80B		cal_pv1_i	var	address taken; refs=4
+00D80C	1	cal_pv2_v	var	refs=3
+00D80D		cal_pv2_i	var	address taken; refs=4
+00D80E		cal_pv1_p	var	address taken; refs=4
+00D80F		cal_pv2_p	var	address taken; refs=4
+00D810		cal_grid_v	var	address taken; refs=4
+00D811	1	cal_spare_11	var	refs=1
+00D812	1	cal_spare_12	var	refs=1
+00D813		cal_power	var	address taken; refs=4
+00D814	1	cal_spare_14	var	refs=1
+00D815	1	cal_spare_15	var	refs=1
+00D816	1	cal_spare_16	var	refs=1
+00D817	1	cal_spare_17	var	refs=1
+00D818		cal_bus_v	var	address taken; refs=4
+00D819		cal_d819	var	address taken; refs=3
+00D81A	1	inverter_start_time	var	refs=1
+00D81B	1	inverter_restart_delay	var	refs=1
+00D81C		v_ac_high_out	var	address taken; refs=6
+00D81D		v_ac_low_out	var	address taken; refs=6
+00D81E		v_ac_high_in	var	address taken; refs=6
+00D81F		v_ac_low_in	var	address taken; refs=6
+00D820	1	grid_limits	var	refs=5
+00D820	1	f_ac_high_out	var	refs=5
+00D821	1	f_ac_low_out	var	refs=5
+00D822	1	f_ac_high_in	var	refs=5
+00D823	1	f_ac_low_in	var	refs=5
+00D824	1	v_ac_high_c	var	refs=3
+00D825	1	v_ac_low_c	var	refs=3
+00D826	1	f_ac_high_c	var	refs=2
+00D827	1	f_ac_low_c	var	refs=2
+00D828		v_10_min_protection	var	address taken; refs=5
+00D829		dci_limit	var	address taken; refs=3
+00D82A		dci_limit_b	var	address taken; refs=1
+00D82B	1	v_ac_high_out_time	var	refs=5
+00D82C	1	v_ac_low_out_time	var	refs=5
+00D82D	1	v_ac_high_in_time	var	refs=7
+00D82E	1	v_ac_low_in_time	var	refs=4
+00D82F	1	f_ac_high_out_time	var	refs=4
+00D830	1	f_ac_low_out_time	var	refs=4
+00D831	1	f_ac_high_in_time	var	refs=3
+00D832	1	f_ac_low_in_time	var	refs=3
+00D833	1	cfg_spare_150	var	refs=1
+00D834		cfg_unused_a	var	name for the address var_D834 spelled; C: never used (layout only)
+00D835	1	dci_trip_time	var	refs=2
+00D836	1	dci_trip_time_it	var	refs=2
+00D837	1	ofr_start_freq	var	refs=6
+00D838		cfg_unused_b	var	name for the address var_D838 spelled; C: never used (layout only)
+00D839	1	ofr_droop	var	refs=5
+00D83A	1	ofr_recover_delay	var	refs=9
+00D83B	1	ofr_delay	var	refs=5
+00D83C	1	ofr_recover_freq	var	refs=4
+00D83D	1	ufr_start_freq	var	refs=6
+00D83E	1	ufr_droop	var	refs=3
+00D83F	1	ufr_delay	var	refs=3
+00D840	1	ufr_latched	var	refs=8
+00D841		power_ramp_rate	var	address taken; refs=8
+00D842	1	freq_stage_sel	var	refs=6
+00D843	1	qu_lock_in_p	var	refs=1
+00D844	1	qu_lock_out_p	var	refs=1
+00D845	1	q_pt1_tau	var	refs=8
+00D846	1	pf_curve_p1	var	refs=3
+00D847	1	pf_curve_p2	var	refs=5
+00D848	1	pf_curve_p3	var	refs=4
+00D849	1	pf_curve_p4	var	refs=2
+00D84A	1	pf_curve_pf1	var	refs=6
+00D84B	1	pf_curve_pf2	var	refs=7
+00D84C	1	pf_curve_pf3	var	refs=7
+00D84D	1	pf_curve_pf4	var	refs=6
+00D84E	1	pfp_lock_in_v	var	refs=2
+00D84F	1	pfp_lock_out_v	var	refs=2
+00D851	1	reactive_power_rate	var	refs=3
+00D852	1	active_power_rate	var	refs=5
+00D853	1	power_factor_set	var	refs=4
+00D854	1	ofr_it_param	var	refs=2
+00D855		power_ramp_rate_reconnect	var	address taken; refs=6
+00D856	1	fast_trip_v_low_set	var	refs=2
+00D857	1	fast_trip_v_high_set	var	refs=2
+00D858	1	qu_v_low1	var	refs=4
+00D859	1	qu_v_low2	var	refs=3
+00D85A	1	qu_v_high1	var	refs=5
+00D85B	1	qu_v_high2	var	refs=4
+00D85C	1	sched_window	var	refs=2
+00D85D	1	enable_charge_target	var	refs=2
+00D85E	1	charge_target_soc	var	refs=2
+00D880	2	rating_params	var	refs=11
+00D882	2	grid_v_nominal	var	refs=9
+00D884	2	grid_freq_nominal	var	refs=3
+00D886	2	grid_omega_step	var	refs=2
+00D888	2	rating_params_rated_current	var	refs=6
+00D88A	2	rated_ac_power	var	refs=100
+00D88C	2	grid_power_max_pv	var	refs=8
+00D88E	2	grid_voltage_nominal	var	refs=16
+00D890	2	grid_current_max	var	refs=8
+00D892	2	batt_power_rating	var	rated power 0.1 W; address taken; refs=21
+00D894	2	rating_params_batt_dis_power_max	var	refs=11
+00D896	2	force_charge_pct	var	refs=1
+00D898	2	force_discharge_pct	var	refs=1
+00D89A	2	force_chg_soc_f	var	refs=1
+00D89C	2	pv_power_rated	var	refs=18
+00D89E	2	pv_power_limit	var	address taken; refs=11
+00D8A0	2	rating_params_spare_v340	var	refs=6
+00D8A2	2	pv_derate_voltage	var	refs=8
+00D8A4	2	rating_params_grid_v_87pct	var	refs=1
+00D8A6	1	var_D8A6	var	refs=1
+00D8A8	2	pv_ov_limit	var	refs=8
+00D8AA	2	batt_temp_limit	var	refs=7
+00D8AC	2	rating_params_batt_temp_clear	var	refs=6
+00D8AE	2	charger_temp_limit	var	refs=8
+00D8B0	2	charger_temp_derate	var	refs=9
+00D8B2	2	heatsink_temp_limit	var	refs=8
+00D8B4	2	heatsink_temp_derate	var	refs=7
+00D8B6	2	grid_v_low_derate	var	refs=7
+00D8B8	2	arm_batt_setpoint	var	refs=8
+00D8BA	2	grid_port_max_power	var	refs=3
+00D8BC	2	exp_target_raw	var	address taken; refs=3
+00D8BE	2	exp_target_filt	var	address taken; refs=5
+00D8C0	2	dsp_settings	var	refs=1
+00D8C2	2	bus_ov_limit	var	refs=9
+00D8C4	1	rating_params_settings	var	refs=1
+00D8C5		battery_charge_limit	var	HR111 battery_charge_limit; address taken; refs=4
+00D8C6		battery_discharge_limit	var	HR112 battery_discharge_limit; address taken; refs=4
+00D8C7		charge_target_soc_now	var	address taken; refs=3
+00D8C8	1	batt_min_reserve	var	refs=3
+00D8C9		discharge_min_soc	var	SoC floor, HR110; address taken; refs=6
+00D8CA	1	grid_import_amps	var	refs=1
+00D8CB		inv_countdown_ticks	var	address taken; refs=23
+00D8CC	1	cfg_changed_flags	var	refs=2
+00D8CD	1	inverter_state	var	refs=2
+00D8CE	1	batt_state_cmd	var	refs=23
+00D8CF	1	dsp_settings_start_fault_now	var	refs=6
+00D8D0	1	dsp_settings_start_fault_entry	var	refs=2
+00D8D1		charge_active	var	name for the address var_D8D1 spelled; A: alias of ram_D800.v_D8D1; C frame page 0 offset 15 (ARM name)
+00D8D2		discharge_active	var	name for the address var_D8D2 spelled; A: alias of ram_D800.v_D8D2; page 0 offset 16 (ARM name)
+00D8D3	1	battery_power_mode	var	refs=1
+00D8D5	1	iso_check_enable	var	refs=3
+00D8D6	1	rcmu_enable	var	refs=4
+00D8D8	1	dci_comp_enable	var	refs=1
+00D8D9	1	hr1_check3	var	refs=2
+00D8DA	1	rcmu_step_check_off	var	refs=1
+00D8DE		batt_v_high_limit	var	battery maximum 0.1 V (HR98); address taken; refs=4
+00D8DF		batt_v_low_limit	var	battery minimum 0.1 V (HR97); address taken; refs=5
+00D8E0	1	battery_capacity	var	maximum current?; refs=7
+00D8E1	1	battery_type	var	refs=17
+00D8E2	1	enable_bms_read	var	full (1) or short BMS poll; HR109 enable_bms_read via the ARM link; refs=4
+00D8E3	1	bms_hr0	var	refs=3
+00D8E4	1	bms_fw_version	var	refs=4
+00D8E5	1	bms_relay_request	var	refs=2
+00D8E7	1	bms_capacity	var	refs=6
+00D8E8	1	bms_soc_raw	var	refs=3
+00D8E9	1	pv_input_mode	var	refs=17
+00D8EA	1	run_mode_req	var	refs=28
+00D8EB	1	run_command	var	refs=4
+00D8EC	1	arm_page_no	var	refs=3
+00D8ED	1	grid_is_60hz	var	refs=11
+00D8EE	1	dsp_settings_relay_test_pass	var	refs=6
+00D8EF	1	aging_test_enable	var	refs=4
+00D8F0	1	aging_test_mode	var	refs=12
+00D8F1		model_power_code	var	address taken; refs=3
+00D8F2	1	var_D8F2	var	refs=1
+00D900	1	bms_present	var	BMS valid reply seen; cinit; refs=5
+00D901	1	bms_update_pending	var	cinit; refs=2
+00D902	1	bms_relay_idle	var	cinit; refs=3
+00D903	1	batt_warning	var	cinit; refs=12
+00D904	1	hr201_request	var	cinit; refs=4
+00D905	1	bms_relay_active	var	cinit; refs=3
+00D906	1	bms_alarm	var	cinit; refs=15
+00D907	1	low_batt_wake	var	cinit; refs=2
+00D908	1	batt_cal_stage	var	battery calibration (HR29); cinit; refs=17
+00D909	1	batt_cal_request_prev	var	refs=6
+00D90A	1	hr200_request	var	cinit; refs=10
+00D90B	1	bms_tx_state	var	cinit; refs=5
+00D90C	1	bms_wake_on	var	cinit; refs=5
+00D90D	1	bms_wake_off	var	cinit; refs=4
+00D90E	1	bms_poll_div	var	BMS tick counter; cinit; refs=5
+00D90F	1	bms_hr2_count	var	cinit; refs=3
+00D910	1	bms_hr3_count	var	cinit; refs=3
+00D911	1	bms_wake_count	var	cinit; refs=3
+00D912	1	bms_hr1_request	var	319 HR1 request value
+00D913	1	bms_hr15_edge	var	319 HR15 edge and HR1 state bits
+00D914	1	batt_cal_request	var	cinit; refs=3
+00D915	1	bms_crc	var	cinit; refs=8
+00D916	1	bms_wake_off_count	var	cinit; refs=3
+00D917	1	bms_hr15	var	refs=11
+00D918	1	bms_poll_count	var	refs=8
+00D919	1	bms_poll_start	var	cinit; refs=4
+00D91A	1	bms_rx_len	var	cinit; refs=3
+00D91B	1	bms_fc4_count	var	cinit; refs=14
+00D91C	1	bms_rx_expect	var	cinit; refs=3
+00D91D	1	bms_hr17	var	cinit; refs=5
+00D91E	1	bms_reply_count	var	BMS replies since loss (to 50); cinit; refs=9
+00D91F	1	bms_hr18	var	cinit; refs=3
+00D920	1	bms_alarm_masked	var	cinit; refs=2
+00D921	1	bms_lost_count	var	ticks since last valid BMS reply; cinit; refs=6
+00D922	1	bms_tx_len	var	cinit; refs=2
+00D922	1	var_D922	var	cinit; refs=11
+00D923	1	bms_tx_pos	var	cinit; refs=4
+00D923	1	var_D923	var	cinit; refs=5
+00D940	1	bms_tx_buf	var	SCI-B transmit buffer; address taken; cinit; refs=8
+00D941	1	bms_word_d941	var	refs=1
+00D9C0	1	bms_rx_buf	var	BMS reply buffer; address taken; cinit; refs=7
+00D9C1	1	var_D9C1	var	refs=1
+00DA40	1	os_cur	var	refs=6
+00DA41	1	os_next	var	refs=11
+00DA42	1	os_ready	var	refs=12
+00DA44	2	os_stack_free	var	refs=3
+00DA46	2	os_cur_tcb	var	refs=8
+00DA48	2	os_next_tcb	var	refs=6
+00DA80		os_tcb0	var	RTOS task control blocks, 8 words per task; address taken; refs=11
+00DA80		os_tcb	var	RTOS task control blocks, 8 words per task; address taken; refs=11
+00DA82	1	os_tcb_1_period	var	refs=4
+00DA83	1	os_tcb_1_count	var	refs=4
+00DA84	1	os_tcb0_flags	var	refs=2
+00DAAC	2	arm_rx_block	var	refs=2
+00DAAD	1	var_DAAD	var	refs=1
+00DAB8		os_tcb_8_sp	var	address taken; refs=1
+00DAC0	1	run_cmd4_cnt	var	cinit; refs=3
+00DAC1	1	arm_rx_fail_cnt	var	cinit; refs=7
+00DAC2	1	arm_rx_idle_cnt	var	cinit; refs=4
+00DAC3	1	arm_tx_tick	var	cinit; refs=3
+00DAC4	1	arm_tx_stop	var	cinit; refs=2
+00DAC5	1	arm_crc_err_cnt	var	cinit; refs=3
+00DAC6	1	arm_rx_ok_cnt	var	cinit; refs=5
+00DAC7	1	bms_fc4_subpage	var	cinit; refs=6
+00DAC8	1	peek_addr	var	cinit; refs=4
+00DAC9	1	bms_fc4_idx	var	cinit; refs=4
+00DACA	1	autotest_done_cnt	var	cinit; refs=3
+00DACB	1	arm_tx_halted	var	refs=3
+00DACC	1	cal_lowv_cnt	var	cinit; refs=0
+00DACD	1	cal_highv_cnt	var	cinit; refs=0
+00DACE	2	arm_fault_word	var	cinit; refs=10
+00DAD0	1	bms_serial	var	address taken; cinit; refs=3
+00DB00		arm_tx_frame	var	address taken; refs=15
+00DB1C	1	var_DB1C	var	refs=1
+00DB40		rcmu	var	address taken; refs=3
+00DB41	1	rcmu_a_arm	var	refs=1
+00DB42	2	rcmu_a_src	var	refs=2
+00DB48	1	rcmu_a_done	var	refs=2
+00DB4A	2	rcmu_a_out	var	refs=1
+00DB4C		rcmu_b_en	var	address taken; refs=2
+00DB4D	1	rcmu_b_arm	var	refs=1
+00DB4E	2	rcmu_b_src	var	refs=2
+00DB52	1	rcmu_b_passed	var	refs=2
+00DB53	1	rcmu_b_failed	var	refs=3
+00DB5A	2	rcmu_b_avg1	var	refs=1
+00DB5C	2	rcmu_b_avg0	var	refs=1
+00DB64		rcmu_c_en	var	address taken; refs=3
+00DB65	1	rcmu_c_arm	var	refs=3
+00DB66	1	rcmu_c_jump_check_on	var	refs=2
+00DB68	2	rcmu_c_base1	var	refs=1
+00DB6A	2	rcmu_c_base0	var	refs=1
+00DB6C	2	rcmu_c_limit	var	refs=2
+00DB6E	2	rcmu_c_src	var	refs=3
+00DB72	2	rcmu_c_filt1	var	refs=1
+00DB74	1	rcmu_c_settle	var	refs=1
+00DB82	1	rcmu_c_fast_trip	var	refs=2
+00DB83	1	rcmu_c_trip	var	refs=1
+00DB86		adc_dma_buf	var	address taken; refs=2
+00DBC0		os_stack	var	address taken; refs=1
+00E000		var_E000	var	address taken; refs=1
+00FFFE		var_FFFE	var	address taken; refs=2
+00FFFF		var_FFFF	var	address taken; refs=3
+010000		var_10000	var	address taken; refs=1
+012000		var_12000	var	address taken; refs=1
+3E8000	1	version	const	firmware version 319 (0x013F)
+3F340C	4	cinit_3F340C	cinit	var=0xCCC0 n=1
+3F3410	4	cinit_3F3410	cinit	var=0xCCC1 n=1
+3F3414	4	cinit_3F3414	cinit	var=0xCCC2 n=1
+3F3418	4	cinit_3F3418	cinit	var=0xCCC3 n=1
+3F341C	4	cinit_3F341C	cinit	var=0xCCC4 n=1
+3F3420	4	cinit_3F3420	cinit	var=0xCCC5 n=1
+3F3424	4	cinit_3F3424	cinit	var=0xCCC6 n=1
+3F3428	4	cinit_3F3428	cinit	var=0xCCC7 n=1
+3F342C	4	cinit_3F342C	cinit	var=0xCCC8 n=1
+3F3430	4	cinit_3F3430	cinit	var=0xCCC9 n=1
+3F3434	4	cinit_3F3434	cinit	var=0xCCCA n=1
+3F3438	4	cinit_3F3438	cinit	var=0xCCCB n=1
+3F343C	4	cinit_3F343C	cinit	var=0xCCCC n=1
+3F3440	4	cinit_3F3440	cinit	var=0xCCCD n=1
+3F3444	4	cinit_3F3444	cinit	var=0xCCCE n=1
+3F3448	4	cinit_3F3448	cinit	var=0xCCCF n=1
+3F344C	4	cinit_3F344C	cinit	var=0xCCD0 n=1
+3F3450	4	cinit_3F3450	cinit	var=0xCCD1 n=1
+3F3454	4	cinit_3F3454	cinit	var=0xCCD2 n=1
+3F3458	4	cinit_3F3458	cinit	var=0xCCD3 n=1
+3F345C	4	cinit_3F345C	cinit	var=0xCCD4 n=1
+3F3460	4	cinit_3F3460	cinit	var=0xCCD5 n=1
+3F3464	4	cinit_3F3464	cinit	var=0xCCD6 n=1
+3F3468	4	cinit_3F3468	cinit	var=0xCCD7 n=1
+3F346C	4	cinit_3F346C	cinit	var=0xCCD8 n=1
+3F3470	4	cinit_3F3470	cinit	var=0xCCD9 n=1
+3F3474	4	cinit_3F3474	cinit	var=0xCCDA n=1
+3F3478	4	cinit_3F3478	cinit	var=0xCCDB n=1
+3F347C	4	cinit_3F347C	cinit	var=0xCCDC n=1
+3F3480	4	cinit_3F3480	cinit	var=0xCCDD n=1
+3F3484	4	cinit_3F3484	cinit	var=0xCCDE n=1
+3F3488	4	cinit_3F3488	cinit	var=0xCCDF n=1
+3F348C	4	cinit_3F348C	cinit	var=0xCCE0 n=1
+3F3490	4	cinit_3F3490	cinit	var=0xCCE1 n=1
+3F3494	4	cinit_3F3494	cinit	var=0xCCE2 n=1
+3F3498	4	cinit_3F3498	cinit	var=0xCCE3 n=1
+3F349C	4	cinit_3F349C	cinit	var=0xCCE4 n=1
+3F34A0	4	cinit_3F34A0	cinit	var=0xCCE5 n=1
+3F34A4	4	cinit_3F34A4	cinit	var=0xCCE6 n=1
+3F34A8	4	cinit_3F34A8	cinit	var=0xCCE7 n=1
+3F34AC	4	cinit_3F34AC	cinit	var=0xCCE8 n=1
+3F34B0	4	cinit_3F34B0	cinit	var=0xCCE9 n=1
+3F34B4	4	cinit_3F34B4	cinit	var=0xCCEA n=1
+3F34B8	4	cinit_3F34B8	cinit	var=0xCCEB n=1
+3F34BC	4	cinit_3F34BC	cinit	var=0xCCEC n=1
+3F34C0	4	cinit_3F34C0	cinit	var=0xCCED n=1
+3F34C4	4	cinit_3F34C4	cinit	var=0xCCEE n=1
+3F34C8	4	cinit_3F34C8	cinit	var=0xCCEF n=1
+3F34CC	4	cinit_3F34CC	cinit	var=0xCCF0 n=1
+3F34D0	4	cinit_3F34D0	cinit	var=0xCCF1 n=1
+3F34D4	4	cinit_3F34D4	cinit	var=0xCCF2 n=1
+3F34D8	4	cinit_3F34D8	cinit	var=0xCCF3 n=1
+3F34DC	4	cinit_3F34DC	cinit	var=0xCCF4 n=1
+3F34E0	4	cinit_3F34E0	cinit	var=0xCCF5 n=1
+3F34E4	4	cinit_3F34E4	cinit	var=0xCCF6 n=1
+3F34E8	4	cinit_3F34E8	cinit	var=0xCCF7 n=1
+3F34EC	4	cinit_3F34EC	cinit	var=0xCCF8 n=1
+3F34F0	4	cinit_3F34F0	cinit	var=0xCCF9 n=1
+3F34F4	4	cinit_3F34F4	cinit	var=0xCCFA n=1
+3F34F8	4	cinit_3F34F8	cinit	var=0xCCFB n=1
+3F34FC	4	cinit_3F34FC	cinit	var=0xCCFC n=1
+3F3500	4	cinit_3F3500	cinit	var=0xCCFD n=1
+3F3504	4	cinit_3F3504	cinit	var=0xCCFE n=1
+3F3508	4	cinit_3F3508	cinit	var=0xCCFF n=1
+3F350C	4	cinit_3F350C	cinit	var=0xCD00 n=1
+3F3510	4	cinit_3F3510	cinit	var=0xCD01 n=1
+3F3514	4	cinit_3F3514	cinit	var=0xCD02 n=1
+3F3518	4	cinit_3F3518	cinit	var=0xCD03 n=1
+3F351C	4	cinit_3F351C	cinit	var=0xCD04 n=1
+3F3520	4	cinit_3F3520	cinit	var=0xCD05 n=1
+3F3524	4	cinit_3F3524	cinit	var=0xCD06 n=1
+3F3528	4	cinit_3F3528	cinit	var=0xCD07 n=1
+3F352C	4	cinit_3F352C	cinit	var=0xCD08 n=1
+3F3530	4	cinit_3F3530	cinit	var=0xCD09 n=1
+3F3534	4	cinit_3F3534	cinit	var=0xCD0A n=1
+3F3538	4	cinit_3F3538	cinit	var=0xCD0B n=1
+3F353C	4	cinit_3F353C	cinit	var=0xCD0C n=1
+3F3540	4	cinit_3F3540	cinit	var=0xCD0D n=1
+3F3544	4	cinit_3F3544	cinit	var=0xCD0E n=1
+3F3548	4	cinit_3F3548	cinit	var=0xCD14 n=1
+3F354C	4	cinit_3F354C	cinit	var=0xCD15 n=1
+3F3550	4	cinit_3F3550	cinit	var=0xCD16 n=1
+3F3554	4	cinit_3F3554	cinit	var=0xCD17 n=1
+3F3558	4	cinit_3F3558	cinit	var=0xCD18 n=1
+3F355C	4	cinit_3F355C	cinit	var=0xCD19 n=1
+3F3560	4	cinit_3F3560	cinit	var=0xCD1A n=1
+3F3564	4	cinit_3F3564	cinit	var=0xCD1C n=1
+3F3568	4	cinit_3F3568	cinit	var=0xCD1D n=1
+3F356C	5	cinit_3F356C	cinit	var=0xCD1E n=2
+3F3571	5	cinit_3F3571	cinit	var=0xCD20 n=2
+3F3576	5	cinit_3F3576	cinit	var=0xCD22 n=2
+3F357B	5	cinit_3F357B	cinit	var=0xCD24 n=2
+3F3580	5	cinit_3F3580	cinit	var=0xCD26 n=2
+3F3585	5	cinit_3F3585	cinit	var=0xCD28 n=2
+3F358A	5	cinit_3F358A	cinit	var=0xCD2A n=2
+3F358F	5	cinit_3F358F	cinit	var=0xCD2C n=2
+3F3594	5	cinit_3F3594	cinit	var=0xCD2E n=2
+3F3599	5	cinit_3F3599	cinit	var=0xCD30 n=2
+3F359E	5	cinit_3F359E	cinit	var=0xCD32 n=2
+3F35A3	5	cinit_3F35A3	cinit	var=0xCD34 n=2
+3F35A8	5	cinit_3F35A8	cinit	var=0xCD36 n=2
+3F35AD	5	cinit_3F35AD	cinit	var=0xCD38 n=2
+3F35B2	5	cinit_3F35B2	cinit	var=0xCD3A n=2
+3F35B7	5	cinit_3F35B7	cinit	var=0xCD3C n=2
+3F35BC	5	cinit_3F35BC	cinit	var=0xCD3E n=2
+3F35C1	5	cinit_3F35C1	cinit	var=0xCD40 n=2
+3F35C6	5	cinit_3F35C6	cinit	var=0xCD42 n=2
+3F35CB	5	cinit_3F35CB	cinit	var=0xCD44 n=2
+3F35D0	5	cinit_3F35D0	cinit	var=0xCD46 n=2
+3F35D5	5	cinit_3F35D5	cinit	var=0xCD48 n=2
+3F35DA	5	cinit_3F35DA	cinit	var=0xCD4A n=2
+3F35DF	5	cinit_3F35DF	cinit	var=0xCD4C n=2
+3F35E4	5	cinit_3F35E4	cinit	var=0xCD4E n=2
+3F35E9	5	cinit_3F35E9	cinit	var=0xCD50 n=2
+3F35EE	5	cinit_3F35EE	cinit	var=0xCD52 n=2
+3F35F3	5	cinit_3F35F3	cinit	var=0xCD54 n=2
+3F35F8	5	cinit_3F35F8	cinit	var=0xCD56 n=2
+3F35FD	5	cinit_3F35FD	cinit	var=0xCD58 n=2
+3F3602	5	cinit_3F3602	cinit	var=0xCD5A n=2
+3F3607	5	cinit_3F3607	cinit	var=0xCD5C n=2
+3F360C	5	cinit_3F360C	cinit	var=0xCD5E n=2
+3F3611	5	cinit_3F3611	cinit	var=0xCD60 n=2
+3F3616	5	cinit_3F3616	cinit	var=0xCD62 n=2
+3F361B	5	cinit_3F361B	cinit	var=0xCD64 n=2
+3F3620	5	cinit_3F3620	cinit	var=0xCD66 n=2
+3F3625	5	cinit_3F3625	cinit	var=0xCD68 n=2
+3F362A	5	cinit_3F362A	cinit	var=0xCD6A n=2
+3F362F	5	cinit_3F362F	cinit	var=0xCD6C n=2
+3F3634	5	cinit_3F3634	cinit	var=0xCD6E n=2
+3F3639	5	cinit_3F3639	cinit	var=0xCD70 n=2
+3F363E	5	cinit_3F363E	cinit	var=0xCD72 n=2
+3F3643	5	cinit_3F3643	cinit	var=0xCD74 n=2
+3F3648	5	cinit_3F3648	cinit	var=0xCD76 n=2
+3F364D	5	cinit_3F364D	cinit	var=0xCD78 n=2
+3F3652	5	cinit_3F3652	cinit	var=0xCD7A n=2
+3F3657	5	cinit_3F3657	cinit	var=0xCD7C n=2
+3F365C	5	cinit_3F365C	cinit	var=0xCD7E n=2
+3F3661	5	cinit_3F3661	cinit	var=0xCD80 n=2
+3F3666	5	cinit_3F3666	cinit	var=0xCD82 n=2
+3F366B	5	cinit_3F366B	cinit	var=0xCD84 n=2
+3F3670	5	cinit_3F3670	cinit	var=0xCD86 n=2
+3F3675	5	cinit_3F3675	cinit	var=0xCD88 n=2
+3F367A	5	cinit_3F367A	cinit	var=0xCD8A n=2
+3F367F	5	cinit_3F367F	cinit	var=0xCD8C n=2
+3F3684	5	cinit_3F3684	cinit	var=0xCD8E n=2
+3F3689	5	cinit_3F3689	cinit	var=0xCD90 n=2
+3F368E	5	cinit_3F368E	cinit	var=0xCD92 n=2
+3F3693	5	cinit_3F3693	cinit	var=0xCD94 n=2
+3F3698	5	cinit_3F3698	cinit	var=0xCD96 n=2
+3F369D	5	cinit_3F369D	cinit	var=0xCD98 n=2
+3F36A2	5	cinit_3F36A2	cinit	var=0xCD9A n=2
+3F36A7	5	cinit_3F36A7	cinit	var=0xCD9C n=2
+3F36AC	5	cinit_3F36AC	cinit	var=0xCD9E n=2
+3F36B1	5	cinit_3F36B1	cinit	var=0xCDA0 n=2
+3F36B6	5	cinit_3F36B6	cinit	var=0xCDA2 n=2
+3F36BB	5	cinit_3F36BB	cinit	var=0xCDA4 n=2
+3F36C0	5	cinit_3F36C0	cinit	var=0xCDA6 n=2
+3F36C5	5	cinit_3F36C5	cinit	var=0xCDA8 n=2
+3F36CA	5	cinit_3F36CA	cinit	var=0xCDAA n=2
+3F36CF	5	cinit_3F36CF	cinit	var=0xCDAC n=2
+3F36D4	5	cinit_3F36D4	cinit	var=0xCDAE n=2
+3F36D9	5	cinit_3F36D9	cinit	var=0xCDB0 n=2
+3F36DE	5	cinit_3F36DE	cinit	var=0xCDB2 n=2
+3F36E3	5	cinit_3F36E3	cinit	var=0xCDB4 n=2
+3F36E8	5	cinit_3F36E8	cinit	var=0xCDB6 n=2
+3F36ED	5	cinit_3F36ED	cinit	var=0xCDB8 n=2
+3F36F2	5	cinit_3F36F2	cinit	var=0xCDBA n=2
+3F36F7	5	cinit_3F36F7	cinit	var=0xCDBC n=2
+3F36FC	5	cinit_3F36FC	cinit	var=0xCDBE n=2
+3F3701	5	cinit_3F3701	cinit	var=0xCDC0 n=2
+3F3706	5	cinit_3F3706	cinit	var=0xCDC2 n=2
+3F370B	5	cinit_3F370B	cinit	var=0xCDC4 n=2
+3F3710	5	cinit_3F3710	cinit	var=0xCDC6 n=2
+3F3715	5	cinit_3F3715	cinit	var=0xCDC8 n=2
+3F371A	5	cinit_3F371A	cinit	var=0xCDCA n=2
+3F371F	5	cinit_3F371F	cinit	var=0xCDCC n=2
+3F3724	5	cinit_3F3724	cinit	var=0xCDCE n=2
+3F3729	203	cinit_3F3729	cinit	var=0xCE40 n=200
+3F37F4	4	cinit_3F37F4	cinit	var=0xD4C0 n=1
+3F37F8	4	cinit_3F37F8	cinit	var=0xD4C1 n=1
+3F37FC	4	cinit_3F37FC	cinit	var=0xD4C2 n=1
+3F3800	4	cinit_3F3800	cinit	var=0xD4C3 n=1
+3F3804	4	cinit_3F3804	cinit	var=0xD4C4 n=1
+3F3808	4	cinit_3F3808	cinit	var=0xD4C5 n=1
+3F380C	4	cinit_3F380C	cinit	var=0xD4C7 n=1
+3F3810	4	cinit_3F3810	cinit	var=0xD4C8 n=1
+3F3814	4	cinit_3F3814	cinit	var=0xD4C9 n=1
+3F3818	4	cinit_3F3818	cinit	var=0xD4CA n=1
+3F381C	4	cinit_3F381C	cinit	var=0xD4CB n=1
+3F3820	4	cinit_3F3820	cinit	var=0xD4CC n=1
+3F3824	4	cinit_3F3824	cinit	var=0xD4CD n=1
+3F3828	4	cinit_3F3828	cinit	var=0xD4CE n=1
+3F382C	4	cinit_3F382C	cinit	var=0xD4CF n=1
+3F3830	4	cinit_3F3830	cinit	var=0xD4D0 n=1
+3F3834	4	cinit_3F3834	cinit	var=0xD4D1 n=1
+3F3838	4	cinit_3F3838	cinit	var=0xD4D2 n=1
+3F383C	4	cinit_3F383C	cinit	var=0xD4D3 n=1
+3F3840	4	cinit_3F3840	cinit	var=0xD4D4 n=1
+3F3844	4	cinit_3F3844	cinit	var=0xD4D5 n=1
+3F3848	4	cinit_3F3848	cinit	var=0xD4D6 n=1
+3F384C	4	cinit_3F384C	cinit	var=0xD4D7 n=1
+3F3850	4	cinit_3F3850	cinit	var=0xD4D8 n=1
+3F3854	4	cinit_3F3854	cinit	var=0xD4D9 n=1
+3F3858	4	cinit_3F3858	cinit	var=0xD4DA n=1
+3F385C	4	cinit_3F385C	cinit	var=0xD4DB n=1
+3F3860	5	cinit_3F3860	cinit	var=0xD4DC n=2
+3F3865	5	cinit_3F3865	cinit	var=0xD4DE n=2
+3F386A	5	cinit_3F386A	cinit	var=0xD4E0 n=2
+3F386F	5	cinit_3F386F	cinit	var=0xD4E2 n=2
+3F3874	5	cinit_3F3874	cinit	var=0xD4E4 n=2
+3F3879	5	cinit_3F3879	cinit	var=0xD4E6 n=2
+3F387E	5	cinit_3F387E	cinit	var=0xD4E8 n=2
+3F3883	5	cinit_3F3883	cinit	var=0xD4EA n=2
+3F3888	5	cinit_3F3888	cinit	var=0xD4EC n=2
+3F388D	5	cinit_3F388D	cinit	var=0xD4EE n=2
+3F3892	5	cinit_3F3892	cinit	var=0xD4F0 n=2
+3F3897	5	cinit_3F3897	cinit	var=0xD4F2 n=2
+3F389C	5	cinit_3F389C	cinit	var=0xD4F4 n=2
+3F38A1	5	cinit_3F38A1	cinit	var=0xD4F6 n=2
+3F38A6	5	cinit_3F38A6	cinit	var=0xD4F8 n=2
+3F38AB	5	cinit_3F38AB	cinit	var=0xD4FA n=2
+3F38B0	4	cinit_3F38B0	cinit	var=0xD300 n=1
+3F38B4	4	cinit_3F38B4	cinit	var=0xD301 n=1
+3F38B8	4	cinit_3F38B8	cinit	var=0xD302 n=1
+3F38BC	4	cinit_3F38BC	cinit	var=0xD303 n=1
+3F38C0	4	cinit_3F38C0	cinit	var=0xD304 n=1
+3F38C4	4	cinit_3F38C4	cinit	var=0xD305 n=1
+3F38C8	4	cinit_3F38C8	cinit	var=0xD306 n=1
+3F38CC	4	cinit_3F38CC	cinit	var=0xD307 n=1
+3F38D0	4	cinit_3F38D0	cinit	var=0xD308 n=1
+3F38D4	4	cinit_3F38D4	cinit	var=0xD30A n=1
+3F38D8	4	cinit_3F38D8	cinit	var=0xD30B n=1
+3F38DC	4	cinit_3F38DC	cinit	var=0xD30C n=1
+3F38E0	4	cinit_3F38E0	cinit	var=0xD30D n=1
+3F38E4	4	cinit_3F38E4	cinit	var=0xD30E n=1
+3F38E8	4	cinit_3F38E8	cinit	var=0xD30F n=1
+3F38EC	4	cinit_3F38EC	cinit	var=0xD310 n=1
+3F38F0	4	cinit_3F38F0	cinit	var=0xD311 n=1
+3F38F4	4	cinit_3F38F4	cinit	var=0xD312 n=1
+3F38F8	4	cinit_3F38F8	cinit	var=0xD313 n=1
+3F38FC	4	cinit_3F38FC	cinit	var=0xD314 n=1
+3F3900	4	cinit_3F3900	cinit	var=0xD315 n=1
+3F3904	4	cinit_3F3904	cinit	var=0xD316 n=1
+3F3908	4	cinit_3F3908	cinit	var=0xD317 n=1
+3F390C	4	cinit_3F390C	cinit	var=0xD318 n=1
+3F3910	4	cinit_3F3910	cinit	var=0xD319 n=1
+3F3914	4	cinit_3F3914	cinit	var=0xD31A n=1
+3F3918	5	cinit_3F3918	cinit	var=0xD31E n=2
+3F391D	5	cinit_3F391D	cinit	var=0xD320 n=2
+3F3922	5	cinit_3F3922	cinit	var=0xD322 n=2
+3F3927	5	cinit_3F3927	cinit	var=0xD324 n=2
+3F392C	5	cinit_3F392C	cinit	var=0xD326 n=2
+3F3931	5	cinit_3F3931	cinit	var=0xD328 n=2
+3F3936	5	cinit_3F3936	cinit	var=0xD32A n=2
+3F393B	5	cinit_3F393B	cinit	var=0xD32C n=2
+3F3940	5	cinit_3F3940	cinit	var=0xD32E n=2
+3F3945	5	cinit_3F3945	cinit	var=0xD330 n=2
+3F394A	9	cinit_3F394A	cinit	var=0xD334 n=6
+3F3953	4	cinit_3F3953	cinit	var=0xD140 n=1
+3F3957	4	cinit_3F3957	cinit	var=0xD141 n=1
+3F395B	4	cinit_3F395B	cinit	var=0xD142 n=1
+3F395F	4	cinit_3F395F	cinit	var=0xD143 n=1
+3F3963	4	cinit_3F3963	cinit	var=0xD144 n=1
+3F3967	4	cinit_3F3967	cinit	var=0xD145 n=1
+3F396B	4	cinit_3F396B	cinit	var=0xD146 n=1
+3F396F	4	cinit_3F396F	cinit	var=0xD147 n=1
+3F3973	4	cinit_3F3973	cinit	var=0xD148 n=1
+3F3977	4	cinit_3F3977	cinit	var=0xD14A n=1
+3F397B	4	cinit_3F397B	cinit	var=0xD14B n=1
+3F397F	4	cinit_3F397F	cinit	var=0xD14C n=1
+3F3983	4	cinit_3F3983	cinit	var=0xD14D n=1
+3F3987	4	cinit_3F3987	cinit	var=0xD14E n=1
+3F398B	4	cinit_3F398B	cinit	var=0xD14F n=1
+3F398F	4	cinit_3F398F	cinit	var=0xD150 n=1
+3F3993	4	cinit_3F3993	cinit	var=0xD151 n=1
+3F3997	4	cinit_3F3997	cinit	var=0xD152 n=1
+3F399B	4	cinit_3F399B	cinit	var=0xD153 n=1
+3F399F	4	cinit_3F399F	cinit	var=0xD154 n=1
+3F39A3	4	cinit_3F39A3	cinit	var=0xD155 n=1
+3F39A7	4	cinit_3F39A7	cinit	var=0xD156 n=1
+3F39AB	4	cinit_3F39AB	cinit	var=0xD157 n=1
+3F39AF	4	cinit_3F39AF	cinit	var=0xD158 n=1
+3F39B3	4	cinit_3F39B3	cinit	var=0xD159 n=1
+3F39B7	4	cinit_3F39B7	cinit	var=0xD15A n=1
+3F39BB	5	cinit_3F39BB	cinit	var=0xD162 n=2
+3F39C0	5	cinit_3F39C0	cinit	var=0xD168 n=2
+3F39C5	5	cinit_3F39C5	cinit	var=0xD16A n=2
+3F39CA	5	cinit_3F39CA	cinit	var=0xD16C n=2
+3F39CF	5	cinit_3F39CF	cinit	var=0xD16E n=2
+3F39D4	5	cinit_3F39D4	cinit	var=0xD170 n=2
+3F39D9	5	cinit_3F39D9	cinit	var=0xD172 n=2
+3F39DE	5	cinit_3F39DE	cinit	var=0xD174 n=2
+3F39E3	4	cinit_3F39E3	cinit	var=0xD900 n=1
+3F39E7	4	cinit_3F39E7	cinit	var=0xD901 n=1
+3F39EB	4	cinit_3F39EB	cinit	var=0xD902 n=1
+3F39EF	4	cinit_3F39EF	cinit	var=0xD903 n=1
+3F39F3	4	cinit_3F39F3	cinit	var=0xD904 n=1
+3F39F7	4	cinit_3F39F7	cinit	var=0xD905 n=1
+3F39FB	4	cinit_3F39FB	cinit	var=0xD906 n=1
+3F39FF	4	cinit_3F39FF	cinit	var=0xD907 n=1
+3F3A03	4	cinit_3F3A03	cinit	var=0xD908 n=1
+3F3A07	4	cinit_3F3A07	cinit	var=0xD909 n=1
+3F3A0B	4	cinit_3F3A0B	cinit	var=0xD90A n=1
+3F3A0F	4	cinit_3F3A0F	cinit	var=0xD90B n=1
+3F3A13	4	cinit_3F3A13	cinit	var=0xD90C n=1
+3F3A17	4	cinit_3F3A17	cinit	var=0xD90D n=1
+3F3A1B	4	cinit_3F3A1B	cinit	var=0xD90E n=1
+3F3A1F	4	cinit_3F3A1F	cinit	var=0xD90F n=1
+3F3A23	4	cinit_3F3A23	cinit	var=0xD910 n=1
+3F3A27	4	cinit_3F3A27	cinit	var=0xD911 n=1
+3F3A2B	4	cinit_3F3A2B	cinit	var=0xD914 n=1
+3F3A2F	4	cinit_3F3A2F	cinit	var=0xD915 n=1
+3F3A33	4	cinit_3F3A33	cinit	var=0xD916 n=1
+3F3A37	4	cinit_3F3A37	cinit	var=0xD918 n=1
+3F3A3B	4	cinit_3F3A3B	cinit	var=0xD919 n=1
+3F3A3F	4	cinit_3F3A3F	cinit	var=0xD91A n=1
+3F3A43	4	cinit_3F3A43	cinit	var=0xD91B n=1
+3F3A47	4	cinit_3F3A47	cinit	var=0xD91C n=1
+3F3A4B	4	cinit_3F3A4B	cinit	var=0xD91D n=1
+3F3A4F	4	cinit_3F3A4F	cinit	var=0xD91E n=1
+3F3A53	4	cinit_3F3A53	cinit	var=0xD91F n=1
+3F3A57	4	cinit_3F3A57	cinit	var=0xD920 n=1
+3F3A5B	4	cinit_3F3A5B	cinit	var=0xD921 n=1
+3F3A5F	4	cinit_3F3A5F	cinit	var=0xD922 n=1
+3F3A63	4	cinit_3F3A63	cinit	var=0xD923 n=1
+3F3A67	4	cinit_3F3A67	cinit	var=0xD940 n=1
+3F3A6B	4	cinit_3F3A6B	cinit	var=0xD9C0 n=1
+3F3A6F	4	cinit_3F3A6F	cinit	var=0xC000 n=1
+3F3A73	4	cinit_3F3A73	cinit	var=0xC001 n=1
+3F3A77	4	cinit_3F3A77	cinit	var=0xC002 n=1
+3F3A7B	4	cinit_3F3A7B	cinit	var=0xC003 n=1
+3F3A7F	4	cinit_3F3A7F	cinit	var=0xC004 n=1
+3F3A83	4	cinit_3F3A83	cinit	var=0xC006 n=1
+3F3A87	4	cinit_3F3A87	cinit	var=0xC007 n=1
+3F3A8B	4	cinit_3F3A8B	cinit	var=0xC008 n=1
+3F3A8F	4	cinit_3F3A8F	cinit	var=0xC00A n=1
+3F3A93	4	cinit_3F3A93	cinit	var=0xC00D n=1
+3F3A97	4	cinit_3F3A97	cinit	var=0xC00E n=1
+3F3A9B	4	cinit_3F3A9B	cinit	var=0xC00F n=1
+3F3A9F	4	cinit_3F3A9F	cinit	var=0xC010 n=1
+3F3AA3	4	cinit_3F3AA3	cinit	var=0xC011 n=1
+3F3AA7	4	cinit_3F3AA7	cinit	var=0xC012 n=1
+3F3AAB	4	cinit_3F3AAB	cinit	var=0xC013 n=1
+3F3AAF	4	cinit_3F3AAF	cinit	var=0xC014 n=1
+3F3AB3	4	cinit_3F3AB3	cinit	var=0xC015 n=1
+3F3AB7	4	cinit_3F3AB7	cinit	var=0xC016 n=1
+3F3ABB	4	cinit_3F3ABB	cinit	var=0xC017 n=1
+3F3ABF	4	cinit_3F3ABF	cinit	var=0xC019 n=1
+3F3AC3	4	cinit_3F3AC3	cinit	var=0xC01A n=1
+3F3AC7	4	cinit_3F3AC7	cinit	var=0xC01B n=1
+3F3ACB	4	cinit_3F3ACB	cinit	var=0xC01C n=1
+3F3ACF	4	cinit_3F3ACF	cinit	var=0xC01D n=1
+3F3AD3	4	cinit_3F3AD3	cinit	var=0xC01F n=1
+3F3AD7	4	cinit_3F3AD7	cinit	var=0xC021 n=1
+3F3ADB	4	cinit_3F3ADB	cinit	var=0xD12C n=1
+3F3ADF	4	cinit_3F3ADF	cinit	var=0xD12D n=1
+3F3AE3	4	cinit_3F3AE3	cinit	var=0xD12E n=1
+3F3AE7	4	cinit_3F3AE7	cinit	var=0xD12F n=1
+3F3AEB	4	cinit_3F3AEB	cinit	var=0xD130 n=1
+3F3AEF	4	cinit_3F3AEF	cinit	var=0xD131 n=1
+3F3AF3	4	cinit_3F3AF3	cinit	var=0xD132 n=1
+3F3AF7	4	cinit_3F3AF7	cinit	var=0xD133 n=1
+3F3AFB	4	cinit_3F3AFB	cinit	var=0xD134 n=1
+3F3AFF	4	cinit_3F3AFF	cinit	var=0xD135 n=1
+3F3B03	4	cinit_3F3B03	cinit	var=0xD136 n=1
+3F3B07	4	cinit_3F3B07	cinit	var=0xD137 n=1
+3F3B0B	4	cinit_3F3B0B	cinit	var=0xD138 n=1
+3F3B0F	4	cinit_3F3B0F	cinit	var=0xD139 n=1
+3F3B13	4	cinit_3F3B13	cinit	var=0xD13A n=1
+3F3B17	4	cinit_3F3B17	cinit	var=0xD13B n=1
+3F3B1B	4	cinit_3F3B1B	cinit	var=0xD13C n=1
+3F3B1F	4	cinit_3F3B1F	cinit	var=0xD13D n=1
+3F3B23	4	cinit_3F3B23	cinit	var=0xDAC0 n=1
+3F3B27	4	cinit_3F3B27	cinit	var=0xDAC1 n=1
+3F3B2B	4	cinit_3F3B2B	cinit	var=0xDAC2 n=1
+3F3B2F	4	cinit_3F3B2F	cinit	var=0xDAC3 n=1
+3F3B33	4	cinit_3F3B33	cinit	var=0xDAC4 n=1
+3F3B37	4	cinit_3F3B37	cinit	var=0xDAC5 n=1
+3F3B3B	4	cinit_3F3B3B	cinit	var=0xDAC6 n=1
+3F3B3F	4	cinit_3F3B3F	cinit	var=0xDAC7 n=1
+3F3B43	4	cinit_3F3B43	cinit	var=0xDAC8 n=1
+3F3B47	4	cinit_3F3B47	cinit	var=0xDAC9 n=1
+3F3B4B	4	cinit_3F3B4B	cinit	var=0xDACA n=1
+3F3B4F	4	cinit_3F3B4F	cinit	var=0xDACC n=1
+3F3B53	4	cinit_3F3B53	cinit	var=0xDACD n=1
+3F3B57	5	cinit_3F3B57	cinit	var=0xDACE n=2
+3F3B5C	4	cinit_3F3B5C	cinit	var=0xDAD0 n=1
+3F3B60	4	cinit_3F3B60	cinit	var=0xCF08 n=1
+3F3B64	4	cinit_3F3B64	cinit	var=0xCF09 n=1
+3F3B68	4	cinit_3F3B68	cinit	var=0xCF0A n=1
+3F3B6C	4	cinit_3F3B6C	cinit	var=0xCF0B n=1
+3F3B70	4	cinit_3F3B70	cinit	var=0xCF0C n=1
+3F3B74	4	cinit_3F3B74	cinit	var=0xCF0D n=1
+3F3B78	4	cinit_3F3B78	cinit	var=0xCF0F n=1
+3F3B7C	4	cinit_3F3B7C	cinit	var=0xCF11 n=1
+3F3B80	4	cinit_3F3B80	cinit	var=0xCF3A n=1
+3F3B84	4	cinit_3F3B84	cinit	var=0xCF3B n=1
+3F3B88	4	cinit_3F3B88	cinit	var=0xCF3C n=1
+3F3B8C	4	cinit_3F3B8C	cinit	var=0xCF3D n=1
+3F3B90	4	cinit_3F3B90	cinit	var=0xCF3E n=1
+3F3B94	19	cinit_3F3B94	cinit	var=0xD2EC n=16
+3F3BA7	4	cinit_3F3BA7	cinit	var=0xD640 n=1
+3F3BAB	4	cinit_3F3BAB	cinit	var=0xD646 n=1
+3F3BAF	4	cinit_3F3BAF	cinit	var=0xD680 n=1
+3F3BB3	4	cinit_3F3BB3	cinit	var=0xD700 n=1
+3F3BB7	4	cinit_3F3BB7	cinit	var=0xCF34 n=1
+3F3BBB	5	cinit_3F3BBB	cinit	var=0xCF36 n=2
+3F3BC0	5	cinit_3F3BC0	cinit	var=0xCF38 n=2
+3F3BC5	5	cinit_3F3BC5	cinit	var=0xCCBE n=2
+3F3BCA	5	cinit_3F3BCA	cinit	var=0xD13E n=2
+3F3BCF	5	cinit_3F3BCF	cinit	var=0xD2FC n=2
+3F3BD4	4	cinit_3F3BD4	cinit	var=0xCCB2 n=1
+3F3BD8	4	cinit_3F3BD8	cinit	var=0xCF41 n=1
+3F3BDC	4	cinit_3F3BDC	cinit	var=0xD2FE n=1
+3F3BE0	2	cinit_end	cinit	two 0 words the linker writes after the records (--rom_model)
+3F3BE2	256	PieVectTableInit	pievect	128 vectors, copied into the PIE vector table by main's init
+3F3CE2	256	auchCRCHi	const	Modbus CRC table, one byte per word
+3F3DE2	256	auchCRCLo	const	Modbus CRC table, one byte per word
+3F3EE2	18	rating_presets	fptrs	9 code addresses
+3F3EF4	16	arm_page_handlers	fptrs	ARM link page handlers 0..7
+3F3F04	16	e_expf_econst	rts	member=e_expf.obj section=.econst
+3F3F14	4	e_expf_econst	rts	member=e_expf.obj section=.econst:_halF
+3F3F18	4	e_expf_econst	rts	member=e_expf.obj section=.econst:_ln2HI
+3F3F1C	4	e_expf_econst	rts	member=e_expf.obj section=.econst:_ln2LO
+3F3F20	60	sw_arm_page2	switch	30 entries; dispatch at 0x3EB543
+3F3F5C	44	sw_arm_page0	switch	22 entries; dispatch at 0x3EB1CC
+3F3F88	42	sw_arm_page4	switch	21 entries; dispatch at 0x3EB84B
+3F3FB2	34	sw_arm_page7	switch	17 entries; dispatch at 0x3EBBDE
+3F3FFC	1	app_valid	const	0xAA: the boot loader starts the application
+3F7F80	118	csm_rsvd	csm	CSM reserved words, all 0; section=csm_rsvd
+3F7FF8	8	CsmPwl	csm	CSM password locations; section=csmpasswds

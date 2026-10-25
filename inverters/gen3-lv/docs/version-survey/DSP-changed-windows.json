@@ -1,0 +1,176 @@
+[
+  {
+    "baseline_functions": [
+      "grid_import_current_limit"
+    ],
+    "spans": {
+      "318": [
+        4099423,
+        4099565
+      ],
+      "319": [
+        4099423,
+        4099567
+      ]
+    },
+    "same_normalized_instructions": false,
+    "same_address_operands": false
+  },
+  {
+    "baseline_functions": [
+      "arm_link_frame"
+    ],
+    "spans": {
+      "318": [
+        4107379,
+        4108523
+      ],
+      "319": [
+        4107381,
+        4108525
+      ]
+    },
+    "same_normalized_instructions": false,
+    "same_address_operands": false
+  },
+  {
+    "baseline_functions": [
+      "arm_page4"
+    ],
+    "spans": {
+      "318": [
+        4110397,
+        4110714
+      ],
+      "319": [
+        4110399,
+        4110754
+      ]
+    },
+    "same_normalized_instructions": false,
+    "same_address_operands": false
+  },
+  {
+    "baseline_functions": [
+      "arm_page7"
+    ],
+    "spans": {
+      "318": [
+        4111259,
+        4111662
+      ],
+      "319": [
+        4111299,
+        4111702
+      ]
+    },
+    "same_normalized_instructions": true,
+    "same_address_operands": false
+  },
+  {
+    "baseline_functions": [
+      "batt_power_setpoint"
+    ],
+    "spans": {
+      "318": [
+        4115958,
+        4116439
+      ],
+      "319": [
+        4115998,
+        4116479
+      ]
+    },
+    "same_normalized_instructions": true,
+    "same_address_operands": false
+  },
+  {
+    "baseline_functions": [
+      "status_led_and_reset"
+    ],
+    "spans": {
+      "318": [
+        4117313,
+        4117424
+      ],
+      "319": [
+        4117353,
+        4117464
+      ]
+    },
+    "same_normalized_instructions": true,
+    "same_address_operands": true
+  },
+  {
+    "baseline_functions": [
+      "app_vars_init"
+    ],
+    "spans": {
+      "318": [
+        4126381,
+        4126430
+      ],
+      "319": [
+        4126421,
+        4126470
+      ]
+    },
+    "same_normalized_instructions": true,
+    "same_address_operands": false
+  },
+  {
+    "baseline_functions": [
+      "PIE_RESERVED",
+      "rsvd_ISR",
+      "bms_parse_hr"
+    ],
+    "spans": {
+      "318": [
+        4131982,
+        4130431
+      ],
+      "319": [
+        4132022,
+        4130471
+      ]
+    },
+    "same_normalized_instructions": true,
+    "same_address_operands": true
+  },
+  {
+    "baseline_functions": [
+      "task6_bms_link",
+      "bms_lost"
+    ],
+    "spans": {
+      "318": [
+        4130449,
+        4131013
+      ],
+      "319": [
+        4130489,
+        4131053
+      ]
+    },
+    "same_normalized_instructions": true,
+    "same_address_operands": false
+  },
+  {
+    "baseline_functions": [
+      "c_int00",
+      "os_init"
+    ],
+    "spans": {
+      "318": [
+        4135410,
+        4135503
+      ],
+      "319": [
+        4135450,
+        4135543
+      ]
+    },
+    "same_normalized_instructions": false,
+    "same_address_operands": false
+  }
+]

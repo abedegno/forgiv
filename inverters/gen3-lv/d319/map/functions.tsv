@@ -1,0 +1,476 @@
+addr	size	name	kind	notes
+3E8004	3	app_entry	c	ref=entry,jump
+3E8008	35	task4	c	ref=const
+3E802B	74	grid_reconnect_check	c	
+3E8075	40	ctl_timers_tick	c	
+3E809D	184	active_power_rate_limit	c	
+3E8155	69	p_limit_by_q	c	
+3E819A	987	ofr_power_limit	c	
+3E8575	780	freq_response_it	c	
+3E8881	124	grid_support_update	c	
+3E88FD	362	dc_side_power_limit	c	
+3E8A67	83	temp_derate_limit	c	
+3E8ABA	471	volt_watt_limit	c	
+3E8C91	206	export_power_limit	c	
+3E8D5F	144	grid_import_current_limit	c	
+3E8DEF	210	soft_start_ramp	c	
+3E8EC1	240	power_limits_update	c	
+3E8FB1	296	reactive_power_update	c	
+3E90D9	172	q_fixed_pf	c	
+3E9185	269	q_cosphi_p	c	
+3E9292	369	pf_curve_interp	c	
+3E9403	378	q_pf_curve	c	
+3E957D	70	q_fixed_percent	c	
+3E95C3	199	q_of_u_fixed	c	
+3E968A	60	autotest_ramp	c	
+3E96C6	408	autotest_run	c	
+3E985E	123	grid_v_10min_update	c	
+3E98D9	210	dci_control	c	
+3E99AB	79	rocof_detect	c	
+3E99FA	459	grid_freq_protect	c	
+3E9BC5	191	grid_volt_trip_std	c	
+3E9C84	396	grid_volt_protect	c	
+3E9E10	150	grid_v_fast_trip	c	
+3E9EA6	95	q_of_u_lockin	c	
+3E9F05	238	q_of_u_curve	c	
+3E9FF3	368	ufr_power_limit	c	
+3EA163	647	ofr_storage_response	c	
+3EA3EA	452	ufr_storage_response	c	
+3EA5AE	251	ovr_storage_response	c	
+3EA6A9	235	uvr_storage_response	c	
+3EA794	180	pf_of_u_adjust	c	
+3EA848	267	q_pt1_response	c	
+3EA953	209	export_overload_check	c	
+3EAA24	153	q_restore_response	c	
+3EAABD	294	task5_arm_link	c	ref=const
+3EABE3	60	arm_fault_word_build	c	
+3EAC1F	18	arm_run_mode	c	
+3EAC31	46	arm_charge_status	c	
+3EAC5F	22	CRC16	c	
+3EAC75	1144	arm_link_frame	c	
+3EB0ED	150	arm_frame_parse	c	
+3EB183	43	arm_run_command	c	
+3EB1AE	415	arm_page0	c	ref=table
+3EB34D	483	arm_page1	c	ref=table
+3EB530	427	arm_page2	c	ref=table
+3EB6DB	356	arm_page3	c	ref=table
+3EB83F	355	arm_page4	c	ref=table
+3EB9A2	315	arm_page5	c	ref=table
+3EBADD	230	arm_page6	c	ref=table
+3EBBC3	403	arm_page7	c	ref=table
+3EBD56	252	task3_measure	c	ref=const
+3EBE52	126	meas_batt_dcdc	c	
+3EBED0	17	pv_ref_max_update	c	
+3EBEE1	220	pv_iso_check	c	
+3EBFBD	150	pv_input_detect	c	
+3EC053	14	pv_input_detect_run	c	
+3EC061	358	pv_boost_select	c	
+3EC1C7	343	pv_voltage_check	c	
+3EC31E	116	bus_voltage_check	c	
+3EC392	51	ntc_temp_check	c	
+3EC3C5	140	temp_check	c	
+3EC451	172	pv_power_limit_update	c	
+3EC4FD	53	bus_voltage_filter	c	
+3EC532	85	pv_short_check	c	
+3EC587	77	pv_power_limit_flags	c	
+3EC5D4	13	meas_iso	c	
+3EC5E1	21	meas_aux_f16	c	
+3EC5F6	254	meas_pv	c	
+3EC6F4	104	meas_pv_power	c	
+3EC75C	46	meas_bus_voltage	c	
+3EC78A	187	ntc_to_temp	c	unreferenced
+3EC845	42	meas_init	c	
+3EC86F	108	eps_bus_voltage_check	c	
+3EC8DB	31	iso_fault_clear	c	
+3EC8FA	24	task2_control	c	ref=const
+3EC912	49	aging_test_update	c	
+3EC943	39	soft_start_permit	c	
+3EC96A	62	batt_power_blocks	c	
+3EC9A8	157	soc_power_limits	c	
+3ECA45	985	current_limit_tapers	c	
+3ECE1E	481	batt_power_setpoint	c	
+3ECFFF	303	soc_floor	c	
+3ED12E	117	full_current_trim	c	
+3ED1A3	415	batt_voltage_monitor	c	
+3ED342	32	ctl_voltage_limits_set	c	
+3ED362	7	hv_current_max_set	c	
+3ED369	111	status_led_and_reset	c	
+3ED3D8	115	init_system	c	
+3ED44B	28	InitSysCtrl	c	
+3ED467	20	XtalOscSel	c	
+3ED47B	82	InitPll	c	
+3ED4CD	54	InitPeripheralClocks	c	
+3ED503	33	InitPieCtrl	c	
+3ED524	18	InitPieVectTable	c	
+3ED536	39	AdcOffsetSelfCal	c	
+3ED55D	88	AdcChanSelect	c	
+3ED5B5	278	AdcConversion	c	
+3ED6CB	315	InitAdc	c	
+3ED806	353	InitGpio	c	
+3ED967	45	sci_init	c	
+3ED994	33	timer2_init	c	
+3ED9B5	35	ConfigCpuTimer	c	
+3ED9D8	53	InitECap	c	
+3EDA0D	509	InitEPwm	c	
+3EDC0A	140	epwm_trip_force	c	
+3EDC96	121	epwm_trip_clear	c	
+3EDD0F	27	InitDmaAdc	c	
+3EDD2A	118	adc_offset_measure	c	
+3EDDA0	47	task0_state_machine	c	ref=const
+3EDDCF	118	state0_idle	c	
+3EDE45	66	state1_start	c	
+3EDE87	208	state5_grid_pv	c	
+3EDF57	151	state6_grid_batt	c	
+3EDFEE	102	state7_eps_pv	c	
+3EE054	91	state8_eps_batt	c	
+3EE0AF	43	state3_fault	c	
+3EE0DA	47	state4_update	c	
+3EE109	47	converters_stop	c	
+3EE138	240	start_grid_pv	c	
+3EE228	152	start_grid_batt	c	
+3EE2C0	210	start_eps_pv	c	
+3EE392	153	start_eps_batt	c	
+3EE42B	61	state_init	c	
+3EE468	115	relay_test_step	c	
+3EE4DB	156	pv_boost_precharge	c	
+3EE577	86	grid_in_range	c	
+3EE5CD	12	has_pv_fault	c	
+3EE5D9	21	has_grid_fault	c	
+3EE5EE	17	has_stop_fault	c	
+3EE5FF	9	has_fault_cf12_low	c	unreferenced
+3EE608	9	has_eps_fault	c	
+3EE611	18	has_batt_fault	c	
+3EE623	7	set_grid_fault_flag	c	
+3EE62A	9	set_pv_fault_flag	c	
+3EE633	179	soft_start	c	
+3EE6E6	12	relay_test_abort	c	
+3EE6F2	114	task1_ac_measure	c	ref=const
+3EE764	36	relays_off_when_disabled	c	
+3EE788	174	arm_power_check	c	
+3EE836	189	select_state	c	
+3EE8F3	35	eps_voltage_rms	c	
+3EE916	15	eps_current_rms	c	
+3EE925	6	eps_dc_clear	c	
+3EE92B	51	eps_power_calc	c	
+3EE95E	43	grid_voltage_rms	c	
+3EE989	90	grid_freq_measure	c	
+3EE9E3	6	clear_d3e6	c	
+3EE9E9	6	clear_d3e4	c	
+3EE9EF	15	inv_voltage_rms	c	
+3EE9FE	15	grid_current_rms	c	
+3EEA0D	15	dc_component_calc	c	
+3EEA1C	23	current2_rms	c	
+3EEA33	138	grid_power_filter	c	
+3EEABD	408	eps_output_check	c	
+3EEC55	91	eps_dc_offset_trim	c	
+3EECB0	78	bus_voltage_ref_update	c	
+3EECFE	63	grid_freq_detect	c	
+3EED3D	124	relay_test_check	c	
+3EEDB9	80	grid_loss_watchdog	c	
+3EEE09	17	grid_loss_watchdog_kick	c	
+3EEE1A	193	grid_power_pf_calc	c	
+3EEEDB	192	eps_voltage_control	c	
+3EEF9B	118	grid_power_limit_pi	c	
+3EF011	29	init_ac_meas	c	
+3EF02E	325	mppt_po_pv1	c	
+3EF173	325	mppt_po_pv2	c	
+3EF2B8	373	mppt_pv1	c	
+3EF42D	363	mppt_pv2	c	
+3EF598	317	pv_mppt_step	c	
+3EF6D5	49	app_vars_init	c	
+3EF706	207	settings_defaults	c	
+3EF7D5	13	app_init	c	
+3EF7E2	68	rating_apply	c	
+3EF826	156	preset_5kw	c	ref=table
+3EF8C2	156	preset_4k6w	c	ref=table
+3EF95E	156	preset_3k6w	c	ref=table
+3EF9FA	156	preset_3kw	c	ref=table
+3EFA96	156	preset_2kw	c	ref=table
+3EFB32	1	preset_none	c	ref=table
+3EFB33	243	init_defaults	c	
+3EFC26	4	arm_run_mode_set	c	
+3EFC2A	4	run_mode_req_get	c	unreferenced
+3EFC2E	27	grid_freq_setup	c	
+3EFC49	187	eps_vctl_init	c	
+3EFD04	213	pv_ctrl_init	c	
+3EFDD9	111	pv_ctrl_reset	c	
+3EFE48	314	grid_ctrl_init	c	
+3EFF82	8	inv_off	c	
+3EFF8A	60	pv1_stop	c	
+3EFFC6	62	pv2_stop	c	
+3F0004	92	pv_stop_all	c	
+3F0060	224	dcdc_ctrl_init	c	
+3F0140	18	rcmu_init	c	
+3F0152	7	rcmu_step	c	
+3F0159	46	rcmu_zero_step	c	
+3F0187	50	rcmu_selftest_step	c	
+3F01B9	63	rcmu_watch_step	c	
+3F01F8	78	rcmu_zero_cal	c	
+3F0246	308	rcmu_selftest	c	
+3F037A	471	rcmu_watch	c	
+3F0551	342	bms_parse_hr	c	
+3F06A7	18	bms_fc4_reply	c	
+3F06B9	511	task6_bms_link	c	ref=const
+3F08B8	53	bms_lost	c	
+3F08ED	66	batt_warning_update	c	
+3F092F	10	INT13_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0939	10	INT14_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0943	10	DATALOG_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F094D	10	RTOSINT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0957	10	EMUINT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0961	10	NMI_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F096B	10	ILLEGAL_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0975	10	USER1_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F097F	10	USER2_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0989	10	USER3_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0993	10	USER4_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F099D	10	USER5_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F09A7	10	USER6_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F09B1	10	USER7_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F09BB	10	USER8_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F09C5	10	USER9_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F09CF	10	USER10_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F09D9	10	USER11_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F09E3	10	USER12_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F09ED	10	ADCINT1_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F09F7	10	ADCINT2_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0A01	10	XINT1_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0A0B	10	XINT2_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0A15	10	ADCINT9_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0A1F	10	TINT0_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0A29	10	WAKEINT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0A33	10	EPWM1_TZINT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0A3D	10	EPWM2_TZINT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0A47	10	EPWM3_TZINT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0A51	10	EPWM4_TZINT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0A5B	10	EPWM5_TZINT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0A65	10	EPWM6_TZINT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0A6F	10	EPWM7_TZINT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0A79	10	EPWM8_TZINT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0A83	10	EPWM1_INT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0A8D	10	EPWM2_INT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0A97	10	EPWM3_INT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0AA1	10	EPWM4_INT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0AAB	10	EPWM5_INT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0AB5	10	EPWM6_INT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0ABF	10	EPWM7_INT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0AC9	10	EPWM8_INT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0AD3	10	ECAP1_INT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0ADD	10	ECAP2_INT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0AE7	10	ECAP3_INT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0AF1	10	HRCAP1_INT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0AFB	10	HRCAP2_INT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0B05	10	EQEP1_INT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0B0F	10	EQEP2_INT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0B19	10	HRCAP3_INT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0B23	10	HRCAP4_INT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0B2D	10	USB0_INT_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0B37	10	SPIRXINTA_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0B41	10	SPITXINTA_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0B4B	10	SPIRXINTB_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0B55	10	SPITXINTB_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0B5F	10	MRINTA_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0B69	10	MXINTA_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0B73	10	DINTCH1_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0B7D	10	DINTCH2_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0B87	10	DINTCH3_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0B91	10	DINTCH4_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0B9B	10	DINTCH5_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0BA5	10	DINTCH6_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0BAF	10	I2CINT1A_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0BB9	10	I2CINT2A_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0BC3	10	SCIRXINTA_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0BCD	10	SCITXINTA_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0BD7	10	SCIRXINTB_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0BE1	10	SCITXINTB_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0BEB	10	ECAN0INTA_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0BF5	10	ECAN1INTA_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0BFF	10	ADCINT3_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0C09	10	ADCINT4_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0C13	10	ADCINT5_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0C1D	10	ADCINT6_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0C27	10	ADCINT7_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0C31	10	ADCINT8_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0C3B	10	CLA1_INT1_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0C45	10	CLA1_INT2_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0C4F	10	CLA1_INT3_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0C59	10	CLA1_INT4_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0C63	10	CLA1_INT5_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0C6D	10	CLA1_INT6_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0C77	10	CLA1_INT7_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0C81	10	CLA1_INT8_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0C8B	10	XINT3_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0C95	10	LVF_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0C9F	10	LUF_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0CA9	13	EMPTY_ISR	c	unreferenced
+3F0CB6	10	PIE_RESERVED	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0CC0	10	rsvd_ISR	c	TI default handler (F2806x_DefaultIsr.c), PieVectTableInit slot; ref=table
+3F0CCA	11	DMAInitialize	c	unreferenced
+3F0CD5	10	DMACH1AddrConfig	c	
+3F0CDF	9	DMACH1BurstConfig	c	
+3F0CE8	9	DMACH1TransferConfig	c	
+3F0CF1	10	DMACH1WrapConfig	c	
+3F0CFB	40	DMACH1ModeConfig	c	
+3F0D23	8	StartDMACH1	c	
+3F0D2B	10	DMACH2AddrConfig	c	unreferenced
+3F0D35	9	DMACH2BurstConfig	c	unreferenced
+3F0D3E	9	DMACH2TransferConfig	c	unreferenced
+3F0D47	10	DMACH2WrapConfig	c	unreferenced
+3F0D51	99	DMACH2ModeConfig	c	unreferenced
+3F0DB4	8	StartDMACH2	c	unreferenced
+3F0DBC	10	DMACH3AddrConfig	c	unreferenced
+3F0DC6	9	DMACH3BurstConfig	c	unreferenced
+3F0DCF	9	DMACH3TransferConfig	c	unreferenced
+3F0DD8	10	DMACH3WrapConfig	c	unreferenced
+3F0DE2	99	DMACH3ModeConfig	c	unreferenced
+3F0E45	8	StartDMACH3	c	unreferenced
+3F0E4D	10	DMACH4AddrConfig	c	unreferenced
+3F0E57	9	DMACH4BurstConfig	c	unreferenced
+3F0E60	9	DMACH4TransferConfig	c	unreferenced
+3F0E69	10	DMACH4WrapConfig	c	unreferenced
+3F0E73	101	DMACH4ModeConfig	c	unreferenced
+3F0ED8	8	StartDMACH4	c	unreferenced
+3F0EE0	10	DMACH5AddrConfig	c	unreferenced
+3F0EEA	9	DMACH5BurstConfig	c	unreferenced
+3F0EF3	9	DMACH5TransferConfig	c	unreferenced
+3F0EFC	10	DMACH5WrapConfig	c	unreferenced
+3F0F06	101	DMACH5ModeConfig	c	unreferenced
+3F0F6B	8	StartDMACH5	c	unreferenced
+3F0F73	10	DMACH6AddrConfig	c	unreferenced
+3F0F7D	9	DMACH6BurstConfig	c	unreferenced
+3F0F86	9	DMACH6TransferConfig	c	unreferenced
+3F0F8F	10	DMACH6WrapConfig	c	unreferenced
+3F0F99	101	DMACH6ModeConfig	c	unreferenced
+3F0FFE	8	StartDMACH6	c	unreferenced
+3F1006	34	checksum_xor	c	unreferenced
+3F1028	75	min7f	c	
+3F1073	29	max3f	c	
+3F1090	33	median3ul	c	
+3F10B1	27	limitf	c	
+3F10CC	16	limitu	c	
+3F10DC	16	limiti	c	
+3F10EC	29	min3f	c	
+3F1109	17	clampu	c	unreferenced
+3F111A	13	cal_gain_or_unity	c	unreferenced
+3F1127	10	labs32	c	unreferenced
+3F1131	17	limit_sym	c	unreferenced
+3F1142	74	isqrt_div	c	unreferenced
+3F118C	16	udiv32_16	c	
+3F119C	24	debounce_out	c	unreferenced
+3F11B4	24	debounce_in	c	unreferenced
+3F11CC	21	debounce_gt	c	unreferenced
+3F11E1	21	debounce_lt	c	unreferenced
+3F11F6	9	hexdigit	c	unreferenced
+3F11FF	155	tz_trip_isr	c	ref=const
+3F129A	45	timer2_isr	c	ref=const
+3F12C7	68	scib_rx_isr	c	ref=const
+3F130B	50	scib_tx_isr	c	ref=const
+3F133D	80	scia_rx_isr	c	ref=const
+3F138D	50	scia_tx_isr	c	ref=const
+3F13BF	44	ring_reset	c	
+3F13EB	201	sci_rx	c	
+3F14B4	72	sci_tx	c	
+3F14FC	40	ring_read	c	
+3F1524	47	sci_send	c	
+3F1553	273	expf	rts	member=e_expf.obj; alias=_exp
+3F1664	60	LL$$DIV	rts	member=ll_div.obj
+3F16A0	58	LL$$MOD	rts	member=ll_div.obj
+3F16DA	47	ULL$$DIV	rts	member=ll_div.obj
+3F1709	98	ULL$$MOD	rts	member=ll_div.obj
+3F176B	52	os_wait	c	
+3F179F	10	os_take_events	c	unreferenced
+3F17A9	31	os_post	c	
+3F17C8	18	os_post_flag	c	unreferenced
+3F17DA	28	os_post_isr	c	
+3F17F6	136	FS$$DIV	rts	member=fs_div.obj
+3F187E	47	os_highest	c	
+3F18AD	25	os_sched	c	
+3F18C6	6	os_init_stack	c	
+3F18CC	18	os_init_vars	c	
+3F18DE	20	os_init_tcbs	c	
+3F18F2	101	main	c	
+3F1957	10	start	c	
+3F1961	97	cosf	rts	member=s_cosf.obj; alias=_cos
+3F19C2	88	sinf	rts	member=s_sinf.obj; alias=_sin
+3F1A1A	86	c_int00	rts	member=boot.obj
+3F1A70	7	os_init	c	
+3F1A77	19	os_start	c	
+3F1A8A	30	os_task_create	c	
+3F1AA8	22	os_sched_isr	c	unreferenced
+3F1ABE	70	copy_in	rts	member=cpy_tbl.obj
+3F1B04	16	os_start_high	asm	; inherited assembly identity; native boundary checked
+3F1B14	35	os_ctx_sw_isr	asm	ref=const; inherited assembly identity; native boundary checked
+3F1B37	3	os_int_ctx_sw	asm	; inherited assembly identity; native boundary checked
+3F1B3A	26	os_tick	c	
+3F1B54	21	os_sleep	c	unreferenced
+3F1B69	43	os_stack_init	c	
+3F1B94	2	abort	rts	member=exit.obj; alias=C$$EXIT
+3F1B96	39	exit	rts	member=exit.obj
+3F1BBD	1	_system_post_cinit	rts	member=startup.obj
+3F1BBE	37	sqrtf	rts	member=e_sqrtf.obj; alias=_sqrt
+3F1BE3	30	memcpy	rts	member=memcpy.obj
+3F1C01	26	ddcopy	rts	member=cpy_utils.obj; alias=_dpcopy,_pdcopy,_ppcopy
+3F1C1B	25	_args_main	rts	member=args_main.obj
+3F1C34	14	iq_consts_init	c	
+3F1C42	4	_register_unlock	rts	member=_lock.obj
+3F1C46	4	_register_lock	rts	member=_lock.obj
+3F1C4A	1	_nop	rts	member=_lock.obj
+3F1C4B	4	os_cpu_sr_save	asm	unreferenced; inherited assembly identity; native boundary checked
+3F1C4F	3	os_cpu_sr_restore	asm	unreferenced; inherited assembly identity; native boundary checked
+3F1C52	2	_system_pre_init	rts	member=pre_init.obj
+3F1C54	476	current_controller	ramfunc	run=0x8000
+3F1E30	216	pll_step	ramfunc	run=0x81DC
+3F1F08	78	pi_step	ramfunc	run=0x82B4
+3F1F56	88	pid_pos_step	ramfunc	run=0x8302; unreferenced
+3F1FAE	15	pi_reset	ramfunc	run=0x835A; unreferenced
+3F1FBD	153	avg_win_step	ramfunc	run=0x8369
+3F2056	54	pi_inc_step	ramfunc	run=0x8402
+3F208C	72	pid_inc_step	ramfunc	run=0x8438; unreferenced
+3F20D4	15	pi_reset_b	ramfunc	run=0x8480; unreferenced
+3F20E3	105	island_detect	ramfunc	run=0x848F
+3F214C	105	q_loop_step	ramfunc	run=0x84F8
+3F21B5	94	rep_filter_step	ramfunc	run=0x8561
+3F2213	63	eps_vctl_run	ramfunc	run=0x85BF
+3F2252	102	grid_ictl_run	ramfunc	run=0x85FE
+3F22B8	89	inv_pwm_update	ramfunc	run=0x8664
+3F2311	13	pwm34_release	ramfunc	run=0x86BD
+3F231E	21	pwm34_force_off	ramfunc	run=0x86CA
+3F2333	21	pwm78_force_low	ramfunc	run=0x86DF
+3F2348	13	pwm78_release	ramfunc	run=0x86F4
+3F2355	11	pwm5_force_off	ramfunc	run=0x8701
+3F2360	7	pwm5_release	ramfunc	run=0x870C
+3F2367	27	grid_pll_run	ramfunc	run=0x8713
+3F2382	23	q_loop_run	ramfunc	run=0x872E
+3F2399	71	iso_dcdc_pwm	ramfunc	run=0x8745
+3F23E0	444	converter_mode	ramfunc	run=0x878C
+3F259C	133	dcdc_ctrl_reset	ramfunc	run=0x8948
+3F2621	432	adc_scale	ramfunc	run=0x89CD
+3F27D1	79	eps_rms_accum	ramfunc	run=0x8B7D
+3F2820	82	grid_rms_accum	ramfunc	run=0x8BCC
+3F2872	202	dc_acc_step	ramfunc	run=0x8C1E
+3F293C	46	eps_vctl_clear	ramfunc	run=0x8CE8
+3F296A	93	grid_ictl_clear	ramfunc	run=0x8D16
+3F29C7	87	relay_drive	ramfunc	run=0x8D73
+3F2A1E	64	island_detect_run	ramfunc	run=0x8DCA
+3F2A5E	166	pv_bus_limit	ramfunc	run=0x8E0A
+3F2B04	208	pv1_ctrl	ramfunc	run=0x8EB0
+3F2BD4	250	pv2_ctrl	ramfunc	run=0x8F80
+3F2CCE	294	meas_avg8	ramfunc	run=0x907A
+3F2DF4	263	fast_fault_check	ramfunc	run=0x91A0
+3F2EFB	81	grid_v_check	ramfunc	run=0x92A7
+3F2F4C	82	grid_angle_update	ramfunc	run=0x92F8
+3F2F9E	155	grid_period_isr	ramfunc	run=0x934A; ref=const
+3F3039	439	control_isr	ramfunc	run=0x93E5; ref=const
+3F31F0	214	grid_ictl	ramfunc	run=0x959C
+3F32C6	198	eps_vctl	ramfunc	run=0x9672
+3F338C	49	rcmu_fast_check	ramfunc	run=0x9738
+3F33BD	46	rate_limit	ramfunc	run=0x9769
+3F33EB	29	InitFlash	ramfunc	run=0x9797
+3F3408	4	DSP28x_usDelay	ramfunc	run=0x97B4
+3F5000	3	boot_update	c	
+3F5004	546	boot_flash_loader	ramfunc	run=0x0400
+3F5226	102	boot_main	asm	ref=entry,jump; inherited assembly identity; native boundary checked
+3F528C	47	CsmUnlock	c	
+3F52BB	9	MemCopy	c	
+3F52C4	16	boot_copy_run	c	
+3F7FF6	2	codestart	asm	ref=entry; inherited assembly identity; native boundary checked

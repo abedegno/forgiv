@@ -1,0 +1,83 @@
+{
+  "archive_commit": "9553767d57718a7b9858137d5419ce462c955334",
+  "packages": [
+    {
+      "version": 316,
+      "commit": "9553767d57718a7b9858137d5419ce462c955334",
+      "url": "https://raw.githubusercontent.com/DJBenson/giv-firmware/9553767d57718a7b9858137d5419ce462c955334/Firmware/Inverter/Hybrid%20Gen3%20LV/A316-D316.zip",
+      "bytes": 128147,
+      "sha256": "7db51acb0d849a0a169d09d2389e2fd9a1f517f30f5f27b538a483bb06b6c001",
+      "members": [
+        {
+          "name": "Previous - A316-D316/ARMStore.bin",
+          "dest": "gen3-lv/A316_ARMStore.bin",
+          "bytes": 145324,
+          "sha256": "701386e4a7ea0b5440a180f0282017dda86beeb75d9d228867b5af969514de0f",
+          "version": 316,
+          "sp": "0x2000A598",
+          "reset": "0x0802D6A9",
+          "load": "0x08014000"
+        },
+        {
+          "name": "Previous - A316-D316/DSPStore.bin",
+          "dest": "gen3-lv/D316_DSPStore.bin",
+          "bytes": 131072,
+          "sha256": "1503c37f882b78fa4723bbbcdab6ecac602864fc075fff4047ae35e09a63fa18",
+          "version": 316
+        }
+      ]
+    },
+    {
+      "version": 318,
+      "commit": "9553767d57718a7b9858137d5419ce462c955334",
+      "url": "https://raw.githubusercontent.com/DJBenson/giv-firmware/9553767d57718a7b9858137d5419ce462c955334/Firmware/Inverter/Hybrid%20Gen3%20LV/D318-A318-26-Aug-2025.zip",
+      "bytes": 128070,
+      "sha256": "fcb8e7b65833a134b02da63deecf280d60fa3f9e45227ccdff0f41a6364f6a96",
+      "members": [
+        {
+          "name": "02_U disk burn/ARMStore.bin",
+          "dest": "gen3-lv/A318_ARMStore.bin",
+          "bytes": 145512,
+          "sha256": "163cef5104a15b4edd294477d095c1ea4856f692d8a5def309e1e2ed09773f05",
+          "version": 318,
+          "sp": "0x2000A598",
+          "reset": "0x0802D769",
+          "load": "0x08014000"
+        },
+        {
+          "name": "02_U disk burn/DSPStore.bin",
+          "dest": "gen3-lv/D318_DSPStore.bin",
+          "bytes": 131072,
+          "sha256": "70670e4e3c6ae535c314d4a4efe58b707582640f3e3b249a34843c8f45571b05",
+          "version": 318
+        }
+      ]
+    },
+    {
+      "version": 319,
+      "commit": "9553767d57718a7b9858137d5419ce462c955334",
+      "url": "https://raw.githubusercontent.com/DJBenson/giv-firmware/9553767d57718a7b9858137d5419ce462c955334/Firmware/Inverter/Hybrid%20Gen3%20LV/A319-D319.zip",
+      "bytes": 130307,
+      "sha256": "f2a9773cc7b4a2c336d044c43982c28bcbd5dbc9791e9898d3a6f870e9e3e9bd",
+      "members": [
+        {
+          "name": "Future - A319-D319/ARMStore.bin",
+          "dest": "gen3-lv/A319_ARMStore.bin",
+          "bytes": 147540,
+          "sha256": "f58f027c3a971fb4260a3fa8123959584f1defe4c55e8808601bfb4c552031d7",
+          "version": 319,
+          "sp": "0x2000A7D8",
+          "reset": "0x0802DF29",
+          "load": "0x08014000"
+        },
+        {
+          "name": "Future - A319-D319/DSPStore.bin",
+          "dest": "gen3-lv/D319_DSPStore.bin",
+          "bytes": 131072,
+          "sha256": "932fa4ce4ab4ffa5f36af0ac4fdcca3b3a2cd50e7086418e8fe2d41cd293e886",
+          "version": 319
+        }
+      ]
+    }
+  ]
+}

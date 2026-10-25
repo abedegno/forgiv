@@ -1,0 +1,2720 @@
+[
+  {
+    "name": "__scatterload_zeroinit",
+    "baseline_addr": "080141E8",
+    "candidate_addr": "080141E8",
+    "size_bytes": 28
+  },
+  {
+    "name": "sys_delay_loops",
+    "baseline_addr": "08014310",
+    "candidate_addr": "08014310",
+    "size_bytes": 28
+  },
+  {
+    "name": "HardFault_Handler",
+    "baseline_addr": "0801432E",
+    "candidate_addr": "0801432E",
+    "size_bytes": 36
+  },
+  {
+    "name": "SetSysClockTo72",
+    "baseline_addr": "08014CA4",
+    "candidate_addr": "08014CA4",
+    "size_bytes": 264
+  },
+  {
+    "name": "SystemInit",
+    "baseline_addr": "08014DB4",
+    "candidate_addr": "08014DB4",
+    "size_bytes": 92
+  },
+  {
+    "name": "SystemCoreClockUpdate",
+    "baseline_addr": "08014E10",
+    "candidate_addr": "08014E10",
+    "size_bytes": 276
+  },
+  {
+    "name": "uart_rx_reset",
+    "baseline_addr": "08014F24",
+    "candidate_addr": "08014F24",
+    "size_bytes": 62
+  },
+  {
+    "name": "dsp_link_settle_tick",
+    "baseline_addr": "080153A6",
+    "candidate_addr": "080153A6",
+    "size_bytes": 38
+  },
+  {
+    "name": "eeprom_put_be",
+    "baseline_addr": "0801758A",
+    "candidate_addr": "0801762A",
+    "size_bytes": 82
+  },
+  {
+    "name": "eeprom_get_be",
+    "baseline_addr": "080175DC",
+    "candidate_addr": "0801767C",
+    "size_bytes": 74
+  },
+  {
+    "name": "eeprom_pack_header",
+    "baseline_addr": "08017626",
+    "candidate_addr": "080176C6",
+    "size_bytes": 94
+  },
+  {
+    "name": "eeprom_unpack_header",
+    "baseline_addr": "08017684",
+    "candidate_addr": "08017724",
+    "size_bytes": 92
+  },
+  {
+    "name": "eeprom_pack_block",
+    "baseline_addr": "080176E0",
+    "candidate_addr": "08017780",
+    "size_bytes": 114
+  },
+  {
+    "name": "eeprom_unpack_block",
+    "baseline_addr": "08017752",
+    "candidate_addr": "080177F2",
+    "size_bytes": 104
+  },
+  {
+    "name": "systick_int_disable",
+    "baseline_addr": "08017FFE",
+    "candidate_addr": "0801809E",
+    "size_bytes": 18
+  },
+  {
+    "name": "systick_disable",
+    "baseline_addr": "08018010",
+    "candidate_addr": "080180B0",
+    "size_bytes": 18
+  },
+  {
+    "name": "modbus_fill_slave30_regs",
+    "baseline_addr": "0802039C",
+    "candidate_addr": "0802063E",
+    "size_bytes": 776
+  },
+  {
+    "name": "i2c_delay",
+    "baseline_addr": "08023144",
+    "candidate_addr": "080235AC",
+    "size_bytes": 16
+  },
+  {
+    "name": "i2c_start",
+    "baseline_addr": "080232AC",
+    "candidate_addr": "08023714",
+    "size_bytes": 44
+  },
+  {
+    "name": "i2c_stop",
+    "baseline_addr": "080232D8",
+    "candidate_addr": "08023740",
+    "size_bytes": 40
+  },
+  {
+    "name": "i2c_read_byte",
+    "baseline_addr": "0802334A",
+    "candidate_addr": "080237B2",
+    "size_bytes": 90
+  },
+  {
+    "name": "i2c_write_bit",
+    "baseline_addr": "080233A4",
+    "candidate_addr": "0802380C",
+    "size_bytes": 52
+  },
+  {
+    "name": "i2c_write_byte",
+    "baseline_addr": "080233D8",
+    "candidate_addr": "08023840",
+    "size_bytes": 78
+  },
+  {
+    "name": "i2c_write_reg",
+    "baseline_addr": "08023430",
+    "candidate_addr": "08023898",
+    "size_bytes": 52
+  },
+  {
+    "name": "i2c_read_reg",
+    "baseline_addr": "08023464",
+    "candidate_addr": "080238CC",
+    "size_bytes": 80
+  },
+  {
+    "name": "cal_gain_validate",
+    "baseline_addr": "08023AB8",
+    "candidate_addr": "08023F2A",
+    "size_bytes": 34
+  },
+  {
+    "name": "hex_nibble_to_ascii",
+    "baseline_addr": "080248E4",
+    "candidate_addr": "08024D60",
+    "size_bytes": 22
+  },
+  {
+    "name": "calc_checksum_xor_index",
+    "baseline_addr": "08024BA4",
+    "candidate_addr": "08025028",
+    "size_bytes": 44
+  },
+  {
+    "name": "min3",
+    "baseline_addr": "08024BD0",
+    "candidate_addr": "08025054",
+    "size_bytes": 30
+  },
+  {
+    "name": "max3",
+    "baseline_addr": "08024BEE",
+    "candidate_addr": "08025072",
+    "size_bytes": 30
+  },
+  {
+    "name": "median3",
+    "baseline_addr": "08024C0C",
+    "candidate_addr": "08025090",
+    "size_bytes": 46
+  },
+  {
+    "name": "clamp",
+    "baseline_addr": "08024C3A",
+    "candidate_addr": "080250BE",
+    "size_bytes": 26
+  },
+  {
+    "name": "div_u16_safe",
+    "baseline_addr": "08024C54",
+    "candidate_addr": "080250D8",
+    "size_bytes": 16
+  },
+  {
+    "name": "isqrt_div",
+    "baseline_addr": "08024C64",
+    "candidate_addr": "080250E8",
+    "size_bytes": 78
+  },
+  {
+    "name": "fault_test",
+    "baseline_addr": "08024CE2",
+    "candidate_addr": "08025166",
+    "size_bytes": 18
+  },
+  {
+    "name": "dsp_warning_test",
+    "baseline_addr": "08024CF4",
+    "candidate_addr": "08025178",
+    "size_bytes": 18
+  },
+  {
+    "name": "fault_check_mode",
+    "baseline_addr": "08024D06",
+    "candidate_addr": "0802518A",
+    "size_bytes": 40
+  },
+  {
+    "name": "event_log_push",
+    "baseline_addr": "08025144",
+    "candidate_addr": "080255C8",
+    "size_bytes": 74
+  },
+  {
+    "name": "calib_table_defaults",
+    "baseline_addr": "0802523A",
+    "candidate_addr": "080256BE",
+    "size_bytes": 74
+  },
+  {
+    "name": "ntc_heatsink_temp_update",
+    "baseline_addr": "08025284",
+    "candidate_addr": "08025708",
+    "size_bytes": 528
+  },
+  {
+    "name": "ntc_battery_temp_update",
+    "baseline_addr": "080256DA",
+    "candidate_addr": "08025B5E",
+    "size_bytes": 508
+  },
+  {
+    "name": "calib_apply_q10",
+    "baseline_addr": "08026C28",
+    "candidate_addr": "0802709C",
+    "size_bytes": 24
+  },
+  {
+    "name": "bit_reflect",
+    "baseline_addr": "0802747C",
+    "candidate_addr": "0802796C",
+    "size_bytes": 36
+  },
+  {
+    "name": "crc32_table_init",
+    "baseline_addr": "080274A0",
+    "candidate_addr": "08027990",
+    "size_bytes": 62
+  },
+  {
+    "name": "crc32_update",
+    "baseline_addr": "080274DE",
+    "candidate_addr": "080279CE",
+    "size_bytes": 40
+  },
+  {
+    "name": "fault_lowest_bit",
+    "baseline_addr": "08027506",
+    "candidate_addr": "080279F6",
+    "size_bytes": 38
+  },
+  {
+    "name": "max3_u32",
+    "baseline_addr": "08027A80",
+    "candidate_addr": "08027F6A",
+    "size_bytes": 30
+  },
+  {
+    "name": "sched_discharge_slots_eval",
+    "baseline_addr": "08028E60",
+    "candidate_addr": "0802934C",
+    "size_bytes": 1536
+  },
+  {
+    "name": "sched_halfhour_table_eval",
+    "baseline_addr": "08029460",
+    "candidate_addr": "0802994C",
+    "size_bytes": 232
+  },
+  {
+    "name": "batt_night_recovery_charge",
+    "baseline_addr": "08029548",
+    "candidate_addr": "08029A34",
+    "size_bytes": 278
+  },
+  {
+    "name": "sched_window_value",
+    "baseline_addr": "0802993E",
+    "candidate_addr": "08029E2A",
+    "size_bytes": 146
+  },
+  {
+    "name": "batt_auto_judge_type",
+    "baseline_addr": "08029A3A",
+    "candidate_addr": "08029F26",
+    "size_bytes": 108
+  },
+  {
+    "name": "USBH_USR_DeviceDisconnected",
+    "baseline_addr": "08029DFE",
+    "candidate_addr": "0802A2EA",
+    "size_bytes": 48
+  },
+  {
+    "name": "RTC_Get_Week",
+    "baseline_addr": "0802AAC8",
+    "candidate_addr": "0802AFB4",
+    "size_bytes": 116
+  },
+  {
+    "name": "Is_Leap_Year",
+    "baseline_addr": "0802AB3C",
+    "candidate_addr": "0802B028",
+    "size_bytes": 58
+  },
+  {
+    "name": "usb_cdc_line_coding_init",
+    "baseline_addr": "0802AEE0",
+    "candidate_addr": "0802B3CC",
+    "size_bytes": 20
+  },
+  {
+    "name": "be_bytes_to_float",
+    "baseline_addr": "0802AFD4",
+    "candidate_addr": "0802B506",
+    "size_bytes": 30
+  },
+  {
+    "name": "bin_to_bcd",
+    "baseline_addr": "0802AFF2",
+    "candidate_addr": "0802B524",
+    "size_bytes": 54
+  },
+  {
+    "name": "Reset_Handler",
+    "baseline_addr": "0802D6A8",
+    "candidate_addr": "0802DF28",
+    "size_bytes": 26
+  },
+  {
+    "name": "NVIC_Init",
+    "baseline_addr": "0802D6F2",
+    "candidate_addr": "0802DF72",
+    "size_bytes": 100
+  },
+  {
+    "name": "NVIC_SystemLPConfig",
+    "baseline_addr": "0802D764",
+    "candidate_addr": "0802DFE4",
+    "size_bytes": 34
+  },
+  {
+    "name": "SysTick_CLKSourceConfig",
+    "baseline_addr": "0802D786",
+    "candidate_addr": "0802E006",
+    "size_bytes": 62
+  },
+  {
+    "name": "ADC_DeInit",
+    "baseline_addr": "0802D7C4",
+    "candidate_addr": "0802E044",
+    "size_bytes": 78
+  },
+  {
+    "name": "ADC_Init",
+    "baseline_addr": "0802D812",
+    "candidate_addr": "0802E092",
+    "size_bytes": 70
+  },
+  {
+    "name": "ADC_StructInit",
+    "baseline_addr": "0802D858",
+    "candidate_addr": "0802E0D8",
+    "size_bytes": 18
+  },
+  {
+    "name": "ADC_Cmd",
+    "baseline_addr": "0802D86A",
+    "candidate_addr": "0802E0EA",
+    "size_bytes": 22
+  },
+  {
+    "name": "ADC_DMACmd",
+    "baseline_addr": "0802D880",
+    "candidate_addr": "0802E100",
+    "size_bytes": 22
+  },
+  {
+    "name": "ADC_ITConfig",
+    "baseline_addr": "0802D896",
+    "candidate_addr": "0802E116",
+    "size_bytes": 24
+  },
+  {
+    "name": "ADC_GetResetCalibrationStatus",
+    "baseline_addr": "0802D8B8",
+    "candidate_addr": "0802E138",
+    "size_bytes": 20
+  },
+  {
+    "name": "ADC_GetCalibrationStatus",
+    "baseline_addr": "0802D8D6",
+    "candidate_addr": "0802E156",
+    "size_bytes": 20
+  },
+  {
+    "name": "ADC_SoftwareStartConvCmd",
+    "baseline_addr": "0802D8EA",
+    "candidate_addr": "0802E16A",
+    "size_bytes": 22
+  },
+  {
+    "name": "ADC_GetSoftwareStartConvStatus",
+    "baseline_addr": "0802D900",
+    "candidate_addr": "0802E180",
+    "size_bytes": 20
+  },
+  {
+    "name": "ADC_DiscModeChannelCountConfig",
+    "baseline_addr": "0802D914",
+    "candidate_addr": "0802E194",
+    "size_bytes": 24
+  },
+  {
+    "name": "ADC_DiscModeCmd",
+    "baseline_addr": "0802D92C",
+    "candidate_addr": "0802E1AC",
+    "size_bytes": 22
+  },
+  {
+    "name": "ADC_RegularChannelConfig",
+    "baseline_addr": "0802D942",
+    "candidate_addr": "0802E1C2",
+    "size_bytes": 184
+  },
+  {
+    "name": "ADC_ExternalTrigConvCmd",
+    "baseline_addr": "0802D9FA",
+    "candidate_addr": "0802E27A",
+    "size_bytes": 22
+  },
+  {
+    "name": "ADC_AutoInjectedConvCmd",
+    "baseline_addr": "0802DA20",
+    "candidate_addr": "0802E2A0",
+    "size_bytes": 22
+  },
+  {
+    "name": "ADC_InjectedDiscModeCmd",
+    "baseline_addr": "0802DA36",
+    "candidate_addr": "0802E2B6",
+    "size_bytes": 22
+  },
+  {
+    "name": "ADC_ExternalTrigInjectedConvConfig",
+    "baseline_addr": "0802DA4C",
+    "candidate_addr": "0802E2CC",
+    "size_bytes": 16
+  },
+  {
+    "name": "ADC_ExternalTrigInjectedConvCmd",
+    "baseline_addr": "0802DA5C",
+    "candidate_addr": "0802E2DC",
+    "size_bytes": 22
+  },
+  {
+    "name": "ADC_SoftwareStartInjectedConvCmd",
+    "baseline_addr": "0802DA72",
+    "candidate_addr": "0802E2F2",
+    "size_bytes": 22
+  },
+  {
+    "name": "ADC_GetSoftwareStartInjectedConvCmdStatus",
+    "baseline_addr": "0802DA88",
+    "candidate_addr": "0802E308",
+    "size_bytes": 20
+  },
+  {
+    "name": "ADC_InjectedChannelConfig",
+    "baseline_addr": "0802DA9C",
+    "candidate_addr": "0802E31C",
+    "size_bytes": 130
+  },
+  {
+    "name": "ADC_InjectedSequencerLengthConfig",
+    "baseline_addr": "0802DB1E",
+    "candidate_addr": "0802E39E",
+    "size_bytes": 24
+  },
+  {
+    "name": "ADC_SetInjectedOffset",
+    "baseline_addr": "0802DB36",
+    "candidate_addr": "0802E3B6",
+    "size_bytes": 20
+  },
+  {
+    "name": "ADC_GetInjectedConversionValue",
+    "baseline_addr": "0802DB4A",
+    "candidate_addr": "0802E3CA",
+    "size_bytes": 28
+  },
+  {
+    "name": "ADC_AnalogWatchdogCmd",
+    "baseline_addr": "0802DB66",
+    "candidate_addr": "0802E3E6",
+    "size_bytes": 16
+  },
+  {
+    "name": "ADC_AnalogWatchdogSingleChannelConfig",
+    "baseline_addr": "0802DB7C",
+    "candidate_addr": "0802E3FC",
+    "size_bytes": 16
+  },
+  {
+    "name": "ADC_TempSensorVrefintCmd",
+    "baseline_addr": "0802DB8C",
+    "candidate_addr": "0802E40C",
+    "size_bytes": 64
+  },
+  {
+    "name": "ADC_GetFlagStatus",
+    "baseline_addr": "0802DBCC",
+    "candidate_addr": "0802E44C",
+    "size_bytes": 18
+  },
+  {
+    "name": "ADC_GetITStatus",
+    "baseline_addr": "0802DBE4",
+    "candidate_addr": "0802E464",
+    "size_bytes": 36
+  },
+  {
+    "name": "BKP_DeInit",
+    "baseline_addr": "0802DC14",
+    "candidate_addr": "0802E494",
+    "size_bytes": 16
+  },
+  {
+    "name": "BKP_RTCOutputConfig",
+    "baseline_addr": "0802DC3A",
+    "candidate_addr": "0802E4BA",
+    "size_bytes": 22
+  },
+  {
+    "name": "BKP_SetRTCCalibrationValue",
+    "baseline_addr": "0802DC50",
+    "candidate_addr": "0802E4D0",
+    "size_bytes": 22
+  },
+  {
+    "name": "BKP_WriteBackupRegister",
+    "baseline_addr": "0802DC66",
+    "candidate_addr": "0802E4E6",
+    "size_bytes": 24
+  },
+  {
+    "name": "BKP_ReadBackupRegister",
+    "baseline_addr": "0802DC7E",
+    "candidate_addr": "0802E4FE",
+    "size_bytes": 26
+  },
+  {
+    "name": "BKP_ClearFlag",
+    "baseline_addr": "0802DCA2",
+    "candidate_addr": "0802E522",
+    "size_bytes": 18
+  },
+  {
+    "name": "BKP_ClearITPendingBit",
+    "baseline_addr": "0802DCBE",
+    "candidate_addr": "0802E53E",
+    "size_bytes": 26
+  },
+  {
+    "name": "DMA_DeInit",
+    "baseline_addr": "0802DCD8",
+    "candidate_addr": "0802E558",
+    "size_bytes": 324
+  },
+  {
+    "name": "DMA_Init",
+    "baseline_addr": "0802DE1C",
+    "candidate_addr": "0802E69C",
+    "size_bytes": 60
+  },
+  {
+    "name": "DMA_StructInit",
+    "baseline_addr": "0802DE58",
+    "candidate_addr": "0802E6D8",
+    "size_bytes": 26
+  },
+  {
+    "name": "DMA_Cmd",
+    "baseline_addr": "0802DE72",
+    "candidate_addr": "0802E6F2",
+    "size_bytes": 24
+  },
+  {
+    "name": "DMA_ITConfig",
+    "baseline_addr": "0802DE8A",
+    "candidate_addr": "0802E70A",
+    "size_bytes": 18
+  },
+  {
+    "name": "DMA_GetFlagStatus",
+    "baseline_addr": "0802DEA8",
+    "candidate_addr": "0802E728",
+    "size_bytes": 40
+  },
+  {
+    "name": "DMA_ClearFlag",
+    "baseline_addr": "0802DED0",
+    "candidate_addr": "0802E750",
+    "size_bytes": 22
+  },
+  {
+    "name": "DMA_GetITStatus",
+    "baseline_addr": "0802DEE6",
+    "candidate_addr": "0802E766",
+    "size_bytes": 40
+  },
+  {
+    "name": "DMA_ClearITPendingBit",
+    "baseline_addr": "0802DF0E",
+    "candidate_addr": "0802E78E",
+    "size_bytes": 30
+  },
+  {
+    "name": "EXTI_DeInit",
+    "baseline_addr": "0802DF2C",
+    "candidate_addr": "0802E7AC",
+    "size_bytes": 28
+  },
+  {
+    "name": "EXTI_Init",
+    "baseline_addr": "0802DF48",
+    "candidate_addr": "0802E7C8",
+    "size_bytes": 142
+  },
+  {
+    "name": "EXTI_StructInit",
+    "baseline_addr": "0802DFD6",
+    "candidate_addr": "0802E856",
+    "size_bytes": 16
+  },
+  {
+    "name": "EXTI_GenerateSWInterrupt",
+    "baseline_addr": "0802DFE6",
+    "candidate_addr": "0802E866",
+    "size_bytes": 16
+  },
+  {
+    "name": "EXTI_GetFlagStatus",
+    "baseline_addr": "0802DFF6",
+    "candidate_addr": "0802E876",
+    "size_bytes": 22
+  },
+  {
+    "name": "EXTI_GetITStatus",
+    "baseline_addr": "0802E014",
+    "candidate_addr": "0802E894",
+    "size_bytes": 34
+  },
+  {
+    "name": "EXTI_ClearITPendingBit",
+    "baseline_addr": "0802E036",
+    "candidate_addr": "0802E8B6",
+    "size_bytes": 18
+  },
+  {
+    "name": "FLASH_SetLatency",
+    "baseline_addr": "0802E048",
+    "candidate_addr": "0802E8C8",
+    "size_bytes": 18
+  },
+  {
+    "name": "FLASH_HalfCycleAccessCmd",
+    "baseline_addr": "0802E05A",
+    "candidate_addr": "0802E8DA",
+    "size_bytes": 22
+  },
+  {
+    "name": "FLASH_PrefetchBufferCmd",
+    "baseline_addr": "0802E070",
+    "candidate_addr": "0802E8F0",
+    "size_bytes": 22
+  },
+  {
+    "name": "FLASH_GetBank1Status",
+    "baseline_addr": "0802E0BA",
+    "candidate_addr": "0802E93A",
+    "size_bytes": 48
+  },
+  {
+    "name": "FLASH_WaitForLastOperation",
+    "baseline_addr": "0802E0EA",
+    "candidate_addr": "0802E96A",
+    "size_bytes": 38
+  },
+  {
+    "name": "FLASH_ErasePage",
+    "baseline_addr": "0802E110",
+    "candidate_addr": "0802E990",
+    "size_bytes": 72
+  },
+  {
+    "name": "FLASH_EraseAllPages",
+    "baseline_addr": "0802E158",
+    "candidate_addr": "0802E9D8",
+    "size_bytes": 68
+  },
+  {
+    "name": "FLASH_WaitForLastBank1Operation",
+    "baseline_addr": "0802E19C",
+    "candidate_addr": "0802EA1C",
+    "size_bytes": 38
+  },
+  {
+    "name": "FLASH_EraseAllBank1Pages",
+    "baseline_addr": "0802E1C2",
+    "candidate_addr": "0802EA42",
+    "size_bytes": 68
+  },
+  {
+    "name": "FLASH_GetReadOutProtectionStatus",
+    "baseline_addr": "0802E206",
+    "candidate_addr": "0802EA86",
+    "size_bytes": 20
+  },
+  {
+    "name": "FLASH_EraseOptionBytes",
+    "baseline_addr": "0802E21A",
+    "candidate_addr": "0802EA9A",
+    "size_bytes": 150
+  },
+  {
+    "name": "FLASH_ProgramWord",
+    "baseline_addr": "0802E2B0",
+    "candidate_addr": "0802EB30",
+    "size_bytes": 102
+  },
+  {
+    "name": "FLASH_ProgramHalfWord",
+    "baseline_addr": "0802E316",
+    "candidate_addr": "0802EB96",
+    "size_bytes": 60
+  },
+  {
+    "name": "FLASH_ProgramOptionByteData",
+    "baseline_addr": "0802E352",
+    "candidate_addr": "0802EBD2",
+    "size_bytes": 72
+  },
+  {
+    "name": "FLASH_EnableWriteProtection",
+    "baseline_addr": "0802E39A",
+    "candidate_addr": "0802EC1A",
+    "size_bytes": 200
+  },
+  {
+    "name": "FLASH_ReadOutProtection",
+    "baseline_addr": "0802E462",
+    "candidate_addr": "0802ECE2",
+    "size_bytes": 156
+  },
+  {
+    "name": "FLASH_UserOptionByteConfig",
+    "baseline_addr": "0802E4FE",
+    "candidate_addr": "0802ED7E",
+    "size_bytes": 88
+  },
+  {
+    "name": "FLASH_GetPrefetchBufferStatus",
+    "baseline_addr": "0802E564",
+    "candidate_addr": "0802EDE4",
+    "size_bytes": 20
+  },
+  {
+    "name": "FLASH_ITConfig",
+    "baseline_addr": "0802E578",
+    "candidate_addr": "0802EDF8",
+    "size_bytes": 26
+  },
+  {
+    "name": "FLASH_GetFlagStatus",
+    "baseline_addr": "0802E592",
+    "candidate_addr": "0802EE12",
+    "size_bytes": 42
+  },
+  {
+    "name": "FLASH_GetStatus",
+    "baseline_addr": "0802E5C2",
+    "candidate_addr": "0802EE42",
+    "size_bytes": 66
+  },
+  {
+    "name": "GPIO_DeInit",
+    "baseline_addr": "0802E604",
+    "candidate_addr": "0802EE84",
+    "size_bytes": 172
+  },
+  {
+    "name": "GPIO_AFIODeInit",
+    "baseline_addr": "0802E6B0",
+    "candidate_addr": "0802EF30",
+    "size_bytes": 20
+  },
+  {
+    "name": "GPIO_Init",
+    "baseline_addr": "0802E6C4",
+    "candidate_addr": "0802EF44",
+    "size_bytes": 278
+  },
+  {
+    "name": "GPIO_StructInit",
+    "baseline_addr": "0802E7DA",
+    "candidate_addr": "0802F05A",
+    "size_bytes": 16
+  },
+  {
+    "name": "GPIO_ReadInputDataBit",
+    "baseline_addr": "0802E7EA",
+    "candidate_addr": "0802F06A",
+    "size_bytes": 18
+  },
+  {
+    "name": "GPIO_ReadOutputDataBit",
+    "baseline_addr": "0802E804",
+    "candidate_addr": "0802F084",
+    "size_bytes": 18
+  },
+  {
+    "name": "GPIO_PinLockConfig",
+    "baseline_addr": "0802E834",
+    "candidate_addr": "0802F0B4",
+    "size_bytes": 18
+  },
+  {
+    "name": "GPIO_EventOutputConfig",
+    "baseline_addr": "0802E846",
+    "candidate_addr": "0802F0C6",
+    "size_bytes": 26
+  },
+  {
+    "name": "GPIO_PinRemapConfig",
+    "baseline_addr": "0802E866",
+    "candidate_addr": "0802F0E6",
+    "size_bytes": 138
+  },
+  {
+    "name": "GPIO_EXTILineConfig",
+    "baseline_addr": "0802E8F0",
+    "candidate_addr": "0802F170",
+    "size_bytes": 66
+  },
+  {
+    "name": "GPIO_ETH_MediaInterfaceConfig",
+    "baseline_addr": "0802E932",
+    "candidate_addr": "0802F1B2",
+    "size_bytes": 46
+  },
+  {
+    "name": "PWR_DeInit",
+    "baseline_addr": "0802E960",
+    "candidate_addr": "0802F1E0",
+    "size_bytes": 22
+  },
+  {
+    "name": "PWR_PVDLevelConfig",
+    "baseline_addr": "0802E982",
+    "candidate_addr": "0802F202",
+    "size_bytes": 18
+  },
+  {
+    "name": "PWR_EnterSTOPMode",
+    "baseline_addr": "0802E99C",
+    "candidate_addr": "0802F21C",
+    "size_bytes": 54
+  },
+  {
+    "name": "PWR_EnterSTANDBYMode",
+    "baseline_addr": "0802E9D2",
+    "candidate_addr": "0802F252",
+    "size_bytes": 42
+  },
+  {
+    "name": "PWR_GetFlagStatus",
+    "baseline_addr": "0802E9FC",
+    "candidate_addr": "0802F27C",
+    "size_bytes": 20
+  },
+  {
+    "name": "PWR_ClearFlag",
+    "baseline_addr": "0802EA10",
+    "candidate_addr": "0802F290",
+    "size_bytes": 28
+  },
+  {
+    "name": "RCC_DeInit",
+    "baseline_addr": "0802EA2C",
+    "candidate_addr": "0802F2AC",
+    "size_bytes": 78
+  },
+  {
+    "name": "RCC_HSEConfig",
+    "baseline_addr": "0802EA7A",
+    "candidate_addr": "0802F2FA",
+    "size_bytes": 70
+  },
+  {
+    "name": "RCC_GetFlagStatus",
+    "baseline_addr": "0802EAC0",
+    "candidate_addr": "0802F340",
+    "size_bytes": 56
+  },
+  {
+    "name": "RCC_WaitForHSEStartUp",
+    "baseline_addr": "0802EAF8",
+    "candidate_addr": "0802F378",
+    "size_bytes": 56
+  },
+  {
+    "name": "RCC_AdjustHSICalibrationValue",
+    "baseline_addr": "0802EB30",
+    "candidate_addr": "0802F3B0",
+    "size_bytes": 20
+  },
+  {
+    "name": "RCC_PLLConfig",
+    "baseline_addr": "0802EB4A",
+    "candidate_addr": "0802F3CA",
+    "size_bytes": 24
+  },
+  {
+    "name": "RCC_PREDIV1Config",
+    "baseline_addr": "0802EB68",
+    "candidate_addr": "0802F3E8",
+    "size_bytes": 24
+  },
+  {
+    "name": "RCC_PREDIV2Config",
+    "baseline_addr": "0802EB80",
+    "candidate_addr": "0802F400",
+    "size_bytes": 18
+  },
+  {
+    "name": "RCC_PLL2Config",
+    "baseline_addr": "0802EB92",
+    "candidate_addr": "0802F412",
+    "size_bytes": 18
+  },
+  {
+    "name": "RCC_PLL3Config",
+    "baseline_addr": "0802EBAA",
+    "candidate_addr": "0802F42A",
+    "size_bytes": 18
+  },
+  {
+    "name": "RCC_SYSCLKConfig",
+    "baseline_addr": "0802EBC2",
+    "candidate_addr": "0802F442",
+    "size_bytes": 18
+  },
+  {
+    "name": "RCC_HCLKConfig",
+    "baseline_addr": "0802EBDE",
+    "candidate_addr": "0802F45E",
+    "size_bytes": 18
+  },
+  {
+    "name": "RCC_PCLK1Config",
+    "baseline_addr": "0802EBF0",
+    "candidate_addr": "0802F470",
+    "size_bytes": 18
+  },
+  {
+    "name": "RCC_PCLK2Config",
+    "baseline_addr": "0802EC02",
+    "candidate_addr": "0802F482",
+    "size_bytes": 20
+  },
+  {
+    "name": "RCC_ITConfig",
+    "baseline_addr": "0802EC16",
+    "candidate_addr": "0802F496",
+    "size_bytes": 26
+  },
+  {
+    "name": "RCC_ADCCLKConfig",
+    "baseline_addr": "0802EC38",
+    "candidate_addr": "0802F4B8",
+    "size_bytes": 18
+  },
+  {
+    "name": "RCC_LSEConfig",
+    "baseline_addr": "0802EC58",
+    "candidate_addr": "0802F4D8",
+    "size_bytes": 50
+  },
+  {
+    "name": "RCC_AHBPeriphClockCmd",
+    "baseline_addr": "0802EE48",
+    "candidate_addr": "0802F6C8",
+    "size_bytes": 26
+  },
+  {
+    "name": "RCC_APB2PeriphClockCmd",
+    "baseline_addr": "0802EE62",
+    "candidate_addr": "0802F6E2",
+    "size_bytes": 26
+  },
+  {
+    "name": "RCC_APB1PeriphClockCmd",
+    "baseline_addr": "0802EE7C",
+    "candidate_addr": "0802F6FC",
+    "size_bytes": 26
+  },
+  {
+    "name": "RCC_AHBPeriphResetCmd",
+    "baseline_addr": "0802EE96",
+    "candidate_addr": "0802F716",
+    "size_bytes": 26
+  },
+  {
+    "name": "RCC_APB2PeriphResetCmd",
+    "baseline_addr": "0802EEB0",
+    "candidate_addr": "0802F730",
+    "size_bytes": 26
+  },
+  {
+    "name": "RCC_APB1PeriphResetCmd",
+    "baseline_addr": "0802EECA",
+    "candidate_addr": "0802F74A",
+    "size_bytes": 26
+  },
+  {
+    "name": "RCC_GetITStatus",
+    "baseline_addr": "0802EF04",
+    "candidate_addr": "0802F784",
+    "size_bytes": 20
+  },
+  {
+    "name": "RCC_ClearITPendingBit",
+    "baseline_addr": "0802EF18",
+    "candidate_addr": "0802F798",
+    "size_bytes": 20
+  },
+  {
+    "name": "RTC_ITConfig",
+    "baseline_addr": "0802EF2C",
+    "candidate_addr": "0802F7AC",
+    "size_bytes": 26
+  },
+  {
+    "name": "RTC_EnterConfigMode",
+    "baseline_addr": "0802EF46",
+    "candidate_addr": "0802F7C6",
+    "size_bytes": 18
+  },
+  {
+    "name": "RTC_ExitConfigMode",
+    "baseline_addr": "0802EF58",
+    "candidate_addr": "0802F7D8",
+    "size_bytes": 20
+  },
+  {
+    "name": "RTC_GetCounter",
+    "baseline_addr": "0802EF6C",
+    "candidate_addr": "0802F7EC",
+    "size_bytes": 18
+  },
+  {
+    "name": "RTC_SetCounter",
+    "baseline_addr": "0802EF7E",
+    "candidate_addr": "0802F7FE",
+    "size_bytes": 26
+  },
+  {
+    "name": "RTC_SetPrescaler",
+    "baseline_addr": "0802EF98",
+    "candidate_addr": "0802F818",
+    "size_bytes": 28
+  },
+  {
+    "name": "RTC_SetAlarm",
+    "baseline_addr": "0802EFB4",
+    "candidate_addr": "0802F834",
+    "size_bytes": 26
+  },
+  {
+    "name": "RTC_GetDivider",
+    "baseline_addr": "0802EFCE",
+    "candidate_addr": "0802F84E",
+    "size_bytes": 22
+  },
+  {
+    "name": "RTC_WaitForLastTask",
+    "baseline_addr": "0802EFE4",
+    "candidate_addr": "0802F864",
+    "size_bytes": 18
+  },
+  {
+    "name": "RTC_WaitForSynchro",
+    "baseline_addr": "0802EFF6",
+    "candidate_addr": "0802F876",
+    "size_bytes": 36
+  },
+  {
+    "name": "RTC_GetFlagStatus",
+    "baseline_addr": "0802F01A",
+    "candidate_addr": "0802F89A",
+    "size_bytes": 22
+  },
+  {
+    "name": "RTC_ClearFlag",
+    "baseline_addr": "0802F030",
+    "candidate_addr": "0802F8B0",
+    "size_bytes": 16
+  },
+  {
+    "name": "RTC_GetITStatus",
+    "baseline_addr": "0802F040",
+    "candidate_addr": "0802F8C0",
+    "size_bytes": 32
+  },
+  {
+    "name": "RTC_ClearITPendingBit",
+    "baseline_addr": "0802F060",
+    "candidate_addr": "0802F8E0",
+    "size_bytes": 20
+  },
+  {
+    "name": "TIM_DeInit",
+    "baseline_addr": "0802F074",
+    "candidate_addr": "0802F8F4",
+    "size_bytes": 424
+  },
+  {
+    "name": "TIM_TimeBaseInit",
+    "baseline_addr": "0802F21C",
+    "candidate_addr": "0802FA9C",
+    "size_bytes": 122
+  },
+  {
+    "name": "TIM_OC1Init",
+    "baseline_addr": "0802F296",
+    "candidate_addr": "0802FB16",
+    "size_bytes": 132
+  },
+  {
+    "name": "TIM_OC2Init",
+    "baseline_addr": "0802F31A",
+    "candidate_addr": "0802FB9A",
+    "size_bytes": 154
+  },
+  {
+    "name": "TIM_OC3Init",
+    "baseline_addr": "0802F3B4",
+    "candidate_addr": "0802FC34",
+    "size_bytes": 150
+  },
+  {
+    "name": "TIM_OC4Init",
+    "baseline_addr": "0802F44A",
+    "candidate_addr": "0802FCCA",
+    "size_bytes": 182
+  },
+  {
+    "name": "TIM_SetIC4Prescaler",
+    "baseline_addr": "0802F500",
+    "candidate_addr": "0802FD80",
+    "size_bytes": 26
+  },
+  {
+    "name": "TI4_Config",
+    "baseline_addr": "0802F51A",
+    "candidate_addr": "0802FD9A",
+    "size_bytes": 130
+  },
+  {
+    "name": "TIM_SetIC3Prescaler",
+    "baseline_addr": "0802F59C",
+    "candidate_addr": "0802FE1C",
+    "size_bytes": 18
+  },
+  {
+    "name": "TI3_Config",
+    "baseline_addr": "0802F5AE",
+    "candidate_addr": "0802FE2E",
+    "size_bytes": 122
+  },
+  {
+    "name": "TIM_SetIC2Prescaler",
+    "baseline_addr": "0802F628",
+    "candidate_addr": "0802FEA8",
+    "size_bytes": 26
+  },
+  {
+    "name": "TI2_Config",
+    "baseline_addr": "0802F642",
+    "candidate_addr": "0802FEC2",
+    "size_bytes": 130
+  },
+  {
+    "name": "TIM_SetIC1Prescaler",
+    "baseline_addr": "0802F6C4",
+    "candidate_addr": "0802FF44",
+    "size_bytes": 18
+  },
+  {
+    "name": "TI1_Config",
+    "baseline_addr": "0802F6D6",
+    "candidate_addr": "0802FF56",
+    "size_bytes": 108
+  },
+  {
+    "name": "TIM_ICInit",
+    "baseline_addr": "0802F742",
+    "candidate_addr": "0802FFC2",
+    "size_bytes": 150
+  },
+  {
+    "name": "TIM_PWMIConfig",
+    "baseline_addr": "0802F7D8",
+    "candidate_addr": "08030058",
+    "size_bytes": 124
+  },
+  {
+    "name": "TIM_BDTRConfig",
+    "baseline_addr": "0802F854",
+    "candidate_addr": "080300D4",
+    "size_bytes": 32
+  },
+  {
+    "name": "TIM_TimeBaseStructInit",
+    "baseline_addr": "0802F874",
+    "candidate_addr": "080300F4",
+    "size_bytes": 18
+  },
+  {
+    "name": "TIM_OCStructInit",
+    "baseline_addr": "0802F886",
+    "candidate_addr": "08030106",
+    "size_bytes": 20
+  },
+  {
+    "name": "TIM_ICStructInit",
+    "baseline_addr": "0802F89A",
+    "candidate_addr": "0803011A",
+    "size_bytes": 18
+  },
+  {
+    "name": "TIM_BDTRStructInit",
+    "baseline_addr": "0802F8AC",
+    "candidate_addr": "0803012C",
+    "size_bytes": 40
+  },
+  {
+    "name": "TIM_Cmd",
+    "baseline_addr": "0802F8D4",
+    "candidate_addr": "08030154",
+    "size_bytes": 24
+  },
+  {
+    "name": "TIM_CtrlPWMOutputs",
+    "baseline_addr": "0802F8EC",
+    "candidate_addr": "0803016C",
+    "size_bytes": 30
+  },
+  {
+    "name": "TIM_SelectInputTrigger",
+    "baseline_addr": "0802F948",
+    "candidate_addr": "080301C8",
+    "size_bytes": 18
+  },
+  {
+    "name": "TIM_ITRxExternalClockConfig",
+    "baseline_addr": "0802F95A",
+    "candidate_addr": "080301DA",
+    "size_bytes": 24
+  },
+  {
+    "name": "TIM_TIxExternalClockConfig",
+    "baseline_addr": "0802F972",
+    "candidate_addr": "080301F2",
+    "size_bytes": 62
+  },
+  {
+    "name": "TIM_ETRConfig",
+    "baseline_addr": "0802F9B0",
+    "candidate_addr": "08030230",
+    "size_bytes": 28
+  },
+  {
+    "name": "TIM_ETRClockMode1Config",
+    "baseline_addr": "0802F9CC",
+    "candidate_addr": "0803024C",
+    "size_bytes": 54
+  },
+  {
+    "name": "TIM_ETRClockMode2Config",
+    "baseline_addr": "0802FA02",
+    "candidate_addr": "08030282",
+    "size_bytes": 32
+  },
+  {
+    "name": "TIM_CounterModeConfig",
+    "baseline_addr": "0802FA28",
+    "candidate_addr": "080302A8",
+    "size_bytes": 18
+  },
+  {
+    "name": "TIM_EncoderInterfaceConfig",
+    "baseline_addr": "0802FA3A",
+    "candidate_addr": "080302BA",
+    "size_bytes": 66
+  },
+  {
+    "name": "TIM_ForcedOC1Config",
+    "baseline_addr": "0802FA7C",
+    "candidate_addr": "080302FC",
+    "size_bytes": 18
+  },
+  {
+    "name": "TIM_ForcedOC2Config",
+    "baseline_addr": "0802FA8E",
+    "candidate_addr": "0803030E",
+    "size_bytes": 26
+  },
+  {
+    "name": "TIM_ForcedOC3Config",
+    "baseline_addr": "0802FAA8",
+    "candidate_addr": "08030328",
+    "size_bytes": 18
+  },
+  {
+    "name": "TIM_ForcedOC4Config",
+    "baseline_addr": "0802FABA",
+    "candidate_addr": "0803033A",
+    "size_bytes": 26
+  },
+  {
+    "name": "TIM_ARRPreloadConfig",
+    "baseline_addr": "0802FAD4",
+    "candidate_addr": "08030354",
+    "size_bytes": 24
+  },
+  {
+    "name": "TIM_SelectCOM",
+    "baseline_addr": "0802FAEC",
+    "candidate_addr": "0803036C",
+    "size_bytes": 24
+  },
+  {
+    "name": "TIM_SelectCCDMA",
+    "baseline_addr": "0802FB04",
+    "candidate_addr": "08030384",
+    "size_bytes": 24
+  },
+  {
+    "name": "TIM_CCPreloadControl",
+    "baseline_addr": "0802FB1C",
+    "candidate_addr": "0803039C",
+    "size_bytes": 24
+  },
+  {
+    "name": "TIM_OC1PreloadConfig",
+    "baseline_addr": "0802FB34",
+    "candidate_addr": "080303B4",
+    "size_bytes": 18
+  },
+  {
+    "name": "TIM_OC2PreloadConfig",
+    "baseline_addr": "0802FB46",
+    "candidate_addr": "080303C6",
+    "size_bytes": 26
+  },
+  {
+    "name": "TIM_OC3PreloadConfig",
+    "baseline_addr": "0802FB60",
+    "candidate_addr": "080303E0",
+    "size_bytes": 18
+  },
+  {
+    "name": "TIM_OC4PreloadConfig",
+    "baseline_addr": "0802FB72",
+    "candidate_addr": "080303F2",
+    "size_bytes": 26
+  },
+  {
+    "name": "TIM_OC1FastConfig",
+    "baseline_addr": "0802FB8C",
+    "candidate_addr": "0803040C",
+    "size_bytes": 18
+  },
+  {
+    "name": "TIM_OC2FastConfig",
+    "baseline_addr": "0802FB9E",
+    "candidate_addr": "0803041E",
+    "size_bytes": 26
+  },
+  {
+    "name": "TIM_OC3FastConfig",
+    "baseline_addr": "0802FBB8",
+    "candidate_addr": "08030438",
+    "size_bytes": 18
+  },
+  {
+    "name": "TIM_OC4FastConfig",
+    "baseline_addr": "0802FBCA",
+    "candidate_addr": "0803044A",
+    "size_bytes": 26
+  },
+  {
+    "name": "TIM_ClearOC1Ref",
+    "baseline_addr": "0802FBE4",
+    "candidate_addr": "08030464",
+    "size_bytes": 18
+  },
+  {
+    "name": "TIM_ClearOC2Ref",
+    "baseline_addr": "0802FBF6",
+    "candidate_addr": "08030476",
+    "size_bytes": 24
+  },
+  {
+    "name": "TIM_ClearOC3Ref",
+    "baseline_addr": "0802FC0E",
+    "candidate_addr": "0803048E",
+    "size_bytes": 18
+  },
+  {
+    "name": "TIM_ClearOC4Ref",
+    "baseline_addr": "0802FC20",
+    "candidate_addr": "080304A0",
+    "size_bytes": 24
+  },
+  {
+    "name": "TIM_OC1PolarityConfig",
+    "baseline_addr": "0802FC38",
+    "candidate_addr": "080304B8",
+    "size_bytes": 18
+  },
+  {
+    "name": "TIM_OC1NPolarityConfig",
+    "baseline_addr": "0802FC4A",
+    "candidate_addr": "080304CA",
+    "size_bytes": 18
+  },
+  {
+    "name": "TIM_OC2PolarityConfig",
+    "baseline_addr": "0802FC5C",
+    "candidate_addr": "080304DC",
+    "size_bytes": 26
+  },
+  {
+    "name": "TIM_OC2NPolarityConfig",
+    "baseline_addr": "0802FC76",
+    "candidate_addr": "080304F6",
+    "size_bytes": 26
+  },
+  {
+    "name": "TIM_OC3PolarityConfig",
+    "baseline_addr": "0802FC90",
+    "candidate_addr": "08030510",
+    "size_bytes": 26
+  },
+  {
+    "name": "TIM_OC3NPolarityConfig",
+    "baseline_addr": "0802FCAA",
+    "candidate_addr": "0803052A",
+    "size_bytes": 26
+  },
+  {
+    "name": "TIM_OC4PolarityConfig",
+    "baseline_addr": "0802FCC4",
+    "candidate_addr": "08030544",
+    "size_bytes": 26
+  },
+  {
+    "name": "TIM_CCxCmd",
+    "baseline_addr": "0802FCDE",
+    "candidate_addr": "0803055E",
+    "size_bytes": 30
+  },
+  {
+    "name": "TIM_CCxNCmd",
+    "baseline_addr": "0802FCFC",
+    "candidate_addr": "0803057C",
+    "size_bytes": 30
+  },
+  {
+    "name": "TIM_SelectOCxM",
+    "baseline_addr": "0802FD1A",
+    "candidate_addr": "0803059A",
+    "size_bytes": 82
+  },
+  {
+    "name": "TIM_UpdateDisableConfig",
+    "baseline_addr": "0802FD6C",
+    "candidate_addr": "080305EC",
+    "size_bytes": 24
+  },
+  {
+    "name": "TIM_UpdateRequestConfig",
+    "baseline_addr": "0802FD84",
+    "candidate_addr": "08030604",
+    "size_bytes": 24
+  },
+  {
+    "name": "TIM_SelectHallSensor",
+    "baseline_addr": "0802FD9C",
+    "candidate_addr": "0803061C",
+    "size_bytes": 24
+  },
+  {
+    "name": "TIM_SelectOnePulseMode",
+    "baseline_addr": "0802FDB4",
+    "candidate_addr": "08030634",
+    "size_bytes": 18
+  },
+  {
+    "name": "TIM_SelectOutputTrigger",
+    "baseline_addr": "0802FDC6",
+    "candidate_addr": "08030646",
+    "size_bytes": 18
+  },
+  {
+    "name": "TIM_SelectSlaveMode",
+    "baseline_addr": "0802FDD8",
+    "candidate_addr": "08030658",
+    "size_bytes": 18
+  },
+  {
+    "name": "TIM_SelectMasterSlaveMode",
+    "baseline_addr": "0802FDEA",
+    "candidate_addr": "0803066A",
+    "size_bytes": 18
+  },
+  {
+    "name": "TIM_SetClockDivision",
+    "baseline_addr": "0802FE16",
+    "candidate_addr": "08030696",
+    "size_bytes": 18
+  },
+  {
+    "name": "TIM_GetFlagStatus",
+    "baseline_addr": "0802FE4E",
+    "candidate_addr": "080306CE",
+    "size_bytes": 18
+  },
+  {
+    "name": "TIM_GetITStatus",
+    "baseline_addr": "0802FE66",
+    "candidate_addr": "080306E6",
+    "size_bytes": 34
+  },
+  {
+    "name": "USART_DeInit",
+    "baseline_addr": "0802FE90",
+    "candidate_addr": "08030710",
+    "size_bytes": 134
+  },
+  {
+    "name": "USART_Init",
+    "baseline_addr": "0802FF16",
+    "candidate_addr": "08030796",
+    "size_bytes": 210
+  },
+  {
+    "name": "USART_StructInit",
+    "baseline_addr": "0802FFE8",
+    "candidate_addr": "08030868",
+    "size_bytes": 24
+  },
+  {
+    "name": "USART_ClockInit",
+    "baseline_addr": "08030000",
+    "candidate_addr": "08030880",
+    "size_bytes": 34
+  },
+  {
+    "name": "USART_Cmd",
+    "baseline_addr": "0803002E",
+    "candidate_addr": "080308AE",
+    "size_bytes": 24
+  },
+  {
+    "name": "USART_ITConfig",
+    "baseline_addr": "08030046",
+    "candidate_addr": "080308C6",
+    "size_bytes": 74
+  },
+  {
+    "name": "USART_DMACmd",
+    "baseline_addr": "08030090",
+    "candidate_addr": "08030910",
+    "size_bytes": 18
+  },
+  {
+    "name": "USART_SetAddress",
+    "baseline_addr": "080300A2",
+    "candidate_addr": "08030922",
+    "size_bytes": 18
+  },
+  {
+    "name": "USART_WakeUpConfig",
+    "baseline_addr": "080300B4",
+    "candidate_addr": "08030934",
+    "size_bytes": 18
+  },
+  {
+    "name": "USART_ReceiverWakeUpCmd",
+    "baseline_addr": "080300C6",
+    "candidate_addr": "08030946",
+    "size_bytes": 24
+  },
+  {
+    "name": "USART_LINBreakDetectLengthConfig",
+    "baseline_addr": "080300DE",
+    "candidate_addr": "0803095E",
+    "size_bytes": 18
+  },
+  {
+    "name": "USART_LINCmd",
+    "baseline_addr": "080300F0",
+    "candidate_addr": "08030970",
+    "size_bytes": 24
+  },
+  {
+    "name": "USART_SetGuardTime",
+    "baseline_addr": "08030124",
+    "candidate_addr": "080309A4",
+    "size_bytes": 16
+  },
+  {
+    "name": "USART_SetPrescaler",
+    "baseline_addr": "08030134",
+    "candidate_addr": "080309B4",
+    "size_bytes": 16
+  },
+  {
+    "name": "USART_SmartCardCmd",
+    "baseline_addr": "08030144",
+    "candidate_addr": "080309C4",
+    "size_bytes": 24
+  },
+  {
+    "name": "USART_SmartCardNACKCmd",
+    "baseline_addr": "0803015C",
+    "candidate_addr": "080309DC",
+    "size_bytes": 24
+  },
+  {
+    "name": "USART_HalfDuplexCmd",
+    "baseline_addr": "08030174",
+    "candidate_addr": "080309F4",
+    "size_bytes": 24
+  },
+  {
+    "name": "USART_OverSampling8Cmd",
+    "baseline_addr": "0803018C",
+    "candidate_addr": "08030A0C",
+    "size_bytes": 22
+  },
+  {
+    "name": "USART_OneBitMethodCmd",
+    "baseline_addr": "080301A2",
+    "candidate_addr": "08030A22",
+    "size_bytes": 24
+  },
+  {
+    "name": "USART_IrDAConfig",
+    "baseline_addr": "080301BA",
+    "candidate_addr": "08030A3A",
+    "size_bytes": 18
+  },
+  {
+    "name": "USART_IrDACmd",
+    "baseline_addr": "080301CC",
+    "candidate_addr": "08030A4C",
+    "size_bytes": 24
+  },
+  {
+    "name": "USART_GetFlagStatus",
+    "baseline_addr": "080301E4",
+    "candidate_addr": "08030A64",
+    "size_bytes": 26
+  },
+  {
+    "name": "USART_ClearFlag",
+    "baseline_addr": "080301FE",
+    "candidate_addr": "08030A7E",
+    "size_bytes": 18
+  },
+  {
+    "name": "USART_GetITStatus",
+    "baseline_addr": "08030210",
+    "candidate_addr": "08030A90",
+    "size_bytes": 84
+  },
+  {
+    "name": "USART_ClearITPendingBit",
+    "baseline_addr": "08030264",
+    "candidate_addr": "08030AE4",
+    "size_bytes": 52
+  },
+  {
+    "name": "OS_SchedNew",
+    "baseline_addr": "08030298",
+    "candidate_addr": "08030B18",
+    "size_bytes": 90
+  },
+  {
+    "name": "OS_Sched",
+    "baseline_addr": "080302F2",
+    "candidate_addr": "08030B72",
+    "size_bytes": 54
+  },
+  {
+    "name": "OS_InitStkPool",
+    "baseline_addr": "08030328",
+    "candidate_addr": "08030BA8",
+    "size_bytes": 28
+  },
+  {
+    "name": "OS_InitMisc",
+    "baseline_addr": "08030344",
+    "candidate_addr": "08030BC4",
+    "size_bytes": 24
+  },
+  {
+    "name": "OSTaskStkInit",
+    "baseline_addr": "080303A4",
+    "candidate_addr": "08030C24",
+    "size_bytes": 154
+  },
+  {
+    "name": "OSStartHighRdy",
+    "baseline_addr": "08030450",
+    "candidate_addr": "08030CD0",
+    "size_bytes": 24
+  },
+  {
+    "name": "OSIntCtxSw",
+    "baseline_addr": "08030476",
+    "candidate_addr": "08030CF6",
+    "size_bytes": 16
+  },
+  {
+    "name": "os_flags_pend",
+    "baseline_addr": "080304E4",
+    "candidate_addr": "08030D64",
+    "size_bytes": 114
+  },
+  {
+    "name": "os_flags_accept",
+    "baseline_addr": "08030556",
+    "candidate_addr": "08030DD6",
+    "size_bytes": 32
+  },
+  {
+    "name": "os_flags_post",
+    "baseline_addr": "08030576",
+    "candidate_addr": "08030DF6",
+    "size_bytes": 58
+  },
+  {
+    "name": "OSInit",
+    "baseline_addr": "080305EC",
+    "candidate_addr": "08030E6C",
+    "size_bytes": 16
+  },
+  {
+    "name": "OSStart",
+    "baseline_addr": "080305FC",
+    "candidate_addr": "08030E7C",
+    "size_bytes": 50
+  },
+  {
+    "name": "OSTaskCreate",
+    "baseline_addr": "0803062E",
+    "candidate_addr": "08030EAE",
+    "size_bytes": 88
+  },
+  {
+    "name": "OSIntExit",
+    "baseline_addr": "08030686",
+    "candidate_addr": "08030F06",
+    "size_bytes": 54
+  },
+  {
+    "name": "OSTimeTick",
+    "baseline_addr": "08030738",
+    "candidate_addr": "08030FB8",
+    "size_bytes": 54
+  },
+  {
+    "name": "OS_CPU_SysTickInit",
+    "baseline_addr": "0803076E",
+    "candidate_addr": "08030FEE",
+    "size_bytes": 92
+  },
+  {
+    "name": "ld_dword",
+    "baseline_addr": "08030848",
+    "candidate_addr": "080310C8",
+    "size_bytes": 24
+  },
+  {
+    "name": "st_dword",
+    "baseline_addr": "0803086C",
+    "candidate_addr": "080310EC",
+    "size_bytes": 24
+  },
+  {
+    "name": "mem_cpy",
+    "baseline_addr": "08030884",
+    "candidate_addr": "08031104",
+    "size_bytes": 26
+  },
+  {
+    "name": "mem_set",
+    "baseline_addr": "0803089E",
+    "candidate_addr": "0803111E",
+    "size_bytes": 18
+  },
+  {
+    "name": "mem_cmp",
+    "baseline_addr": "080308B0",
+    "candidate_addr": "08031130",
+    "size_bytes": 36
+  },
+  {
+    "name": "chk_chr",
+    "baseline_addr": "080308D4",
+    "candidate_addr": "08031154",
+    "size_bytes": 20
+  },
+  {
+    "name": "sync_window",
+    "baseline_addr": "080308E8",
+    "candidate_addr": "08031168",
+    "size_bytes": 82
+  },
+  {
+    "name": "move_window",
+    "baseline_addr": "0803093A",
+    "candidate_addr": "080311BA",
+    "size_bytes": 52
+  },
+  {
+    "name": "sync_fs",
+    "baseline_addr": "0803096E",
+    "candidate_addr": "080311EE",
+    "size_bytes": 134
+  },
+  {
+    "name": "clust2sect",
+    "baseline_addr": "080309F4",
+    "candidate_addr": "08031274",
+    "size_bytes": 26
+  },
+  {
+    "name": "get_fat",
+    "baseline_addr": "08030A0E",
+    "candidate_addr": "0803128E",
+    "size_bytes": 224
+  },
+  {
+    "name": "put_fat",
+    "baseline_addr": "08030AEE",
+    "candidate_addr": "0803136E",
+    "size_bytes": 312
+  },
+  {
+    "name": "remove_chain",
+    "baseline_addr": "08030C26",
+    "candidate_addr": "080314A6",
+    "size_bytes": 154
+  },
+  {
+    "name": "create_chain",
+    "baseline_addr": "08030CC0",
+    "candidate_addr": "08031540",
+    "size_bytes": 232
+  },
+  {
+    "name": "dir_sdi",
+    "baseline_addr": "08030DA8",
+    "candidate_addr": "08031628",
+    "size_bytes": 154
+  },
+  {
+    "name": "dir_next",
+    "baseline_addr": "08030E42",
+    "candidate_addr": "080316C2",
+    "size_bytes": 268
+  },
+  {
+    "name": "dir_alloc",
+    "baseline_addr": "08030F4E",
+    "candidate_addr": "080317CE",
+    "size_bytes": 96
+  },
+  {
+    "name": "ld_clust",
+    "baseline_addr": "08030FAE",
+    "candidate_addr": "0803182E",
+    "size_bytes": 38
+  },
+  {
+    "name": "st_clust",
+    "baseline_addr": "08030FD4",
+    "candidate_addr": "08031854",
+    "size_bytes": 36
+  },
+  {
+    "name": "dir_read",
+    "baseline_addr": "08030FF8",
+    "candidate_addr": "08031878",
+    "size_bytes": 116
+  },
+  {
+    "name": "dir_find",
+    "baseline_addr": "0803106C",
+    "candidate_addr": "080318EC",
+    "size_bytes": 108
+  },
+  {
+    "name": "dir_register",
+    "baseline_addr": "080310D8",
+    "candidate_addr": "08031958",
+    "size_bytes": 60
+  },
+  {
+    "name": "dir_remove",
+    "baseline_addr": "08031114",
+    "candidate_addr": "08031994",
+    "size_bytes": 32
+  },
+  {
+    "name": "get_fileinfo",
+    "baseline_addr": "08031134",
+    "candidate_addr": "080319B4",
+    "size_bytes": 140
+  },
+  {
+    "name": "create_name",
+    "baseline_addr": "080311C0",
+    "candidate_addr": "08031A40",
+    "size_bytes": 204
+  },
+  {
+    "name": "follow_path",
+    "baseline_addr": "0803128C",
+    "candidate_addr": "08031B0C",
+    "size_bytes": 162
+  },
+  {
+    "name": "get_ldnumber",
+    "baseline_addr": "0803132E",
+    "candidate_addr": "08031BAE",
+    "size_bytes": 72
+  },
+  {
+    "name": "check_fs",
+    "baseline_addr": "08031376",
+    "candidate_addr": "08031BF6",
+    "size_bytes": 116
+  },
+  {
+    "name": "validate",
+    "baseline_addr": "080316F2",
+    "candidate_addr": "08031F72",
+    "size_bytes": 60
+  },
+  {
+    "name": "f_mount",
+    "baseline_addr": "0803172E",
+    "candidate_addr": "08031FAE",
+    "size_bytes": 86
+  },
+  {
+    "name": "f_open",
+    "baseline_addr": "08031784",
+    "candidate_addr": "08032004",
+    "size_bytes": 494
+  },
+  {
+    "name": "f_write",
+    "baseline_addr": "08031B1E",
+    "candidate_addr": "0803239E",
+    "size_bytes": 478
+  },
+  {
+    "name": "f_sync",
+    "baseline_addr": "08031CFC",
+    "candidate_addr": "0803257C",
+    "size_bytes": 160
+  },
+  {
+    "name": "f_close",
+    "baseline_addr": "08031D9C",
+    "candidate_addr": "0803261C",
+    "size_bytes": 34
+  },
+  {
+    "name": "f_lseek",
+    "baseline_addr": "08031DBE",
+    "candidate_addr": "0803263E",
+    "size_bytes": 388
+  },
+  {
+    "name": "f_opendir",
+    "baseline_addr": "08031F42",
+    "candidate_addr": "080327C2",
+    "size_bytes": 112
+  },
+  {
+    "name": "f_closedir",
+    "baseline_addr": "08031FB2",
+    "candidate_addr": "08032832",
+    "size_bytes": 24
+  },
+  {
+    "name": "f_readdir",
+    "baseline_addr": "08031FCA",
+    "candidate_addr": "0803284A",
+    "size_bytes": 78
+  },
+  {
+    "name": "f_stat",
+    "baseline_addr": "08032018",
+    "candidate_addr": "08032898",
+    "size_bytes": 62
+  },
+  {
+    "name": "f_getfree",
+    "baseline_addr": "08032056",
+    "candidate_addr": "080328D6",
+    "size_bytes": 252
+  },
+  {
+    "name": "f_truncate",
+    "baseline_addr": "08032152",
+    "candidate_addr": "080329D2",
+    "size_bytes": 178
+  },
+  {
+    "name": "f_unlink",
+    "baseline_addr": "08032204",
+    "candidate_addr": "08032A84",
+    "size_bytes": 170
+  },
+  {
+    "name": "f_mkdir",
+    "baseline_addr": "080322AE",
+    "candidate_addr": "08032B2E",
+    "size_bytes": 350
+  },
+  {
+    "name": "f_rename",
+    "baseline_addr": "0803240C",
+    "candidate_addr": "08032C8C",
+    "size_bytes": 272
+  },
+  {
+    "name": "USB_OTG_EnableCommonInt",
+    "baseline_addr": "0803251C",
+    "candidate_addr": "08032D9C",
+    "size_bytes": 52
+  },
+  {
+    "name": "USB_OTG_WritePacket",
+    "baseline_addr": "080325BC",
+    "candidate_addr": "08032E3C",
+    "size_bytes": 64
+  },
+  {
+    "name": "USB_OTG_ReadPacket",
+    "baseline_addr": "080325FC",
+    "candidate_addr": "08032E7C",
+    "size_bytes": 40
+  },
+  {
+    "name": "USB_OTG_SelectCore",
+    "baseline_addr": "08032624",
+    "candidate_addr": "08032EA4",
+    "size_bytes": 204
+  },
+  {
+    "name": "USB_OTG_EnableGlobalInt",
+    "baseline_addr": "08032816",
+    "candidate_addr": "08033096",
+    "size_bytes": 34
+  },
+  {
+    "name": "USB_OTG_DisableGlobalInt",
+    "baseline_addr": "08032838",
+    "candidate_addr": "080330B8",
+    "size_bytes": 34
+  },
+  {
+    "name": "USB_OTG_GetMode",
+    "baseline_addr": "0803293E",
+    "candidate_addr": "080331BE",
+    "size_bytes": 22
+  },
+  {
+    "name": "USB_OTG_IsDeviceMode",
+    "baseline_addr": "08032954",
+    "candidate_addr": "080331D4",
+    "size_bytes": 22
+  },
+  {
+    "name": "USB_OTG_IsHostMode",
+    "baseline_addr": "0803296A",
+    "candidate_addr": "080331EA",
+    "size_bytes": 20
+  },
+  {
+    "name": "USB_OTG_ReadCoreItr",
+    "baseline_addr": "0803297E",
+    "candidate_addr": "080331FE",
+    "size_bytes": 16
+  },
+  {
+    "name": "USB_OTG_EnableHostInt",
+    "baseline_addr": "08032996",
+    "candidate_addr": "08033216",
+    "size_bytes": 132
+  },
+  {
+    "name": "USB_OTG_ReadHPRT0",
+    "baseline_addr": "08032A1A",
+    "candidate_addr": "0803329A",
+    "size_bytes": 48
+  },
+  {
+    "name": "USB_OTG_InitFSLSPClkSel",
+    "baseline_addr": "08032AE6",
+    "candidate_addr": "08033366",
+    "size_bytes": 24
+  },
+  {
+    "name": "USB_OTG_IsEvenFrame",
+    "baseline_addr": "08032BD4",
+    "candidate_addr": "08033454",
+    "size_bytes": 16
+  },
+  {
+    "name": "USB_OTG_HC_Init",
+    "baseline_addr": "08032BEC",
+    "candidate_addr": "0803346C",
+    "size_bytes": 568
+  },
+  {
+    "name": "USB_OTG_HC_StartXfer",
+    "baseline_addr": "08032E24",
+    "candidate_addr": "080336A4",
+    "size_bytes": 502
+  },
+  {
+    "name": "USB_OTG_HC_Halt",
+    "baseline_addr": "0803301A",
+    "candidate_addr": "0803389A",
+    "size_bytes": 154
+  },
+  {
+    "name": "USB_OTG_HC_DoPing",
+    "baseline_addr": "080330B4",
+    "candidate_addr": "08033934",
+    "size_bytes": 90
+  },
+  {
+    "name": "USB_OTG_StopHost",
+    "baseline_addr": "0803310E",
+    "candidate_addr": "0803398E",
+    "size_bytes": 96
+  },
+  {
+    "name": "HCD_Init",
+    "baseline_addr": "0803316E",
+    "candidate_addr": "080339EE",
+    "size_bytes": 96
+  },
+  {
+    "name": "HCD_GetCurrentSpeed",
+    "baseline_addr": "080331CE",
+    "candidate_addr": "08033A4E",
+    "size_bytes": 20
+  },
+  {
+    "name": "HCD_HC_Init",
+    "baseline_addr": "0803322A",
+    "candidate_addr": "08033AAA",
+    "size_bytes": 16
+  },
+  {
+    "name": "HCD_SubmitRequest",
+    "baseline_addr": "0803323A",
+    "candidate_addr": "08033ABA",
+    "size_bytes": 34
+  },
+  {
+    "name": "USB_OTG_USBH_handle_IncompletePeriodicXfer_ISR",
+    "baseline_addr": "0803325C",
+    "candidate_addr": "08033ADC",
+    "size_bytes": 70
+  },
+  {
+    "name": "USB_OTG_USBH_handle_Disconnect_ISR",
+    "baseline_addr": "080332A2",
+    "candidate_addr": "08033B22",
+    "size_bytes": 40
+  },
+  {
+    "name": "USB_OTG_USBH_handle_port_ISR",
+    "baseline_addr": "080332CA",
+    "candidate_addr": "08033B4A",
+    "size_bytes": 310
+  },
+  {
+    "name": "USB_OTG_USBH_handle_hc_n_In_ISR",
+    "baseline_addr": "080337C0",
+    "candidate_addr": "08034040",
+    "size_bytes": 1054
+  },
+  {
+    "name": "USB_OTG_USBH_handle_hc_ISR",
+    "baseline_addr": "08033BDE",
+    "candidate_addr": "0803445E",
+    "size_bytes": 86
+  },
+  {
+    "name": "USB_OTG_USBH_handle_ptxfempty_ISR",
+    "baseline_addr": "08033C34",
+    "candidate_addr": "080344B4",
+    "size_bytes": 302
+  },
+  {
+    "name": "USB_OTG_USBH_handle_nptxfempty_ISR",
+    "baseline_addr": "08033D62",
+    "candidate_addr": "080345E2",
+    "size_bytes": 302
+  },
+  {
+    "name": "USB_OTG_USBH_handle_rx_qlvl_ISR",
+    "baseline_addr": "08033E90",
+    "candidate_addr": "08034710",
+    "size_bytes": 356
+  },
+  {
+    "name": "USB_OTG_USBH_handle_sof_ISR",
+    "baseline_addr": "08033FF4",
+    "candidate_addr": "08034874",
+    "size_bytes": 38
+  },
+  {
+    "name": "USBH_DeInit",
+    "baseline_addr": "0803411A",
+    "candidate_addr": "0803499A",
+    "size_bytes": 58
+  },
+  {
+    "name": "usbh_read_line_state",
+    "baseline_addr": "0803419A",
+    "candidate_addr": "08034A1A",
+    "size_bytes": 20
+  },
+  {
+    "name": "usbh_line_state_stuck",
+    "baseline_addr": "080341AE",
+    "candidate_addr": "08034A2E",
+    "size_bytes": 74
+  },
+  {
+    "name": "USBH_HandleControl",
+    "baseline_addr": "080341F8",
+    "candidate_addr": "08034A78",
+    "size_bytes": 550
+  },
+  {
+    "name": "USBH_ErrorHandle",
+    "baseline_addr": "0803441E",
+    "candidate_addr": "08034C9E",
+    "size_bytes": 46
+  },
+  {
+    "name": "USBH_Open_Channel",
+    "baseline_addr": "080348FC",
+    "candidate_addr": "0803517C",
+    "size_bytes": 154
+  },
+  {
+    "name": "USBH_Modify_Channel",
+    "baseline_addr": "08034996",
+    "candidate_addr": "08035216",
+    "size_bytes": 100
+  },
+  {
+    "name": "USBH_GetFreeChannel",
+    "baseline_addr": "080349FA",
+    "candidate_addr": "0803527A",
+    "size_bytes": 40
+  },
+  {
+    "name": "USBH_Alloc_Channel",
+    "baseline_addr": "08034A22",
+    "candidate_addr": "080352A2",
+    "size_bytes": 38
+  },
+  {
+    "name": "USBH_Free_Channel",
+    "baseline_addr": "08034A48",
+    "candidate_addr": "080352C8",
+    "size_bytes": 30
+  },
+  {
+    "name": "USBH_DeAllocate_AllChannel",
+    "baseline_addr": "08034A66",
+    "candidate_addr": "080352E6",
+    "size_bytes": 28
+  },
+  {
+    "name": "USBH_SubmitSetupRequest",
+    "baseline_addr": "08034A82",
+    "candidate_addr": "08035302",
+    "size_bytes": 24
+  },
+  {
+    "name": "USBH_CtlReq",
+    "baseline_addr": "08034A9A",
+    "candidate_addr": "0803531A",
+    "size_bytes": 100
+  },
+  {
+    "name": "USBH_CtlSendSetup",
+    "baseline_addr": "08034AFE",
+    "candidate_addr": "0803537E",
+    "size_bytes": 66
+  },
+  {
+    "name": "USBH_CtlSendData",
+    "baseline_addr": "08034B40",
+    "candidate_addr": "080353C0",
+    "size_bytes": 110
+  },
+  {
+    "name": "USBH_CtlReceiveData",
+    "baseline_addr": "08034BAE",
+    "candidate_addr": "0803542E",
+    "size_bytes": 70
+  },
+  {
+    "name": "USBH_BulkSendData",
+    "baseline_addr": "08034BF4",
+    "candidate_addr": "08035474",
+    "size_bytes": 94
+  },
+  {
+    "name": "USBH_BulkReceiveData",
+    "baseline_addr": "08034C52",
+    "candidate_addr": "080354D2",
+    "size_bytes": 96
+  },
+  {
+    "name": "USBH_InterruptReceiveData",
+    "baseline_addr": "08034CB2",
+    "candidate_addr": "08035532",
+    "size_bytes": 120
+  },
+  {
+    "name": "USBH_InterruptSendData",
+    "baseline_addr": "08034D2A",
+    "candidate_addr": "080355AA",
+    "size_bytes": 118
+  },
+  {
+    "name": "USBH_IsocReceiveData",
+    "baseline_addr": "08034DA0",
+    "candidate_addr": "08035620",
+    "size_bytes": 70
+  },
+  {
+    "name": "USBH_IsocSendData",
+    "baseline_addr": "08034DE6",
+    "candidate_addr": "08035666",
+    "size_bytes": 70
+  },
+  {
+    "name": "USBH_ParseDevDesc",
+    "baseline_addr": "08034E2C",
+    "candidate_addr": "080356AC",
+    "size_bytes": 88
+  },
+  {
+    "name": "USBH_GetDescriptor",
+    "baseline_addr": "08034E84",
+    "candidate_addr": "08035704",
+    "size_bytes": 68
+  },
+  {
+    "name": "USBH_Get_DevDesc",
+    "baseline_addr": "08034EC8",
+    "candidate_addr": "08035748",
+    "size_bytes": 56
+  },
+  {
+    "name": "USBH_ParseEPDesc",
+    "baseline_addr": "08034F00",
+    "candidate_addr": "08035780",
+    "size_bytes": 32
+  },
+  {
+    "name": "USBH_ParseInterfaceDesc",
+    "baseline_addr": "08034F20",
+    "candidate_addr": "080357A0",
+    "size_bytes": 38
+  },
+  {
+    "name": "USBH_GetNextDesc",
+    "baseline_addr": "08034F46",
+    "candidate_addr": "080357C6",
+    "size_bytes": 18
+  },
+  {
+    "name": "USBH_ParseCfgDesc",
+    "baseline_addr": "08034F58",
+    "candidate_addr": "080357D8",
+    "size_bytes": 300
+  },
+  {
+    "name": "USBH_Get_CfgDesc",
+    "baseline_addr": "08035084",
+    "candidate_addr": "08035904",
+    "size_bytes": 104
+  },
+  {
+    "name": "USBH_ParseStringDesc",
+    "baseline_addr": "080350EC",
+    "candidate_addr": "0803596C",
+    "size_bytes": 54
+  },
+  {
+    "name": "USBH_Get_StringDesc",
+    "baseline_addr": "08035122",
+    "candidate_addr": "080359A2",
+    "size_bytes": 60
+  },
+  {
+    "name": "USBH_SetAddress",
+    "baseline_addr": "0803515E",
+    "candidate_addr": "080359DE",
+    "size_bytes": 38
+  },
+  {
+    "name": "USBH_SetCfg",
+    "baseline_addr": "08035184",
+    "candidate_addr": "08035A04",
+    "size_bytes": 38
+  },
+  {
+    "name": "USBH_SetInterface",
+    "baseline_addr": "080351AA",
+    "candidate_addr": "08035A2A",
+    "size_bytes": 44
+  },
+  {
+    "name": "USBH_SetFeature",
+    "baseline_addr": "080351D6",
+    "candidate_addr": "08035A56",
+    "size_bytes": 44
+  },
+  {
+    "name": "USBH_ClearFeature",
+    "baseline_addr": "08035202",
+    "candidate_addr": "08035A82",
+    "size_bytes": 44
+  },
+  {
+    "name": "USBH_MSC_Init",
+    "baseline_addr": "08035288",
+    "candidate_addr": "08035B08",
+    "size_bytes": 44
+  },
+  {
+    "name": "USBH_MSC_BOT_Abort",
+    "baseline_addr": "080352B4",
+    "candidate_addr": "08035B34",
+    "size_bytes": 86
+  },
+  {
+    "name": "USBH_MSC_DecodeCSW",
+    "baseline_addr": "0803530A",
+    "candidate_addr": "08035B8A",
+    "size_bytes": 108
+  },
+  {
+    "name": "USBH_MSC_InterfaceInit",
+    "baseline_addr": "080357A4",
+    "candidate_addr": "08036024",
+    "size_bytes": 252
+  },
+  {
+    "name": "USBH_MSC_InterfaceDeInit",
+    "baseline_addr": "080358A0",
+    "candidate_addr": "08036120",
+    "size_bytes": 72
+  },
+  {
+    "name": "USBH_MSC_ErrorHandle",
+    "baseline_addr": "080358F6",
+    "candidate_addr": "08036176",
+    "size_bytes": 58
+  },
+  {
+    "name": "USBH_MSC_GETMaxLUN",
+    "baseline_addr": "08035930",
+    "candidate_addr": "080361B0",
+    "size_bytes": 40
+  },
+  {
+    "name": "disk_initialize",
+    "baseline_addr": "08035ADC",
+    "candidate_addr": "0803635C",
+    "size_bytes": 30
+  },
+  {
+    "name": "disk_read",
+    "baseline_addr": "08035B08",
+    "candidate_addr": "08036388",
+    "size_bytes": 156
+  },
+  {
+    "name": "disk_write",
+    "baseline_addr": "08035BA4",
+    "candidate_addr": "08036424",
+    "size_bytes": 122
+  },
+  {
+    "name": "disk_ioctl",
+    "baseline_addr": "08035C1E",
+    "candidate_addr": "0803649E",
+    "size_bytes": 86
+  },
+  {
+    "name": "USBH_MSC_TestUnitReady",
+    "baseline_addr": "08035C94",
+    "candidate_addr": "08036514",
+    "size_bytes": 162
+  },
+  {
+    "name": "USBH_MSC_ReadCapacity10",
+    "baseline_addr": "08035D36",
+    "candidate_addr": "080365B6",
+    "size_bytes": 202
+  },
+  {
+    "name": "USBH_MSC_ModeSense6",
+    "baseline_addr": "08035E00",
+    "candidate_addr": "08036680",
+    "size_bytes": 192
+  },
+  {
+    "name": "USBH_MSC_RequestSense",
+    "baseline_addr": "08035EC0",
+    "candidate_addr": "08036740",
+    "size_bytes": 208
+  },
+  {
+    "name": "USBH_MSC_Write10",
+    "baseline_addr": "08035F90",
+    "candidate_addr": "08036810",
+    "size_bytes": 218
+  },
+  {
+    "name": "CDC_InitTxRxParam",
+    "baseline_addr": "08036188",
+    "candidate_addr": "08036A08",
+    "size_bytes": 34
+  },
+  {
+    "name": "CDC_InterfaceInit",
+    "baseline_addr": "080361AA",
+    "candidate_addr": "08036A2A",
+    "size_bytes": 324
+  },
+  {
+    "name": "CDC_InterfaceDeInit",
+    "baseline_addr": "080362EE",
+    "candidate_addr": "08036B6E",
+    "size_bytes": 104
+  },
+  {
+    "name": "CDC_ClassRequest",
+    "baseline_addr": "08036356",
+    "candidate_addr": "08036BD6",
+    "size_bytes": 146
+  },
+  {
+    "name": "CDC_ReceiveData",
+    "baseline_addr": "080363E8",
+    "candidate_addr": "08036C68",
+    "size_bytes": 58
+  },
+  {
+    "name": "CDC_ProcessReception",
+    "baseline_addr": "08036422",
+    "candidate_addr": "08036CA2",
+    "size_bytes": 176
+  },
+  {
+    "name": "CDC_Handle",
+    "baseline_addr": "080365CE",
+    "candidate_addr": "08036E4E",
+    "size_bytes": 42
+  },
+  {
+    "name": "CDC_SendData",
+    "baseline_addr": "080365F8",
+    "candidate_addr": "08036E78",
+    "size_bytes": 106
+  },
+  {
+    "name": "CDC_GETLineCoding",
+    "baseline_addr": "080366AC",
+    "candidate_addr": "08036F2C",
+    "size_bytes": 42
+  },
+  {
+    "name": "CDC_SETLineCoding",
+    "baseline_addr": "080366D6",
+    "candidate_addr": "08036F56",
+    "size_bytes": 42
+  },
+  {
+    "name": "CDC_SETControlLineState",
+    "baseline_addr": "08036700",
+    "candidate_addr": "08036F80",
+    "size_bytes": 42
+  },
+  {
+    "name": "CDC_ChangeStateToIssueSetConfig",
+    "baseline_addr": "0803672A",
+    "candidate_addr": "08036FAA",
+    "size_bytes": 16
+  },
+  {
+    "name": "strcpy",
+    "baseline_addr": "0803675C",
+    "candidate_addr": "08036FDC",
+    "size_bytes": 72
+  },
+  {
+    "name": "__aeabi_memclr",
+    "baseline_addr": "080367A4",
+    "candidate_addr": "08037024",
+    "size_bytes": 68
+  },
+  {
+    "name": "strcmp",
+    "baseline_addr": "080367E8",
+    "candidate_addr": "08037068",
+    "size_bytes": 128
+  },
+  {
+    "name": "__aeabi_memclr4",
+    "baseline_addr": "0803686E",
+    "candidate_addr": "080370EE",
+    "size_bytes": 78
+  },
+  {
+    "name": "__user_setup_stackheap",
+    "baseline_addr": "080368BC",
+    "candidate_addr": "0803713C",
+    "size_bytes": 74
+  },
+  {
+    "name": "__aeabi_fmul",
+    "baseline_addr": "080369A8",
+    "candidate_addr": "08037250",
+    "size_bytes": 216
+  },
+  {
+    "name": "sub_08036A84",
+    "baseline_addr": "08036A84",
+    "candidate_addr": "0803732C",
+    "size_bytes": 18
+  },
+  {
+    "name": "sub_08036A96",
+    "baseline_addr": "08036A96",
+    "candidate_addr": "0803733E",
+    "size_bytes": 20
+  },
+  {
+    "name": "__fpl_fnaninf",
+    "baseline_addr": "08036AAA",
+    "candidate_addr": "08037352",
+    "size_bytes": 140
+  }
+]

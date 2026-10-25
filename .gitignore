@@ -28,3 +28,8 @@ inverters/gen3-lv/a316/lib/stdperiph312
 .vscode/
 .idea/
 tools/ci/licence-keys.local
+
+# Gen3 LV 319 local vendor library links
+inverters/gen3-lv/a319/toolchain
+inverters/gen3-lv/a319/lib/stdperiph35
+inverters/gen3-lv/a319/lib/stdperiph312

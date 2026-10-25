@@ -1,0 +1,49 @@
+{
+  "accepted_complete_firmware_ports": [],
+  "shape_counts": {
+    "ARM_316_318": {
+      "unique_shape": 695,
+      "ambiguous_shape": 65,
+      "no_shape_match": 22
+    },
+    "ARM_316_319": {
+      "unique_shape": 681,
+      "ambiguous_shape": 65,
+      "no_shape_match": 36
+    },
+    "ARM_318_319": {
+      "unique_shape": 693,
+      "ambiguous_shape": 63,
+      "no_shape_match": 44
+    },
+    "DSP_318": {
+      "ambiguous_shape": 113,
+      "unique_shape": 352,
+      "no_shape_match": 10
+    },
+    "DSP_319": {
+      "ambiguous_shape": 113,
+      "unique_shape": 351,
+      "no_shape_match": 11
+    }
+  },
+  "sha256": {
+    "firmware/gen3-lv/A316_ARMStore.bin": "701386e4a7ea0b5440a180f0282017dda86beeb75d9d228867b5af969514de0f",
+    "firmware/gen3-lv/A318_ARMStore.bin": "163cef5104a15b4edd294477d095c1ea4856f692d8a5def309e1e2ed09773f05",
+    "firmware/gen3-lv/A319_ARMStore.bin": "f58f027c3a971fb4260a3fa8123959584f1defe4c55e8808601bfb4c552031d7",
+    "firmware/gen3-lv/D316_DSPStore.bin": "1503c37f882b78fa4723bbbcdab6ecac602864fc075fff4047ae35e09a63fa18",
+    "firmware/gen3-lv/D318_DSPStore.bin": "70670e4e3c6ae535c314d4a4efe58b707582640f3e3b249a34843c8f45571b05",
+    "firmware/gen3-lv/D319_DSPStore.bin": "932fa4ce4ab4ffa5f36af0ac4fdcca3b3a2cd50e7086418e8fe2d41cd293e886",
+    "inverters/gen3-lv/a316/map/functions.tsv": "daeba5125b9029bc751ccd13d160220bf8b6fe4c4229b2459d8d387b20ba6d5a",
+    "inverters/gen3-lv/d316/map/functions.tsv": "885a7576f9df51f37c9a0064549c05dd295d547cc8292e53c402c5f90bb20d3a",
+    "inverters/gen3-lv/tools/version_survey/check_arm_references.py": "aa5bc626c0c97050f446199e2ac0d0391c13628e833c0eb55a23958f5a74ca95",
+    "inverters/gen3-lv/tools/version_survey/check_dsp_references.py": "3cf9d1b25ffe5aef7f032699ddcd1d30436147a425edb437d4fcec84e5f86e86",
+    "inverters/gen3-lv/tools/version_survey/common.py": "291d2c500db13f3b8a4995e42ea5a4bd5bdd1f1fe54dd6d09c4ea8b68bbeb78b",
+    "inverters/gen3-lv/tools/version_survey/dsp_changed_windows.py": "87217b84f8796d59d0a720e350a24bf3b76ca2f2f3be2dcb8ce7683079a14d50",
+    "inverters/gen3-lv/tools/version_survey/export_inventories.py": "7bae508280dd24a7d0d00dfb2ad01fada15205864b71c47a5d8694541d47914a",
+    "inverters/gen3-lv/tools/version_survey/normalize_arm.py": "3d197638d420592695b38f884d7640c339982c2ca5258f3e81acf33e1d806301",
+    "inverters/gen3-lv/tools/version_survey/normalize_dsp.py": "45a898ba19f6fdbc9cce7d209fdc59114dd049d5c159e47a0a79b43752715dd1",
+    "inverters/gen3-lv/tools/version_survey/prove_reuse.py": "80a614abe50ed04e59d3f1693303c1fd3c5f93a948c955bca9bfc14d66e4e6fd",
+    "inverters/gen3-lv/tools/version_survey/publish_report.py": "6e458b1b95ff7ba4ac36764ae62c3fafcb5dbeac14af29218df191e8676b6591"
+  }
+}

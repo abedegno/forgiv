@@ -5,6 +5,13 @@ linker, and compares the result with the original file. The program that does th
 tree's gate, `tools/gate.py`. A gate that prints IDENTICAL proves that the sources are an exact
 description of the shipped firmware. This page says what you need and how to run both gates.
 
+The detailed commands below use A316/D316. A319/D319 use the same compiler families;
+their [source and build guide](../../inverters/gen3-lv/docs/319-readability.md) gives the
+version-specific commands and acceptance checks. Run from `inverters/gen3-lv/a319` or
+`inverters/gen3-lv/d319`, with that tree's local configuration. The ARM acceptance includes
+`--place all` and the licensed `--whole` gate; the DSP acceptance includes native and Windows
+linkers plus complete coverage. Source names and paths differ from 316.
+
 ## What you need
 
 - Python 3.11 or later.
@@ -19,6 +26,10 @@ description of the shipped firmware. This page says what you need and how to run
 ```sh
 python3 tools/fetch_firmware.py
 ```
+
+That command selects all manifest packages, including the 318 survey and BMS 3020.
+To fetch only the 319 pair, use `python3 tools/fetch_firmware.py --only gen3-lv-319`.
+Its inputs are `firmware/gen3-lv/A319_ARMStore.bin`, `A319.hex` and `D319_DSPStore.bin`.
 
 From the repository root. It downloads the package named in
 [firmware/manifest.toml](../../firmware/manifest.toml) from the public giv-firmware archive,
