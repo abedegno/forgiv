@@ -1,0 +1,4 @@
+/* ST StdPeriph 3.5.0, unchanged; matched as a complete translation unit. */
+/* at: BKP_DeInit 0x080280C8, BKP_TamperPinLevelConfig 0x080280DA, BKP_TamperPinCmd 0x080280E0, BKP_ITConfig 0x080280E8, BKP_RTCOutputConfig 0x080280F0, BKP_SetRTCCalibrationValue 0x080280FE, BKP_WriteBackupRegister 0x0802810C, BKP_ReadBackupRegister 0x0802811C, BKP_GetFlagStatus 0x0802812C, BKP_ClearFlag 0x08028136, BKP_GetITStatus 0x08028144, BKP_ClearITPendingBit 0x0802814E */
+/* opts: --cpu Cortex-M3 -O1 -DSTM32F10X_CL -DUSE_STDPERIPH_DRIVER -DHSE_VALUE=8000000 -I{root}/lib/stdperiph35/Libraries/STM32F10x_StdPeriph_Driver/inc -I{root}/lib/stdperiph35/Libraries/CMSIS/CM3/CoreSupport -I{root}/lib/stdperiph35/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x -I{root}/lib/stdperiph35/Project/STM32F10x_StdPeriph_Template */
+#include "../../lib/stdperiph35/Libraries/STM32F10x_StdPeriph_Driver/src/stm32f10x_bkp.c"
