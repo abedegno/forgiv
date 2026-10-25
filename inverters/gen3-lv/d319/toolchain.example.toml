@@ -1,0 +1,15 @@
+# Copy to toolchain.local.toml (gitignored) and set what differs on your machine; any key of
+# toolchain.toml can be overridden here. The environment variables named on each line win over
+# this file. Paths may start with ~; {prefix} is [wine] prefix.
+
+# [compiler]
+# cgt = "{prefix}/drive_c/ti/ti-cgt-c2000_16.9.6.LTS"                        # C2000_CGT
+# rtslib = "{prefix}/drive_c/ti/c2000_15.12.3.LTS/lib/rts2800_fpu32.lib"      # C2000_RTSLIB
+# others = "{prefix}/drive_c/ti/*/bin/cl2000.exe"                            # C2000_OTHERS
+
+# [native]
+# bin = "~/c2000-cgt/ti-cgt-c2000_18.12.8.LTS/bin"                           # C2000_NATIVE
+
+# [wine]
+# bin = "/Applications/Wine Devel.app/Contents/Resources/wine/bin"           # WINE_BIN
+# prefix = "~/c2000-cgt/wine"                                                # C2000_WINEPREFIX

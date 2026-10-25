@@ -1,5 +1,11 @@
 # The ARM-DSP link, byte by byte
 
+Version scope: this complete table is audited for A316/D316. The 319 pair adds the BMS
+HR1/HR15 handshake and a separate battery-power target; see the
+[A319 changes](../../inverters/gen3-lv/a319/README.md) and
+[D319 changes](../../inverters/gen3-lv/d319/README.md). Do not treat this baseline table as
+a complete 319 link specification.
+
 Every byte of the two 45-byte frames, from both ends. The DSP side is
 [`arm_link.c`](../../inverters/gen3-lv/d316/src/app/comm/arm_link.c) and
 [`arm_page_write.c`](../../inverters/gen3-lv/d316/src/app/comm/arm_page_write.c); the ARM side is

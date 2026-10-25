@@ -1,0 +1,70 @@
+# How the D319 image is rebuilt. Read by tools/d319.py.
+#
+# The paths below are defaults. toolchain.local.toml (gitignored; start from toolchain.example.toml)
+# overrides any key, and the environment variables C2000_CGT, C2000_RTSLIB, C2000_OTHERS,
+# C2000_NATIVE, WINE_BIN and C2000_WINEPREFIX win over both. Paths may start with ~; {prefix} is
+# the Wine prefix ([wine] prefix). docs/development/toolchains.md at the repository root says how to install.
+
+[image]
+bin = "../../../firmware/gen3-lv/D319_DSPStore.bin"   # 64K 16-bit words, big-endian words in the file (tools/fetch_firmware.py)
+base = 0x3E8000                       # word address of the first word
+words = 0x10000
+
+[compiler]
+# TI C2000 code generation tools 16.9.6.LTS (COFF ABI), Windows build, run under Wine. Every
+# source under src/ is built with it, and every proved function matches with it. The evidence:
+# - 16.9.5 and 16.9.6 give the same words for everything; 16.9.6 is the pick. 16.9.7/16.9.8 break
+#   bms_parse_hr, aging_test_update and soft_start; 16.9.9/16.9.10 do not build MemCopy; 16.9.11 breaks
+#   about 15 functions; 16.9.0/16.9.4 and 15.12.0..15.12.5 fail grid_ictl (a struct member
+#   more than 255 words in: ADD ACC,#k<<n against the image's MOVL XAR0,#k).
+# - Functions that match only with 16.x: the -Ooff helpers in util.c (frame layout),
+#   TI's MemCopy unchanged, pv_boost_precharge, rcmu_fast_check, ring_read, eps_vctl, task5_arm_link,
+#   q_of_u_curve, grid_import_current_limit and uvr_storage_response; InitPieVectTable matches as TI's own text.
+# - Earlier, before 16.x was installed, the tree was matched with 15.12.7; a few functions
+#   were written to suit it and then rewritten for 16.9.6 (docs/notes.md).
+cgt = "{prefix}/drive_c/ti/ti-cgt-c2000_16.9.6.LTS"   # C2000_CGT
+cflags = ["-v28", "-ml", "-mt", "--float_support=fpu32", "-O1"]
+# added by the tools: each function in its own section (.text:_name, .switch:_name, .econst:_name)
+tool_cflags = ["--gen_func_subsections=on"]
+# the runtime library the image links (its members were found by a library fingerprint, Exhume's
+# profiles/ti-c2000/tools/c28libfp.py does the same)
+# The library is 15.12.0 .. 15.12.3's (15.12.4 changed expf), not the compiler's own.
+rtslib = "{prefix}/drive_c/ti/c2000_15.12.3.LTS/lib/rts2800_fpu32.lib"   # or relative to cgt; C2000_RTSLIB
+# A few files were built by a later compiler (16.x): a source names its own with a line
+# `// cgt: 16.9.6.LTS` (a directory under `others`; match.py and the gate read it).
+# src/app/util/util.c (16.9.0 .. 17.9.0), src/ti/F2806x_MemCopy.c (16.3 .. 17.9),
+# src/app/state/op_states.c (16.3 .. 17.3) and src/drivers/device_init.c (InitPieVectTable in
+# TI's own order) use 16.9.6, which the matching work found builds most of the image. Other files
+# still match with 15.12.7, and some of them fail with 16.x. docs/notes.md, "Which compiler built
+# each file".
+# every installed compiler, for match.py --all-cgt
+others = "{prefix}/drive_c/ti/*/bin/cl2000.exe"   # C2000_OTHERS
+
+[native]
+# macOS build of the same tool family, used for the fast parts: ofd2000, dis2000, asm2000,
+# lnk2000 (match.py links with it), hex2000. It reads and links 15.12's COFF objects.
+bin = "~/c2000-cgt/ti-cgt-c2000_18.12.8.LTS/bin"   # C2000_NATIVE
+
+[wine]
+bin = "/Applications/Wine Devel.app/Contents/Resources/wine/bin"   # WINE_BIN; else wine on PATH
+prefix = "~/c2000-cgt/wine"           # C2000_WINEPREFIX: the master prefix; jobs clone it (APFS clone) under build/wine
+debug = "-all"
+
+[gate]
+# the gate links with 15.12's own lnk2000 under Wine ("cgt") or the native one ("native")
+linker = "cgt"
+# the files with initialised data in the original link order: the image's .cinit records come
+# file by file in this order (each file's in its .ebss order); "rts:" names a library member.
+# The names are file stems: the gate finds each file anywhere under src/ (map/filenames.tsv has
+# the names these files had before readability step 3).
+cinit_order = ["grid_support", "power_limits", "ac_measure", "dc_measure", "bms_link", "converter_ctrl",
+               "mppt", "arm_link", "op_states", "avg_win", "os_main", "boot_flash_loader", "rts:exit.obj",
+               "current_ctrl", "rts:_lock.obj", "iq_consts", "sci", "rts:errno.obj"]
+
+# Linker boundary symbols are aliases, not separate bytes of the image.
+[symbols]
+RamfuncsLoadStart = 0x3F1C54
+BootRamfuncsLoadStart = 0x3F5004
+BootRamfuncsLoadEnd = 0x3F5226
+Flash_Program = 0x3FFEBB
+Flash_Erase = 0x3FFEBD

@@ -1,0 +1,1124 @@
+[
+  {
+    "name": "grid_reconnect_check",
+    "baseline_addr": "3E802B",
+    "candidate_addr": "3E802B",
+    "size_bytes": 148
+  },
+  {
+    "name": "ctl_timers_tick",
+    "baseline_addr": "3E8075",
+    "candidate_addr": "3E8075",
+    "size_bytes": 80
+  },
+  {
+    "name": "autotest_ramp",
+    "baseline_addr": "3E9688",
+    "candidate_addr": "3E968A",
+    "size_bytes": 120
+  },
+  {
+    "name": "dci_control",
+    "baseline_addr": "3E98D7",
+    "candidate_addr": "3E98D9",
+    "size_bytes": 420
+  },
+  {
+    "name": "rocof_detect",
+    "baseline_addr": "3E99A9",
+    "candidate_addr": "3E99AB",
+    "size_bytes": 158
+  },
+  {
+    "name": "grid_volt_trip_std",
+    "baseline_addr": "3E9BC3",
+    "candidate_addr": "3E9BC5",
+    "size_bytes": 382
+  },
+  {
+    "name": "ovr_storage_response",
+    "baseline_addr": "3EA5AC",
+    "candidate_addr": "3EA5AE",
+    "size_bytes": 502
+  },
+  {
+    "name": "export_overload_check",
+    "baseline_addr": "3EA951",
+    "candidate_addr": "3EA953",
+    "size_bytes": 418
+  },
+  {
+    "name": "arm_fault_word_build",
+    "baseline_addr": "3EABE1",
+    "candidate_addr": "3EABE3",
+    "size_bytes": 120
+  },
+  {
+    "name": "arm_run_mode",
+    "baseline_addr": "3EAC1D",
+    "candidate_addr": "3EAC1F",
+    "size_bytes": 36
+  },
+  {
+    "name": "arm_charge_status",
+    "baseline_addr": "3EAC2F",
+    "candidate_addr": "3EAC31",
+    "size_bytes": 92
+  },
+  {
+    "name": "meas_batt_dcdc",
+    "baseline_addr": "3EBE17",
+    "candidate_addr": "3EBE52",
+    "size_bytes": 252
+  },
+  {
+    "name": "pv_ref_max_update",
+    "baseline_addr": "3EBE95",
+    "candidate_addr": "3EBED0",
+    "size_bytes": 34
+  },
+  {
+    "name": "pv_input_detect",
+    "baseline_addr": "3EBF82",
+    "candidate_addr": "3EBFBD",
+    "size_bytes": 300
+  },
+  {
+    "name": "ntc_temp_check",
+    "baseline_addr": "3EC357",
+    "candidate_addr": "3EC392",
+    "size_bytes": 102
+  },
+  {
+    "name": "temp_check",
+    "baseline_addr": "3EC38A",
+    "candidate_addr": "3EC3C5",
+    "size_bytes": 280
+  },
+  {
+    "name": "pv_short_check",
+    "baseline_addr": "3EC4F7",
+    "candidate_addr": "3EC532",
+    "size_bytes": 170
+  },
+  {
+    "name": "pv_power_limit_flags",
+    "baseline_addr": "3EC54C",
+    "candidate_addr": "3EC587",
+    "size_bytes": 154
+  },
+  {
+    "name": "meas_iso",
+    "baseline_addr": "3EC599",
+    "candidate_addr": "3EC5D4",
+    "size_bytes": 26
+  },
+  {
+    "name": "meas_aux_f16",
+    "baseline_addr": "3EC5A6",
+    "candidate_addr": "3EC5E1",
+    "size_bytes": 42
+  },
+  {
+    "name": "meas_bus_voltage",
+    "baseline_addr": "3EC721",
+    "candidate_addr": "3EC75C",
+    "size_bytes": 92
+  },
+  {
+    "name": "ntc_to_temp",
+    "baseline_addr": "3EC74F",
+    "candidate_addr": "3EC78A",
+    "size_bytes": 374
+  },
+  {
+    "name": "meas_init",
+    "baseline_addr": "3EC80A",
+    "candidate_addr": "3EC845",
+    "size_bytes": 84
+  },
+  {
+    "name": "eps_bus_voltage_check",
+    "baseline_addr": "3EC834",
+    "candidate_addr": "3EC86F",
+    "size_bytes": 216
+  },
+  {
+    "name": "aging_test_update",
+    "baseline_addr": "3EC8D7",
+    "candidate_addr": "3EC912",
+    "size_bytes": 98
+  },
+  {
+    "name": "ctl_voltage_limits_set",
+    "baseline_addr": "3ED2F4",
+    "candidate_addr": "3ED342",
+    "size_bytes": 64
+  },
+  {
+    "name": "XtalOscSel",
+    "baseline_addr": "3ED419",
+    "candidate_addr": "3ED467",
+    "size_bytes": 40
+  },
+  {
+    "name": "InitPll",
+    "baseline_addr": "3ED42D",
+    "candidate_addr": "3ED47B",
+    "size_bytes": 164
+  },
+  {
+    "name": "InitPeripheralClocks",
+    "baseline_addr": "3ED47F",
+    "candidate_addr": "3ED4CD",
+    "size_bytes": 108
+  },
+  {
+    "name": "InitPieCtrl",
+    "baseline_addr": "3ED4B5",
+    "candidate_addr": "3ED503",
+    "size_bytes": 66
+  },
+  {
+    "name": "AdcChanSelect",
+    "baseline_addr": "3ED50F",
+    "candidate_addr": "3ED55D",
+    "size_bytes": 176
+  },
+  {
+    "name": "AdcConversion",
+    "baseline_addr": "3ED567",
+    "candidate_addr": "3ED5B5",
+    "size_bytes": 556
+  },
+  {
+    "name": "InitGpio",
+    "baseline_addr": "3ED7B8",
+    "candidate_addr": "3ED806",
+    "size_bytes": 706
+  },
+  {
+    "name": "sci_init",
+    "baseline_addr": "3ED919",
+    "candidate_addr": "3ED967",
+    "size_bytes": 90
+  },
+  {
+    "name": "ConfigCpuTimer",
+    "baseline_addr": "3ED967",
+    "candidate_addr": "3ED9B5",
+    "size_bytes": 70
+  },
+  {
+    "name": "InitECap",
+    "baseline_addr": "3ED98A",
+    "candidate_addr": "3ED9D8",
+    "size_bytes": 106
+  },
+  {
+    "name": "InitEPwm",
+    "baseline_addr": "3ED9BF",
+    "candidate_addr": "3EDA0D",
+    "size_bytes": 1018
+  },
+  {
+    "name": "epwm_trip_force",
+    "baseline_addr": "3EDBBC",
+    "candidate_addr": "3EDC0A",
+    "size_bytes": 280
+  },
+  {
+    "name": "epwm_trip_clear",
+    "baseline_addr": "3EDC48",
+    "candidate_addr": "3EDC96",
+    "size_bytes": 242
+  },
+  {
+    "name": "pv_boost_precharge",
+    "baseline_addr": "3EE48D",
+    "candidate_addr": "3EE4DB",
+    "size_bytes": 312
+  },
+  {
+    "name": "grid_in_range",
+    "baseline_addr": "3EE529",
+    "candidate_addr": "3EE577",
+    "size_bytes": 172
+  },
+  {
+    "name": "has_pv_fault",
+    "baseline_addr": "3EE57F",
+    "candidate_addr": "3EE5CD",
+    "size_bytes": 24
+  },
+  {
+    "name": "has_grid_fault",
+    "baseline_addr": "3EE58B",
+    "candidate_addr": "3EE5D9",
+    "size_bytes": 42
+  },
+  {
+    "name": "has_stop_fault",
+    "baseline_addr": "3EE5A0",
+    "candidate_addr": "3EE5EE",
+    "size_bytes": 34
+  },
+  {
+    "name": "has_fault_cf12_low",
+    "baseline_addr": "3EE5B1",
+    "candidate_addr": "3EE5FF",
+    "size_bytes": 18
+  },
+  {
+    "name": "has_eps_fault",
+    "baseline_addr": "3EE5BA",
+    "candidate_addr": "3EE608",
+    "size_bytes": 18
+  },
+  {
+    "name": "has_batt_fault",
+    "baseline_addr": "3EE5C3",
+    "candidate_addr": "3EE611",
+    "size_bytes": 36
+  },
+  {
+    "name": "set_pv_fault_flag",
+    "baseline_addr": "3EE5DC",
+    "candidate_addr": "3EE62A",
+    "size_bytes": 18
+  },
+  {
+    "name": "arm_power_check",
+    "baseline_addr": "3EE73A",
+    "candidate_addr": "3EE788",
+    "size_bytes": 348
+  },
+  {
+    "name": "eps_power_calc",
+    "baseline_addr": "3EE8DD",
+    "candidate_addr": "3EE92B",
+    "size_bytes": 102
+  },
+  {
+    "name": "dc_component_calc",
+    "baseline_addr": "3EE9BF",
+    "candidate_addr": "3EEA0D",
+    "size_bytes": 30
+  },
+  {
+    "name": "eps_dc_offset_trim",
+    "baseline_addr": "3EEC07",
+    "candidate_addr": "3EEC55",
+    "size_bytes": 182
+  },
+  {
+    "name": "grid_loss_watchdog_kick",
+    "baseline_addr": "3EEDBB",
+    "candidate_addr": "3EEE09",
+    "size_bytes": 34
+  },
+  {
+    "name": "grid_power_limit_pi",
+    "baseline_addr": "3EEF4D",
+    "candidate_addr": "3EEF9B",
+    "size_bytes": 236
+  },
+  {
+    "name": "init_ac_meas",
+    "baseline_addr": "3EEFC3",
+    "candidate_addr": "3EF011",
+    "size_bytes": 58
+  },
+  {
+    "name": "mppt_po_pv1",
+    "baseline_addr": "3EEFE0",
+    "candidate_addr": "3EF02E",
+    "size_bytes": 650
+  },
+  {
+    "name": "mppt_po_pv2",
+    "baseline_addr": "3EF125",
+    "candidate_addr": "3EF173",
+    "size_bytes": 650
+  },
+  {
+    "name": "settings_defaults",
+    "baseline_addr": "3EF6AF",
+    "candidate_addr": "3EF706",
+    "size_bytes": 414
+  },
+  {
+    "name": "grid_freq_setup",
+    "baseline_addr": "3EFBD7",
+    "candidate_addr": "3EFC2E",
+    "size_bytes": 54
+  },
+  {
+    "name": "eps_vctl_init",
+    "baseline_addr": "3EFBF2",
+    "candidate_addr": "3EFC49",
+    "size_bytes": 374
+  },
+  {
+    "name": "pv_ctrl_init",
+    "baseline_addr": "3EFCAD",
+    "candidate_addr": "3EFD04",
+    "size_bytes": 426
+  },
+  {
+    "name": "pv_ctrl_reset",
+    "baseline_addr": "3EFD82",
+    "candidate_addr": "3EFDD9",
+    "size_bytes": 222
+  },
+  {
+    "name": "grid_ctrl_init",
+    "baseline_addr": "3EFDF1",
+    "candidate_addr": "3EFE48",
+    "size_bytes": 628
+  },
+  {
+    "name": "inv_off",
+    "baseline_addr": "3EFF2B",
+    "candidate_addr": "3EFF82",
+    "size_bytes": 16
+  },
+  {
+    "name": "pv1_stop",
+    "baseline_addr": "3EFF33",
+    "candidate_addr": "3EFF8A",
+    "size_bytes": 120
+  },
+  {
+    "name": "pv2_stop",
+    "baseline_addr": "3EFF6F",
+    "candidate_addr": "3EFFC6",
+    "size_bytes": 124
+  },
+  {
+    "name": "pv_stop_all",
+    "baseline_addr": "3EFFAD",
+    "candidate_addr": "3F0004",
+    "size_bytes": 184
+  },
+  {
+    "name": "dcdc_ctrl_init",
+    "baseline_addr": "3F0009",
+    "candidate_addr": "3F0060",
+    "size_bytes": 448
+  },
+  {
+    "name": "rcmu_init",
+    "baseline_addr": "3F00E9",
+    "candidate_addr": "3F0140",
+    "size_bytes": 36
+  },
+  {
+    "name": "rcmu_zero_cal",
+    "baseline_addr": "3F01A1",
+    "candidate_addr": "3F01F8",
+    "size_bytes": 156
+  },
+  {
+    "name": "rcmu_watch",
+    "baseline_addr": "3F0323",
+    "candidate_addr": "3F037A",
+    "size_bytes": 942
+  },
+  {
+    "name": "EMPTY_ISR",
+    "baseline_addr": "3F0874",
+    "candidate_addr": "3F0CA9",
+    "size_bytes": 26
+  },
+  {
+    "name": "batt_warning_update",
+    "baseline_addr": "3F0BEB",
+    "candidate_addr": "3F08ED",
+    "size_bytes": 132
+  },
+  {
+    "name": "DMAInitialize",
+    "baseline_addr": "3F0C2D",
+    "candidate_addr": "3F0CCA",
+    "size_bytes": 22
+  },
+  {
+    "name": "DMACH1AddrConfig",
+    "baseline_addr": "3F0C38",
+    "candidate_addr": "3F0CD5",
+    "size_bytes": 20
+  },
+  {
+    "name": "DMACH1BurstConfig",
+    "baseline_addr": "3F0C42",
+    "candidate_addr": "3F0CDF",
+    "size_bytes": 18
+  },
+  {
+    "name": "DMACH1TransferConfig",
+    "baseline_addr": "3F0C4B",
+    "candidate_addr": "3F0CE8",
+    "size_bytes": 18
+  },
+  {
+    "name": "DMACH1WrapConfig",
+    "baseline_addr": "3F0C54",
+    "candidate_addr": "3F0CF1",
+    "size_bytes": 20
+  },
+  {
+    "name": "DMACH1ModeConfig",
+    "baseline_addr": "3F0C5E",
+    "candidate_addr": "3F0CFB",
+    "size_bytes": 80
+  },
+  {
+    "name": "StartDMACH1",
+    "baseline_addr": "3F0C86",
+    "candidate_addr": "3F0D23",
+    "size_bytes": 16
+  },
+  {
+    "name": "DMACH2AddrConfig",
+    "baseline_addr": "3F0C8E",
+    "candidate_addr": "3F0D2B",
+    "size_bytes": 20
+  },
+  {
+    "name": "DMACH2BurstConfig",
+    "baseline_addr": "3F0C98",
+    "candidate_addr": "3F0D35",
+    "size_bytes": 18
+  },
+  {
+    "name": "DMACH2TransferConfig",
+    "baseline_addr": "3F0CA1",
+    "candidate_addr": "3F0D3E",
+    "size_bytes": 18
+  },
+  {
+    "name": "DMACH2WrapConfig",
+    "baseline_addr": "3F0CAA",
+    "candidate_addr": "3F0D47",
+    "size_bytes": 20
+  },
+  {
+    "name": "DMACH2ModeConfig",
+    "baseline_addr": "3F0CB4",
+    "candidate_addr": "3F0D51",
+    "size_bytes": 198
+  },
+  {
+    "name": "StartDMACH2",
+    "baseline_addr": "3F0D17",
+    "candidate_addr": "3F0DB4",
+    "size_bytes": 16
+  },
+  {
+    "name": "DMACH3AddrConfig",
+    "baseline_addr": "3F0D1F",
+    "candidate_addr": "3F0DBC",
+    "size_bytes": 20
+  },
+  {
+    "name": "DMACH3BurstConfig",
+    "baseline_addr": "3F0D29",
+    "candidate_addr": "3F0DC6",
+    "size_bytes": 18
+  },
+  {
+    "name": "DMACH3TransferConfig",
+    "baseline_addr": "3F0D32",
+    "candidate_addr": "3F0DCF",
+    "size_bytes": 18
+  },
+  {
+    "name": "DMACH3WrapConfig",
+    "baseline_addr": "3F0D3B",
+    "candidate_addr": "3F0DD8",
+    "size_bytes": 20
+  },
+  {
+    "name": "DMACH3ModeConfig",
+    "baseline_addr": "3F0D45",
+    "candidate_addr": "3F0DE2",
+    "size_bytes": 198
+  },
+  {
+    "name": "StartDMACH3",
+    "baseline_addr": "3F0DA8",
+    "candidate_addr": "3F0E45",
+    "size_bytes": 16
+  },
+  {
+    "name": "DMACH4AddrConfig",
+    "baseline_addr": "3F0DB0",
+    "candidate_addr": "3F0E4D",
+    "size_bytes": 20
+  },
+  {
+    "name": "DMACH4BurstConfig",
+    "baseline_addr": "3F0DBA",
+    "candidate_addr": "3F0E57",
+    "size_bytes": 18
+  },
+  {
+    "name": "DMACH4TransferConfig",
+    "baseline_addr": "3F0DC3",
+    "candidate_addr": "3F0E60",
+    "size_bytes": 18
+  },
+  {
+    "name": "DMACH4WrapConfig",
+    "baseline_addr": "3F0DCC",
+    "candidate_addr": "3F0E69",
+    "size_bytes": 20
+  },
+  {
+    "name": "DMACH4ModeConfig",
+    "baseline_addr": "3F0DD6",
+    "candidate_addr": "3F0E73",
+    "size_bytes": 202
+  },
+  {
+    "name": "StartDMACH4",
+    "baseline_addr": "3F0E3B",
+    "candidate_addr": "3F0ED8",
+    "size_bytes": 16
+  },
+  {
+    "name": "DMACH5AddrConfig",
+    "baseline_addr": "3F0E43",
+    "candidate_addr": "3F0EE0",
+    "size_bytes": 20
+  },
+  {
+    "name": "DMACH5BurstConfig",
+    "baseline_addr": "3F0E4D",
+    "candidate_addr": "3F0EEA",
+    "size_bytes": 18
+  },
+  {
+    "name": "DMACH5TransferConfig",
+    "baseline_addr": "3F0E56",
+    "candidate_addr": "3F0EF3",
+    "size_bytes": 18
+  },
+  {
+    "name": "DMACH5WrapConfig",
+    "baseline_addr": "3F0E5F",
+    "candidate_addr": "3F0EFC",
+    "size_bytes": 20
+  },
+  {
+    "name": "DMACH5ModeConfig",
+    "baseline_addr": "3F0E69",
+    "candidate_addr": "3F0F06",
+    "size_bytes": 202
+  },
+  {
+    "name": "StartDMACH5",
+    "baseline_addr": "3F0ECE",
+    "candidate_addr": "3F0F6B",
+    "size_bytes": 16
+  },
+  {
+    "name": "DMACH6AddrConfig",
+    "baseline_addr": "3F0ED6",
+    "candidate_addr": "3F0F73",
+    "size_bytes": 20
+  },
+  {
+    "name": "DMACH6BurstConfig",
+    "baseline_addr": "3F0EE0",
+    "candidate_addr": "3F0F7D",
+    "size_bytes": 18
+  },
+  {
+    "name": "DMACH6TransferConfig",
+    "baseline_addr": "3F0EE9",
+    "candidate_addr": "3F0F86",
+    "size_bytes": 18
+  },
+  {
+    "name": "DMACH6WrapConfig",
+    "baseline_addr": "3F0EF2",
+    "candidate_addr": "3F0F8F",
+    "size_bytes": 20
+  },
+  {
+    "name": "DMACH6ModeConfig",
+    "baseline_addr": "3F0EFC",
+    "candidate_addr": "3F0F99",
+    "size_bytes": 202
+  },
+  {
+    "name": "StartDMACH6",
+    "baseline_addr": "3F0F61",
+    "candidate_addr": "3F0FFE",
+    "size_bytes": 16
+  },
+  {
+    "name": "checksum_xor",
+    "baseline_addr": "3F0F69",
+    "candidate_addr": "3F1006",
+    "size_bytes": 68
+  },
+  {
+    "name": "min7f",
+    "baseline_addr": "3F0F8B",
+    "candidate_addr": "3F1028",
+    "size_bytes": 150
+  },
+  {
+    "name": "max3f",
+    "baseline_addr": "3F0FD6",
+    "candidate_addr": "3F1073",
+    "size_bytes": 58
+  },
+  {
+    "name": "median3ul",
+    "baseline_addr": "3F0FF3",
+    "candidate_addr": "3F1090",
+    "size_bytes": 66
+  },
+  {
+    "name": "limitf",
+    "baseline_addr": "3F1014",
+    "candidate_addr": "3F10B1",
+    "size_bytes": 54
+  },
+  {
+    "name": "limitu",
+    "baseline_addr": "3F102F",
+    "candidate_addr": "3F10CC",
+    "size_bytes": 32
+  },
+  {
+    "name": "limiti",
+    "baseline_addr": "3F103F",
+    "candidate_addr": "3F10DC",
+    "size_bytes": 32
+  },
+  {
+    "name": "min3f",
+    "baseline_addr": "3F104F",
+    "candidate_addr": "3F10EC",
+    "size_bytes": 58
+  },
+  {
+    "name": "clampu",
+    "baseline_addr": "3F106C",
+    "candidate_addr": "3F1109",
+    "size_bytes": 34
+  },
+  {
+    "name": "cal_gain_or_unity",
+    "baseline_addr": "3F107D",
+    "candidate_addr": "3F111A",
+    "size_bytes": 26
+  },
+  {
+    "name": "labs32",
+    "baseline_addr": "3F108A",
+    "candidate_addr": "3F1127",
+    "size_bytes": 20
+  },
+  {
+    "name": "limit_sym",
+    "baseline_addr": "3F1094",
+    "candidate_addr": "3F1131",
+    "size_bytes": 34
+  },
+  {
+    "name": "isqrt_div",
+    "baseline_addr": "3F10A5",
+    "candidate_addr": "3F1142",
+    "size_bytes": 148
+  },
+  {
+    "name": "udiv32_16",
+    "baseline_addr": "3F10EF",
+    "candidate_addr": "3F118C",
+    "size_bytes": 32
+  },
+  {
+    "name": "debounce_out",
+    "baseline_addr": "3F10FF",
+    "candidate_addr": "3F119C",
+    "size_bytes": 48
+  },
+  {
+    "name": "debounce_in",
+    "baseline_addr": "3F1117",
+    "candidate_addr": "3F11B4",
+    "size_bytes": 48
+  },
+  {
+    "name": "debounce_gt",
+    "baseline_addr": "3F112F",
+    "candidate_addr": "3F11CC",
+    "size_bytes": 42
+  },
+  {
+    "name": "debounce_lt",
+    "baseline_addr": "3F1144",
+    "candidate_addr": "3F11E1",
+    "size_bytes": 42
+  },
+  {
+    "name": "hexdigit",
+    "baseline_addr": "3F1159",
+    "candidate_addr": "3F11F6",
+    "size_bytes": 18
+  },
+  {
+    "name": "ring_reset",
+    "baseline_addr": "3F1322",
+    "candidate_addr": "3F13BF",
+    "size_bytes": 88
+  },
+  {
+    "name": "ring_read",
+    "baseline_addr": "3F145F",
+    "candidate_addr": "3F14FC",
+    "size_bytes": 80
+  },
+  {
+    "name": "os_take_events",
+    "baseline_addr": "3F1702",
+    "candidate_addr": "3F179F",
+    "size_bytes": 20
+  },
+  {
+    "name": "os_post",
+    "baseline_addr": "3F170C",
+    "candidate_addr": "3F17A9",
+    "size_bytes": 62
+  },
+  {
+    "name": "os_post_flag",
+    "baseline_addr": "3F172B",
+    "candidate_addr": "3F17C8",
+    "size_bytes": 36
+  },
+  {
+    "name": "os_post_isr",
+    "baseline_addr": "3F173D",
+    "candidate_addr": "3F17DA",
+    "size_bytes": 56
+  },
+  {
+    "name": "FS$$DIV",
+    "baseline_addr": "3F1759",
+    "candidate_addr": "3F17F6",
+    "size_bytes": 272
+  },
+  {
+    "name": "os_highest",
+    "baseline_addr": "3F17E1",
+    "candidate_addr": "3F187E",
+    "size_bytes": 94
+  },
+  {
+    "name": "os_init_vars",
+    "baseline_addr": "3F182F",
+    "candidate_addr": "3F18CC",
+    "size_bytes": 36
+  },
+  {
+    "name": "os_init_tcbs",
+    "baseline_addr": "3F1841",
+    "candidate_addr": "3F18DE",
+    "size_bytes": 40
+  },
+  {
+    "name": "cosf",
+    "baseline_addr": "3F18C4",
+    "candidate_addr": "3F1961",
+    "size_bytes": 194
+  },
+  {
+    "name": "sinf",
+    "baseline_addr": "3F1925",
+    "candidate_addr": "3F19C2",
+    "size_bytes": 176
+  },
+  {
+    "name": "os_start_high",
+    "baseline_addr": "3F1A67",
+    "candidate_addr": "3F1B04",
+    "size_bytes": 32
+  },
+  {
+    "name": "os_ctx_sw_isr",
+    "baseline_addr": "3F1A77",
+    "candidate_addr": "3F1B14",
+    "size_bytes": 70
+  },
+  {
+    "name": "os_stack_init",
+    "baseline_addr": "3F1ACC",
+    "candidate_addr": "3F1B69",
+    "size_bytes": 86
+  },
+  {
+    "name": "sqrtf",
+    "baseline_addr": "3F1B20",
+    "candidate_addr": "3F1BBE",
+    "size_bytes": 74
+  },
+  {
+    "name": "memcpy",
+    "baseline_addr": "3F1B45",
+    "candidate_addr": "3F1BE3",
+    "size_bytes": 60
+  },
+  {
+    "name": "ddcopy",
+    "baseline_addr": "3F1B63",
+    "candidate_addr": "3F1C01",
+    "size_bytes": 52
+  },
+  {
+    "name": "iq_consts_init",
+    "baseline_addr": "3F1B96",
+    "candidate_addr": "3F1C34",
+    "size_bytes": 28
+  },
+  {
+    "name": "current_controller",
+    "baseline_addr": "3F1BB7",
+    "candidate_addr": "3F1C54",
+    "size_bytes": 952
+  },
+  {
+    "name": "pi_step",
+    "baseline_addr": "3F1E6B",
+    "candidate_addr": "3F1F08",
+    "size_bytes": 156
+  },
+  {
+    "name": "pid_pos_step",
+    "baseline_addr": "3F1EB9",
+    "candidate_addr": "3F1F56",
+    "size_bytes": 176
+  },
+  {
+    "name": "avg_win_step",
+    "baseline_addr": "3F1F20",
+    "candidate_addr": "3F1FBD",
+    "size_bytes": 306
+  },
+  {
+    "name": "pi_inc_step",
+    "baseline_addr": "3F1FB9",
+    "candidate_addr": "3F2056",
+    "size_bytes": 108
+  },
+  {
+    "name": "pid_inc_step",
+    "baseline_addr": "3F1FEF",
+    "candidate_addr": "3F208C",
+    "size_bytes": 144
+  },
+  {
+    "name": "island_detect",
+    "baseline_addr": "3F2046",
+    "candidate_addr": "3F20E3",
+    "size_bytes": 210
+  },
+  {
+    "name": "q_loop_step",
+    "baseline_addr": "3F20AF",
+    "candidate_addr": "3F214C",
+    "size_bytes": 210
+  },
+  {
+    "name": "rep_filter_step",
+    "baseline_addr": "3F2118",
+    "candidate_addr": "3F21B5",
+    "size_bytes": 188
+  },
+  {
+    "name": "grid_ictl_run",
+    "baseline_addr": "3F21B5",
+    "candidate_addr": "3F2252",
+    "size_bytes": 204
+  },
+  {
+    "name": "inv_pwm_update",
+    "baseline_addr": "3F221B",
+    "candidate_addr": "3F22B8",
+    "size_bytes": 178
+  },
+  {
+    "name": "pwm34_release",
+    "baseline_addr": "3F2274",
+    "candidate_addr": "3F2311",
+    "size_bytes": 26
+  },
+  {
+    "name": "pwm34_force_off",
+    "baseline_addr": "3F2281",
+    "candidate_addr": "3F231E",
+    "size_bytes": 42
+  },
+  {
+    "name": "pwm78_force_low",
+    "baseline_addr": "3F2296",
+    "candidate_addr": "3F2333",
+    "size_bytes": 42
+  },
+  {
+    "name": "pwm78_release",
+    "baseline_addr": "3F22AB",
+    "candidate_addr": "3F2348",
+    "size_bytes": 26
+  },
+  {
+    "name": "pwm5_force_off",
+    "baseline_addr": "3F22B8",
+    "candidate_addr": "3F2355",
+    "size_bytes": 22
+  },
+  {
+    "name": "grid_pll_run",
+    "baseline_addr": "3F22CA",
+    "candidate_addr": "3F2367",
+    "size_bytes": 54
+  },
+  {
+    "name": "q_loop_run",
+    "baseline_addr": "3F22E5",
+    "candidate_addr": "3F2382",
+    "size_bytes": 46
+  },
+  {
+    "name": "dcdc_ctrl_reset",
+    "baseline_addr": "3F24FF",
+    "candidate_addr": "3F259C",
+    "size_bytes": 266
+  },
+  {
+    "name": "adc_scale",
+    "baseline_addr": "3F2584",
+    "candidate_addr": "3F2621",
+    "size_bytes": 864
+  },
+  {
+    "name": "grid_rms_accum",
+    "baseline_addr": "3F2783",
+    "candidate_addr": "3F2820",
+    "size_bytes": 164
+  },
+  {
+    "name": "eps_vctl_clear",
+    "baseline_addr": "3F289F",
+    "candidate_addr": "3F293C",
+    "size_bytes": 92
+  },
+  {
+    "name": "grid_ictl_clear",
+    "baseline_addr": "3F28CD",
+    "candidate_addr": "3F296A",
+    "size_bytes": 186
+  },
+  {
+    "name": "relay_drive",
+    "baseline_addr": "3F292A",
+    "candidate_addr": "3F29C7",
+    "size_bytes": 174
+  },
+  {
+    "name": "pv_bus_limit",
+    "baseline_addr": "3F29C1",
+    "candidate_addr": "3F2A5E",
+    "size_bytes": 332
+  },
+  {
+    "name": "pv1_ctrl",
+    "baseline_addr": "3F2A67",
+    "candidate_addr": "3F2B04",
+    "size_bytes": 416
+  },
+  {
+    "name": "pv2_ctrl",
+    "baseline_addr": "3F2B37",
+    "candidate_addr": "3F2BD4",
+    "size_bytes": 500
+  },
+  {
+    "name": "grid_v_check",
+    "baseline_addr": "3F2E5E",
+    "candidate_addr": "3F2EFB",
+    "size_bytes": 162
+  },
+  {
+    "name": "grid_angle_update",
+    "baseline_addr": "3F2EAF",
+    "candidate_addr": "3F2F4C",
+    "size_bytes": 164
+  },
+  {
+    "name": "grid_ictl",
+    "baseline_addr": "3F3153",
+    "candidate_addr": "3F31F0",
+    "size_bytes": 428
+  },
+  {
+    "name": "eps_vctl",
+    "baseline_addr": "3F3229",
+    "candidate_addr": "3F32C6",
+    "size_bytes": 396
+  },
+  {
+    "name": "rcmu_fast_check",
+    "baseline_addr": "3F32EF",
+    "candidate_addr": "3F338C",
+    "size_bytes": 98
+  },
+  {
+    "name": "rate_limit",
+    "baseline_addr": "3F3320",
+    "candidate_addr": "3F33BD",
+    "size_bytes": 92
+  },
+  {
+    "name": "InitFlash",
+    "baseline_addr": "3F334E",
+    "candidate_addr": "3F33EB",
+    "size_bytes": 58
+  },
+  {
+    "name": "boot_flash_loader",
+    "baseline_addr": "3F5004",
+    "candidate_addr": "3F5004",
+    "size_bytes": 1092
+  },
+  {
+    "name": "boot_main",
+    "baseline_addr": "3F5226",
+    "candidate_addr": "3F5226",
+    "size_bytes": 204
+  },
+  {
+    "name": "CsmUnlock",
+    "baseline_addr": "3F528C",
+    "candidate_addr": "3F528C",
+    "size_bytes": 94
+  },
+  {
+    "name": "MemCopy",
+    "baseline_addr": "3F52BB",
+    "candidate_addr": "3F52BB",
+    "size_bytes": 18
+  },
+  {
+    "name": "boot_copy_run",
+    "baseline_addr": "3F52C4",
+    "candidate_addr": "3F52C4",
+    "size_bytes": 32
+  }
+]

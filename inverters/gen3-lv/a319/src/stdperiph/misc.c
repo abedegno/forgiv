@@ -1,0 +1,14 @@
+/* at: NVIC_PriorityGroupConfig 0x0802DF68, NVIC_Init 0x0802DF72, NVIC_SetVectorTable 0x0802DFD6, NVIC_SystemLPConfig 0x0802DFE4, SysTick_CLKSourceConfig 0x0802E006 */
+/* opts: --cpu Cortex-M3 -O0 -DSTM32F10X_CL -DUSE_STDPERIPH_DRIVER -I{root}/lib/stdperiph35/Libraries/STM32F10x_StdPeriph_Driver/inc -I{root}/lib/stdperiph35/Libraries/CMSIS/CM3/CoreSupport -I{root}/lib/stdperiph35/Libraries/CMSIS/CM3/DeviceSupport/ST/STM32F10x -I{root}/lib/stdperiph35/Project/STM32F10x_StdPeriph_Template */
+/* ST STM32F10x Standard Peripheral Library V3.5.0, misc.c: the NVIC and SysTick helpers.
+   The file includes ST's source from lib/stdperiph35 and compiles it whole.
+   Job in this firmware: nvic_init (app/board.c) sets the vector table offset 0x14000
+   (NVIC_SetVectorTable), the priority grouping and the interrupt priorities; rtc.c, usb_bsp.c
+   and modbus_slave.c also use it.
+   Changes: none. The included file is V3.5.0 as shipped, built with STM32F10X_CL and
+   USE_STDPERIPH_DRIVER.
+   match: built without --split_sections, as the vendor's build was: the driver is one section,
+   so armlink keeps every function in it, and the image holds functions nothing calls. The at:
+   line gives each function's address for the proof.
+   name: original. The function names and their order are ST's; the gate proves the file whole. */
+#include "../../lib/stdperiph35/Libraries/STM32F10x_StdPeriph_Driver/src/misc.c"

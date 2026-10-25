@@ -5,6 +5,11 @@ method behind them is in [method.md](method.md); the history of each tree's read
 in its `docs/readability.md` ([A316](../../inverters/gen3-lv/a316/docs/readability.md),
 [D316](../../inverters/gen3-lv/d316/docs/readability.md)).
 
+The same evidence and exactness rules apply to 319. Its [source guide and rename record](../../inverters/gen3-lv/docs/319-readability.md)
+explain the current layout and retained unknown names. Examples below use 316 addresses;
+read the selected target's maps for native addresses. A descriptive name records observed use,
+not a claim to have recovered the vendor's spelling.
+
 ## Notes in the sources
 
 Every source file starts with a header comment, and every function has a comment. Some lines in

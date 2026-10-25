@@ -1,0 +1,1613 @@
+{
+  "318": {
+    "shape_counts": {
+      "ambiguous_shape": 113,
+      "unique_shape": 352,
+      "no_shape_match": 10
+    },
+    "call_checks": {
+      "consistent_call": 593,
+      "unresolved_call": 26
+    },
+    "call_mismatches": [],
+    "changed_ram_bindings": [
+      {
+        "name": "active_power_rate_limit",
+        "references": [
+          {
+            "instruction": 90,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "grid_import_current_limit",
+        "references": [
+          {
+            "instruction": 17,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          }
+        ]
+      },
+      {
+        "name": "soft_start_ramp",
+        "references": [
+          {
+            "instruction": 30,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 113,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "power_limits_update",
+        "references": [
+          {
+            "instruction": 111,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "task5_arm_link",
+        "references": [
+          {
+            "instruction": 13,
+            "kind": "ram",
+            "old": 55553,
+            "new": 55557
+          },
+          {
+            "instruction": 33,
+            "kind": "ram",
+            "old": 55553,
+            "new": 55557
+          },
+          {
+            "instruction": 94,
+            "kind": "ram",
+            "old": 55553,
+            "new": 55557
+          },
+          {
+            "instruction": 171,
+            "kind": "ram",
+            "old": 55560,
+            "new": 55558
+          },
+          {
+            "instruction": 178,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "arm_page0",
+        "references": [
+          {
+            "instruction": 45,
+            "kind": "ram",
+            "old": 55580,
+            "new": 55582
+          }
+        ]
+      },
+      {
+        "name": "arm_page1",
+        "references": [
+          {
+            "instruction": 193,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          },
+          {
+            "instruction": 240,
+            "kind": "ram",
+            "old": 55561,
+            "new": 55572
+          },
+          {
+            "instruction": 260,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          }
+        ]
+      },
+      {
+        "name": "arm_page2",
+        "references": [
+          {
+            "instruction": 119,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          }
+        ]
+      },
+      {
+        "name": "arm_page5",
+        "references": [
+          {
+            "instruction": 53,
+            "kind": "ram",
+            "old": 55569,
+            "new": 55556
+          }
+        ]
+      },
+      {
+        "name": "task3_measure",
+        "references": [
+          {
+            "instruction": 97,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 126,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "pv_iso_check",
+        "references": [
+          {
+            "instruction": 12,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 39,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 45,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "pv_voltage_check",
+        "references": [
+          {
+            "instruction": 58,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          }
+        ]
+      },
+      {
+        "name": "iso_fault_clear",
+        "references": [
+          {
+            "instruction": 9,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 17,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 19,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "batt_power_blocks",
+        "references": [
+          {
+            "instruction": 11,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          },
+          {
+            "instruction": 42,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          }
+        ]
+      },
+      {
+        "name": "soc_power_limits",
+        "references": [
+          {
+            "instruction": 20,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          },
+          {
+            "instruction": 58,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          }
+        ]
+      },
+      {
+        "name": "current_limit_tapers",
+        "references": [
+          {
+            "instruction": 474,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          }
+        ]
+      },
+      {
+        "name": "soc_floor",
+        "references": [
+          {
+            "instruction": 27,
+            "kind": "ram",
+            "old": 54490,
+            "new": 54483
+          },
+          {
+            "instruction": 37,
+            "kind": "ram",
+            "old": 54490,
+            "new": 54483
+          },
+          {
+            "instruction": 38,
+            "kind": "ram",
+            "old": 54490,
+            "new": 54483
+          },
+          {
+            "instruction": 42,
+            "kind": "ram",
+            "old": 54490,
+            "new": 54483
+          },
+          {
+            "instruction": 46,
+            "kind": "ram",
+            "old": 55571,
+            "new": 55575
+          },
+          {
+            "instruction": 49,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          },
+          {
+            "instruction": 155,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          }
+        ]
+      },
+      {
+        "name": "batt_voltage_monitor",
+        "references": [
+          {
+            "instruction": 47,
+            "kind": "ram",
+            "old": 54487,
+            "new": 54488
+          },
+          {
+            "instruction": 48,
+            "kind": "ram",
+            "old": 54487,
+            "new": 54488
+          },
+          {
+            "instruction": 55,
+            "kind": "ram",
+            "old": 54487,
+            "new": 54488
+          },
+          {
+            "instruction": 146,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 180,
+            "kind": "ram",
+            "old": 55580,
+            "new": 55582
+          },
+          {
+            "instruction": 184,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 258,
+            "kind": "ram",
+            "old": 54489,
+            "new": 54490
+          },
+          {
+            "instruction": 259,
+            "kind": "ram",
+            "old": 54489,
+            "new": 54490
+          },
+          {
+            "instruction": 265,
+            "kind": "ram",
+            "old": 54489,
+            "new": 54490
+          },
+          {
+            "instruction": 268,
+            "kind": "ram",
+            "old": 54489,
+            "new": 54490
+          },
+          {
+            "instruction": 282,
+            "kind": "ram",
+            "old": 54488,
+            "new": 54489
+          },
+          {
+            "instruction": 283,
+            "kind": "ram",
+            "old": 54488,
+            "new": 54489
+          },
+          {
+            "instruction": 288,
+            "kind": "ram",
+            "old": 54488,
+            "new": 54489
+          },
+          {
+            "instruction": 291,
+            "kind": "ram",
+            "old": 54488,
+            "new": 54489
+          }
+        ]
+      },
+      {
+        "name": "state0_idle",
+        "references": [
+          {
+            "instruction": 6,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 43,
+            "kind": "ram",
+            "old": 55561,
+            "new": 55572
+          },
+          {
+            "instruction": 65,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "converters_stop",
+        "references": [
+          {
+            "instruction": 17,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "start_grid_pv",
+        "references": [
+          {
+            "instruction": 84,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 139,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "start_eps_pv",
+        "references": [
+          {
+            "instruction": 2,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 53,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 65,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 97,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          }
+        ]
+      },
+      {
+        "name": "state_init",
+        "references": [
+          {
+            "instruction": 6,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "relay_test_step",
+        "references": [
+          {
+            "instruction": 75,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "soft_start",
+        "references": [
+          {
+            "instruction": 10,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 66,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 104,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          }
+        ]
+      },
+      {
+        "name": "relay_test_abort",
+        "references": [
+          {
+            "instruction": 1,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "relays_off_when_disabled",
+        "references": [
+          {
+            "instruction": 17,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "select_state",
+        "references": [
+          {
+            "instruction": 9,
+            "kind": "ram",
+            "old": 55556,
+            "new": 55553
+          },
+          {
+            "instruction": 27,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          }
+        ]
+      },
+      {
+        "name": "eps_output_check",
+        "references": [
+          {
+            "instruction": 177,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 223,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 225,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 247,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 249,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 258,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 271,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "rating_apply",
+        "references": [
+          {
+            "instruction": 13,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "rcmu_selftest_step",
+        "references": [
+          {
+            "instruction": 32,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 34,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "bms_fc4_reply",
+        "references": [
+          {
+            "instruction": 5,
+            "kind": "ram",
+            "old": 55616,
+            "new": 55744
+          }
+        ]
+      },
+      {
+        "name": "sci_rx",
+        "references": [
+          {
+            "instruction": 26,
+            "kind": "ram",
+            "old": 55553,
+            "new": 55557
+          },
+          {
+            "instruction": 132,
+            "kind": "ram",
+            "old": 55553,
+            "new": 55557
+          },
+          {
+            "instruction": 154,
+            "kind": "ram",
+            "old": 55552,
+            "new": 55554
+          }
+        ]
+      },
+      {
+        "name": "sci_tx",
+        "references": [
+          {
+            "instruction": 34,
+            "kind": "ram",
+            "old": 55581,
+            "new": 55586
+          },
+          {
+            "instruction": 36,
+            "kind": "ram",
+            "old": 55585,
+            "new": 55587
+          },
+          {
+            "instruction": 41,
+            "kind": "ram",
+            "old": 55585,
+            "new": 55587
+          },
+          {
+            "instruction": 43,
+            "kind": "ram",
+            "old": 55558,
+            "new": 55563
+          },
+          {
+            "instruction": 45,
+            "kind": "ram",
+            "old": 55585,
+            "new": 55587
+          },
+          {
+            "instruction": 47,
+            "kind": "ram",
+            "old": 55744,
+            "new": 55616
+          },
+          {
+            "instruction": 51,
+            "kind": "ram",
+            "old": 55585,
+            "new": 55587
+          }
+        ]
+      },
+      {
+        "name": "iso_dcdc_pwm",
+        "references": [
+          {
+            "instruction": 30,
+            "kind": "ram",
+            "old": 55561,
+            "new": 55572
+          }
+        ]
+      },
+      {
+        "name": "converter_mode",
+        "references": [
+          {
+            "instruction": 82,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 190,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          }
+        ]
+      },
+      {
+        "name": "fast_fault_check",
+        "references": [
+          {
+            "instruction": 38,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 65,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 90,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 132,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 159,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          }
+        ]
+      }
+    ],
+    "no_shape_match": [
+      "arm_link_frame",
+      "arm_page4",
+      "arm_page7",
+      "batt_power_setpoint",
+      "status_led_and_reset",
+      "app_vars_init",
+      "bms_parse_hr",
+      "task6_bms_link",
+      "bms_lost",
+      "c_int00"
+    ],
+    "ramfunc_load_start": 4135980
+  },
+  "319": {
+    "shape_counts": {
+      "ambiguous_shape": 113,
+      "unique_shape": 351,
+      "no_shape_match": 11
+    },
+    "call_checks": {
+      "consistent_call": 589,
+      "unresolved_call": 27
+    },
+    "call_mismatches": [],
+    "changed_ram_bindings": [
+      {
+        "name": "active_power_rate_limit",
+        "references": [
+          {
+            "instruction": 90,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "soft_start_ramp",
+        "references": [
+          {
+            "instruction": 30,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 113,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "power_limits_update",
+        "references": [
+          {
+            "instruction": 111,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "task5_arm_link",
+        "references": [
+          {
+            "instruction": 13,
+            "kind": "ram",
+            "old": 55553,
+            "new": 55557
+          },
+          {
+            "instruction": 33,
+            "kind": "ram",
+            "old": 55553,
+            "new": 55557
+          },
+          {
+            "instruction": 94,
+            "kind": "ram",
+            "old": 55553,
+            "new": 55557
+          },
+          {
+            "instruction": 171,
+            "kind": "ram",
+            "old": 55560,
+            "new": 55558
+          },
+          {
+            "instruction": 178,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "arm_page0",
+        "references": [
+          {
+            "instruction": 45,
+            "kind": "ram",
+            "old": 55580,
+            "new": 55582
+          }
+        ]
+      },
+      {
+        "name": "arm_page1",
+        "references": [
+          {
+            "instruction": 193,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          },
+          {
+            "instruction": 240,
+            "kind": "ram",
+            "old": 55561,
+            "new": 55572
+          },
+          {
+            "instruction": 260,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          }
+        ]
+      },
+      {
+        "name": "arm_page2",
+        "references": [
+          {
+            "instruction": 119,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          }
+        ]
+      },
+      {
+        "name": "arm_page5",
+        "references": [
+          {
+            "instruction": 53,
+            "kind": "ram",
+            "old": 55569,
+            "new": 55556
+          }
+        ]
+      },
+      {
+        "name": "task3_measure",
+        "references": [
+          {
+            "instruction": 97,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 126,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "pv_iso_check",
+        "references": [
+          {
+            "instruction": 12,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 39,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 45,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "pv_voltage_check",
+        "references": [
+          {
+            "instruction": 58,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          }
+        ]
+      },
+      {
+        "name": "iso_fault_clear",
+        "references": [
+          {
+            "instruction": 9,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 17,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 19,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "batt_power_blocks",
+        "references": [
+          {
+            "instruction": 11,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          },
+          {
+            "instruction": 42,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          }
+        ]
+      },
+      {
+        "name": "soc_power_limits",
+        "references": [
+          {
+            "instruction": 20,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          },
+          {
+            "instruction": 58,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          }
+        ]
+      },
+      {
+        "name": "current_limit_tapers",
+        "references": [
+          {
+            "instruction": 474,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          }
+        ]
+      },
+      {
+        "name": "soc_floor",
+        "references": [
+          {
+            "instruction": 27,
+            "kind": "ram",
+            "old": 54490,
+            "new": 54483
+          },
+          {
+            "instruction": 37,
+            "kind": "ram",
+            "old": 54490,
+            "new": 54483
+          },
+          {
+            "instruction": 38,
+            "kind": "ram",
+            "old": 54490,
+            "new": 54483
+          },
+          {
+            "instruction": 42,
+            "kind": "ram",
+            "old": 54490,
+            "new": 54483
+          },
+          {
+            "instruction": 46,
+            "kind": "ram",
+            "old": 55571,
+            "new": 55575
+          },
+          {
+            "instruction": 49,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          },
+          {
+            "instruction": 155,
+            "kind": "ram",
+            "old": 55559,
+            "new": 55560
+          }
+        ]
+      },
+      {
+        "name": "batt_voltage_monitor",
+        "references": [
+          {
+            "instruction": 47,
+            "kind": "ram",
+            "old": 54487,
+            "new": 54488
+          },
+          {
+            "instruction": 48,
+            "kind": "ram",
+            "old": 54487,
+            "new": 54488
+          },
+          {
+            "instruction": 55,
+            "kind": "ram",
+            "old": 54487,
+            "new": 54488
+          },
+          {
+            "instruction": 146,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 180,
+            "kind": "ram",
+            "old": 55580,
+            "new": 55582
+          },
+          {
+            "instruction": 184,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 258,
+            "kind": "ram",
+            "old": 54489,
+            "new": 54490
+          },
+          {
+            "instruction": 259,
+            "kind": "ram",
+            "old": 54489,
+            "new": 54490
+          },
+          {
+            "instruction": 265,
+            "kind": "ram",
+            "old": 54489,
+            "new": 54490
+          },
+          {
+            "instruction": 268,
+            "kind": "ram",
+            "old": 54489,
+            "new": 54490
+          },
+          {
+            "instruction": 282,
+            "kind": "ram",
+            "old": 54488,
+            "new": 54489
+          },
+          {
+            "instruction": 283,
+            "kind": "ram",
+            "old": 54488,
+            "new": 54489
+          },
+          {
+            "instruction": 288,
+            "kind": "ram",
+            "old": 54488,
+            "new": 54489
+          },
+          {
+            "instruction": 291,
+            "kind": "ram",
+            "old": 54488,
+            "new": 54489
+          }
+        ]
+      },
+      {
+        "name": "state0_idle",
+        "references": [
+          {
+            "instruction": 6,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 43,
+            "kind": "ram",
+            "old": 55561,
+            "new": 55572
+          },
+          {
+            "instruction": 65,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "converters_stop",
+        "references": [
+          {
+            "instruction": 17,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "start_grid_pv",
+        "references": [
+          {
+            "instruction": 84,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 139,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "start_eps_pv",
+        "references": [
+          {
+            "instruction": 2,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 53,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 65,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 97,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          }
+        ]
+      },
+      {
+        "name": "state_init",
+        "references": [
+          {
+            "instruction": 6,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "relay_test_step",
+        "references": [
+          {
+            "instruction": 75,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "soft_start",
+        "references": [
+          {
+            "instruction": 10,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 66,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 104,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          }
+        ]
+      },
+      {
+        "name": "relay_test_abort",
+        "references": [
+          {
+            "instruction": 1,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "relays_off_when_disabled",
+        "references": [
+          {
+            "instruction": 17,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "select_state",
+        "references": [
+          {
+            "instruction": 9,
+            "kind": "ram",
+            "old": 55556,
+            "new": 55553
+          },
+          {
+            "instruction": 27,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          }
+        ]
+      },
+      {
+        "name": "eps_output_check",
+        "references": [
+          {
+            "instruction": 177,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 223,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 225,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 247,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 249,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 258,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 271,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "rating_apply",
+        "references": [
+          {
+            "instruction": 13,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "rcmu_selftest_step",
+        "references": [
+          {
+            "instruction": 32,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          },
+          {
+            "instruction": 34,
+            "kind": "ram",
+            "old": 55233,
+            "new": 55235
+          }
+        ]
+      },
+      {
+        "name": "bms_fc4_reply",
+        "references": [
+          {
+            "instruction": 5,
+            "kind": "ram",
+            "old": 55616,
+            "new": 55744
+          }
+        ]
+      },
+      {
+        "name": "sci_rx",
+        "references": [
+          {
+            "instruction": 26,
+            "kind": "ram",
+            "old": 55553,
+            "new": 55557
+          },
+          {
+            "instruction": 132,
+            "kind": "ram",
+            "old": 55553,
+            "new": 55557
+          },
+          {
+            "instruction": 154,
+            "kind": "ram",
+            "old": 55552,
+            "new": 55554
+          }
+        ]
+      },
+      {
+        "name": "sci_tx",
+        "references": [
+          {
+            "instruction": 34,
+            "kind": "ram",
+            "old": 55581,
+            "new": 55586
+          },
+          {
+            "instruction": 36,
+            "kind": "ram",
+            "old": 55585,
+            "new": 55587
+          },
+          {
+            "instruction": 41,
+            "kind": "ram",
+            "old": 55585,
+            "new": 55587
+          },
+          {
+            "instruction": 43,
+            "kind": "ram",
+            "old": 55558,
+            "new": 55563
+          },
+          {
+            "instruction": 45,
+            "kind": "ram",
+            "old": 55585,
+            "new": 55587
+          },
+          {
+            "instruction": 47,
+            "kind": "ram",
+            "old": 55744,
+            "new": 55616
+          },
+          {
+            "instruction": 51,
+            "kind": "ram",
+            "old": 55585,
+            "new": 55587
+          }
+        ]
+      },
+      {
+        "name": "iso_dcdc_pwm",
+        "references": [
+          {
+            "instruction": 30,
+            "kind": "ram",
+            "old": 55561,
+            "new": 55572
+          }
+        ]
+      },
+      {
+        "name": "converter_mode",
+        "references": [
+          {
+            "instruction": 82,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 190,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          }
+        ]
+      },
+      {
+        "name": "fast_fault_check",
+        "references": [
+          {
+            "instruction": 38,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 65,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 90,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 132,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          },
+          {
+            "instruction": 159,
+            "kind": "ram",
+            "old": 55562,
+            "new": 55559
+          }
+        ]
+      }
+    ],
+    "no_shape_match": [
+      "grid_import_current_limit",
+      "arm_link_frame",
+      "arm_page4",
+      "arm_page7",
+      "batt_power_setpoint",
+      "status_led_and_reset",
+      "app_vars_init",
+      "bms_parse_hr",
+      "task6_bms_link",
+      "bms_lost",
+      "c_int00"
+    ],
+    "ramfunc_load_start": 4136020
+  },
+  "318_319": {
+    "common_unique_316_shapes": 351,
+    "changed_ram_bindings": [],
+    "lost_316_shape": [
+      "grid_import_current_limit"
+    ],
+    "gained_316_shape": [],
+    "limitation": "does not cover functions whose 316 shape changed in both versions; no claim that their 318-to-319 logic is equal"
+  }
+}

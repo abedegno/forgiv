@@ -1,17 +1,26 @@
 # GivEnergy Hybrid Gen3 LV inverter
 
 The Gen3 LV hybrid inverter (G3) has two processors, each with its own firmware. GivEnergy
-shipped them together in update packages named after both versions; this directory holds version
-316 of each, from the package `A316-D316.zip`.
+shipped them together in update packages named after both versions; this directory holds byte-exact reconstructions of versions 316 and 319 of each.
+
+The approved 318 and 319 packages are now pinned in the firmware manifest for
+comparison. Both [A319](a319/README.md) and [D319](d319/README.md) now rebuild
+exactly with zero original-byte/word blobs. Version 318 remains surveyed only. The
+[version survey](docs/version-survey/README.md) records all six image hashes,
+fingerprints and conservative byte-identical function candidates against 316.
+The [319 source and build guide](docs/319-readability.md) covers the completed naming pass,
+compiler boundaries and exact rebuilds; the [handover](docs/319-handover.md) records the result.
 
 | Directory | Firmware | Chip | Update file |
 |---|---|---|---|
 | [a316/](a316/README.md) | A316 | STMicroelectronics STM32F105/107 (Cortex-M3, connectivity line) | `ARMStore.bin` |
 | [d316/](d316/README.md) | D316 | Texas Instruments TMS320F2806x (C28x with FPU) | `DSPStore.bin` |
+| [a319/](a319/README.md) | A319 | STMicroelectronics STM32F105/107 (Cortex-M3) | `ARMStore.bin` |
+| [d319/](d319/README.md) | D319 | Texas Instruments TMS320F2806x (C28x with FPU) | `DSPStore.bin` |
 
 ## What each chip does
 
-The **ARM** (A316) is the inverter's main controller and its link to the outside:
+The **ARM** (A316/A319) is the inverter's main controller and its link to the outside:
 
 - the Modbus slave on RS485 and, through the WiFi or LAN dongle on its USB port, for the cloud
   and the app (`src/app/comm/modbus_slave.c`);
@@ -22,7 +31,7 @@ The **ARM** (A316) is the inverter's main controller and its link to the outside
 - the decisions above the power stage: when to charge, discharge or export, from the settings,
   the schedule and the meter.
 
-The **DSP** (D316) runs the power conversion:
+The **DSP** (D316/D319) runs the power conversion:
 
 - the PWM control loops of the battery converter, the inverter bridge (grid or EPS) and the PV
   boosts, from a fast interrupt (`control_isr`);
@@ -43,6 +52,8 @@ in turn); the DSP answers with a telemetry page every 240 ms (pages 0 to 6), whi
 measurements, the fault words and the BMS data. Both sides of each page are described in
 [a316/docs/subsystems/comm.md](a316/docs/subsystems/comm.md) and
 [d316/docs/subsystems/arm_link.md](d316/docs/subsystems/arm_link.md).
+Those complete tables describe 316. The 319 target READMEs record the added HR1/HR15
+handshake and battery-power-target fields.
 
 ## Update packages
 
@@ -63,7 +74,7 @@ word addresses 0x3E8000 to 0x3F7FFF; its first word is the version.
 
 ## Documentation
 
-The pages across both chips are in [docs/](../../docs/README.md) at the repository root:
+The 316 baseline pages across both chips are in [docs/](../../docs/README.md) at the repository root:
 [architecture](../../docs/system/architecture.md), [start-up](../../docs/operation/startup.md),
 [states](../../docs/operation/states.md), [energy modes](../../docs/operation/energy-modes.md),
 [the battery](../../docs/operation/battery.md), and the

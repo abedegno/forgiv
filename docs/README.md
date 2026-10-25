@@ -16,6 +16,23 @@ The two firmware trees have their own, more detailed notes:
 The pages here are the view across both chips. They summarise and connect; for every formula
 and threshold they link to the tree that holds it.
 
+## Firmware versions
+
+The operation, system and reference pages below describe **A316/D316**. Their source links,
+addresses and complete register tables refer to that baseline.
+
+**A319/D319 also rebuild byte-for-byte with zero original-byte/word blobs.** Start with the
+[319 source and build guide](../inverters/gen3-lv/docs/319-readability.md),
+[handover](../inverters/gen3-lv/docs/319-handover.md),
+[ARM reconstruction](../inverters/gen3-lv/a319/README.md) and
+[DSP reconstruction](../inverters/gen3-lv/d319/README.md). These record the BMS handshake,
+meter and power-target changes; the full baseline tables have not all been audited for 319.
+The [version survey](../inverters/gen3-lv/docs/version-survey/README.md) includes 318,
+which has no reconstructed source tree.
+
+The [LV battery BMS 3020](../batteries/lv/bms-3020/README.md) is a separate exact target.
+Its ASCII dispatcher remains assembler pending a C match.
+
 ## Reading paths
 
 **If you own an inverter** and want to know what it does:
