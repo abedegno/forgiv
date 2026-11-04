@@ -57,6 +57,7 @@ overvoltage, and stopping balancing during a cell-detection fault. The code show
 - `src/board` is board support. The ST standard peripheral library sources are not included;
   the files in `src/stdperiph` only include the external library.
 
-The names are descriptive names I chose for the recovered roles, not the vendor's own.
+The names are descriptive names I chose for the recovered roles, not the vendor's own. The
+[3020 findings](../bms-3020/docs/findings.md) hold for 3022 too, because the code is the same.
 
 Nothing here flashes a device.
