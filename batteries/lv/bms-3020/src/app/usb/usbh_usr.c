@@ -3,7 +3,7 @@
    Entry examples: usb_user_initialize, usb_user_device_attached, usb_user_unrecovered_error.
    name: I use this descriptive subsystem filename; I have no original filename evidence. */
 /* USB host user application (USR_cb) and the firmware-update relay. Proved whole. */
-/* at: usb_user_initialize 0x08015AAC, usb_user_device_attached 0x08015ABA, usb_user_unrecovered_error 0x08015ABC, usb_user_device_disconnected 0x08015ABE, usb_user_reset_device 0x08015AD8, usb_user_speed_detected 0x08015ADA, usb_user_device_descriptor 0x08015ADC, usb_user_address_assigned 0x08015ADE, usb_user_configuration 0x08015AE0, usb_user_manufacturer_string 0x08015AFA, usb_user_product_string 0x08015AFC, usb_user_serial_number 0x08015AFE, usb_user_enumeration_done 0x08015B00, usb_user_device_not_supported 0x08015B08, usb_user_input 0x08015B0A, usb_user_overcurrent 0x08015B0E, usb_get_filesystem_space 0x08015B10, usb_validate_firmware_file 0x08015B3E, usb_user_application 0x08015C6A, usb_user_deinitialize 0x08016034, firmware_clear_marker_and_reset 0x0801603E, firmware_find_first_ready_peer 0x080160BC, firmware_find_next_ready_peer 0x080160E2, firmware_relay_poll 0x0801610E, sub_0802F040 0x0802F040, f_getfree 0x0802B872, f_open 0x0802B094, f_read 0x0802B24E, f_unlink 0x0802B9F4, crc32_init 0x08015158, crc_update 0x080151B2, f_close 0x0802B5EA, sub_0802F0D2 0x0802F0D2, f_mount 0x0802B04C, board_set_pb2 0x08023B9A, strcpy 0x0802F100, f_lseek 0x0802B60A, f_write 0x0802B3B2, USART_ITConfig 0x08029D5A, sub_08014AC8 0x08014AC8, board_set_pa8 0x08023BB6, sub_08014F94 0x08014F94, f_rename 0x0802BBEA, afe_write_register 0x080244B8, __aeabi_f2uiz 0x08030020, eeprom_write_word 0x08022442, os_task_delay 0x0802A346, OS_ENTER_CRITICAL 0x0802A098, FLASH_Unlock 0x08028026, FLASH_ClearFlag 0x0802846A, FLASH_ProgramWord 0x080281DE, OS_EXIT_CRITICAL 0x0802A09C, board_set_pb5 0x08023BD2, usr_appstate 0x20000198, usr_init 0x20000199, usr_flag 0x2000019A, usr_wait 0x2000019B, usr_end_count 0x2000019C, usr_file_wait 0x2000019E, usr_reply 0x200001A0, usr_relay_state 0x200001A2, usr_pack 0x200001A4, usr_last_pack 0x200001A6, usr_relay_wait 0x200001A8, usr_relay_retries 0x200001AA, usr_file_offset 0x200001AC, usr_file_chunk 0x200001B0, usr_relay_base 0x200001B4, usr_relay_cur 0x200001B8, usr_relay_end 0x200001BC, usr_relay_chunk 0x200001C0, usr_relay_block 0x200001C4, USR_cb 0x200001C8, g_usr_20000198 0x20000198, g_usr_20000051 0x20000051, g_usr_20000052 0x20000052, g_usr_20000053 0x20000053, g_usr_20000055 0x20000055, g_usr_20000056 0x20000056, g_usr_20000674 0x20000674, g_usr_20001E4C 0x20001E4C, g_usr_200028CC 0x200028CC, g_usr_08013FFC 0x08013FFC, g_usr_2000003C 0x2000003C, g_usr_20000040 0x20000040, g_usr_200000E7 0x200000E7, g_usr_20001A41 0x20001A41, g_usr_2000224C 0x2000224C, g_usr_2000247C 0x2000247C, g_usr_200026A4 0x200026A4, g_usr_20002D1C 0x20002D1C, g_usr_200032CC 0x200032CC, g_usr_20000044 0x20000044, g_usr_20000163 0x20000163, g_usr_20000048 0x20000048, g_usr_200000DF 0x200000DF, g_usr_200000E0 0x200000E0, g_usr_200000E1 0x200000E1, g_usr_200000E2 0x200000E2, g_usr_200038A8 0x200038A8, g_usr_200000E5 0x200000E5, g_usr_200000E6 0x200000E6, g_usr_200000E9 0x200000E9, g_usr_200000EF 0x200000EF, g_usr_200001A0 0x200001A0, g_usr_200000FC 0x200000FC, g_usr_08015EE8 0x08015EE8, g_usr_20001637 0x20001637, g_usr_200015D3 0x200015D3, g_usr_20001605 0x20001605, g_usr_20000524 0x20000524, g_usr_20000525 0x20000525, g_usr_200000D5 0x200000D5, g_usr_20000606 0x20000606, g_usr_2000016C 0x2000016C, g_usr_20003D52 0x20003D52, g_usr_20002AF4 0x20002AF4, g_usr_200000E3 0x200000E3, g_usr_200000E4 0x200000E4, g_usr_20000CF7 0x20000CF7 */
+/* at: usb_user_initialize 0x08015AAC, usb_user_device_attached 0x08015ABA, usb_user_unrecovered_error 0x08015ABC, usb_user_device_disconnected 0x08015ABE, usb_user_reset_device 0x08015AD8, usb_user_speed_detected 0x08015ADA, usb_user_device_descriptor 0x08015ADC, usb_user_address_assigned 0x08015ADE, usb_user_configuration 0x08015AE0, usb_user_manufacturer_string 0x08015AFA, usb_user_product_string 0x08015AFC, usb_user_serial_number 0x08015AFE, usb_user_enumeration_done 0x08015B00, usb_user_device_not_supported 0x08015B08, usb_user_input 0x08015B0A, usb_user_overcurrent 0x08015B0E, usb_get_filesystem_space 0x08015B10, usb_validate_firmware_file 0x08015B3E, usb_user_application 0x08015C6A, usb_user_deinitialize 0x08016034, firmware_clear_marker_and_reset 0x0801603E, firmware_find_first_ready_peer 0x080160BC, firmware_find_next_ready_peer 0x080160E2, firmware_relay_poll 0x0801610E, sub_0802F040 0x0802F040, f_getfree 0x0802B872, f_open 0x0802B094, f_read 0x0802B24E, f_unlink 0x0802B9F4, crc32_init 0x08015158, crc_update 0x080151B2, f_close 0x0802B5EA, sub_0802F0D2 0x0802F0D2, f_mount 0x0802B04C, board_set_pb2 0x08023B9A, strcpy 0x0802F100, f_lseek 0x0802B60A, f_write 0x0802B3B2, USART_ITConfig 0x08029D5A, serial_rx_initialize 0x08014AC8, board_set_pa8 0x08023BB6, serial_send 0x08014F94, f_rename 0x0802BBEA, afe_write_register 0x080244B8, __aeabi_f2uiz 0x08030020, eeprom_write_word 0x08022442, os_task_delay 0x0802A346, OS_ENTER_CRITICAL 0x0802A098, FLASH_Unlock 0x08028026, FLASH_ClearFlag 0x0802846A, FLASH_ProgramWord 0x080281DE, OS_EXIT_CRITICAL 0x0802A09C, board_set_pb5 0x08023BD2, usr_appstate 0x20000198, usr_init 0x20000199, usr_flag 0x2000019A, usr_wait 0x2000019B, usr_end_count 0x2000019C, usr_file_wait 0x2000019E, usr_reply 0x200001A0, usr_relay_state 0x200001A2, usr_pack 0x200001A4, usr_last_pack 0x200001A6, usr_relay_wait 0x200001A8, usr_relay_retries 0x200001AA, usr_file_offset 0x200001AC, usr_file_chunk 0x200001B0, usr_relay_base 0x200001B4, usr_relay_cur 0x200001B8, usr_relay_end 0x200001BC, usr_relay_chunk 0x200001C0, usr_relay_block 0x200001C4, USR_cb 0x200001C8, g_usr_20000198 0x20000198, g_usr_20000051 0x20000051, g_usr_20000052 0x20000052, g_usr_20000053 0x20000053, g_usr_20000055 0x20000055, g_usr_20000056 0x20000056, g_usr_20000674 0x20000674, g_usr_20001E4C 0x20001E4C, g_usr_200028CC 0x200028CC, g_usr_08013FFC 0x08013FFC, g_usr_2000003C 0x2000003C, g_usr_20000040 0x20000040, g_usr_200000E7 0x200000E7, g_usr_20001A41 0x20001A41, g_usr_2000224C 0x2000224C, g_usr_2000247C 0x2000247C, g_usr_200026A4 0x200026A4, g_usr_20002D1C 0x20002D1C, g_usr_200032CC 0x200032CC, g_usr_20000044 0x20000044, g_usr_20000163 0x20000163, g_usr_20000048 0x20000048, g_usr_200000DF 0x200000DF, g_usr_200000E0 0x200000E0, g_usr_200000E1 0x200000E1, g_usr_200000E2 0x200000E2, g_usr_200038A8 0x200038A8, g_usr_200000E5 0x200000E5, g_usr_200000E6 0x200000E6, g_usr_200000E9 0x200000E9, g_usr_200000EF 0x200000EF, g_usr_200001A0 0x200001A0, g_usr_200000FC 0x200000FC, g_usr_08015EE8 0x08015EE8, g_usr_20001637 0x20001637, g_usr_200015D3 0x200015D3, g_usr_20001605 0x20001605, g_usr_20000524 0x20000524, g_usr_20000525 0x20000525, g_usr_200000D5 0x200000D5, g_usr_20000606 0x20000606, g_usr_2000016C 0x2000016C, g_usr_20003D52 0x20003D52, g_usr_20002AF4 0x20002AF4, g_usr_200000E3 0x200000E3, g_usr_200000E4 0x200000E4, g_usr_20000CF7 0x20000CF7 */
 #include "bms_usb_usr_types.h"
 uchar g_usr_20001E4C[0x400];
 FATFS g_usr_2000224C;
@@ -382,7 +382,7 @@ int usb_user_application(void) {
                     g_200000E9 = 0;
                     g_200000E1 = 1;
                     g_200000FC = 0;
-                    sub_08014AC8(0, 150);
+                    serial_rx_initialize(0, 150);
                 }
             } else if (g_200000E2 == 1) {
                 board_set_pa8(1);
@@ -419,7 +419,7 @@ int usb_user_application(void) {
                     }
                     g_200000E2 = 0;
                     g_20000525 = 0;
-                    sub_08014F94(0, &g_200001A0, 2);
+                    serial_send(0, &g_200001A0, 2);
                 }
             } else if (g_200000E6 == 1 && DAT_2000019e++ > 200) {
                 DAT_2000019e = 200;
@@ -450,7 +450,7 @@ int usb_user_application(void) {
                 DAT_200001a1 = 0x4b;
                 g_200000E6 = 0;
                 g_20000525 = 0;
-                sub_08014F94(0, &g_200001A0, 2);
+                serial_send(0, &g_200001A0, 2);
                 g_200000EF = 1;
             }
         }
@@ -699,7 +699,7 @@ void firmware_relay_poll(void) {
             DAT_2000163a = DAT_200001a4;
             DAT_2000163b = 0xcc;
             DAT_2000163c = 0xbb;
-            sub_08014F94(0, &g_20001637, 6);
+            serial_send(0, &g_20001637, 6);
         }
         break;
     case 1:
@@ -742,7 +742,7 @@ void firmware_relay_poll(void) {
         for (j = 0; j < 0x400; j++) {
             if ((g_usr_20001E4C)[j] != 0xff) {
                 board_set_pa8(1);
-                sub_08014F94(0, &g_20001637, 0x406);
+                serial_send(0, &g_20001637, 0x406);
                 break;
             }
             DAT_200001c4++;
@@ -760,7 +760,7 @@ void firmware_relay_poll(void) {
         DAT_2000163d = g_20000044 >> 8;
         DAT_2000163e = g_20000044;
         board_set_pa8(1);
-        sub_08014F94(0, &g_20001637, 10);
+        serial_send(0, &g_20001637, 10);
         g_200000E3 = 2;
         g_200000E7 = 0;
         if (DAT_2000019c++ >= 5) {

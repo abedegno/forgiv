@@ -158,7 +158,7 @@ ProtocolParams protocol_pending[7];
 uchar protocol_out[151];
 /* at: protocol_reply 0x20004516 */
 uchar protocol_reply[152];
-void sub_08014F94(int, undefined4, undefined2);
+void serial_send(int, undefined4, undefined2);
 void board_set_pa8(int);
 int __aeabi_f2iz(float);
 uint __aeabi_f2uiz(float);
@@ -250,7 +250,7 @@ void pack_send_request(int peer_address, int function_code, int register_address
     board_set_pa8(1);
     v2 = protocol_byte4;
     v1 = v4;
-    sub_08014F94((0), v1, v2);
+    serial_send((0), v1, v2);
 }
 #undef DAT_2000058c
 #undef DAT_20000bc9
@@ -1065,7 +1065,7 @@ void pack_dispatch_frame(byte *frame, uchar length) {
                 protocol_out[i] = protocol_reply[i];
             board_set_pa8(1);
             os_task_delay((uint)(byte)g_20000606, 10, 5);
-            sub_08014F94(0, protocol_out, protocol_byte2);
+            serial_send(0, protocol_out, protocol_byte2);
         }
     }
 }
@@ -1178,7 +1178,7 @@ void pack_send_pending_settings(void) {
     g_20000BC9[6] = crc >> 8;
     g_20000BC9[7] = crc;
     board_set_pa8(1);
-    sub_08014F94(0, g_20000BC9, DAT_2000059a);
+    serial_send(0, g_20000BC9, DAT_2000059a);
 }
 
 #undef DAT_2000059a
@@ -1269,11 +1269,11 @@ void pack_store_register_reply(byte *frame, ushort data_length) {
 /* at: g_2000004F 0x2000004F, g_2000005A 0x2000005A, g_2000005B 0x2000005B, g_2000005C 0x2000005C, g_2000009F 0x2000009F, g_200000AA 0x200000AA, g_200000D5 0x200000D5, g_200000D8 0x200000D8, g_200000D9 0x200000D9, g_200000DA 0x200000DA, g_200000DC 0x200000DC, g_200000DF 0x200000DF, g_200000E1 0x200000E1, g_200000EE 0x200000EE, g_200000F8 0x200000FA, g_200000FC 0x20000100, g_200000FE 0x20000102, g_20000100 0x20000104, measurement_pack_voltage 0x20000114, g_20000124 0x20000128, g_2000013C 0x20000140, g_2000013D 0x20000141, measurement_current 0x2000014C, g_20000163 0x20000167, g_2000017C 0x20000180, g_20000180 0x20000184, g_20000182 0x20000186, g_20000185 0x20000189, g_20000276 0x2000027E, g_2000058C 0x200005A4, g_20000606 0x2000061E, g_20000A9C 0x20000AB4, g_20000BC9 0x20000BE1, g_20000C60 0x20000C78, ((uchar*)protocol_timers) 0x20003BE8, protocol_clear 0x20003BF4, protocol_flags 0x20003D58, protocol_pack 0x20003D6A, g_2000748C 0x200074A4 */
 void GPIO_ResetBits(void *, ushort);
 uint os_flags_pend(ushort);
-void sub_08014AC8(int, uint);
-undefined4 sub_08014F36(int, undefined1 *);
+void serial_rx_initialize(int, uint);
+undefined4 serial_read_byte(int, undefined1 *);
 void firmware_relay_poll(void);
 void board_set_pa8(int);
-void sub_08014F94(int, undefined4, undefined2);
+void serial_send(int, undefined4, undefined2);
 undefined4 *__aeabi_memclr(undefined4 *, uint);
 float __aeabi_ui2f(uint);
 void pack_update_peer_participation_flags(void);
@@ -1344,7 +1344,7 @@ void pack_protocol_task(void) {
     uchar i;
     ushort state;
     board_set_pa8(0);
-    sub_08014AC8(0, 150);
+    serial_rx_initialize(0, 150);
     protocol_initialize();
     for (i = 0; i < 6; i++)
         protocol_timers[i] = 0;
@@ -1355,14 +1355,14 @@ void pack_protocol_task(void) {
             DAT_200074be = 50;
         } else if (DAT_200000e1 == 1 || DAT_200000df == 1) {
             DAT_200000fc = 0;
-            sub_08014AC8(0, 150);
+            serial_rx_initialize(0, 150);
             if (DAT_20000163 == 0 && DAT_200000e1 == 1)
                 firmware_relay_poll();
             DAT_200074c0 = 0;
             DAT_200074be = 200;
         } else {
             if (DAT_20000163 == 0) {
-                while (sub_08014F36(0, &g_20000591) == 0) {
+                while (serial_read_byte(0, &g_20000591) == 0) {
                     switch (state = DAT_200000fc) {
                     case 0:
                         if (DAT_20000591 == DAT_20000593) {
@@ -1475,7 +1475,7 @@ void pack_protocol_task(void) {
                 DAT_20000592++;
 
             } else {
-                while (sub_08014F36(0, &g_20000591) == 0) {
+                while (serial_read_byte(0, &g_20000591) == 0) {
                     switch (state = DAT_200000fc) {
                     case 0:
                         if (DAT_20000591 == DAT_20000163) {
@@ -1746,7 +1746,7 @@ void inverter_dispatch_frame(byte *frame) {
                 g_20000BC9[i] = g_20000C60[i];
             board_set_pa8(1);
             os_task_delay((uint)(byte)os_task_dly_idx, 3, 5);
-            sub_08014F94(0, g_20000BC9, g_20000100);
+            serial_send(0, g_20000BC9, g_20000100);
         }
     }
 }

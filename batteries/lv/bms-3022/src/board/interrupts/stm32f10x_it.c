@@ -61,17 +61,17 @@ void runtime_timers_tick(void);
 void capacity_integrate_current(void);
 void USART_ClearITPendingBit(ushort *, uint);
 undefined4 USART_GetITStatus(ushort *, uint);
-void sub_08014B2E(void);
-void sub_08014BCC(int);
+void serial_usart2_send_next(void);
+void serial_receive_byte(int);
 void USART_ClearFlag(ushort *, ushort);
 bool USART_GetFlagStatus(ushort *, ushort);
 ushort USART_ReceiveData(int);
-void sub_08014AFA(void);
+void serial_usart1_send_next(void);
 void coordination_receive_byte(uint);
 void coordination_transmit_interrupt(void);
-void sub_08014B92(void);
-void sub_0801D6E4(int);
-void sub_08020D52(void);
+void serial_uart4_send_next(void);
+void uart4_receive_byte(int);
+void uart4_transmit_next_byte(void);
 void ADC_ClearITPendingBit(int, int);
 void EXTI_ClearITPendingBit();
 undefined4 EXTI_GetITStatus(uint);
@@ -169,10 +169,10 @@ void USART2_IRQHandler() {
 
     if ((USART_GetITStatus((ushort *)&DAT_40004400, 0x626)) != 0) {
         USART_ClearITPendingBit((ushort *)&DAT_40004400, 0x626);
-        sub_08014B2E();
+        serial_usart2_send_next();
     }
     if ((USART_GetITStatus((ushort *)&DAT_40004400, 0x525)) != 0) {
-        sub_08014BCC(1);
+        serial_receive_byte(1);
         return;
     }
     return;
@@ -196,11 +196,11 @@ void USART1_IRQHandler() {
     }
     if ((USART_GetITStatus(&DAT_40013800, 0x626)) != 0) {
         USART_ClearITPendingBit(&DAT_40013800, 0x626);
-        sub_08014AFA();
+        serial_usart1_send_next();
         return;
     }
     if ((USART_GetITStatus(&DAT_40013800, 0x525)) != 0) {
-        sub_08014BCC(0);
+        serial_receive_byte(0);
         return;
     }
     USART_ReceiveData(0x40013800);
@@ -242,14 +242,14 @@ void UART4_IRQHandler() {
     if ((USART_GetITStatus(&DAT_40004c00, 0x727)) != 0) {
         USART_ClearITPendingBit(&DAT_40004c00, 0x727);
         if (g_200000DE_v != '\x01') {
-            sub_08014B92();
+            serial_uart4_send_next();
             return;
         }
-        sub_08020D52();
+        uart4_transmit_next_byte();
         return;
     }
     if ((USART_GetITStatus(&DAT_40004c00, 0x525)) != 0) {
-        sub_0801D6E4((uint)(byte)(USART_ReceiveData(0x40004c00)));
+        uart4_receive_byte((uint)(byte)(USART_ReceiveData(0x40004c00)));
         return;
     }
     USART_ReceiveData(0x40004c00);

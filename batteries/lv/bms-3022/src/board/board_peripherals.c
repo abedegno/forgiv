@@ -1,6 +1,6 @@
 /* Board GPIO, UART, ADC/DMA, timers, SPI and interrupt initialization.
    I recovered this complete unsplit unit using the A316 board source as a crib. */
-/* at: board_initialize_pb8 0x08023D78, board_initialize_uarts 0x08023DC0, board_set_pb2 0x08023FB6, board_set_pa8 0x08023FD2, board_set_pb5 0x08023FEE, board_initialize_pb5 0x08024004, board_initialize_control_outputs 0x08024030, board_set_control_output 0x08024076, board_initialize_pb9 0x080240AC, board_set_pb9 0x080240D4, board_set_pc9 0x080240EA, board_initialize_pc9 0x08024100, board_initialize_auxiliary_outputs 0x0802412E, board_initialize_pb12_to_pb15_inputs 0x080241B4, board_initialize_pa0_input 0x080241D4, board_set_pc13 0x080241F2, board_initialize_pc13 0x08024208, board_initialize_pc4 0x08024236, board_set_pc4 0x0802425A, board_sample_pc4 0x08024270, board_initialize_debug_pins 0x08024278, board_enter_standby 0x0802428E, board_initialize_rtc_alarm_interrupt 0x080242E0, board_initialize_pa0_interrupt 0x08024326, board_initialize_pb4_interrupt 0x08024388, board_initialize_adc_dma 0x080243EA, board_initialize_afe_chip_select 0x080245A2, board_set_afe_chip_select 0x080245F6, board_initialize_spi1 0x0802460C, board_initialize_tim3 0x0802469C, board_initialize_tim4 0x080246DE, board_initialize_interrupts 0x08024722, board_initialize_usb_line_settings 0x080247D8, board_initialize_peripherals 0x080247EC, RCC_APB2PeriphClockCmd 0x08028EF2, GPIO_Init 0x080289AE, GPIO_SetBits 0x08028A8C, USART_Init 0x0802A090, USART_ITConfig 0x0802A19E, USART_Cmd 0x0802A186, USART_ClearITPendingBit 0x0802A378, sub_08014AC8 0x08014AC8, RCC_APB1PeriphClockCmd 0x08028F08, g_2000004D 0x2000004D, GPIO_ResetBits 0x08028A90, g_2000004E 0x2000004E, GPIO_ReadInputDataBit 0x08028A64, GPIO_PinRemapConfig 0x08028AD0, g_2000009D 0x2000009D, os_task_dly_idx 0x2000061E, RTC_GetCounter 0x08028FF2, RTC_SetAlarm 0x0802903A, RTC_WaitForLastTask 0x08029068, RTC_ITConfig 0x08028FC0, RCC_APB2PeriphResetCmd 0x08028F34, os_task_delay 0x0802A78A, PWR_WakeUpPinCmd 0x08028BA6, PWR_EnterSTANDBYMode 0x08028BD8, NVIC_PriorityGroupConfig 0x08027C88, NVIC_Init 0x08027C92, EXTI_ClearITPendingBit 0x08028426, EXTI_Init 0x08028368, GPIO_EXTILineConfig 0x08028B26, adc_dma_buf 0x20003BD2, RCC_ADCCLKConfig 0x08028DC0, RCC_AHBPeriphClockCmd 0x08028EDC, DMA_DeInit 0x08028164, DMA_Init 0x08028252, DMA_Cmd 0x080282A6, ADC_Init 0x08027D98, ADC_RegularChannelConfig 0x08027EAC, ADC_TempSensorVrefintCmd 0x0802805C, ADC_DMACmd 0x08027E00, ADC_ITConfig 0x08027E18, ADC_Cmd 0x08027DE8, ADC_ResetCalibration 0x08027E2E, ADC_GetResetCalibrationStatus 0x08027E38, ADC_StartCalibration 0x08027E46, ADC_GetCalibrationStatus 0x08027E50, SPI_Init 0x0802912C, SPI_Cmd 0x08029278, SPI_I2S_ClearFlag 0x0802937E, TIM_TimeBaseInit 0x080295A4, TIM_ITConfig 0x08029B7A, TIM_Cmd 0x08029B46, NVIC_SetVectorTable 0x08027CF2, sys_irq_enable 0x08014230, usb_line_config 0x200006AC */
+/* at: board_initialize_pb8 0x08023D78, board_initialize_uarts 0x08023DC0, board_set_pb2 0x08023FB6, board_set_pa8 0x08023FD2, board_set_pb5 0x08023FEE, board_initialize_pb5 0x08024004, board_initialize_control_outputs 0x08024030, board_set_control_output 0x08024076, board_initialize_pb9 0x080240AC, board_set_pb9 0x080240D4, board_set_pc9 0x080240EA, board_initialize_pc9 0x08024100, board_initialize_auxiliary_outputs 0x0802412E, board_initialize_pb12_to_pb15_inputs 0x080241B4, board_initialize_pa0_input 0x080241D4, board_set_pc13 0x080241F2, board_initialize_pc13 0x08024208, board_initialize_pc4 0x08024236, board_set_pc4 0x0802425A, board_sample_pc4 0x08024270, board_initialize_debug_pins 0x08024278, board_enter_standby 0x0802428E, board_initialize_rtc_alarm_interrupt 0x080242E0, board_initialize_pa0_interrupt 0x08024326, board_initialize_pb4_interrupt 0x08024388, board_initialize_adc_dma 0x080243EA, board_initialize_afe_chip_select 0x080245A2, board_set_afe_chip_select 0x080245F6, board_initialize_spi1 0x0802460C, board_initialize_tim3 0x0802469C, board_initialize_tim4 0x080246DE, board_initialize_interrupts 0x08024722, board_initialize_usb_line_settings 0x080247D8, board_initialize_peripherals 0x080247EC, RCC_APB2PeriphClockCmd 0x08028EF2, GPIO_Init 0x080289AE, GPIO_SetBits 0x08028A8C, USART_Init 0x0802A090, USART_ITConfig 0x0802A19E, USART_Cmd 0x0802A186, USART_ClearITPendingBit 0x0802A378, serial_rx_initialize 0x08014AC8, RCC_APB1PeriphClockCmd 0x08028F08, g_2000004D 0x2000004D, GPIO_ResetBits 0x08028A90, g_2000004E 0x2000004E, GPIO_ReadInputDataBit 0x08028A64, GPIO_PinRemapConfig 0x08028AD0, g_2000009D 0x2000009D, os_task_dly_idx 0x2000061E, RTC_GetCounter 0x08028FF2, RTC_SetAlarm 0x0802903A, RTC_WaitForLastTask 0x08029068, RTC_ITConfig 0x08028FC0, RCC_APB2PeriphResetCmd 0x08028F34, os_task_delay 0x0802A78A, PWR_WakeUpPinCmd 0x08028BA6, PWR_EnterSTANDBYMode 0x08028BD8, NVIC_PriorityGroupConfig 0x08027C88, NVIC_Init 0x08027C92, EXTI_ClearITPendingBit 0x08028426, EXTI_Init 0x08028368, GPIO_EXTILineConfig 0x08028B26, adc_dma_buf 0x20003BD2, RCC_ADCCLKConfig 0x08028DC0, RCC_AHBPeriphClockCmd 0x08028EDC, DMA_DeInit 0x08028164, DMA_Init 0x08028252, DMA_Cmd 0x080282A6, ADC_Init 0x08027D98, ADC_RegularChannelConfig 0x08027EAC, ADC_TempSensorVrefintCmd 0x0802805C, ADC_DMACmd 0x08027E00, ADC_ITConfig 0x08027E18, ADC_Cmd 0x08027DE8, ADC_ResetCalibration 0x08027E2E, ADC_GetResetCalibrationStatus 0x08027E38, ADC_StartCalibration 0x08027E46, ADC_GetCalibrationStatus 0x08027E50, SPI_Init 0x0802912C, SPI_Cmd 0x08029278, SPI_I2S_ClearFlag 0x0802937E, TIM_TimeBaseInit 0x080295A4, TIM_ITConfig 0x08029B7A, TIM_Cmd 0x08029B46, NVIC_SetVectorTable 0x08027CF2, sys_irq_enable 0x08014230, usb_line_config 0x200006AC */
 /* opts: --cpu Cortex-M3 -O1 --loose_implicit_cast */
 /* I keep board GPIO, USART/UART, ADC/DMA, SPI and timer setup together.
    The pin wrappers and board_initialize_peripherals share this matched unit;
@@ -60,7 +60,7 @@ void board_initialize_uarts(void)
     USART_ITConfig((void *)0x40013800, 0x626, 1);
     USART_Cmd((void *)0x40013800, 1);
     USART_ClearITPendingBit(&(*(uint *)0x40013800), 0x626);
-    sub_08014AC8(0, 0x96);
+    serial_rx_initialize(0, 0x96);
     RCC_APB2PeriphClockCmd(8, 1);
     gpio_config.GPIO_Pin = 0x4;
     gpio_config.GPIO_Speed = 0x3;
@@ -85,7 +85,7 @@ void board_initialize_uarts(void)
     USART_Init(&(*(uint *)0x40004800), &usart_config);
     USART_ITConfig((void *)0x40004800, 0x525, 1);
     USART_Cmd((void *)0x40004800, 1);
-    sub_08014AC8(2, 0x96);
+    serial_rx_initialize(2, 0x96);
     RCC_APB1PeriphClockCmd(0x80000, 1);
     RCC_APB2PeriphClockCmd(0x10, 1);
     gpio_config.GPIO_Pin = 0x400;
@@ -105,7 +105,7 @@ void board_initialize_uarts(void)
     USART_Init(&(*(uint *)0x40004C00), &usart_config);
     USART_ITConfig((void *)0x40004c00, 0x525, 1);
     USART_Cmd((void *)0x40004c00, 1);
-    sub_08014AC8(3, 0x96);
+    serial_rx_initialize(3, 0x96);
     return;
 }
 
