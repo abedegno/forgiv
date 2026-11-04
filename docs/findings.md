@@ -162,6 +162,25 @@ starts at register 60 or above uses an unset reply index, the same kind of fault
 A write reply never carries its CRC, and peer addresses 7 to 15 reach past 7-entry arrays. The
 set-date command doesn't set the clock. None of them is on the battery's link to the inverter.
 
+The battery source also answers two questions this page used to leave open. Both hold for BMS 3020
+and 3022, in `coordination_poll` and the firmware relay in `usbh_usr.c`:
+
+- **HR1 to HR4 and HR14 (confirmed).** The inverter's writes act on flags, so HR1 to HR4 always
+  read 0xFFFF.
+  - HR1 = 1 turns every pack's outputs off and HR1 = 0 turns them back on. From 3021, bit 1 blocks
+    battery heating and bit 2 enables it.
+  - HR2 = 1 to 9 requests a firmware update. HR14 then reads 1, and the next holding-register
+    poll switches the link to the firmware relay.
+  - HR3 = 1 puts the master pack into firmware-update mode.
+  - HR4 = 1 saves the master's state, switches its outputs off, tells every pack to shut down and
+    resets the master.
+
+  The reply to every write is 5 bytes: the device, 6, a status byte and the CRC.
+- **The relay CRC (confirmed).** The BMS checks each 1,024-byte relay frame with a 16-bit additive
+  checksum. It stores the CRC-32 from the END frame but overwrites it before anything reads it.
+  Before installing, it checks the image against the CRC-32 stored in the image's own last block.
+  So the constant CRC that A316 sends (A316 findings item 1) does no harm to these BMS versions.
+
 ## Open questions
 
 - What the board wires to these pins:
@@ -170,6 +189,5 @@ set-date command doesn't set the clock. None of them is on the battery's link to
 - What the auxiliary MCU, the device at Modbus 0x11 and the ARM boot loader do. None of them is in
   this repository.
 - Which country each grid code stands for, beyond the inferences for 3, 4 and 19.
-- What the BMS does with HR1 to HR4 and HR14, and whether a GivEnergy BMS checks the relay CRC.
 - Whether `dcdc_ctrl_init` can run before task 2 has set its limits at a cold start (D316
   findings-control item 8).
