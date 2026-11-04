@@ -31,7 +31,7 @@ The [version survey](../inverters/gen3-lv/docs/version-survey/README.md) include
 which has no reconstructed source tree.
 
 The [LV battery BMS 3020](../batteries/lv/bms-3020/README.md) is a separate exact target.
-Its ASCII dispatcher remains assembler pending a C match.
+Its ASCII dispatcher, the last function waiting for C, matched in C on 4 November 2026.
 
 ## Reading paths
 

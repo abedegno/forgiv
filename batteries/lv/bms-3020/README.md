@@ -9,16 +9,37 @@ at `-O1` for a Cortex-M3, following Exhume's armcc5 profile.
 - The whole image rebuilds byte for byte: image, BIN and HEX are identical to the shipped
   package, with **zero original-byte blobs**. I checked this with my verification gate, which
   builds every source at its native address and compares every relocated byte.
-- One function, the ASCII protocol command dispatcher `sub_0801DF70` (11,746 bytes), is still in
-  assembler (`src/app/comm/ascii_dispatcher.inc`), pending a byte-exact C version
-  ([issue #4](https://github.com/abedegno/forgiv/issues/4)). The other
-  nine functions in that unit are C, in `src/app/comm/ascii_protocol.c`. The build compiles
-  that C to assembly and combines it with the dispatcher in one code area, using the layout in
-  `ascii_layout.json`.
-- Everything else is C.
+- Every function is C, apart from the assembly startup file and the RTOS port's assembly
+  routines. The last function to be matched, the ASCII protocol command dispatcher at
+  0x0801DF70 (11,746 bytes), is now `ascii_dispatch_command` in `src/app/comm/ascii_protocol.c`
+  ([issue #4](https://github.com/abedegno/forgiv/issues/4)). The section below says how it was
+  matched.
+- The ASCII protocol unit and the serial unit have readable names and comments like the rest
+  of the tree. The command and return codes are named in `src/include/bms_ascii_protocol.h`.
 
 This tree has the sources and the battery documentation. The map, the verification tools and
 the matching notes are kept outside this publication.
+
+## How the dispatcher was matched
+
+Matching the dispatcher directly at `-O1` failed. The instructions could be reproduced, but
+armcc's register choices over the 11,746 bytes could not.
+
+The answer came from older firmware. The older LV BMS versions, 1037 and 3007 to 3018, have the
+same dispatcher built without optimisation (`-O0`), where the source is much easier to recover.
+I matched it there exactly, registers included, in 1037, 3007 to 3009 and 3014 to 3018; 3012
+and 3013 have the same code as 3009. That source, compiled unchanged at `-O1`, is byte-exact against 3019, 3020, 3021 and 3022.
+
+Between 3018 and 3019 the vendor made three changes that affect this file:
+
+- the optimisation level went from `-O0` to `-O1`;
+- the version constant changed;
+- the charge and discharge current limits changed from `float` to `unsigned int`.
+
+From 3019 to 3022 only the version constant changes. The `match:` comments in
+`ascii_protocol.c` mark the spellings that change the bytes, e.g. the command code must be an
+`unsigned char`. The method is described for other projects in
+[Exhume](https://github.com/abedegno/Exhume)'s armcc5 profile.
 
 ## The image
 
@@ -46,8 +67,9 @@ the matching notes are kept outside this publication.
 
 The BMS speaks two protocols:
 - Modbus RTU on USART3 to the inverter;
-- an ASCII hex protocol in the Pylontech v2.5 family on UART4, between paralleled packs. Its
-  CID2 dispatcher is the one function still in assembler.
+- an ASCII hex protocol on UART4, between paralleled packs. Frames start with `~` and end with
+  a carriage return, and every field between them is hex digits. `ascii_dispatch_command`
+  answers each command code.
 
 The open analysis at [open-giv/bms-analysis](https://github.com/open-giv/bms-analysis) describes
 both from the outside.

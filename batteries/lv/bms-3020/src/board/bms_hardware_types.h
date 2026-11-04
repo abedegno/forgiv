@@ -29,7 +29,7 @@ void USART_Init(void *, USART_InitTypeDef *);
 void USART_ITConfig(void *, ushort, uchar);
 void USART_Cmd(void *, uchar);
 void USART_ClearITPendingBit(void *, ushort);
-void sub_08014AC8(uchar, ushort);
+void serial_rx_initialize(uchar, ushort);
 uint RTC_GetCounter(void);
 void RTC_SetAlarm(uint);
 void RTC_WaitForLastTask(void);

@@ -143,7 +143,7 @@ void board_initialize_pa0_interrupt(void);
 uchar afe_write_register(short, ushort);
 uint os_flags_pend(ushort);
 void settings_startup(void);
-void sub_0802126C(void);
+void uart4_protocol_task(void);
 void coordination_poll(void);
 
 /* Clears four voltage limit bits after hysteresis and fifty qualifying checks. */
@@ -1102,7 +1102,7 @@ void control_task(void) {
         pack_balance_and_control();
         if (control_slow_task_divider++ > 4) {
             control_slow_task_divider = 0;
-            sub_0802126C();
+            uart4_protocol_task();
         }
         if (coordination_startup_ticks < 2000) {
             coordination_startup_ticks = coordination_startup_ticks + 1;
