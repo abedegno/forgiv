@@ -11,10 +11,11 @@ Keil armcc 5.06 at `-O1` for a Cortex-M3.
   package, with **zero original-byte blobs**. I checked this with my verification gate: all 79
   compilation units prove at their native addresses, and a licensed whole-image link of
   113,720 source bytes passes too.
-- As in 3020, one function, the ASCII protocol command dispatcher, is still in assembler
-  (`src/app/comm/ascii_dispatcher.inc`), pending a byte-exact C version
-  ([issue #4](https://github.com/abedegno/forgiv/issues/4)). The nine functions around it are
-  C, in `src/app/comm/ascii_protocol.c`. Everything else is C.
+- As in 3020, every function is C, apart from the assembly startup file and the RTOS port's
+  assembly routines. The ASCII protocol command dispatcher, `ascii_dispatch_command` in
+  `src/app/comm/ascii_protocol.c`, has the same source as 3020's apart from the version
+  constant ([issue #4](https://github.com/abedegno/forgiv/issues/4)). The
+  [3020 README](../bms-3020/README.md#how-the-dispatcher-was-matched) says how it was matched.
 
 This tree has the sources and the battery documentation. The map, the verification tools and
 the matching notes are kept outside this publication.

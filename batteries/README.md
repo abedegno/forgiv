@@ -7,8 +7,9 @@ the vendor's image byte for byte:
 - [LV BMS 3022](lv/bms-3022/README.md), built from 3020. It adds staged battery heating and
   some protection and balancing changes.
 
-In both versions everything is C apart from one function, the ASCII protocol dispatcher,
-which is still in assembler pending its C match
+In both versions every function is C, apart from the assembly startup file and the RTOS
+port's assembly routines. The last function to be matched, the ASCII protocol dispatcher,
+matched in C on 4 November 2026 by way of older firmware that built it without optimisation
 ([issue #4](https://github.com/abedegno/forgiv/issues/4)). Firmware 3019 and 3021 have the
 same dispatcher. These trees publish the sources and the battery documentation.
 
