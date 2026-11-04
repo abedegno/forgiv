@@ -154,6 +154,14 @@ leave them as open questions.
 - On both chips, the RTOS's interrupt-exit switch and several RTOS calls have no callers: both
   schedulers are cooperative.
 
+## The battery BMS
+
+Reading the battery firmware's pack-to-pack link (UART4) turned up four items, listed in
+[the LV BMS 3020 findings](../batteries/lv/bms-3020/docs/findings.md). A Modbus read that
+starts at register 60 or above uses an unset reply index, the same kind of fault as A316 item 3.
+A write reply never carries its CRC, and peer addresses 7 to 15 reach past 7-entry arrays. The
+set-date command doesn't set the clock. None of them is on the battery's link to the inverter.
+
 ## Open questions
 
 - What the board wires to these pins:

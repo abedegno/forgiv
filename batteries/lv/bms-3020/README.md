@@ -62,6 +62,7 @@ From 3019 to 3022 only the version constant changes. The `match:` comments in
 - `docs/fingerprint.md` records how I identified the toolchain.
 - `docs/map.md` records how the 118,790 bytes divide into code, literals, data and library
   members.
+- `docs/findings.md` lists what looks wrong in the pack-to-pack link. The items hold for 3022 too.
 
 ## Protocols
 
