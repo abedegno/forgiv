@@ -167,8 +167,13 @@ and 3022, in `coordination_poll` and the firmware relay in `usbh_usr.c`:
 
 - **HR1 to HR4 and HR14 (confirmed).** The inverter's writes act on flags, so HR1 to HR4 always
   read 0xFFFF.
-  - HR1 = 1 turns every pack's outputs off and HR1 = 0 turns them back on. From 3021, bit 1 blocks
-    battery heating and bit 2 enables it.
+  - HR1 = 1 starts a staged reconnect on the master. Every pack's outputs go off, the master waits
+    for every pack to confirm and then 4,000 more passes of its control task, and then it switches
+    the packs back on one at a time, starting with the lowest pack voltage. A single pack goes off
+    for that wait and comes back on. HR1 = 0 ends the sequence and allows every output again. The
+    G3 writes HR1 = 1 every 5 s while its HR175 is set, and HR1 = 0 when it clears
+    ([D316 battery.md](../inverters/gen3-lv/d316/docs/battery.md)). From 3021, bit 1 of HR1
+    blocks battery heating and bit 2 enables it.
   - HR2 = 1 to 9 requests a firmware update. HR14 then reads 1, and the next holding-register
     poll switches the link to the firmware relay.
   - HR3 = 1 puts the master pack into firmware-update mode.
