@@ -21,9 +21,9 @@
 #
 # Where the inputs are (environment variables, with these defaults):
 #   MDK_TOOLCHAIN   ~/seplos-decomp/toolchain        (holds MDK521 and MDK516)
-#   KEIL_PREFIX     ~/keil-wine                      (the licensed MDK's Wine prefix)
-#   C2000_CGTS      ~/giv-d316-cgt/wine/drive_c/cgt   (holds 16.9.6.LTS and 15.12.3.LTS)
-#   STDPERIPH       ~/giv-a316-decomp/lib/stdperiph35
+#   KEIL_PREFIX     ~/toolchains/keil-wine                      (the licensed MDK's Wine prefix)
+#   C2000_CGTS      ~/toolchains/ti-c2000/wine/drive_c/cgt   (holds 16.9.6.LTS and 15.12.3.LTS)
+#   STDPERIPH       ~/toolchains/stdperiph35
 #   AGE_RECIPIENT   ~/.forgiv-ci-age.pub              (a file holding the age1... recipient)
 #   LICENCE_KEYS    the registry keys to take from KEIL_PREFIX/system.reg (regular expressions)
 #
@@ -32,9 +32,9 @@
 set -eu
 out=${1:-$HOME/forgiv-ci-assets-staging}
 mdk=${MDK_TOOLCHAIN:-$HOME/seplos-decomp/toolchain}
-keil=${KEIL_PREFIX:-$HOME/keil-wine}
-cgts=${C2000_CGTS:-$HOME/giv-d316-cgt/wine/drive_c/cgt}
-sp=${STDPERIPH:-$HOME/giv-a316-decomp/lib/stdperiph35}
+keil=${KEIL_PREFIX:-$HOME/toolchains/keil-wine}
+cgts=${C2000_CGTS:-$HOME/toolchains/ti-c2000/wine/drive_c/cgt}
+sp=${STDPERIPH:-$HOME/toolchains/stdperiph35}
 rcpt=${AGE_RECIPIENT:-$HOME/.forgiv-ci-age.pub}
 # The licence check of armcc, armasm and armlink 5.06 (MDK 5.21) reads these two keys under
 # HKLM\Software\Classes; with them, the licensed TOOLS.INI and the MDK's ARM directory, a new
