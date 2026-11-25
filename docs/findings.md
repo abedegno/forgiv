@@ -177,8 +177,15 @@ and 3022, in `coordination_poll` and the firmware relay in `usbh_usr.c`:
   - HR2 = 1 to 9 requests a firmware update. HR14 then reads 1, and the next holding-register
     poll switches the link to the firmware relay.
   - HR3 = 1 puts the master pack into firmware-update mode.
-  - HR4 = 1 saves the master's state, switches its outputs off, tells every pack to shut down and
-    resets the master.
+  - HR4 = 1 asks the master pack to restart. It saves its remaining capacity and a log record, and
+    about 20 s later (1,000 passes of a 20 ms task) it does an ordinary software reset and boots
+    normally, answering the inverter again after about 10 s. Its outputs drop only for a few
+    milliseconds: the first pass drives the output pins low, and the 5 ms output task, which the
+    restart path doesn't block, switches them back on. HR19, HR20, HR26 and HR27 stay as they
+    were. HR4 = 0 before the reset cancels it. The master also sends register 6 = 1 to packs 1 to
+    5, but in 3020 and 3022 those packs store the value and never act on it. An earlier version of
+    this page called this a shutdown. Which pin drives which output is inferred from the code, not
+    from the board.
 
   The reply to every write is 5 bytes: the device, 6, a status byte and the CRC.
 - **The relay CRC (confirmed).** The BMS checks each 1,024-byte relay frame with a 16-bit additive
